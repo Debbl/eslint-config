@@ -14,10 +14,10 @@ module.exports = {
     "plugin:yml/standard",
     "plugin:markdown/recommended",
   ],
-  plugins: ["html", "unicorn"],
+  plugins: [ "html", "unicorn" ],
   settings: {
     "import/resolver": {
-      node: { extensions: [".js", ".mjs"] },
+      node: { extensions: [ ".js", ".mjs" ] },
     },
   },
   ignorePatterns: [
@@ -40,13 +40,13 @@ module.exports = {
   ],
   overrides: [
     {
-      files: ["*.json", "*.json5"],
+      files: [ "*.json", "*.json5" ],
       parser: "jsonc-eslint-parser",
       rules: {
-        "jsonc/array-bracket-spacing": ["error", "never"],
-        "jsonc/comma-dangle": ["error", "never"],
-        "jsonc/comma-style": ["error", "last"],
-        "jsonc/indent": ["error", 2],
+        "jsonc/array-bracket-spacing": [ "error", "never" ],
+        "jsonc/comma-dangle": [ "error", "never" ],
+        "jsonc/comma-style": [ "error", "last" ],
+        "jsonc/indent": [ "error", 2 ],
         "jsonc/key-spacing": [
           "error",
           { beforeColon: false, afterColon: true },
@@ -56,7 +56,7 @@ module.exports = {
           "error",
           { multiline: true, consistent: true },
         ],
-        "jsonc/object-curly-spacing": ["error", "always"],
+        "jsonc/object-curly-spacing": [ "error", "always" ],
         "jsonc/object-property-newline": [
           "error",
           { allowMultiplePropertiesPerLine: true },
@@ -64,14 +64,14 @@ module.exports = {
       },
     },
     {
-      files: ["*.yaml", "*.yml"],
+      files: [ "*.yaml", "*.yml" ],
       parser: "yaml-eslint-parser",
       rules: {
         "spaced-comment": "off",
       },
     },
     {
-      files: ["package.json"],
+      files: [ "package.json" ],
       parser: "jsonc-eslint-parser",
       rules: {
         "jsonc/sort-keys": [
@@ -130,38 +130,38 @@ module.exports = {
           },
           {
             pathPattern: "^exports.*$",
-            order: ["types", "require", "import"],
+            order: [ "types", "require", "import" ],
           },
         ],
       },
     },
     {
-      files: ["*.d.ts"],
+      files: [ "*.d.ts" ],
       rules: {
         "import/no-duplicates": "off",
       },
     },
     {
-      files: ["*.js"],
+      files: [ "*.js" ],
       rules: {
         "@typescript-eslint/no-var-requires": "off",
       },
     },
     {
-      files: ["scripts/**/*.*", "cli.*"],
+      files: [ "scripts/**/*.*", "cli.*" ],
       rules: {
-        "no-console": "off",
+        "no-console": "error",
       },
     },
     {
-      files: ["*.test.ts", "*.test.js", "*.spec.ts", "*.spec.js"],
+      files: [ "*.test.ts", "*.test.js", "*.spec.ts", "*.spec.js" ],
       rules: {
         "no-unused-expressions": "off",
       },
     },
     {
       // Code blocks in markdown file
-      files: ["**/*.md/*.*"],
+      files: [ "**/*.md/*.*" ],
       rules: {
         "@typescript-eslint/no-redeclare": "off",
         "@typescript-eslint/no-unused-vars": "off",
@@ -180,26 +180,26 @@ module.exports = {
   ],
   rules: {
     // Common
-    semi: ["error", "always"],
-    quotes: ["error", "double"],
-    curly: ["error", "multi-or-nest", "consistent"],
-    "quote-props": ["error", "consistent-as-needed"],
+    "semi": [ "error", "always" ],
+    "quotes": [ "error", "double" ],
+    "curly": [ "error", "multi-or-nest", "consistent" ],
+    "quote-props": [ "error", "consistent-as-needed" ],
     "no-unused-vars": "warn",
     "no-param-reassign": "off",
-    "array-bracket-spacing": ["error", "never"],
-    "brace-style": ["error", "stroustrup", { allowSingleLine: true }],
-    "block-spacing": ["error", "always"],
-    camelcase: "off",
-    "comma-spacing": ["error", { before: false, after: true }],
-    "comma-style": ["error", "last"],
-    "comma-dangle": ["error", "always-multiline"],
+    "array-bracket-spacing": [ "error", "always" ],
+    "brace-style": [ "error", "1tbs", { allowSingleLine: true } ],
+    "block-spacing": [ "error", "always" ],
+    "camelcase": "off",
+    "comma-spacing": [ "error", { before: false, after: true } ],
+    "comma-style": [ "error", "last" ],
+    "comma-dangle": [ "error", "always-multiline" ],
     "no-constant-condition": "warn",
     "no-debugger": "error",
-    "no-console": ["error", { allow: ["warn", "error"] }],
-    "no-cond-assign": ["error", "always"],
-    "func-call-spacing": ["off", "never"],
-    "key-spacing": ["error", { beforeColon: false, afterColon: true }],
-    indent: [
+    "no-console": [ "warn", { allow: [ "warn", "error" ] } ],
+    "no-cond-assign": [ "error", "always" ],
+    "func-call-spacing": [ "off", "never" ],
+    "key-spacing": [ "error", { beforeColon: false, afterColon: true } ],
+    "indent": [
       "error",
       2,
       { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 },
@@ -210,7 +210,7 @@ module.exports = {
       "LabeledStatement",
       "WithStatement",
     ],
-    "object-curly-spacing": ["error", "always"],
+    "object-curly-spacing": [ "error", "always" ],
     "no-return-await": "off",
     "space-before-function-paren": [
       "error",
@@ -220,7 +220,7 @@ module.exports = {
         asyncArrow: "always",
       },
     ],
-    "no-multiple-empty-lines": ["error", { max: 1, maxBOF: 0, maxEOF: 1 }],
+    "no-multiple-empty-lines": [ "error", { max: 1, maxBOF: 0, maxEOF: 1 } ],
 
     // import
     "import/order": "error",
@@ -258,19 +258,19 @@ module.exports = {
     "prefer-spread": "error",
     "prefer-template": "error",
     "template-curly-spacing": "error",
-    "arrow-parens": ["error", "as-needed", { requireForBlockBody: true }],
+    "arrow-parens": [ "error", "as-needed", { requireForBlockBody: true } ],
     "generator-star-spacing": "off",
     "spaced-comment": [
       "error",
       "always",
       {
         line: {
-          markers: ["/"],
-          exceptions: ["/", "#"],
+          markers: [ "/" ],
+          exceptions: [ "/", "#" ],
         },
         block: {
-          markers: ["!"],
-          exceptions: ["*"],
+          markers: [ "!" ],
+          exceptions: [ "*" ],
           balanced: true,
         },
       },
@@ -280,8 +280,8 @@ module.exports = {
     "array-callback-return": "error",
     "block-scoped-var": "error",
     "consistent-return": "off",
-    complexity: ["off", 11],
-    eqeqeq: ["error", "smart"],
+    "complexity": [ "off", 11 ],
+    "eqeqeq": [ "error", "smart" ],
     "no-alert": "warn",
     "no-case-declarations": "error",
     "no-multi-spaces": "error",
@@ -292,7 +292,7 @@ module.exports = {
     "vars-on-top": "error",
     "require-await": "off",
     "no-return-assign": "off",
-    "operator-linebreak": ["error", "before"],
+    "operator-linebreak": [ "error", "before" ],
 
     // unicorns
     // Pass error message when throwing errors
@@ -334,20 +334,12 @@ module.exports = {
         ignoreCase: false,
         ignoreDeclarationSort: true,
         ignoreMemberSort: false,
-        groups: [
-          "builtin",
-          "external",
-          "internal",
-          "sibling",
-          "parent",
-          "index",
-          "unknown",
-        ],
+        memberSyntaxSortOrder: [ "none", "all", "multiple", "single" ],
         allowSeparatedGroups: false,
       },
     ],
     // yml
-    "yml/quotes": ["error", { prefer: "single", avoidEscape: false }],
+    "yml/quotes": [ "error", { prefer: "single", avoidEscape: false } ],
     "yml/no-empty-document": "off",
   },
 };
