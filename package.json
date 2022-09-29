@@ -1,0 +1,17 @@
+{
+  "name": "@debbl/eslint-config-monorepo",
+  "private": true,
+  "version": "0.0.1",
+  "packageManager": "pnpm@7.12.2",
+  "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
+  "description": "",
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "eslint": "^8.24.0",
+    "typescript": "^4.8.4"
+  }
+}
