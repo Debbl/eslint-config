@@ -1,15 +1,15 @@
 {
   "name": "@debbl/eslint-config-basic",
-  "version": "0.0.4",
-  "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
+  "version": "0.0.6",
   "description": "",
+  "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
   "license": "ISC",
+  "keywords": [
+    "eslint-config"
+  ],
   "main": "index.js",
   "files": [
     "index.js"
-  ],
-  "keywords": [
-    "eslint-config"
   ],
   "peerDependencies": {
     "eslint": "^8.24.0"
