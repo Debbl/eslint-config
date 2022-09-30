@@ -1,5 +1,11 @@
 # @debbl/eslint-config-basic
 
+## 0.0.9
+
+### Patch Changes
+
+- change rule no-unused-vars ans no-undef
+
 ## 0.0.6
 
 ### Patch Changes
