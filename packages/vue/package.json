@@ -1,6 +1,6 @@
 {
-  "name": "@debbl/eslint-config-ts",
-  "version": "0.0.6",
+  "name": "@debbl/eslint-config-vue",
+  "version": "0.0.7",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
   "license": "ISC",
@@ -15,9 +15,8 @@
     "eslint": "^8.24.0"
   },
   "dependencies": {
-    "@debbl/eslint-config-basic": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.38.1",
-    "@typescript-eslint/parser": "^5.38.1"
+    "@debbl/eslint-config-ts": "workspace:*",
+    "eslint-plugin-vue": "^9.5.1"
   },
   "devDependencies": {
     "eslint": "^8.24.0"
