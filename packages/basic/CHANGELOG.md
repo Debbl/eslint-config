@@ -1,5 +1,11 @@
 # @debbl/eslint-config-basic
 
+## 0.0.10
+
+### Patch Changes
+
+- array-bracket-spacing
+
 ## 0.0.9
 
 ### Patch Changes

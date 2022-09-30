@@ -1,5 +1,13 @@
 # @debbl/eslint-config-react
 
+## 0.0.10
+
+### Patch Changes
+
+- array-bracket-spacing
+- Updated dependencies
+  - @debbl/eslint-config-ts@0.0.10
+
 ## 0.0.9
 
 ### Patch Changes
