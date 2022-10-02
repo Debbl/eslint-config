@@ -193,6 +193,7 @@ module.exports = {
     "comma-spacing": ["error", { before: false, after: true }],
     "comma-style": ["error", "last"],
     "comma-dangle": ["error", "always-multiline"],
+    "max-len": ["warn", { code: 120 }],
     "no-constant-condition": "warn",
     "no-debugger": "error",
     "no-console": ["warn", { allow: ["warn", "error"] }],
@@ -202,7 +203,11 @@ module.exports = {
     "indent": [
       "error",
       2,
-      { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 },
+      {
+        SwitchCase: 1,
+        VariableDeclarator: 1,
+        outerIIFEBody: 1,
+      },
     ],
     "no-restricted-syntax": [
       "error",
