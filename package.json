@@ -7,7 +7,7 @@
   "description": "",
   "license": "ISC",
   "scripts": {
-    "publish": "changesets publish"
+    "publish": "changeset publish"
   },
   "keywords": [],
   "devDependencies": {
