@@ -186,7 +186,7 @@ module.exports = {
     "quote-props": ["warn", "consistent-as-needed"],
     "no-unused-vars": "warn",
     "no-param-reassign": "warn",
-    "array-bracket-spacing": ["error", "never"],
+    "array-bracket-spacing": ["warn", "never"],
     "brace-style": ["error", "1tbs", { allowSingleLine: true }],
     "block-spacing": ["error", "always"],
     "camelcase": "off",
