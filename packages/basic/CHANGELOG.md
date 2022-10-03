@@ -1,5 +1,13 @@
 # @debbl/eslint-config-basic
 
+## 0.0.12
+
+### Patch Changes
+
+- [`3d9fb61`](https://github.com/Debbl/eslint-config/commit/3d9fb6117941598b1a0d398575d62f2cd80b5f02) Thanks [@Debbl](https://github.com/Debbl)! - change some rules
+
+- [`350a3a9`](https://github.com/Debbl/eslint-config/commit/350a3a96f09e45138009fb652d93517b683c0169) Thanks [@Debbl](https://github.com/Debbl)! - update
+
 ## 0.0.11
 
 ### Patch Changes
