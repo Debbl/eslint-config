@@ -180,12 +180,12 @@ module.exports = {
   ],
   rules: {
     // Common
-    "semi": ["error", "always"],
-    "quotes": ["error", "double"],
-    "curly": ["error", "multi-or-nest", "consistent"],
-    "quote-props": ["error", "consistent-as-needed"],
+    "semi": ["warn", "always"],
+    "quotes": ["warn", "double"],
+    "curly": ["warn", "multi-or-nest", "consistent"],
+    "quote-props": ["warn", "consistent-as-needed"],
     "no-unused-vars": "warn",
-    "no-param-reassign": "off",
+    "no-param-reassign": "warn",
     "array-bracket-spacing": ["error", "never"],
     "brace-style": ["error", "1tbs", { allowSingleLine: true }],
     "block-spacing": ["error", "always"],
