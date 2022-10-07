@@ -180,7 +180,7 @@ module.exports = {
   ],
   rules: {
     // Common
-    "multiline-ternary": ["warn", "always-multiline"],
+    "multiline-ternary": ["warn", "never"],
     "semi": ["warn", "always"],
     "quotes": ["warn", "double"],
     "curly": ["warn", "multi-or-nest", "consistent"],
