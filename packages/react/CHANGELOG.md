@@ -1,5 +1,14 @@
 # @debbl/eslint-config-react
 
+## 0.0.15
+
+### Patch Changes
+
+- rules
+
+- Updated dependencies []:
+  - @debbl/eslint-config-ts@0.0.15
+
 ## 0.0.14
 
 ### Patch Changes

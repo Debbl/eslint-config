@@ -264,7 +264,7 @@ module.exports = {
     "prefer-spread": "error",
     "prefer-template": "error",
     "template-curly-spacing": "error",
-    "arrow-parens": ["error", "as-needed", { requireForBlockBody: true }],
+    "arrow-parens": ["error", "always"],
     "generator-star-spacing": "off",
     "spaced-comment": [
       "error",
