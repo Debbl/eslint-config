@@ -180,6 +180,7 @@ module.exports = {
   ],
   rules: {
     // Common
+    "multiline-ternary": ["warn", "always-multiline"],
     "semi": ["warn", "always"],
     "quotes": ["warn", "double"],
     "curly": ["warn", "multi-or-nest", "consistent"],
@@ -187,7 +188,7 @@ module.exports = {
     "no-unused-vars": "warn",
     "no-param-reassign": "warn",
     "array-bracket-spacing": ["warn", "never"],
-    "brace-style": ["error", "1tbs", { allowSingleLine: true }],
+    "brace-style": ["warn", "1tbs", { allowSingleLine: true }],
     "block-spacing": ["error", "always"],
     "camelcase": "off",
     "comma-spacing": ["error", { before: false, after: true }],

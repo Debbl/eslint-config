@@ -1,5 +1,11 @@
 # @debbl/eslint-config-basic
 
+## 0.0.13
+
+### Patch Changes
+
+- some rules have been changed
+
 ## 0.0.12
 
 ### Patch Changes
