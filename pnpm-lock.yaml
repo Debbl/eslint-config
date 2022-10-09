@@ -47,11 +47,13 @@ importers:
 
   packages/prettier:
     specifiers:
+      '@debbl/eslint-config-basic': workspace:^0.0.15
       eslint: ^8.24.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
       prettier: ^2.7.1
     dependencies:
+      '@debbl/eslint-config-basic': link:../basic
       eslint-config-prettier: 8.5.0_eslint@8.24.0
       eslint-plugin-prettier: 4.2.1_cfn5x6ujhhgzv3423d6k7r2zzm
     devDependencies:

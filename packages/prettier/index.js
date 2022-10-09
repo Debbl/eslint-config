@@ -1,4 +1,3 @@
 module.exports = {
-  extends: ["prettier"],
-  plugins: ["prettier"],
+  extends: ["@debbl/eslint-config-basic", "plugin:prettier/recommended"],
 };
