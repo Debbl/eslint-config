@@ -47,7 +47,7 @@ importers:
 
   packages/prettier:
     specifiers:
-      '@debbl/eslint-config-basic': workspace:^0.0.15
+      '@debbl/eslint-config-basic': workspace:*
       eslint: ^8.24.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
