@@ -3,21 +3,12 @@
   "version": "0.0.16",
   "description": "",
   "main": "index.js",
-  "files": [
-    "index.js",
-    ".prettierrc.cjs"
-  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@debbl/eslint-config-basic": "workspace:*",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1"
-  },
   "devDependencies": {
     "eslint": "^8.24.0",
     "prettier": "^2.7.1"
@@ -25,5 +16,9 @@
   "peerDependencies": {
     "eslint": "^8.24.0",
     "prettier": "^2.7.1"
+  },
+  "dependencies": {
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1"
   }
 }

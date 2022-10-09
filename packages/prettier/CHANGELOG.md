@@ -4,4 +4,4 @@
 
 ### Patch Changes
 
-- init
+- init prettier
