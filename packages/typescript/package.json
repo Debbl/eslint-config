@@ -1,6 +1,6 @@
 {
   "name": "@debbl/eslint-config-ts",
-  "version": "0.0.16",
+  "version": "0.0.18",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
   "license": "ISC",
