@@ -1,5 +1,11 @@
 # @debbl/eslint-config-prettier
 
+## 0.0.20
+
+### Patch Changes
+
+- peer preteier
+
 ## 0.0.19
 
 ### Patch Changes

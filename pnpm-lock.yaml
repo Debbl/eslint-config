@@ -58,9 +58,9 @@ importers:
     dependencies:
       '@debbl/eslint-config-basic': link:../basic
       eslint-plugin-prettier: 4.2.1_uoqzb7ub56apwdxrwurswvvfwe
-      prettier: 2.7.1
     devDependencies:
       eslint: 8.24.0
+      prettier: 2.7.1
 
   packages/react:
     specifiers:
