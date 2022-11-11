@@ -8,12 +8,14 @@
   "license": "ISC",
   "keywords": [],
   "scripts": {
-    "publish": "changeset publish"
+    "publish": "changeset publish",
+    "lint": "eslint . --fix --ignore-path .gitignore"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.7",
     "@changesets/cli": "^2.24.4",
     "@debbl/eslint-config-basic": "workspace:*",
+    "@debbl/eslint-config-prettier": "workspace:*",
     "eslint": "^8.24.0",
     "typescript": "^4.8.4"
   }

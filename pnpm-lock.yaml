@@ -7,12 +7,14 @@ importers:
       '@changesets/changelog-github': ^0.4.7
       '@changesets/cli': ^2.24.4
       '@debbl/eslint-config-basic': workspace:*
+      '@debbl/eslint-config-prettier': workspace:*
       eslint: ^8.24.0
       typescript: ^4.8.4
     devDependencies:
       '@changesets/changelog-github': 0.4.7
       '@changesets/cli': 2.24.4
       '@debbl/eslint-config-basic': link:packages/basic
+      '@debbl/eslint-config-prettier': link:packages/prettier
       eslint: 8.24.0
       typescript: 4.8.4
 
@@ -51,16 +53,14 @@ importers:
     specifiers:
       '@debbl/eslint-config-basic': workspace:*
       eslint: ^8.24.0
-      eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
       prettier: ^2.7.1
     dependencies:
       '@debbl/eslint-config-basic': link:../basic
-      eslint-config-prettier: 8.5.0_eslint@8.24.0
-      eslint-plugin-prettier: 4.2.1_cfn5x6ujhhgzv3423d6k7r2zzm
+      eslint-plugin-prettier: 4.2.1_uoqzb7ub56apwdxrwurswvvfwe
+      prettier: 2.7.1
     devDependencies:
       eslint: 8.24.0
-      prettier: 2.7.1
 
   packages/react:
     specifiers:
@@ -1053,15 +1053,6 @@ packages:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
 
-  /eslint-config-prettier/8.5.0_eslint@8.24.0:
-    resolution: {integrity: sha512-obmWKLUNCnhtQRKc+tmnYuQl0pFU1ibYJQ5BGhTVB08bHe9wC8qUeG7c08dj9XX+AuPj1YSGSQIHl1pnDHZR0Q==}
-    hasBin: true
-    peerDependencies:
-      eslint: '>=7.0.0'
-    dependencies:
-      eslint: 8.24.0
-    dev: false
-
   /eslint-config-standard/17.0.0_4ybqc3giaxsbo5btq74wfmkary:
     resolution: {integrity: sha512-/2ks1GKyqSOkH7JFvXJicu0iMpoojkwB+f5Du/1SC0PtBL+s8v30k9njRZ21pm2drKYm2342jFnGWzttxPmZVg==}
     peerDependencies:
@@ -1212,7 +1203,7 @@ packages:
       semver: 7.3.7
     dev: false
 
-  /eslint-plugin-prettier/4.2.1_cfn5x6ujhhgzv3423d6k7r2zzm:
+  /eslint-plugin-prettier/4.2.1_uoqzb7ub56apwdxrwurswvvfwe:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -1224,7 +1215,6 @@ packages:
         optional: true
     dependencies:
       eslint: 8.24.0
-      eslint-config-prettier: 8.5.0_eslint@8.24.0
       prettier: 2.7.1
       prettier-linter-helpers: 1.0.0
     dev: false
