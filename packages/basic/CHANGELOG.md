@@ -1,5 +1,11 @@
 # @debbl/eslint-config-basic
 
+## 0.0.21
+
+### Patch Changes
+
+- update dep
+
 ## 0.0.19
 
 ### Patch Changes

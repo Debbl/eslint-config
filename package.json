@@ -13,10 +13,10 @@
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.7",
-    "@changesets/cli": "^2.24.4",
-    "@debbl/eslint-config-basic": "workspace:*",
-    "@debbl/eslint-config-prettier": "workspace:*",
-    "eslint": "^8.24.0",
-    "typescript": "^4.8.4"
+    "@changesets/cli": "^2.25.2",
+    "@debbl/eslint-config-basic": "workspace:0.0.19",
+    "@debbl/eslint-config-prettier": "workspace:0.0.20",
+    "eslint": "^8.27.0",
+    "typescript": "^4.9.3"
   }
 }

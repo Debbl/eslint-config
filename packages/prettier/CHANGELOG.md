@@ -1,5 +1,14 @@
 # @debbl/eslint-config-prettier
 
+## 0.0.21
+
+### Patch Changes
+
+- update dep
+
+- Updated dependencies []:
+  - @debbl/eslint-config-basic@0.0.21
+
 ## 0.0.20
 
 ### Patch Changes

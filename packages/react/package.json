@@ -1,6 +1,6 @@
 {
   "name": "@debbl/eslint-config-react",
-  "version": "0.0.19",
+  "version": "0.0.21",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
   "license": "ISC",
@@ -12,14 +12,14 @@
     "index.js"
   ],
   "peerDependencies": {
-    "eslint": "^8.24.0"
+    "eslint": ">=8.24.0"
   },
   "dependencies": {
-    "@debbl/eslint-config-ts": "workspace:*",
-    "eslint-plugin-react": "^7.31.8",
+    "@debbl/eslint-config-ts": "workspace:0.0.21",
+    "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-react-hooks": "^4.6.0"
   },
   "devDependencies": {
-    "eslint": "^8.24.0"
+    "eslint": "^8.27.0"
   }
 }

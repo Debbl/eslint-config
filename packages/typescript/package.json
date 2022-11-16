@@ -1,6 +1,6 @@
 {
   "name": "@debbl/eslint-config-ts",
-  "version": "0.0.19",
+  "version": "0.0.21",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
   "license": "ISC",
@@ -12,16 +12,16 @@
     "index.js"
   ],
   "peerDependencies": {
-    "eslint": "^8.24.0",
-    "typescript": "^4.8.4"
+    "eslint": ">=8.24.0",
+    "typescript": ">=4.8.4"
   },
   "dependencies": {
-    "@debbl/eslint-config-basic": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.38.1",
-    "@typescript-eslint/parser": "^5.38.1"
+    "@debbl/eslint-config-basic": "workspace:0.0.21",
+    "@typescript-eslint/eslint-plugin": "^5.43.0",
+    "@typescript-eslint/parser": "^5.43.0"
   },
   "devDependencies": {
-    "eslint": "^8.24.0",
-    "typescript": "^4.8.4"
+    "eslint": "^8.27.0",
+    "typescript": "^4.9.3"
   }
 }

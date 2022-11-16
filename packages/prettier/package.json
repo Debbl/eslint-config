@@ -1,6 +1,6 @@
 {
   "name": "@debbl/eslint-config-prettier",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
   "license": "ISC",
@@ -16,15 +16,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
-    "eslint": "^8.24.0",
-    "prettier": "^2.7.1"
+    "eslint": ">=8.24.0",
+    "prettier": ">=2.7.1"
   },
   "dependencies": {
-    "@debbl/eslint-config-basic": "workspace:*",
+    "@debbl/eslint-config-basic": "workspace:0.0.21",
     "eslint-plugin-prettier": "^4.2.1"
   },
   "devDependencies": {
-    "eslint": "^8.24.0",
+    "eslint": "^8.27.0",
     "prettier": "^2.7.1"
   }
 }
