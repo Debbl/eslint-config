@@ -1,5 +1,11 @@
 # @debbl/eslint-config-basic
 
+## 0.0.22
+
+### Patch Changes
+
+- curly and max-len
+
 ## 0.0.21
 
 ### Patch Changes
