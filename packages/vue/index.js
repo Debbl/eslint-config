@@ -92,7 +92,7 @@ module.exports = {
         avoidQuotes: true,
       },
     ],
-    "vue/operator-linebreak": ["error", "before"],
+    "vue/operator-linebreak": ["warn", "after"],
     "vue/prefer-template": "error",
     "vue/quote-props": ["error", "consistent-as-needed"],
     "vue/space-in-parens": ["error", "never"],

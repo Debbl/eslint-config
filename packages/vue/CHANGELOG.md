@@ -1,5 +1,14 @@
 # @debbl/eslint-config-vue
 
+## 0.0.23
+
+### Patch Changes
+
+- operator-linebreak rule
+
+- Updated dependencies []:
+  - @debbl/eslint-config-ts@0.0.23
+
 ## 0.0.22
 
 ### Patch Changes

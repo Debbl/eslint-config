@@ -1,5 +1,11 @@
 # @debbl/eslint-config-basic
 
+## 0.0.23
+
+### Patch Changes
+
+- operator-linebreak rule
+
 ## 0.0.22
 
 ### Patch Changes
