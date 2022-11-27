@@ -1,5 +1,11 @@
 # @debbl/eslint-config-basic
 
+## 0.0.24
+
+### Patch Changes
+
+- newline-pre-chained-call
+
 ## 0.0.23
 
 ### Patch Changes

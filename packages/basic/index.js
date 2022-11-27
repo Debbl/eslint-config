@@ -197,6 +197,7 @@ module.exports = {
         ignoreRegExpLiterals: true,
       },
     ],
+    "newline-per-chained-call": "off",
     "no-constant-condition": "warn",
     "no-debugger": "error",
     "no-console": ["warn", { allow: ["warn", "error"] }],
