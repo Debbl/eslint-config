@@ -1,5 +1,14 @@
 # @debbl/eslint-config-react
 
+## 0.0.26
+
+### Patch Changes
+
+- eslint-config-prettier dep
+
+- Updated dependencies []:
+  - @debbl/eslint-config-ts@0.0.26
+
 ## 0.0.24
 
 ### Patch Changes

@@ -1,9 +1,9 @@
 {
   "name": "@debbl/eslint-config-prettier",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [
     "eslint-config"
   ],
@@ -20,12 +20,12 @@
     "prettier": ">=2.7.1"
   },
   "dependencies": {
-    "@debbl/eslint-config-basic": "workspace:0.0.24",
+    "@debbl/eslint-config-basic": "workspace:0.0.26",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1"
   },
   "devDependencies": {
     "eslint": "^8.27.0",
-    "eslint-config-prettier": "^8.5.0",
     "prettier": "^2.7.1"
   }
 }

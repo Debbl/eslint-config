@@ -1,5 +1,11 @@
 # @debbl/eslint-config-basic
 
+## 0.0.26
+
+### Patch Changes
+
+- eslint-config-prettier dep
+
 ## 0.0.24
 
 ### Patch Changes

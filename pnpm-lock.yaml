@@ -51,22 +51,22 @@ importers:
 
   packages/prettier:
     specifiers:
-      '@debbl/eslint-config-basic': workspace:0.0.24
+      '@debbl/eslint-config-basic': workspace:0.0.26
       eslint: ^8.27.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
       prettier: ^2.7.1
     dependencies:
       '@debbl/eslint-config-basic': link:../basic
+      eslint-config-prettier: 8.5.0_eslint@8.27.0
       eslint-plugin-prettier: 4.2.1_v7o5sx5x3wbs57ifz6wc4f76we
     devDependencies:
       eslint: 8.27.0
-      eslint-config-prettier: 8.5.0_eslint@8.27.0
       prettier: 2.7.1
 
   packages/react:
     specifiers:
-      '@debbl/eslint-config-ts': workspace:0.0.24
+      '@debbl/eslint-config-ts': workspace:0.0.26
       eslint: ^8.27.0
       eslint-plugin-react: ^7.31.10
       eslint-plugin-react-hooks: ^4.6.0
@@ -79,7 +79,7 @@ importers:
 
   packages/typescript:
     specifiers:
-      '@debbl/eslint-config-basic': workspace:0.0.24
+      '@debbl/eslint-config-basic': workspace:0.0.26
       '@typescript-eslint/eslint-plugin': ^5.43.0
       '@typescript-eslint/parser': ^5.43.0
       eslint: ^8.27.0
@@ -94,7 +94,7 @@ importers:
 
   packages/vue:
     specifiers:
-      '@debbl/eslint-config-ts': workspace:0.0.24
+      '@debbl/eslint-config-ts': workspace:0.0.26
       eslint: ^8.27.0
       eslint-plugin-vue: ^9.7.0
     dependencies:
@@ -1064,6 +1064,7 @@ packages:
       eslint: '>=7.0.0'
     dependencies:
       eslint: 8.27.0
+    dev: false
 
   /eslint-config-standard/17.0.0_qmmcbu32ybj7ict4ieqqyvwr3m:
     resolution: {integrity: sha512-/2ks1GKyqSOkH7JFvXJicu0iMpoojkwB+f5Du/1SC0PtBL+s8v30k9njRZ21pm2drKYm2342jFnGWzttxPmZVg==}
