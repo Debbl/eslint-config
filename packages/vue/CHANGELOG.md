@@ -1,5 +1,14 @@
 # @debbl/eslint-config-vue
 
+## 0.0.27
+
+### Patch Changes
+
+- dep prettier
+
+- Updated dependencies []:
+  - @debbl/eslint-config-ts@0.0.27
+
 ## 0.0.26
 
 ### Patch Changes

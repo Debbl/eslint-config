@@ -1,6 +1,6 @@
 {
   "name": "@debbl/eslint-config-vue",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
   "license": "MIT",
@@ -15,7 +15,7 @@
     "eslint": ">=8.24.0"
   },
   "dependencies": {
-    "@debbl/eslint-config-ts": "workspace:0.0.26",
+    "@debbl/eslint-config-ts": "workspace:0.0.27",
     "eslint-plugin-vue": "^9.7.0"
   },
   "devDependencies": {

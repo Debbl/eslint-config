@@ -51,18 +51,16 @@ importers:
 
   packages/prettier:
     specifiers:
-      '@debbl/eslint-config-basic': workspace:0.0.26
       eslint: ^8.27.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-prettier: ^4.2.1
       prettier: ^2.7.1
     dependencies:
-      '@debbl/eslint-config-basic': link:../basic
       eslint-config-prettier: 8.5.0_eslint@8.27.0
       eslint-plugin-prettier: 4.2.1_v7o5sx5x3wbs57ifz6wc4f76we
+      prettier: 2.7.1
     devDependencies:
       eslint: 8.27.0
-      prettier: 2.7.1
 
   packages/react:
     specifiers:
