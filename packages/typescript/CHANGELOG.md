@@ -1,5 +1,14 @@
 # @debbl/eslint-config-ts
 
+## 0.0.28
+
+### Patch Changes
+
+- prettier printWidth
+
+- Updated dependencies []:
+  - @debbl/eslint-config-basic@0.0.28
+
 ## 0.0.27
 
 ### Patch Changes

@@ -47,11 +47,20 @@ module.exports = {
         "jsonc/comma-dangle": ["error", "never"],
         "jsonc/comma-style": ["error", "last"],
         "jsonc/indent": ["error", 2],
-        "jsonc/key-spacing": ["error", { beforeColon: false, afterColon: true }],
+        "jsonc/key-spacing": [
+          "error",
+          { beforeColon: false, afterColon: true },
+        ],
         "jsonc/no-octal-escape": "error",
-        "jsonc/object-curly-newline": ["error", { multiline: true, consistent: true }],
+        "jsonc/object-curly-newline": [
+          "error",
+          { multiline: true, consistent: true },
+        ],
         "jsonc/object-curly-spacing": ["error", "always"],
-        "jsonc/object-property-newline": ["error", { allowMultiplePropertiesPerLine: true }],
+        "jsonc/object-property-newline": [
+          "error",
+          { allowMultiplePropertiesPerLine: true },
+        ],
       },
     },
     {
@@ -213,7 +222,12 @@ module.exports = {
         outerIIFEBody: 1,
       },
     ],
-    "no-restricted-syntax": ["error", "DebuggerStatement", "LabeledStatement", "WithStatement"],
+    "no-restricted-syntax": [
+      "error",
+      "DebuggerStatement",
+      "LabeledStatement",
+      "WithStatement",
+    ],
     "object-curly-spacing": ["error", "always"],
     "no-return-await": "off",
     "space-before-function-paren": [
@@ -322,7 +336,10 @@ module.exports = {
     // Use new when throwing error
     "unicorn/throw-new-error": "error",
 
-    "no-use-before-define": ["error", { functions: false, classes: false, variables: true }],
+    "no-use-before-define": [
+      "error",
+      { functions: false, classes: false, variables: true },
+    ],
     "eslint-comments/disable-enable-pair": "off",
     "import/no-named-as-default-member": "off",
     "import/no-named-as-default": "off",

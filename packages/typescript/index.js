@@ -23,7 +23,10 @@ module.exports = {
     "import/named": "off",
 
     // TS
-    "@typescript-eslint/ban-ts-comment": ["error", { "ts-ignore": "allow-with-description" }],
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      { "ts-ignore": "allow-with-description" },
+    ],
     "@typescript-eslint/member-delimiter-style": [
       "warn",
       {
@@ -101,7 +104,11 @@ module.exports = {
       { functions: false, classes: false, variables: true },
     ],
     "brace-style": ["warn", "1tbs", { allowSingleLine: true }],
-    "@typescript-eslint/brace-style": ["warn", "1tbs", { allowSingleLine: true }],
+    "@typescript-eslint/brace-style": [
+      "warn",
+      "1tbs",
+      { allowSingleLine: true },
+    ],
     "comma-dangle": "off",
     "@typescript-eslint/comma-dangle": ["error", "always-multiline"],
     "object-curly-spacing": "off",
@@ -124,9 +131,15 @@ module.exports = {
     "space-infix-ops": "off",
     "@typescript-eslint/space-infix-ops": "error",
     "keyword-spacing": "off",
-    "@typescript-eslint/keyword-spacing": ["error", { before: true, after: true }],
+    "@typescript-eslint/keyword-spacing": [
+      "error",
+      { before: true, after: true },
+    ],
     "comma-spacing": "off",
-    "@typescript-eslint/comma-spacing": ["error", { before: false, after: true }],
+    "@typescript-eslint/comma-spacing": [
+      "error",
+      { before: false, after: true },
+    ],
     "no-extra-parens": "off",
     "@typescript-eslint/no-extra-parens": ["error", "functions"],
     "no-dupe-class-members": "off",

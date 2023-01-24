@@ -5,7 +5,7 @@ module.exports = {
     "prettier/prettier": [
       "warn",
       {
-        printWidth: 100, // 打印宽度， 一行最长120个字符
+        printWidth: 80, // 打印宽度， 一行最长120个字符
         tabWidth: 2, // 缩进的空格数
         useTabs: false, // 缩进使用空格，不适用制表符
         semi: true, // 语句末尾添加分号
