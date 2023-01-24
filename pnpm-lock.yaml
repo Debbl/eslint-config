@@ -64,7 +64,7 @@ importers:
 
   packages/react:
     specifiers:
-      '@debbl/eslint-config-ts': workspace:0.0.27
+      '@debbl/eslint-config-ts': workspace:0.0.28
       eslint: ^8.27.0
       eslint-plugin-react: ^7.31.10
       eslint-plugin-react-hooks: ^4.6.0
@@ -77,7 +77,7 @@ importers:
 
   packages/typescript:
     specifiers:
-      '@debbl/eslint-config-basic': workspace:0.0.27
+      '@debbl/eslint-config-basic': workspace:0.0.28
       '@typescript-eslint/eslint-plugin': ^5.43.0
       '@typescript-eslint/parser': ^5.43.0
       eslint: ^8.27.0
@@ -92,7 +92,7 @@ importers:
 
   packages/vue:
     specifiers:
-      '@debbl/eslint-config-ts': workspace:0.0.27
+      '@debbl/eslint-config-ts': workspace:0.0.28
       eslint: ^8.27.0
       eslint-plugin-vue: ^9.7.0
     dependencies:
