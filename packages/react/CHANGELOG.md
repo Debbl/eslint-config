@@ -1,5 +1,14 @@
 # @debbl/eslint-config-react
 
+## 0.0.29
+
+### Patch Changes
+
+- disable `react/prop-types` in .tsx file
+
+- Updated dependencies []:
+  - @debbl/eslint-config-ts@0.0.29
+
 ## 0.0.28
 
 ### Patch Changes

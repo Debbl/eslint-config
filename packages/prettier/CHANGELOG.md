@@ -1,5 +1,11 @@
 # @debbl/eslint-config-prettier
 
+## 0.0.29
+
+### Patch Changes
+
+- disable `react/prop-types` in .tsx file
+
 ## 0.0.28
 
 ### Patch Changes
