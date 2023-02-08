@@ -14,11 +14,11 @@
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.4.7",
-    "@changesets/cli": "^2.25.2",
-    "@debbl/eslint-config-basic": "*",
-    "@debbl/eslint-config-prettier": "*",
-    "eslint": "^8.27.0",
-    "typescript": "^4.9.3"
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.0",
+    "@debbl/eslint-config-basic": "workspace:^0.0.30",
+    "@debbl/eslint-config-prettier": "workspace:^0.0.30",
+    "eslint": "^8.33.0",
+    "typescript": "^4.9.5"
   }
 }
