@@ -9,6 +9,8 @@
   "keywords": [],
   "scripts": {
     "publish": "changeset publish",
+    "changeset": "changeset",
+    "version": "changeset version",
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
   "devDependencies": {

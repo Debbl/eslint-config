@@ -1,5 +1,11 @@
 # @debbl/eslint-config-basic
 
+## 0.0.30
+
+### Patch Changes
+
+- fix .tsx overrides rules
+
 ## 0.0.29
 
 ### Patch Changes

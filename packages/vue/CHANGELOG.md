@@ -1,5 +1,14 @@
 # @debbl/eslint-config-vue
 
+## 0.0.30
+
+### Patch Changes
+
+- fix .tsx overrides rules
+
+- Updated dependencies []:
+  - @debbl/eslint-config-ts@0.0.30
+
 ## 0.0.29
 
 ### Patch Changes
