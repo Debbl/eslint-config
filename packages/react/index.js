@@ -9,6 +9,14 @@ module.exports = {
       version: "18.0",
     },
   },
+  overrides: [
+    {
+      files: "*.tsx",
+      rules: {
+        "react/prop-types": "off",
+      },
+    },
+  ],
   rules: {
     "jsx-quotes": ["error", "prefer-double"],
     "react/react-in-jsx-scope": "off",
