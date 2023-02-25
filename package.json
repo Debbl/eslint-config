@@ -16,8 +16,8 @@
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.0",
-    "@debbl/eslint-config-basic": "workspace:^0.0.30",
-    "@debbl/eslint-config-prettier": "workspace:^0.0.30",
+    "@debbl/eslint-config-basic": "workspace:*",
+    "@debbl/eslint-config-prettier": "workspace:*",
     "eslint": "^8.33.0",
     "typescript": "^4.9.5"
   }

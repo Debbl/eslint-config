@@ -1,5 +1,11 @@
 # @debbl/eslint-config-prettier
 
+## 0.0.32
+
+### Patch Changes
+
+- rules perttier default
+
 ## 0.0.31
 
 ### Patch Changes

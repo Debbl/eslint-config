@@ -1,5 +1,14 @@
 # @debbl/eslint-config-vue
 
+## 0.0.32
+
+### Patch Changes
+
+- rules perttier default
+
+- Updated dependencies []:
+  - @debbl/eslint-config-ts@0.0.32
+
 ## 0.0.30
 
 ### Patch Changes
