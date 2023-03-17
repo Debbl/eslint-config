@@ -1,11 +1,12 @@
 {
-  "name": "@debbl/eslint-config-ts",
+  "name": "@debbl/eslint-config-solid",
   "version": "0.0.33",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
   "license": "MIT",
   "keywords": [
-    "eslint-config"
+    "eslint-config",
+    "solid"
   ],
   "main": "index.js",
   "files": [
@@ -13,12 +14,11 @@
   ],
   "peerDependencies": {
     "eslint": ">=8.24.0",
-    "typescript": ">=4.8.4"
+    "typescript": ">=4.9.5"
   },
   "dependencies": {
-    "@debbl/eslint-config-basic": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.51.0",
-    "@typescript-eslint/parser": "^5.51.0"
+    "@debbl/eslint-config-ts": "workspace:*",
+    "eslint-plugin-solid": "^0.11.0"
   },
   "devDependencies": {
     "eslint": "^8.33.0",

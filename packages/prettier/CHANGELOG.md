@@ -1,5 +1,11 @@
 # @debbl/eslint-config-prettier
 
+## 0.0.33
+
+### Patch Changes
+
+- add solid eslint
+
 ## 0.0.32
 
 ### Patch Changes
