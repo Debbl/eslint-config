@@ -1,5 +1,14 @@
 # @debbl/eslint-config-solid
 
+## 0.0.36
+
+### Patch Changes
+
+- dep
+
+- Updated dependencies []:
+  - @debbl/eslint-config-ts@0.0.36
+
 ## 0.0.35
 
 ### Patch Changes
