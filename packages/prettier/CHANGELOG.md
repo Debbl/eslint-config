@@ -1,5 +1,17 @@
 # @debbl/eslint-config-prettier
 
+## 0.0.35
+
+### Patch Changes
+
+- keywords
+
+## 0.0.34
+
+### Patch Changes
+
+- add tailwindcss
+
 ## 0.0.33
 
 ### Patch Changes

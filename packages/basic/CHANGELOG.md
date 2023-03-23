@@ -1,5 +1,11 @@
 # @debbl/eslint-config-basic
 
+## 0.0.35
+
+### Patch Changes
+
+- keywords
+
 ## 0.0.33
 
 ### Patch Changes

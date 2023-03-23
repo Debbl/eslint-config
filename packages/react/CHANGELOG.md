@@ -1,5 +1,23 @@
 # @debbl/eslint-config-react
 
+## 0.0.35
+
+### Patch Changes
+
+- keywords
+
+- Updated dependencies []:
+  - @debbl/eslint-config-ts@0.0.35
+
+## 0.0.34
+
+### Patch Changes
+
+- add tailwindcss
+
+- Updated dependencies []:
+  - @debbl/eslint-config-ts@0.0.34
+
 ## 0.0.33
 
 ### Patch Changes
