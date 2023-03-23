@@ -91,9 +91,11 @@ importers:
   packages/tailwindcss:
     specifiers:
       eslint: ^8.33.0
+      eslint-plugin-tailwindcss: ^3.10.1
       tailwindcss: ^3.2.7
     devDependencies:
       eslint: 8.33.0
+      eslint-plugin-tailwindcss: 3.10.1_tailwindcss@3.2.7
       tailwindcss: 3.2.7
 
   packages/typescript:
@@ -1413,6 +1415,17 @@ packages:
       - supports-color
       - typescript
     dev: false
+
+  /eslint-plugin-tailwindcss/3.10.1_tailwindcss@3.2.7:
+    resolution: {integrity: sha512-NLPZ6b6nd/8CgGNMQ6NDiPUfBLQpSGu/u9RyX3MCZOwzNs2dFt1OamNAiRuo3Ixh7Gv4t5UcAcdNt8z74UDJkA==}
+    engines: {node: '>=12.13.0'}
+    peerDependencies:
+      tailwindcss: ^3.2.2
+    dependencies:
+      fast-glob: 3.2.12
+      postcss: 8.4.21
+      tailwindcss: 3.2.7
+    dev: true
 
   /eslint-plugin-unicorn/43.0.2_eslint@8.33.0:
     resolution: {integrity: sha512-DtqZ5mf/GMlfWoz1abIjq5jZfaFuHzGBZYIeuJfEoKKGWRHr2JiJR+ea+BF7Wx2N1PPRoT/2fwgiK1NnmNE3Hg==}
