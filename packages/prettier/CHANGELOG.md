@@ -1,5 +1,11 @@
 # @debbl/eslint-config-prettier
 
+## 0.0.38
+
+### Patch Changes
+
+- add homepage
+
 ## 0.0.36
 
 ### Patch Changes

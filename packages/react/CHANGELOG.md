@@ -1,5 +1,14 @@
 # @debbl/eslint-config-react
 
+## 0.0.38
+
+### Patch Changes
+
+- add homepage
+
+- Updated dependencies []:
+  - @debbl/eslint-config-ts@0.0.38
+
 ## 0.0.36
 
 ### Patch Changes
