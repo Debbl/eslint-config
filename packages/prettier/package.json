@@ -1,6 +1,6 @@
 {
   "name": "@debbl/eslint-config-prettier",
-  "version": "0.0.38",
+  "version": "0.0.39",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
   "license": "MIT",
@@ -20,11 +20,11 @@
     "eslint": ">=8.24.0"
   },
   "dependencies": {
-    "eslint-config-prettier": "^8.6.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.8.4"
+    "prettier": "^2.8.7"
   },
   "devDependencies": {
-    "eslint": "^8.33.0"
+    "eslint": "^8.38.0"
   }
 }
