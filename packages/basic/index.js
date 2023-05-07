@@ -14,7 +14,7 @@ module.exports = {
     "plugin:yml/standard",
     "plugin:markdown/recommended",
   ],
-  plugins: ["html", "unicorn"],
+  plugins: ["html", "unicorn", "no-only-tests"],
   settings: {
     "import/resolver": {
       node: { extensions: [".js", ".mjs"] },
@@ -157,6 +157,7 @@ module.exports = {
       files: ["*.test.ts", "*.test.js", "*.spec.ts", "*.spec.js"],
       rules: {
         "no-unused-expressions": "off",
+        "no-only-tests/no-only-tests": "error",
       },
     },
     {

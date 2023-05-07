@@ -2,6 +2,11 @@ module.exports = {
   extends: ["prettier"],
   plugins: ["prettier"],
   rules: {
-    "prettier/prettier": "warn",
+    "prettier/prettier": [
+      "warn",
+      {
+        quoteProps: "consistent",
+      },
+    ],
   },
 };
