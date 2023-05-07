@@ -312,6 +312,7 @@ module.exports = {
     "require-await": "off",
     "no-return-assign": "off",
     "operator-linebreak": ["warn", "after"],
+    "max-statements-per-line": ["error", { max: 1 }],
 
     // unicorns
     // Pass error message when throwing errors
