@@ -14,7 +14,7 @@ module.exports = {
     "plugin:yml/standard",
     "plugin:markdown/recommended",
   ],
-  plugins: ["html", "unicorn", "no-only-tests"],
+  plugins: ["html", "unicorn", "no-only-tests", "unused-imports"],
   settings: {
     "import/resolver": {
       node: { extensions: [".js", ".mjs"] },
@@ -172,6 +172,8 @@ module.exports = {
         "@typescript-eslint/comma-dangle": "off",
         "@typescript-eslint/consistent-type-imports": "off",
         "import/no-unresolved": "off",
+        "unused-imports/no-unused-imports": "off",
+        "unused-imports/no-unused-vars": "off",
         "no-alert": "off",
         "no-console": "off",
         "no-restricted-imports": "off",
@@ -188,7 +190,16 @@ module.exports = {
     "quotes": ["warn", "double"],
     "curly": ["off", "multi-or-nest", "consistent"],
     "quote-props": ["warn", "consistent-as-needed"],
-    "no-unused-vars": "error",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        vars: "all",
+        varsIgnorePattern: "^_",
+        args: "after-used",
+        argsIgnorePattern: "^_",
+      },
+    ],
     "no-param-reassign": "warn",
     "array-bracket-spacing": ["warn", "never"],
     "brace-style": ["warn", "1tbs", { allowSingleLine: true }],
