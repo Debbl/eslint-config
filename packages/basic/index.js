@@ -27,6 +27,7 @@ module.exports = {
     "dist",
     "LICENSE*",
     "output",
+    "out",
     "coverage",
     "public",
     "temp",
