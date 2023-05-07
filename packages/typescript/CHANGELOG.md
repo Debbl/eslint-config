@@ -1,5 +1,14 @@
 # @debbl/eslint-config-ts
 
+## 0.0.42
+
+### Patch Changes
+
+- changed some rules
+
+- Updated dependencies []:
+  - @debbl/eslint-config-basic@0.0.42
+
 ## 0.0.41
 
 ### Patch Changes

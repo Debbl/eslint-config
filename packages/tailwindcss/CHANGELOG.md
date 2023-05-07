@@ -1,5 +1,11 @@
 # @debbl/eslint-config-tailwindcss
 
+## 0.0.42
+
+### Patch Changes
+
+- changed some rules
+
 ## 0.0.41
 
 ### Patch Changes
