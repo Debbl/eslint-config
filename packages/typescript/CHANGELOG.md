@@ -1,5 +1,14 @@
 # @debbl/eslint-config-ts
 
+## 0.0.41
+
+### Patch Changes
+
+- add rules to pervent .only in tests
+
+- Updated dependencies []:
+  - @debbl/eslint-config-basic@0.0.41
+
 ## 0.0.40
 
 ### Patch Changes
