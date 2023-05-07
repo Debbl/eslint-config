@@ -1,6 +1,6 @@
 {
   "name": "@debbl/eslint-config-solid",
-  "version": "0.0.39",
+  "version": "0.0.40",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "eslint-plugin-solid": "^0.12.1"
   },
   "devDependencies": {
-    "eslint": "^8.38.0",
+    "eslint": "^8.40.0",
     "typescript": "^5.0.4"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@debbl/eslint-config-ts",
-  "version": "0.0.39",
+  "version": "0.0.40",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
   "license": "MIT",
@@ -19,11 +19,11 @@
   },
   "dependencies": {
     "@debbl/eslint-config-basic": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.58.0",
-    "@typescript-eslint/parser": "^5.58.0"
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^5.59.2"
   },
   "devDependencies": {
-    "eslint": "^8.38.0",
+    "eslint": "^8.40.0",
     "typescript": "^5.0.4"
   }
 }
