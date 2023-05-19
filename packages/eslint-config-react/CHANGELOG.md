@@ -1,5 +1,14 @@
 # @debbl/eslint-config-react
 
+## 0.0.44
+
+### Patch Changes
+
+- [`7d6d3d5`](https://github.com/Debbl/eslint-config/commit/7d6d3d5fa9c55b9f460a553d392971a9108f8fb0) Thanks [@Debbl](https://github.com/Debbl)! - feat: validate jsonc file
+
+- Updated dependencies [[`7d6d3d5`](https://github.com/Debbl/eslint-config/commit/7d6d3d5fa9c55b9f460a553d392971a9108f8fb0)]:
+  - @debbl/eslint-config-ts@0.0.44
+
 ## 0.0.43
 
 ### Patch Changes
