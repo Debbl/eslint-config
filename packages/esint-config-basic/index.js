@@ -213,9 +213,9 @@ module.exports = {
 
     // Common
     "multiline-ternary": ["warn", "never"],
-    semi: ["warn", "always"],
-    quotes: ["warn", "double"],
-    curly: ["off", "multi-or-nest", "consistent"],
+    "semi": ["warn", "always"],
+    "quotes": ["warn", "double"],
+    "curly": ["off", "multi-or-nest", "consistent"],
     "quote-props": ["warn", "consistent-as-needed"],
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
@@ -232,7 +232,7 @@ module.exports = {
     "array-bracket-spacing": ["warn", "never"],
     "brace-style": ["warn", "1tbs", { allowSingleLine: true }],
     "block-spacing": ["error", "always"],
-    camelcase: "off",
+    "camelcase": "off",
     "comma-spacing": ["error", { before: false, after: true }],
     "comma-style": ["error", "last"],
     "comma-dangle": ["error", "always-multiline"],
@@ -255,7 +255,7 @@ module.exports = {
     "no-cond-assign": ["error", "always"],
     "func-call-spacing": ["off", "never"],
     "key-spacing": ["error", { beforeColon: false, afterColon: true }],
-    indent: [
+    "indent": [
       "error",
       2,
       {
@@ -366,8 +366,8 @@ module.exports = {
     "array-callback-return": "error",
     "block-scoped-var": "error",
     "consistent-return": "off",
-    complexity: ["off", 11],
-    eqeqeq: ["error", "smart"],
+    "complexity": ["off", 11],
+    "eqeqeq": ["error", "smart"],
     "no-alert": "warn",
     "no-case-declarations": "error",
     "no-multi-spaces": "error",
