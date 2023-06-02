@@ -200,6 +200,17 @@ module.exports = {
     },
   ],
   rules: {
+    // import
+    "import/order": "error",
+    "import/first": "error",
+    "import/no-mutable-exports": "error",
+    "import/no-unresolved": "off",
+    "import/no-absolute-path": "off",
+    "import/newline-after-import": [
+      "error",
+      { count: 1, considerComments: true },
+    ],
+
     // Common
     "multiline-ternary": ["warn", "never"],
     "semi": ["warn", "always"],
@@ -216,6 +227,7 @@ module.exports = {
         argsIgnorePattern: "^_",
       },
     ],
+
     "no-param-reassign": "warn",
     "array-bracket-spacing": ["warn", "never"],
     "brace-style": ["warn", "1tbs", { allowSingleLine: true }],
@@ -270,15 +282,9 @@ module.exports = {
     ],
     "no-multiple-empty-lines": ["error", { max: 1, maxBOF: 0, maxEOF: 1 }],
 
-    // import
-    "import/order": "error",
-    "import/first": "error",
-    "import/no-mutable-exports": "error",
-    "import/no-unresolved": "off",
-    "import/no-absolute-path": "off",
-    "import/newline-after-import": [
+    "no-restricted-globals": [
       "error",
-      { count: 1, considerComments: true },
+      { name: "global", message: "Use `globalThis` instead." },
     ],
 
     // es6
