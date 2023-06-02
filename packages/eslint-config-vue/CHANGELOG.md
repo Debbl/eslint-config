@@ -1,5 +1,16 @@
 # @debbl/eslint-config-vue
 
+## 0.0.45
+
+### Patch Changes
+
+- [`8602543`](https://github.com/Debbl/eslint-config/commit/8602543a3e36cca732c3c2b7ab73d9aa0b3dd8ad) Thanks [@Debbl](https://github.com/Debbl)! - update deps
+
+- [`e284e60`](https://github.com/Debbl/eslint-config/commit/e284e6095cad680fe3e3402f4f48b021e99f9c6e) Thanks [@Debbl](https://github.com/Debbl)! - feat(ts): enable @typescript-eslint/consistent-type-assertions
+
+- Updated dependencies [[`8602543`](https://github.com/Debbl/eslint-config/commit/8602543a3e36cca732c3c2b7ab73d9aa0b3dd8ad), [`e284e60`](https://github.com/Debbl/eslint-config/commit/e284e6095cad680fe3e3402f4f48b021e99f9c6e)]:
+  - @debbl/eslint-config-ts@0.0.45
+
 ## 0.0.44
 
 ### Patch Changes
