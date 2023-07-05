@@ -1,5 +1,11 @@
 # @debbl/eslint-config-basic
 
+## 0.0.46
+
+### Patch Changes
+
+- [`f3fe1ca`](https://github.com/Debbl/eslint-config/commit/f3fe1caea08598e63643d1c59a53b11cfae98590) Thanks [@Debbl](https://github.com/Debbl)! - update from antfu/eslint-config
+
 ## 0.0.45
 
 ### Patch Changes
