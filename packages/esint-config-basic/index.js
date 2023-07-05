@@ -6,8 +6,7 @@ module.exports = {
   },
   reportUnusedDisableDirectives: true,
   extends: [
-    "eslint:recommended",
-    "standard",
+    "./standard",
     "plugin:import/recommended",
     "plugin:eslint-comments/recommended",
     "plugin:jsonc/recommended-with-jsonc",
