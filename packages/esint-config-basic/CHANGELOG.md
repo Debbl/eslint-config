@@ -1,5 +1,11 @@
 # @debbl/eslint-config-basic
 
+## 0.0.47
+
+### Patch Changes
+
+- [`c3abdf9`](https://github.com/Debbl/eslint-config/commit/c3abdf9ee53e4b1cf0558e62450aa53308cec2ce) Thanks [@Debbl](https://github.com/Debbl)! - fix import standard.js
+
 ## 0.0.46
 
 ### Patch Changes

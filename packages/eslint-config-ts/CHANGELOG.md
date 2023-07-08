@@ -1,5 +1,12 @@
 # @debbl/eslint-config-ts
 
+## 0.0.47
+
+### Patch Changes
+
+- Updated dependencies [[`c3abdf9`](https://github.com/Debbl/eslint-config/commit/c3abdf9ee53e4b1cf0558e62450aa53308cec2ce)]:
+  - @debbl/eslint-config-basic@0.0.47
+
 ## 0.0.46
 
 ### Patch Changes
