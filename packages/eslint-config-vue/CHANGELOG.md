@@ -1,5 +1,12 @@
 # @debbl/eslint-config-vue
 
+## 0.0.47
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @debbl/eslint-config-ts@0.0.47
+
 ## 0.0.46
 
 ### Patch Changes
