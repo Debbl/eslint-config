@@ -209,6 +209,7 @@ module.exports = {
       "error",
       { count: 1, considerComments: true },
     ],
+    "import/no-self-import": "error",
 
     // Common
     "multiline-ternary": ["warn", "never"],
