@@ -6,7 +6,7 @@
       "repo": "Debbl/eslint-config"
     }
   ],
-  "commit": true,
+  "commit": false,
   "fixed": [],
   "linked": [["@debbl/*"]],
   "access": "public",
