@@ -1,3 +1,4 @@
+/* eslint-disable n/prefer-global/process */
 const fs = require("node:fs");
 const { join } = require("node:path");
 const basic = require("@debbl/eslint-config-basic");
