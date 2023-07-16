@@ -379,6 +379,11 @@ module.exports = {
     "operator-linebreak": ["warn", "after"],
     "max-statements-per-line": ["error", { max: 1 }],
 
+    // node
+    "n/prefer-global/process": ["error", "never"],
+    "n/prefer-global/buffer": ["error", "never"],
+    "n/no-callback-literal": "off",
+
     // unicorns
     // Pass error message when throwing errors
     "unicorn/error-message": "error",
@@ -417,7 +422,6 @@ module.exports = {
     "import/no-named-as-default-member": "off",
     "import/no-named-as-default": "off",
     "import/namespace": "off",
-    "n/no-callback-literal": "off",
 
     "sort-imports": [
       "error",
