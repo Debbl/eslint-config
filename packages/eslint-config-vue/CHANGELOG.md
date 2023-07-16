@@ -1,5 +1,14 @@
 # @debbl/eslint-config-vue
 
+## 0.0.48
+
+### Patch Changes
+
+- [`90a9b3a`](https://github.com/Debbl/eslint-config/commit/90a9b3ab48ecd5c145bbeafc9b07e95b32a6ce19) Thanks [@Debbl](https://github.com/Debbl)! - change some rules
+
+- Updated dependencies [[`90a9b3a`](https://github.com/Debbl/eslint-config/commit/90a9b3ab48ecd5c145bbeafc9b07e95b32a6ce19)]:
+  - @debbl/eslint-config-ts@0.0.48
+
 ## 0.0.47
 
 ### Patch Changes
