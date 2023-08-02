@@ -2,7 +2,7 @@
   "name": "@debbl/eslint-config-monorepo",
   "version": "0.0.1",
   "private": true,
-  "packageManager": "pnpm@8.6.7",
+  "packageManager": "pnpm@8.6.11",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
   "license": "MIT",
@@ -18,7 +18,7 @@
     "@changesets/cli": "^2.26.2",
     "@debbl/eslint-config-basic": "workspace:*",
     "@debbl/eslint-config-prettier": "workspace:*",
-    "eslint": "^8.45.0",
+    "eslint": "^8.46.0",
     "typescript": "^5.1.6"
   }
 }
