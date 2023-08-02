@@ -1,5 +1,14 @@
 # @debbl/eslint-config-solid
 
+## 0.0.49
+
+### Patch Changes
+
+- [`8420343`](https://github.com/Debbl/eslint-config/commit/842034389f736769128ec08b9e9b603e25327961) Thanks [@Debbl](https://github.com/Debbl)! - change some rules
+
+- Updated dependencies [[`8420343`](https://github.com/Debbl/eslint-config/commit/842034389f736769128ec08b9e9b603e25327961)]:
+  - @debbl/eslint-config-ts@0.0.49
+
 ## 0.0.48
 
 ### Patch Changes
