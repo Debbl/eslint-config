@@ -143,7 +143,7 @@ module.exports = {
           },
           {
             pathPattern: "^exports.*$",
-            order: ["types", "import", "require"],
+            order: ["types", "import", "require", "default"],
           },
         ],
       },
