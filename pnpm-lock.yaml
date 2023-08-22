@@ -18,7 +18,7 @@ importers:
         specifier: ^9.2.0
         version: 9.2.0
       eslint:
-        specifier: ^8.46.0
+        specifier: ^8.47.0
         version: 8.47.0
       typescript:
         specifier: ^5.1.6
@@ -33,7 +33,7 @@ importers:
         specifier: ^7.1.0
         version: 7.1.0
       eslint-plugin-import:
-        specifier: ^2.28.0
+        specifier: ^2.28.1
         version: 2.28.1(eslint@8.47.0)
       eslint-plugin-jsonc:
         specifier: ^2.9.0
@@ -67,7 +67,7 @@ importers:
         version: 1.2.2
     devDependencies:
       eslint:
-        specifier: ^8.46.0
+        specifier: ^8.47.0
         version: 8.47.0
 
   packages/eslint-config:
@@ -89,13 +89,13 @@ importers:
         version: link:../eslint-config-vue
     devDependencies:
       eslint:
-        specifier: ^8.46.0
+        specifier: ^8.47.0
         version: 8.47.0
 
   packages/eslint-config-prettier:
     dependencies:
       eslint-config-prettier:
-        specifier: ^8.9.0
+        specifier: ^8.10.0
         version: 8.10.0(eslint@8.47.0)
       eslint-plugin-prettier:
         specifier: ^4.2.1
@@ -105,7 +105,7 @@ importers:
         version: 2.8.8
     devDependencies:
       eslint:
-        specifier: ^8.46.0
+        specifier: ^8.47.0
         version: 8.47.0
 
   packages/eslint-config-react:
@@ -114,14 +114,14 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config-ts
       eslint-plugin-react:
-        specifier: ^7.33.1
+        specifier: ^7.33.2
         version: 7.33.2(eslint@8.47.0)
       eslint-plugin-react-hooks:
         specifier: ^4.6.0
         version: 4.6.0(eslint@8.47.0)
     devDependencies:
       eslint:
-        specifier: ^8.46.0
+        specifier: ^8.47.0
         version: 8.47.0
 
   packages/eslint-config-solid:
@@ -134,7 +134,7 @@ importers:
         version: 0.12.1(eslint@8.47.0)(typescript@5.1.6)
     devDependencies:
       eslint:
-        specifier: ^8.46.0
+        specifier: ^8.47.0
         version: 8.47.0
       typescript:
         specifier: ^5.1.6
@@ -147,7 +147,7 @@ importers:
         version: 3.13.0(tailwindcss@3.3.3)
     devDependencies:
       eslint:
-        specifier: ^8.46.0
+        specifier: ^8.47.0
         version: 8.47.0
 
   packages/eslint-config-ts:
@@ -163,7 +163,7 @@ importers:
         version: 5.62.0(eslint@8.47.0)(typescript@5.1.6)
     devDependencies:
       eslint:
-        specifier: ^8.46.0
+        specifier: ^8.47.0
         version: 8.47.0
       typescript:
         specifier: ^5.1.6
@@ -178,14 +178,14 @@ importers:
         specifier: workspace:*
         version: link:../eslint-config-ts
       eslint-plugin-vue:
-        specifier: ^9.16.1
+        specifier: ^9.17.0
         version: 9.17.0(eslint@8.47.0)
       local-pkg:
         specifier: ^0.4.3
         version: 0.4.3
     devDependencies:
       eslint:
-        specifier: ^8.46.0
+        specifier: ^8.47.0
         version: 8.47.0
 
 packages:
