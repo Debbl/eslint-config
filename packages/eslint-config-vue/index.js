@@ -1,5 +1,17 @@
+const { isPackageExists } = require("local-pkg");
+
+const isTS = isPackageExists("typescript");
+
+if (!isTS)
+  console.warn(
+    "[@debbl/eslint-config] Typescript not found, using JavaScript rules"
+  );
+
 module.exports = {
-  extends: ["plugin:vue/vue3-essential", "@debbl/eslint-config-ts"],
+  extends: [
+    "plugin:vue/vue3-recommended",
+    isTS ? "@debbl/eslint-config-ts" : "@debbl/eslint-config-basic",
+  ],
   overrides: [
     {
       files: ["*.vue"],
@@ -8,9 +20,13 @@ module.exports = {
         parser: "@typescript-eslint/parser",
       },
       rules: {
-        "no-unused-vars": "warn",
-        "no-undef": "warn",
-        "@typescript-eslint/no-unused-vars": "warn",
+        "no-unused-vars": "off",
+        "no-undef": "off",
+        ...(isTS
+          ? {
+              "@typescript-eslint/no-unused-vars": "warn",
+            }
+          : null),
       },
     },
   ],
