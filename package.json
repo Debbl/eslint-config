@@ -12,8 +12,6 @@
     "release": "bumpp -r && pnpm -r publish"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.4.8",
-    "@changesets/cli": "^2.26.2",
     "@debbl/eslint-config-basic": "workspace:*",
     "@debbl/eslint-config-prettier": "workspace:*",
     "bumpp": "^9.2.0",
