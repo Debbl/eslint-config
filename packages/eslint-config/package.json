@@ -1,6 +1,6 @@
 {
   "name": "@debbl/eslint-config",
-  "version": "0.0.50",
+  "version": "0.0.51",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
   "license": "MIT",
@@ -19,7 +19,7 @@
     "eslint": ">=8.24.0"
   },
   "devDependencies": {
-    "eslint": "^8.46.0"
+    "eslint": "^8.47.0"
   },
   "dependencies": {
     "@debbl/eslint-config-prettier": "workspace:*",

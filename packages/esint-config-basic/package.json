@@ -1,6 +1,6 @@
 {
   "name": "@debbl/eslint-config-basic",
-  "version": "0.0.50",
+  "version": "0.0.51",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
   "license": "MIT",
@@ -19,7 +19,7 @@
   "dependencies": {
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-html": "^7.1.0",
-    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-jsonc": "^2.9.0",
     "eslint-plugin-markdown": "^3.0.1",
     "eslint-plugin-n": "^15.7.0",
@@ -32,6 +32,6 @@
     "yaml-eslint-parser": "^1.2.2"
   },
   "devDependencies": {
-    "eslint": "^8.46.0"
+    "eslint": "^8.47.0"
   }
 }
