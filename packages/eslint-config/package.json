@@ -26,6 +26,7 @@
     "@debbl/eslint-config-react": "workspace:*",
     "@debbl/eslint-config-solid": "workspace:*",
     "@debbl/eslint-config-tailwindcss": "workspace:*",
-    "@debbl/eslint-config-vue": "workspace:*"
+    "@debbl/eslint-config-vue": "workspace:*",
+    "local-pkg": "^0.4.3"
   }
 }
