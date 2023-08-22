@@ -1,0 +1,31 @@
+{
+  "name": "@debbl/eslint-config",
+  "version": "0.0.50",
+  "description": "",
+  "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
+  "license": "MIT",
+  "homepage": "https://github.com/Debbl/eslint-config",
+  "keywords": [
+    "eslint-config"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "eslint": ">=8.24.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.46.0"
+  },
+  "dependencies": {
+    "@debbl/eslint-config-prettier": "workspace:*",
+    "@debbl/eslint-config-react": "workspace:*",
+    "@debbl/eslint-config-solid": "workspace:*",
+    "@debbl/eslint-config-tailwindcss": "workspace:*",
+    "@debbl/eslint-config-vue": "workspace:*"
+  }
+}
