@@ -1,6 +1,6 @@
 {
   "name": "@debbl/eslint-config-vue",
-  "version": "0.0.49",
+  "version": "0.0.3",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
   "license": "MIT",
