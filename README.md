@@ -4,23 +4,26 @@
 
 # 使用
 
-- `@debbl/eslint-config-basic` 基础配置 JavaScript
+- `@debbl/eslint-config`
+  - 会根据安装的包，自动使用如下的规则
 - `@debbl/eslint-config-ts` TypeScript
 - `@debbl/eslint-config-vue` Vue
 - `@debbl/eslint-config-react` React
-- `@debbl/eslint-config-prettier` 添加 Prettier
+- `@debbl/eslint-config-prettier` Prettier
+- `@debbl/eslint-config-solid` Solid
+- `@debbl/eslint-config-tailwindcss` Tailwindcss
 
 ## 安装
 
 ```bash
-pnpm i @debbl/eslint-config-basic -D
+pnpm i @debbl/eslint-config -D
 ```
 
 ### 配置 `.eslintrc.cjs`
 
 ```js
 module.exports = {
-  extends: ["@debbl/eslint-config-basic"],
+  extends: ["@debbl"],
 };
 ```
 
