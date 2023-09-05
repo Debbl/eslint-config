@@ -90,9 +90,6 @@ importers:
       '@debbl/eslint-config-vue':
         specifier: workspace:*
         version: link:../eslint-config-vue
-      local-pkg:
-        specifier: ^0.4.3
-        version: 0.4.3
     devDependencies:
       eslint:
         specifier: ^8.48.0
