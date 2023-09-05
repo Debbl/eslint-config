@@ -12,8 +12,7 @@
     "release": "bumpp -r && pnpm -r publish"
   },
   "devDependencies": {
-    "@debbl/eslint-config-basic": "workspace:*",
-    "@debbl/eslint-config-prettier": "workspace:*",
+    "@debbl/eslint-config": "workspace:*",
     "bumpp": "^9.2.0",
     "eslint": "^8.48.0",
     "typescript": "^5.2.2"

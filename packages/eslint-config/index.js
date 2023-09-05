@@ -17,6 +17,9 @@ const allowExtends = [
   isPrettier ? "@debbl/eslint-config-prettier" : null,
 ].filter(Boolean);
 
+// eslint-disable-next-line no-console
+console.info("[@debbl/eslint-config] Current running extends:", allowExtends);
+
 module.exports = {
   extends: allowExtends,
 };

@@ -8,12 +8,9 @@ importers:
 
   .:
     devDependencies:
-      '@debbl/eslint-config-basic':
+      '@debbl/eslint-config':
         specifier: workspace:*
-        version: link:packages/esint-config-basic
-      '@debbl/eslint-config-prettier':
-        specifier: workspace:*
-        version: link:packages/eslint-config-prettier
+        version: link:packages/eslint-config
       bumpp:
         specifier: ^9.2.0
         version: 9.2.0
