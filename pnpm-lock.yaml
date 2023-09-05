@@ -72,6 +72,9 @@ importers:
 
   packages/eslint-config:
     dependencies:
+      '@debbl/eslint-config-basic':
+        specifier: workspace:*
+        version: link:../esint-config-basic
       '@debbl/eslint-config-prettier':
         specifier: workspace:*
         version: link:../eslint-config-prettier
@@ -84,6 +87,9 @@ importers:
       '@debbl/eslint-config-tailwindcss':
         specifier: workspace:*
         version: link:../eslint-config-tailwindcss
+      '@debbl/eslint-config-ts':
+        specifier: workspace:*
+        version: link:../eslint-config-ts
       '@debbl/eslint-config-vue':
         specifier: workspace:*
         version: link:../eslint-config-vue

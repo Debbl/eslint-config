@@ -18,15 +18,17 @@
   "peerDependencies": {
     "eslint": ">=8.24.0"
   },
-  "devDependencies": {
-    "eslint": "^8.47.0"
-  },
   "dependencies": {
+    "@debbl/eslint-config-basic": "workspace:*",
     "@debbl/eslint-config-prettier": "workspace:*",
     "@debbl/eslint-config-react": "workspace:*",
     "@debbl/eslint-config-solid": "workspace:*",
     "@debbl/eslint-config-tailwindcss": "workspace:*",
+    "@debbl/eslint-config-ts": "workspace:*",
     "@debbl/eslint-config-vue": "workspace:*",
     "local-pkg": "^0.4.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.47.0"
   }
 }
