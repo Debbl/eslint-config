@@ -30,13 +30,16 @@ console.info("[@debbl/eslint-config] Current running extends:", allowExtends);
 
 // determine if the package is exists
 function isPackageExists(name) {
-  const { dependencies, devDependencies } = require(path.resolve(
-    cwd(),
-    "./package.json"
-  ));
+  const {
+    dependencies = [],
+    devDependencies = [],
+    peerDependencies = [],
+  } = require(path.resolve(cwd(), "./package.json"));
+
   return (
     Object.keys(dependencies || {}).includes(name) ||
-    Object.keys(devDependencies || {}).includes(name)
+    Object.keys(devDependencies || {}).includes(name) ||
+    Object.keys(peerDependencies || {}).includes(name)
   );
 }
 
