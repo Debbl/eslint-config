@@ -3,7 +3,7 @@ const fs = require("node:fs");
 const { join } = require("node:path");
 const basic = require("@debbl/eslint-config-basic");
 
-const tsconfig = process.env.ESLINT_TSCONFIG || "tsconfig.eslint.json";
+const tsconfig = process.env.ESLINT_TSCONFIG || "tsconfig.json";
 
 module.exports = {
   extends: [
