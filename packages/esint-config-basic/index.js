@@ -12,8 +12,9 @@ module.exports = {
     "plugin:jsonc/recommended-with-jsonc",
     "plugin:yml/standard",
     "plugin:markdown/recommended",
+    "plugin:jsdoc/recommended",
   ],
-  plugins: ["html", "unicorn", "no-only-tests", "unused-imports"],
+  plugins: ["html", "unicorn", "no-only-tests", "unused-imports", "jsdoc"],
   settings: {
     "import/resolver": {
       node: { extensions: [".js", ".mjs"] },
@@ -444,5 +445,12 @@ module.exports = {
     // yml
     "yml/quotes": ["error", { prefer: "double", avoidEscape: false }],
     "yml/no-empty-document": "off",
+
+    // jsdoc
+    "jsdoc/require-jsdoc": "off",
+    "jsdoc/require-param-type": "off",
+    "jsdoc/require-param-description": "off",
+    "jsdoc/require-yields": "off",
+    "jsdoc/tag-lines": "off",
   },
 };
