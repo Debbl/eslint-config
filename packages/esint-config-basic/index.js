@@ -171,6 +171,13 @@ module.exports = {
       },
     },
     {
+      files: ["*.ts", "*.tsx", "*.mts", "*.cts"],
+      rules: {
+        "no-void": ["error", { allowAsStatement: true }],
+        "dot-notation": "off",
+      },
+    },
+    {
       files: ["scripts/**/*.*", "cli.*"],
       rules: {
         "no-console": "error",
