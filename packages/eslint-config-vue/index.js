@@ -40,9 +40,9 @@ module.exports = {
     "vue/no-v-text-v-html-on-component": "off",
 
     // reactivity transform
-    "vue/no-setup-props-destructure": "off",
+    "vue/no-setup-props-reactivity-loss": "off",
 
-    "vue/component-tags-order": [
+    "vue/block-order": [
       "error",
       {
         order: ["script", "template", "style"],
