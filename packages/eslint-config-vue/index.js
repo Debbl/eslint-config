@@ -17,7 +17,7 @@ module.exports = {
       files: ["*.vue"],
       parser: "vue-eslint-parser",
       parserOptions: {
-        parser: "@typescript-eslint/parser",
+        parser: isTS ? "@typescript-eslint/parser" : null,
       },
       rules: {
         "no-unused-vars": "off",
