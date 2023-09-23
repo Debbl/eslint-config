@@ -1,7 +1,7 @@
 {
   "name": "@debbl/eslint-config-solid",
   "type": "module",
-  "version": "0.0.64",
+  "version": "1.0.0-beta.0",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
   "license": "MIT",
