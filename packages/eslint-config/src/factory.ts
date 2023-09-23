@@ -38,6 +38,7 @@ export function config(
   const enableSolid = options.solid;
   const enableTailwindcss = options.tailwindcss;
   const enableTypeScript = options.ts;
+  const enablePrettier = options.prettier ?? true;
 
   const configs = [
     ignores,
@@ -66,17 +67,17 @@ export function config(
         tsWithLanguageServer({
           ...enableTypeScript,
           componentExts,
-        }),
+        })
       );
     }
   }
 
-  if (enableVue) configs.push(vue({ ts: !!enableTypeScript }));
-  if (enableReact) configs.push(react({ ts: !enableTypeScript }));
-  if (enableSolid) configs.push(solid());
-  if (enableTailwindcss) configs.push(tailwindcss());
+  enableVue && configs.push(vue({ ts: !!enableTypeScript }));
+  enableReact && configs.push(react({ ts: !enableTypeScript }));
+  enableSolid && configs.push(solid());
+  enableTailwindcss && configs.push(tailwindcss());
 
-  configs.push(prettier());
+  enablePrettier && configs.push(prettier());
 
   return combine(...configs, ...userConfigs);
 }
