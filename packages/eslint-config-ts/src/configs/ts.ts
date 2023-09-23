@@ -1,10 +1,11 @@
 import { type FlatESLintConfigItem } from "eslint-define-config";
 import { GLOB_TS, GLOB_TSX } from "../../../../src/globs";
-import { parserTs, pluginImport, pluginTs } from "../plugins";
-import {
-  OFF,
+import { parserTs, pluginTs } from "../plugins";
+import type {
   OptionsComponentExts,
-  OptionsTypeScriptWithLanguageServer,
+  OptionsTypeScriptWithLanguageServer} from "../share";
+import {
+  OFF
 } from "../share";
 
 export function ts(
@@ -22,7 +23,6 @@ export function ts(
         },
       },
       plugins: {
-        "import": pluginImport,
         "@typescript-eslint": pluginTs,
       },
       rules: {

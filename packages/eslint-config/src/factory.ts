@@ -47,7 +47,7 @@ export function config(
   const enableSolid = options.solid ?? isPackageExists("solid-js");
   const enableTailwindcss =
     options.tailwindcss ?? isPackageExists("tailwindcss");
-  const enableTypeScript = options.typescript ?? isPackageExists("typescript");
+  const enableTypeScript = options.ts ?? isPackageExists("typescript");
 
   const configs = [
     ignores,

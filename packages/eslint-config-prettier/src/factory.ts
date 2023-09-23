@@ -1,4 +1,4 @@
-import { FlatESLintConfigItem } from "eslint-define-config";
+import type { FlatESLintConfigItem } from "eslint-define-config";
 import { combine } from "./share";
 import { prettier as _prettier } from "./configs";
 

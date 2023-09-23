@@ -1,23 +1,11 @@
-import { FlatESLintConfigItem } from "eslint-define-config";
+import type { FlatESLintConfigItem } from "eslint-define-config";
 import { ts } from "@debbl/eslint-config-ts";
+import type { OptionsConfigBasic} from "./share";
 import { combine } from "./share";
 import { react as _react } from "./configs";
 
 export function react(
-  options: {
-    componentExts: string[];
-    isInEditor?: boolean;
-    test: boolean;
-    jsonc: boolean;
-    yml: boolean;
-    markdown: boolean;
-  } = {
-    componentExts: [],
-    test: true,
-    jsonc: true,
-    yml: true,
-    markdown: true,
-  },
+  options: OptionsConfigBasic = {},
   ...userConfigs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]
 ) {
   return combine(ts(options), _react, ...userConfigs);
