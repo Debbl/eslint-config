@@ -4,6 +4,9 @@
     "build": {
       "outputs": ["**/dist/**"],
       "dependsOn": ["^build"]
+    },
+    "release": {
+      "dependsOn": ["build"]
     }
   }
 }
