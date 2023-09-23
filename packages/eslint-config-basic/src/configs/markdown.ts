@@ -5,7 +5,7 @@ import { OFF } from "../../../../src/flags";
 import type { OptionsComponentExts } from "../../../../src/types";
 
 export function markdown(
-  options: OptionsComponentExts = {}
+  options: OptionsComponentExts = {},
 ): FlatESLintConfigItem[] {
   const { componentExts = [] } = options;
 
@@ -20,7 +20,7 @@ export function markdown(
     {
       files: [
         GLOB_MARKDOWN_CODE,
-        ...componentExts.map(ext => `${GLOB_MARKDOWN}/**/*.${ext}`),
+        ...componentExts.map((ext) => `${GLOB_MARKDOWN}/**/*.${ext}`),
       ],
       languageOptions: {
         parserOptions: {
