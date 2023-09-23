@@ -1,5 +1,6 @@
 {
   "name": "@debbl/eslint-config",
+  "type": "module",
   "version": "0.0.64",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
@@ -8,12 +9,12 @@
   "keywords": [
     "eslint-config"
   ],
-  "main": "index.js",
+  "main": "dist/index.js",
   "files": [
-    "index.js"
+    "dist"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsup src/index.ts --format esm --clean --dts"
   },
   "peerDependencies": {
     "eslint": ">=8.24.0"
@@ -28,6 +29,6 @@
     "@debbl/eslint-config-vue": "workspace:*"
   },
   "devDependencies": {
-    "eslint": "^8.49.0"
+    "eslint": "^8.50.0"
   }
 }

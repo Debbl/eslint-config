@@ -1,5 +1,6 @@
 {
   "name": "@debbl/eslint-config-solid",
+  "type": "module",
   "version": "0.0.64",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
@@ -9,20 +10,23 @@
     "eslint-config",
     "solid"
   ],
-  "main": "index.js",
+  "main": "dist/index.js",
   "files": [
-    "index.js"
+    "dist"
   ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --clean --dts"
+  },
   "peerDependencies": {
     "eslint": ">=8.24.0",
     "typescript": ">=4.9.5"
   },
   "dependencies": {
     "@debbl/eslint-config-ts": "workspace:*",
-    "eslint-plugin-solid": "^0.12.1"
+    "eslint-plugin-solid": "^0.13.0"
   },
   "devDependencies": {
-    "eslint": "^8.49.0",
+    "eslint": "^8.50.0",
     "typescript": "^5.2.2"
   }
 }

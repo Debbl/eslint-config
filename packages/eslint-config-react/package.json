@@ -1,5 +1,6 @@
 {
   "name": "@debbl/eslint-config-react",
+  "type": "module",
   "version": "0.0.64",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
@@ -9,19 +10,22 @@
     "eslint-config",
     "react"
   ],
-  "main": "index.js",
+  "main": "dist/index.js",
   "files": [
-    "index.js"
+    "dist"
   ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --clean --dts"
+  },
   "peerDependencies": {
     "eslint": ">=8.24.0"
   },
   "dependencies": {
     "@debbl/eslint-config-ts": "workspace:*",
     "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.5.0 || 5.0.0-canary-7118f5dd7-20230705"
+    "eslint-plugin-react-hooks": "^4.6.0"
   },
   "devDependencies": {
-    "eslint": "^8.49.0"
+    "eslint": "^8.50.0"
   }
 }
