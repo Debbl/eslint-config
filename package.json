@@ -9,8 +9,8 @@
   "license": "MIT",
   "keywords": [],
   "scripts": {
-    "build": "turbo build",
     "lint": "eslint . --fix",
+    "build": "pnpm lint && turbo build",
     "release": "turbo release && bumpp -r && pnpm -r publish"
   },
   "devDependencies": {
