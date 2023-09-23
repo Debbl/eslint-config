@@ -7,7 +7,7 @@ import type { FlatESLintConfigItem } from "eslint-define-config";
 export function combine(
   ...configs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]
 ): FlatESLintConfigItem[] {
-  return configs.flatMap(config =>
-    Array.isArray(config) ? config : [config]
+  return configs.flatMap((config) =>
+    Array.isArray(config) ? config : [config],
   );
 }

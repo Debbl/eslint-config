@@ -2,25 +2,21 @@ import process from "node:process";
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import { isPackageExists } from "local-pkg";
 import {
+  basic,
   comments,
   ignores,
   imports,
   js,
   jsdoc,
-  jsonc,
-  markdown,
   node,
-  sortPackageJson,
-  sortTsconfig,
-  test,
   unicorn,
-  yml,
 } from "@debbl/eslint-config-basic";
 import { ts, tsWithLanguageServer } from "@debbl/eslint-config-ts";
 import { vue } from "@debbl/eslint-config-vue";
 import { react } from "@debbl/eslint-config-react";
 import { solid } from "@debbl/eslint-config-solid";
 import { tailwindcss } from "@debbl/eslint-config-tailwindcss";
+import { prettier } from "@debbl/eslint-config-prettier";
 import type { OptionsConfig } from "./share";
 import { combine } from "./share";
 
@@ -66,6 +62,8 @@ export function config(
   if (enableSolid) componentExts.push("solid");
   if (enableTailwindcss) componentExts.push("tailwindcss");
 
+  configs.push(basic(options));
+
   if (enableTypeScript) {
     configs.push(ts({ componentExts }));
 
@@ -74,25 +72,17 @@ export function config(
         tsWithLanguageServer({
           ...enableTypeScript,
           componentExts,
-        })
+        }),
       );
     }
   }
 
-  if (options.test ?? true) configs.push(test({ isInEditor }));
-
   if (enableVue) configs.push(vue({ ts: !!enableTypeScript }));
-  if (enableReact) configs.push(react());
+  if (enableReact) configs.push(react({ ts: !enableTypeScript }));
   if (enableSolid) configs.push(solid());
   if (enableTailwindcss) configs.push(tailwindcss());
 
-  if (options.jsonc ?? true) {
-    configs.push(jsonc, sortPackageJson, sortTsconfig);
-  }
-
-  if (options.yaml ?? true) configs.push(yml);
-
-  if (options.markdown ?? true) configs.push(markdown({ componentExts }));
+  configs.push(prettier());
 
   return combine(...configs, ...userConfigs);
 }

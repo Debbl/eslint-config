@@ -4,7 +4,7 @@ import { parserTs, parserVue, pluginVue } from "../plugins";
 import type { OptionsHasTypeScript } from "../share";
 
 export function vue(
-  options: OptionsHasTypeScript = {}
+  options: OptionsHasTypeScript = {},
 ): FlatESLintConfigItem[] {
   return [
     {

@@ -19,7 +19,7 @@ export const yml: FlatESLintConfigItem[] = [
       "yml/no-empty-document": OFF,
       "yml/no-empty-mapping-value": OFF,
 
-      "yml/quotes": ["error", { avoidEscape: false, prefer: "single" }],
+      "yml/quotes": ["error", { avoidEscape: false, prefer: "double" }],
     },
   },
 ];

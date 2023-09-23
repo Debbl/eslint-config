@@ -1,6 +1,6 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import { basic } from "@debbl/eslint-config-basic";
-import type { OptionsConfigBasic} from "./share";
+import type { OptionsConfigBasic } from "./share";
 import { combine } from "./share";
 import { ts as _ts } from "./configs";
 
