@@ -1,6 +1,5 @@
 import process from "node:process";
 import type { FlatESLintConfigItem } from "eslint-define-config";
-import { isPackageExists } from "local-pkg";
 import {
   basic,
   comments,
@@ -33,17 +32,12 @@ export function config(
       (process.env.VSCODE_PID || process.env.JETBRAINS_IDE) &&
       !process.env.CI
     );
-  const enableVue =
-    options.vue ??
-    (isPackageExists("vue") ||
-      isPackageExists("nuxt") ||
-      isPackageExists("vitepress") ||
-      isPackageExists("@slidev/cli"));
-  const enableReact = options.react ?? isPackageExists("react");
-  const enableSolid = options.solid ?? isPackageExists("solid-js");
-  const enableTailwindcss =
-    options.tailwindcss ?? isPackageExists("tailwindcss");
-  const enableTypeScript = options.ts ?? isPackageExists("typescript");
+
+  const enableVue = options.vue;
+  const enableReact = options.react;
+  const enableSolid = options.solid;
+  const enableTailwindcss = options.tailwindcss;
+  const enableTypeScript = options.ts;
 
   const configs = [
     ignores,
@@ -65,7 +59,7 @@ export function config(
   configs.push(basic(options));
 
   if (enableTypeScript) {
-    configs.push(ts({ componentExts }));
+    configs.push(ts({ ...options, componentExts }));
 
     if (typeof enableTypeScript !== "boolean") {
       configs.push(
