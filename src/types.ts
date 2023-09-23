@@ -17,9 +17,7 @@ export interface OptionsIsInEditor {
   isInEditor?: boolean;
 }
 
-export interface OptionsHasTypeScript {
-  typescript?: boolean;
-}
+export type OptionsHasTypeScript = Pick<OptionsConfig, "ts">;
 
 export interface OptionsConfig {
   /**
@@ -29,7 +27,7 @@ export interface OptionsConfig {
    *
    * @default auto-detect based on the dependencies
    */
-  typescript?: boolean | OptionsTypeScriptWithLanguageServer;
+  ts?: boolean | OptionsTypeScriptWithLanguageServer;
 
   /**
    * Enable test support.
@@ -99,4 +97,12 @@ export interface OptionsConfig {
    * @default auto-detect based on the process.env
    */
   isInEditor?: boolean;
+}
+
+export interface OptionsConfigBasic
+  extends Pick<
+    OptionsConfig,
+    "ts" | "isInEditor" | "test" | "jsonc" | "yaml" | "markdown"
+  > {
+  componentExts?: string[];
 }

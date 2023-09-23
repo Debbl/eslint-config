@@ -1,5 +1,6 @@
 import process from "node:process";
 import type { FlatESLintConfigItem } from "eslint-define-config";
+import type { OptionsConfigBasic} from "./share";
 import { combine } from "./share";
 import {
   comments,
@@ -18,14 +19,7 @@ import {
 } from "./configs";
 
 export function basic(
-  options: {
-    componentExts?: string[];
-    isInEditor?: boolean;
-    test?: boolean;
-    jsonc?: boolean;
-    yml?: boolean;
-    markdown?: boolean;
-  },
+  options: OptionsConfigBasic = {},
   ...userConfigs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]
 ) {
   const isInEditor =
@@ -51,7 +45,7 @@ export function basic(
     configs.push(jsonc, sortPackageJson, sortTsconfig);
   }
 
-  if (options.yml ?? true) configs.push(yml);
+  if (options.yaml ?? true) configs.push(yml);
 
   if (options.markdown ?? true)
     configs.push(markdown({ componentExts: options.componentExts }));

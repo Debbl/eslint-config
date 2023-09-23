@@ -10,7 +10,7 @@
   "keywords": [],
   "scripts": {
     "lint": "eslint . --fix",
-    "build": "pnpm lint && turbo build",
+    "build": "turbo build",
     "release": "turbo release && bumpp -r && pnpm -r publish"
   },
   "devDependencies": {
