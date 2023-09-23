@@ -4,8 +4,8 @@ import { pluginReact, pluginReactHooks } from "../plugins";
 export const react: FlatESLintConfigItem[] = [
   {
     plugins: {
-      react: pluginReact,
-      reactHooks: pluginReactHooks,
+      "react": pluginReact,
+      "react-hooks": pluginReactHooks,
     },
     settings: {
       react: {
@@ -13,8 +13,8 @@ export const react: FlatESLintConfigItem[] = [
       },
     },
     rules: {
-      ...pluginReact.configs.recommended,
-      ...pluginReactHooks.configs.recommended,
+      ...pluginReact.configs.recommended.rules,
+      ...pluginReactHooks.configs.recommended.rules,
 
       "jsx-quotes": ["error", "prefer-double"],
       "react/react-in-jsx-scope": "off",
