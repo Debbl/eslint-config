@@ -25,7 +25,7 @@ export interface OptionsConfig {
    *
    * Passing an object to enable TypeScript Language Server support.
    *
-   * @default auto-detect based on the dependencies
+   * @default false
    */
   ts?: boolean | OptionsTypeScriptWithLanguageServer;
 
@@ -39,30 +39,37 @@ export interface OptionsConfig {
   /**
    * Enable Vue support.
    *
-   * @default auto-detect based on the dependencies
+   * @default false
    */
   vue?: boolean;
 
   /**
    * Enable React support.
    *
-   * @default auto-detect based on the dependencies
+   * @default false
    */
   react?: boolean;
 
   /**
    * Enable Solid support.
    *
-   * @default auto-detect based on the dependencies
+   * @default false
    */
   solid?: boolean;
 
   /**
    * Enable TailwindCSS support.
    *
-   * @default auto-detect based on the dependencies
+   * @default false
    */
   tailwindcss?: boolean;
+
+  /**
+   * Enable TailwindCSS support.
+   *
+   * @default true
+   */
+  prettier?: boolean;
 
   /**
    * Enable JSONC support.
