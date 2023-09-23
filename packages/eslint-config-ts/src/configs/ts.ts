@@ -2,28 +2,12 @@ import { type FlatESLintConfigItem } from "eslint-define-config";
 import { GLOB_TS, GLOB_TSX } from "../../../../src/globs";
 import { parserTs, pluginImport, pluginTs } from "../plugins";
 import {
+  OFF,
   OptionsComponentExts,
   OptionsTypeScriptWithLanguageServer,
-} from "../../../../src/types";
-import { OFF } from "../../../../src/flags";
+} from "../share";
 
-export const ts: FlatESLintConfigItem[] = [
-  {
-    files: [GLOB_TS, GLOB_TSX],
-    languageOptions: {
-      parser: parserTs,
-      parserOptions: {
-        sourceType: "module",
-      },
-    },
-    plugins: {
-      "@typescript-eslint": pluginTs,
-    },
-    rules: {},
-  },
-];
-
-export function typescript(
+export function ts(
   options?: OptionsComponentExts
 ): FlatESLintConfigItem[] {
   const { componentExts = [] } = options ?? {};
@@ -43,51 +27,63 @@ export function typescript(
       },
       rules: {
         ...pluginTs.configs["eslint-recommended"].overrides![0].rules!,
-
         ...pluginTs.configs.strict.rules!,
 
-        "@typescript-eslint/ban-ts-comment": "off",
-        "@typescript-eslint/ban-types": "off",
-        "@typescript-eslint/consistent-type-assertions": [
-          "error",
-          {
-            assertionStyle: "as",
-            objectLiteralTypeAssertions: "allow-as-parameter",
-          },
-        ],
-        "@typescript-eslint/consistent-type-imports": [
-          "error",
-          { disallowTypeAnnotations: false, fixStyle: "inline-type-imports" },
-        ],
-        "@typescript-eslint/no-explicit-any": "off",
-        "@typescript-eslint/no-non-null-assertion": "off",
-        "@typescript-eslint/no-redeclare": "error",
+        'no-dupe-class-members': OFF,
+        'no-extra-parens': OFF,
+        'no-invalid-this': OFF,
+        'no-loss-of-precision': OFF,
+        'no-redeclare': OFF,
+        'no-use-before-define': OFF,
+        'no-useless-constructor': OFF,
 
-        // handled by unused-imports/no-unused-imports
-        "@typescript-eslint/no-unused-vars": "off",
-
-        "@typescript-eslint/prefer-as-const": "warn",
+        // TS
+        '@typescript-eslint/ban-ts-comment': ['error', { 'ts-ignore': 'allow-with-description' }],
+        '@typescript-eslint/ban-ts-ignore': OFF,
+        '@typescript-eslint/consistent-indexed-object-style': OFF,
+        '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+        '@typescript-eslint/consistent-type-imports': ['error', { disallowTypeAnnotations: false, prefer: 'type-imports' }],
+        '@typescript-eslint/explicit-function-return-type': OFF,
+        '@typescript-eslint/explicit-member-accessibility': OFF,
+        '@typescript-eslint/explicit-module-boundary-types': OFF,
+        '@typescript-eslint/naming-convention': OFF,
+        '@typescript-eslint/no-dupe-class-members': 'error',
+        '@typescript-eslint/no-empty-function': OFF,
+        '@typescript-eslint/no-empty-interface': OFF,
+        '@typescript-eslint/no-explicit-any': OFF,
+        '@typescript-eslint/no-extra-parens': ['error', 'functions'],
+        '@typescript-eslint/no-invalid-this': 'error',
+        '@typescript-eslint/no-loss-of-precision': 'error',
+        '@typescript-eslint/no-invalid-void-type': OFF,
+        '@typescript-eslint/no-non-null-assertion': OFF,
+        '@typescript-eslint/no-redeclare': 'error',
+        '@typescript-eslint/no-require-imports': 'error',
+        '@typescript-eslint/no-unused-vars': OFF,
+        '@typescript-eslint/no-use-before-define': ['error', { classes: false, functions: false, variables: true }],
+        '@typescript-eslint/parameter-properties': OFF,
+        '@typescript-eslint/prefer-ts-expect-error': 'error',
+        '@typescript-eslint/triple-slash-reference': OFF,
       },
     },
     {
-      files: ["**/*.d.ts"],
+      files: ['**/*.d.ts'],
       rules: {
-        "eslint-comments/no-unlimited-disable": "off",
-        "import/no-duplicates": "off",
-        "unused-imports/no-unused-vars": "off",
+        'eslint-comments/no-unlimited-disable': OFF,
+        'import/no-duplicates': OFF,
+        'unused-imports/no-unused-vars': OFF,
       },
     },
     {
-      files: ["**/*.{test,spec}.ts?(x)"],
+      files: ['**/*.{test,spec}.ts?(x)'],
       rules: {
-        "no-unused-expressions": "off",
+        'no-unused-expressions': OFF,
       },
     },
     {
-      files: ["**/*.js", "**/*.cjs"],
+      files: ['**/*.js', '**/*.cjs'],
       rules: {
-        "@typescript-eslint/no-require-imports": "off",
-        "@typescript-eslint/no-var-requires": "off",
+        'ts/no-require-imports': OFF,
+        'ts/no-var-requires': OFF,
       },
     },
   ];

@@ -14,5 +14,5 @@ export function ts(
   },
   ...userConfigs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]
 ) {
-  return combine(basic(options), _ts, ...userConfigs);
+  return combine(basic(options), _ts(options), ...userConfigs);
 }
