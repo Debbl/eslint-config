@@ -1,7 +1,7 @@
 {
   "name": "@debbl/eslint-config-monorepo",
   "type": "module",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "private": true,
   "packageManager": "pnpm@8.7.6",
   "description": "",
@@ -11,7 +11,7 @@
   "scripts": {
     "build": "turbo build",
     "lint": "eslint . --fix",
-    "release": "bumpp -r && pnpm -r publish"
+    "release": "turbo release && bumpp -r && pnpm -r publish"
   },
   "devDependencies": {
     "@debbl/eslint-config": "workspace:*",
