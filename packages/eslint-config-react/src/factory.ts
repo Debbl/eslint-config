@@ -1,17 +1,28 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
-import { ts } from "@debbl/eslint-config-ts";
-import type { OptionsConfigBasic } from "./share";
+import { ts, tsWithLanguageServer } from "@debbl/eslint-config-ts";
+import type { OptionsConfig, OptionsConfigBasic } from "./share";
 import { combine } from "./share";
 import { react as _react } from "./configs";
 
 export function react(
-  options: OptionsConfigBasic = {},
+  options: OptionsConfig = {},
   ...userConfigs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]
 ) {
   const enableTypeScript = options.ts ?? true;
+
   const configs = [];
 
-  if (enableTypeScript) configs.push(ts(options));
+  if (enableTypeScript) {
+    configs.push(ts({ ...options }));
+
+    if (typeof enableTypeScript !== "boolean") {
+      configs.push(
+        tsWithLanguageServer({
+          ...enableTypeScript,
+        }),
+      );
+    }
+  }
   configs.push(_react);
 
   return combine(...configs, ...userConfigs);

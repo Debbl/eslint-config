@@ -9,10 +9,11 @@ export const jsonc: FlatESLintConfigItem[] = [
       parser: parserJsonc,
     },
     plugins: {
-      jsonc: pluginJsonc as any,
+      jsonc: pluginJsonc,
     },
     rules: {
       ...(pluginJsonc.configs["recommended-with-jsonc"].rules as any),
+
       "jsonc/array-bracket-spacing": ["error", "never"],
       "jsonc/comma-dangle": ["error", "never"],
       "jsonc/comma-style": ["error", "last"],
