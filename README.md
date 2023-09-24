@@ -15,7 +15,7 @@
 ## 安装
 
 ```bash
-pnpm i @debbl/eslint-config -D
+pnpm i eslint @debbl/eslint-config -D
 ```
 
 ### 配置 `eslint.config.js`
