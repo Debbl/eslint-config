@@ -40,7 +40,7 @@ export default config();
 - react 默认开启 ts
 - vue 默认开启 ts
 - solid 默认开启 ts
-- 开启 Tailwindcss
+- 开启 tailwindcss
 
 ```js
 import { config } from "@debbl/eslint-config";
