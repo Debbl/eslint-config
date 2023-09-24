@@ -1,6 +1,7 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import { basic } from "@debbl/eslint-config-basic";
 import ts, { tsWithLanguageServer } from "@debbl/eslint-config-ts";
+import type { OptionsConfigBasic } from "dist";
 import type { OptionsConfig } from "./share";
 import { combine } from "./share";
 import { vue as _vue } from "./configs";
@@ -10,15 +11,16 @@ export function vue(
   ...userConfigs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]
 ) {
   const enableTypeScript = options.ts ?? true;
-  const enableVue = options.vue;
 
   const configs = [];
 
   const componentExts: string[] = [];
-  enableVue && componentExts.push("vue");
+  componentExts.push("vue");
+
+  (options as OptionsConfigBasic).componentExts = componentExts;
 
   if (enableTypeScript) {
-    configs.push(ts({ ...options, componentExts }));
+    configs.push(ts(options));
 
     if (typeof enableTypeScript !== "boolean") {
       configs.push(
