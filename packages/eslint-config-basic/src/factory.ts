@@ -29,8 +29,8 @@ export function basic(
       !process.env.CI
     );
 
-  const configs = [
-    ignores,
+  const configs: FlatESLintConfigItem[][] = [
+    ignores(),
     js({ isInEditor }),
     comments,
     node,

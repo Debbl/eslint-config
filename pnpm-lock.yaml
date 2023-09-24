@@ -153,7 +153,7 @@ importers:
   packages/eslint-config-solid:
     dependencies:
       '@debbl/eslint-config-basic':
-        specifier: workspace:1.0.0-beta.8
+        specifier: workspace:*
         version: link:../eslint-config-basic
       '@debbl/eslint-config-ts':
         specifier: workspace:*

@@ -22,7 +22,7 @@
     "typescript": ">=4.9.5"
   },
   "dependencies": {
-    "@debbl/eslint-config-basic": "workspace:1.0.0-beta.8",
+    "@debbl/eslint-config-basic": "workspace:*",
     "@debbl/eslint-config-ts": "workspace:*",
     "eslint-plugin-solid": "^0.13.0"
   },
