@@ -40,6 +40,15 @@ export default config();
 - react 默认开启 ts
 - vue 默认开启 ts
 - solid 默认开启 ts
+- 开启 Tailwindcss
+
+```js
+import { config } from "@debbl/eslint-config";
+
+export default config({
+  tailwindcss: true,
+});
+```
 
 ### 配置 `Prettier`, 会覆盖默认的规则
 
