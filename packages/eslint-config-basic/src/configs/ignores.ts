@@ -14,9 +14,9 @@ export const ignores = (
 
   let ignoreList: string[] = [];
   if (fs.existsSync(gitignorePath)) {
-    ignoreList = splitPattern(fs.readFileSync(gitignorePath).toString()).filter(
-      (i) => !(i.startsWith("#") || i.length === 0),
-    );
+    ignoreList = splitPattern(fs.readFileSync(gitignorePath).toString())
+      .filter((i) => !(i.startsWith("#") || i.length === 0))
+      .map((i) => (i.startsWith("/") ? i.slice(1) : i));
   }
 
   return [{ ignores: [...GLOB_EXCLUDE, ...ignoreList] }];
