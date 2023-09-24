@@ -52,16 +52,13 @@ export function config(
 
   // In the future we may support more component extensions like Svelte or so
   const componentExts: string[] = [];
-  if (enableVue) componentExts.push("vue");
-  if (enableReact) componentExts.push("react");
-  if (enableSolid) componentExts.push("solid");
-  if (enableTailwindcss) componentExts.push("tailwindcss");
+  enableVue && componentExts.push("vue");
 
-  configs.push(basic(options));
-
-  if (enableTypeScript) {
+  if (enableReact) configs.push(react(options));
+  else if (enableVue) configs.push(vue(options));
+  else if (enableSolid) enableSolid && configs.push(solid());
+  else if (enableTypeScript) {
     configs.push(ts({ ...options, componentExts }));
-
     if (typeof enableTypeScript !== "boolean") {
       configs.push(
         tsWithLanguageServer({
@@ -70,13 +67,11 @@ export function config(
         }),
       );
     }
+  } else {
+    configs.push(basic(options));
   }
 
-  enableVue && configs.push(vue({ ts: !!enableTypeScript }));
-  enableReact && configs.push(react({ ts: !enableTypeScript }));
-  enableSolid && configs.push(solid());
   enableTailwindcss && configs.push(tailwindcss());
-
   enablePrettier && configs.push(prettier());
 
   return combine(...configs, ...userConfigs);

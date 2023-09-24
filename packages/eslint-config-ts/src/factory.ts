@@ -8,5 +8,9 @@ export function ts(
   options: OptionsConfigBasic = {},
   ...userConfigs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]
 ) {
-  return combine(basic(options), _ts(options), ...userConfigs);
+  return combine(
+    basic(options),
+    _ts({ componentExts: options.componentExts }),
+    ...userConfigs,
+  );
 }

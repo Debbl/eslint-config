@@ -30,7 +30,7 @@ export function markdown(
         },
       },
       plugins: {
-        ts: pluginTs as any,
+        "@typescript-eslint": pluginTs,
       },
       rules: {
         ...pluginMarkdown.configs.recommended.overrides[1].rules,
@@ -46,14 +46,14 @@ export function markdown(
 
         "node/prefer-global/process": OFF,
 
-        "ts/comma-dangle": OFF,
-        "ts/consistent-type-imports": OFF,
-        "ts/no-namespace": OFF,
-        "ts/no-redeclare": OFF,
-        "ts/no-require-imports": OFF,
-        "ts/no-unused-vars": OFF,
-        "ts/no-use-before-define": OFF,
-        "ts/no-var-requires": OFF,
+        "@typescript-eslint/comma-dangle": OFF,
+        "@typescript-eslint/consistent-type-imports": OFF,
+        "@typescript-eslint/no-namespace": OFF,
+        "@typescript-eslint/no-redeclare": OFF,
+        "@typescript-eslint/no-require-imports": OFF,
+        "@typescript-eslint/no-unused-vars": OFF,
+        "@typescript-eslint/no-use-before-define": OFF,
+        "@typescript-eslint/no-var-requires": OFF,
 
         "unused-imports/no-unused-imports": OFF,
         "unused-imports/no-unused-vars": OFF,

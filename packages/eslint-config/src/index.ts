@@ -21,6 +21,7 @@ export { prettier } from "@debbl/eslint-config-prettier";
 export { vue } from "@debbl/eslint-config-vue";
 export { solid } from "@debbl/eslint-config-solid";
 export { react } from "@debbl/eslint-config-react";
+export * from "./share";
 
 export default config;
 
