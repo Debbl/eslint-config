@@ -56,7 +56,7 @@ export function config(
 
   if (enableReact) configs.push(react(options));
   else if (enableVue) configs.push(vue(options));
-  else if (enableSolid) enableSolid && configs.push(solid());
+  else if (enableSolid) configs.push(solid(options));
   else if (enableTypeScript) {
     configs.push(ts({ ...options, componentExts }));
     if (typeof enableTypeScript !== "boolean") {
