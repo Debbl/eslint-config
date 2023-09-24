@@ -1,7 +1,7 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import { basic } from "@debbl/eslint-config-basic";
 import ts, { tsWithLanguageServer } from "@debbl/eslint-config-ts";
-import type { OptionsConfig, OptionsConfigBasic } from "./share";
+import type { OptionsConfig } from "./share";
 import { combine } from "./share";
 import { vue as _vue } from "./configs";
 
@@ -28,7 +28,10 @@ export function vue(
         }),
       );
     }
+  } else {
+    configs.push(basic(options));
   }
+
   configs.push(_vue({ ts: enableTypeScript }));
 
   return combine(...configs, ...userConfigs);

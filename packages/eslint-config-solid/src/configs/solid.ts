@@ -1,14 +1,19 @@
 import { type FlatESLintConfigItem } from "eslint-define-config";
 import { pluginSolid } from "../plugins";
+import type { OptionsHasTypeScript } from "../share";
 
-export const solid: FlatESLintConfigItem[] = [
-  {
-    plugins: {
-      solid: pluginSolid,
+export const solid = (
+  options?: OptionsHasTypeScript,
+): FlatESLintConfigItem[] => {
+  return [
+    {
+      plugins: {
+        solid: pluginSolid,
+      },
+      rules: {
+        ...pluginSolid.configs.recommended,
+        ...(options?.ts ? pluginSolid.configs.typescript : []),
+      },
     },
-    rules: {
-      ...pluginSolid.configs.recommended,
-      ...pluginSolid.configs.typescript,
-    },
-  },
-];
+  ];
+};

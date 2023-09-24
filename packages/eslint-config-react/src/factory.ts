@@ -1,6 +1,7 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import { ts, tsWithLanguageServer } from "@debbl/eslint-config-ts";
-import type { OptionsConfig, OptionsConfigBasic } from "./share";
+import { basic } from "@debbl/eslint-config-basic";
+import type { OptionsConfig } from "./share";
 import { combine } from "./share";
 import { react as _react } from "./configs";
 
@@ -22,7 +23,10 @@ export function react(
         }),
       );
     }
+  } else {
+    configs.push(basic(options));
   }
+
   configs.push(_react);
 
   return combine(...configs, ...userConfigs);
