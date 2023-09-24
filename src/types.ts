@@ -24,8 +24,7 @@ export interface OptionsConfig {
    * Enable TypeScript support.
    *
    * Passing an object to enable TypeScript Language Server support.
-   *
-   * @default false
+   * @default true
    */
   ts?: boolean | OptionsTypeScriptWithLanguageServer;
 
