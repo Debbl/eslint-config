@@ -1,8 +1,7 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import { pluginMarkdown, pluginTs } from "src/plugins";
-import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE } from "../../../../src/globs";
-import { OFF } from "../../../../src/flags";
-import type { OptionsComponentExts } from "../../../../src/types";
+import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, OFF } from "../share";
+import type { OptionsComponentExts } from "../share";
 
 export function markdown(
   options: OptionsComponentExts = {},

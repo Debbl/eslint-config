@@ -1,6 +1,6 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import { parserJsonc, pluginJsonc } from "src/plugins";
-import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from "../../../../src/globs";
+import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from "../share";
 
 export const jsonc: FlatESLintConfigItem[] = [
   {

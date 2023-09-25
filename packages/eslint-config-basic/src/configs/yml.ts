@@ -1,7 +1,6 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import { parserYml, pluginYml } from "src/plugins";
-import { GLOB_YAML } from "../../../../src/globs";
-import { OFF } from "../../../../src/flags";
+import { GLOB_YAML, OFF } from "../share";
 
 export const yml: FlatESLintConfigItem[] = [
   {

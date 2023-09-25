@@ -1,8 +1,8 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import globals from "globals";
 import { pluginUnusedImports } from "src/plugins";
-import type { OptionsIsInEditor } from "../../../../src/types";
-import { OFF } from "../../../../src/flags";
+import type { OptionsIsInEditor } from "../share";
+import { OFF } from "../share";
 
 export function js(options: OptionsIsInEditor = {}): FlatESLintConfigItem[] {
   return [
