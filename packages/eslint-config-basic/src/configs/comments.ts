@@ -1,6 +1,6 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import { pluginComments } from "src/plugins";
-import { OFF } from "../../../../src/flags";
+import { OFF } from "../share";
 
 export const comments: FlatESLintConfigItem[] = [
   {
