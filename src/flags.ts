@@ -3,4 +3,4 @@
  * 1 = warn
  * 2 = error
  */
-export const OFF = 1;
+export const OFF = 0;
