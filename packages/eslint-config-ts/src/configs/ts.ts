@@ -39,7 +39,6 @@ export function ts(options?: OptionsComponentExts): FlatESLintConfigItem[] {
           "error",
           { "ts-ignore": "allow-with-description" },
         ],
-        "@typescript-eslint/ban-ts-ignore": OFF,
         "@typescript-eslint/consistent-indexed-object-style": OFF,
         "@typescript-eslint/consistent-type-definitions": [
           "error",
@@ -63,7 +62,6 @@ export function ts(options?: OptionsComponentExts): FlatESLintConfigItem[] {
         "@typescript-eslint/no-invalid-void-type": OFF,
         "@typescript-eslint/no-non-null-assertion": OFF,
         "@typescript-eslint/no-redeclare": "error",
-        "@typescript-eslint/no-require-imports": "error",
         "@typescript-eslint/no-unused-vars": OFF,
         "@typescript-eslint/no-use-before-define": [
           "error",
@@ -90,10 +88,7 @@ export function ts(options?: OptionsComponentExts): FlatESLintConfigItem[] {
     },
     {
       files: ["**/*.js", "**/*.cjs"],
-      rules: {
-        "@typescript-eslint/no-require-imports": OFF,
-        "@typescript-eslint/no-var-requires": OFF,
-      },
+      rules: {},
     },
   ];
 }
