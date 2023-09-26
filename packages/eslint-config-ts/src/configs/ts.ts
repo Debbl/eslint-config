@@ -91,8 +91,8 @@ export function ts(options?: OptionsComponentExts): FlatESLintConfigItem[] {
     {
       files: ["**/*.js", "**/*.cjs"],
       rules: {
-        "ts/no-require-imports": OFF,
-        "ts/no-var-requires": OFF,
+        "@typescript-eslint/no-require-imports": OFF,
+        "@typescript-eslint/no-var-requires": OFF,
       },
     },
   ];
