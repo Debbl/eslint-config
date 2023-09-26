@@ -13,12 +13,13 @@ export function ts(
   const configs = [basic(options)];
 
   if (enableTypeScript) {
-    configs.push(_ts());
+    configs.push(_ts(options));
 
     if (typeof enableTypeScript !== "boolean") {
       configs.push(
         tsWithLanguageServer({
           ...enableTypeScript,
+          componentExts: options.componentExts,
         }),
       );
     }

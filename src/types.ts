@@ -107,8 +107,7 @@ export interface OptionsConfig {
 
 export interface OptionsConfigBasic
   extends Pick<
-    OptionsConfig,
-    "ts" | "isInEditor" | "test" | "jsonc" | "yaml" | "markdown"
-  > {
-  componentExts?: string[];
-}
+      OptionsConfig,
+      "ts" | "isInEditor" | "test" | "jsonc" | "yaml" | "markdown"
+    >,
+    OptionsComponentExts {}

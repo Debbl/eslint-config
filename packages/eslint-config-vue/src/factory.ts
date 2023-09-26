@@ -21,15 +21,6 @@ export function vue(
 
   if (enableTypeScript) {
     configs.push(ts(options));
-
-    if (typeof enableTypeScript !== "boolean") {
-      configs.push(
-        tsWithLanguageServer({
-          ...enableTypeScript,
-          componentExts,
-        }),
-      );
-    }
   } else {
     configs.push(basic(options));
   }
