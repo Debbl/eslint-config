@@ -36,5 +36,8 @@
     "globals": "^13.22.0",
     "jsonc-eslint-parser": "^2.3.0",
     "yaml-eslint-parser": "^1.2.2"
+  },
+  "devDependencies": {
+    "global-configs": "workspace:*"
   }
 }

@@ -1,1 +1,2 @@
-export * from "../../../src";
+/* eslint-disable import/export */
+export * from "global-configs";

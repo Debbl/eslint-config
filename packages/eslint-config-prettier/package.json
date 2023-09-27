@@ -26,6 +26,7 @@
     "prettier": "^3.0.3"
   },
   "devDependencies": {
-    "eslint": "^8.50.0"
+    "eslint": "^8.50.0",
+    "global-configs": "workspace:*"
   }
 }

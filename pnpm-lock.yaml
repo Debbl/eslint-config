@@ -60,6 +60,9 @@ importers:
       eslint:
         specifier: ^8.50.0
         version: 8.50.0
+      global-configs:
+        specifier: workspace:*
+        version: link:../global-configs
 
   packages/eslint-config-basic:
     dependencies:
@@ -114,6 +117,10 @@ importers:
       yaml-eslint-parser:
         specifier: ^1.2.2
         version: 1.2.2
+    devDependencies:
+      global-configs:
+        specifier: workspace:*
+        version: link:../global-configs
 
   packages/eslint-config-prettier:
     dependencies:
@@ -130,6 +137,9 @@ importers:
       eslint:
         specifier: ^8.50.0
         version: 8.50.0
+      global-configs:
+        specifier: workspace:*
+        version: link:../global-configs
 
   packages/eslint-config-react:
     dependencies:
@@ -149,6 +159,9 @@ importers:
       eslint:
         specifier: ^8.50.0
         version: 8.50.0
+      global-configs:
+        specifier: workspace:*
+        version: link:../global-configs
 
   packages/eslint-config-solid:
     dependencies:
@@ -165,6 +178,9 @@ importers:
       eslint:
         specifier: ^8.50.0
         version: 8.50.0
+      global-configs:
+        specifier: workspace:*
+        version: link:../global-configs
       typescript:
         specifier: ^5.2.2
         version: 5.2.2
@@ -178,6 +194,9 @@ importers:
       eslint:
         specifier: ^8.50.0
         version: 8.50.0
+      global-configs:
+        specifier: workspace:*
+        version: link:../global-configs
 
   packages/eslint-config-ts:
     dependencies:
@@ -190,13 +209,16 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^6.7.2
         version: 6.7.2(eslint@8.50.0)(typescript@5.2.2)
+      typescript:
+        specifier: '>=4.8.4'
+        version: 5.2.2
     devDependencies:
       eslint:
         specifier: ^8.50.0
         version: 8.50.0
-      typescript:
-        specifier: ^5.2.2
-        version: 5.2.2
+      global-configs:
+        specifier: workspace:*
+        version: link:../global-configs
 
   packages/eslint-config-vue:
     dependencies:
@@ -222,6 +244,11 @@ importers:
       eslint:
         specifier: ^8.50.0
         version: 8.50.0
+      global-configs:
+        specifier: workspace:*
+        version: link:../global-configs
+
+  packages/global-configs: {}
 
 packages:
 
