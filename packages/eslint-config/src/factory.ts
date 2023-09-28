@@ -6,14 +6,14 @@ import { react } from "@debbl/eslint-config-react";
 import { solid } from "@debbl/eslint-config-solid";
 import { tailwindcss } from "@debbl/eslint-config-tailwindcss";
 import { prettier } from "@debbl/eslint-config-prettier";
-import type { OptionsConfig } from "./share";
+import type { OptionsConfigExtends } from "./share";
 import { combine } from "./share";
 
 /**
  * Construct an array of ESLint flat config items.
  */
 export function config(
-  options: OptionsConfig = {},
+  options: OptionsConfigExtends = {},
   ...userConfigs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]
 ) {
   const enableVue = options.vue;
@@ -28,7 +28,7 @@ export function config(
   if (enableReact) configs.push(react(options));
   else if (enableVue) configs.push(vue(options));
   else if (enableSolid) configs.push(solid(options));
-  else if (enableTypeScript) configs.push(ts({ ...options }));
+  else if (enableTypeScript) configs.push(ts(options));
   else configs.push(basic(options));
 
   enableTailwindcss && configs.push(tailwindcss());

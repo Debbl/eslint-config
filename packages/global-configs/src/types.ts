@@ -17,9 +17,14 @@ export interface OptionsIsInEditor {
   isInEditor?: boolean;
 }
 
-export type OptionsHasTypeScript = Pick<OptionsConfig, "ts">;
+export type OptionsHasTypeScript = Pick<OptionsConfigExtends, "ts">;
 
-export interface OptionsConfig {
+export interface OptionsConfigBasic extends OptionsComponentExts {
+  /**
+   * Control to disable some rules in editors.
+   * @default auto-detect based on the process.env
+   */
+  isInEditor?: boolean;
   /**
    * Enable TypeScript support.
    *
@@ -35,6 +40,29 @@ export interface OptionsConfig {
    */
   test?: boolean;
 
+  /**
+   * Enable JSONC support.
+   *
+   * @default true
+   */
+  jsonc?: boolean;
+
+  /**
+   * Enable YAML support.
+   *
+   * @default true
+   */
+  yaml?: boolean;
+
+  /**
+   * Enable Markdown support.
+   *
+   * @default true
+   */
+  markdown?: boolean;
+}
+
+export interface OptionsConfigExtends extends OptionsConfigBasic {
   /**
    * Enable Vue support.
    *
@@ -64,50 +92,9 @@ export interface OptionsConfig {
   tailwindcss?: boolean;
 
   /**
-   * Enable TailwindCSS support.
+   * Enable Prettier support.
    *
    * @default true
    */
   prettier?: boolean;
-
-  /**
-   * Enable JSONC support.
-   *
-   * @default true
-   */
-  jsonc?: boolean;
-
-  /**
-   * Enable YAML support.
-   *
-   * @default true
-   */
-  yaml?: boolean;
-
-  /**
-   * Enable Markdown support.
-   *
-   * @default true
-   */
-  markdown?: boolean;
-
-  /**
-   * Enable stylistic rules.
-   *
-   * @default true
-   */
-  stylistic?: boolean;
-
-  /**
-   * Control to disable some rules in editors.
-   * @default auto-detect based on the process.env
-   */
-  isInEditor?: boolean;
 }
-
-export interface OptionsConfigBasic
-  extends Pick<
-      OptionsConfig,
-      "ts" | "isInEditor" | "test" | "jsonc" | "yaml" | "markdown"
-    >,
-    OptionsComponentExts {}
