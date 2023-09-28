@@ -31,7 +31,7 @@ export function basic(
 
   const configs: FlatESLintConfigItem[][] = [
     ignores(),
-    js({ isInEditor }),
+    js({ isInEditor, overrides: options.overrides?.js }),
     comments,
     node,
     jsdoc,
@@ -39,16 +39,27 @@ export function basic(
     unicorn,
   ];
 
-  if (options.test ?? true) configs.push(test({ isInEditor }));
+  if (options.test ?? true)
+    configs.push(test({ isInEditor, overrides: options.overrides?.test }));
 
   if (options.jsonc ?? true) {
-    configs.push(jsonc, sortPackageJson, sortTsconfig);
+    configs.push(
+      jsonc({ overrides: options.overrides?.jsonc }),
+      sortPackageJson,
+      sortTsconfig,
+    );
   }
 
-  if (options.yaml ?? true) configs.push(yml);
+  if (options.yaml ?? true)
+    configs.push(yml({ overrides: options.overrides?.yaml }));
 
   if (options.markdown ?? true)
-    configs.push(markdown({ componentExts: options.componentExts }));
+    configs.push(
+      markdown({
+        componentExts: options.componentExts,
+        overrides: options.overrides?.markdown,
+      }),
+    );
 
   return combine(...configs, ...userConfigs);
 }

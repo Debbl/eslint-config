@@ -1,14 +1,17 @@
 import { type FlatESLintConfigItem } from "eslint-define-config";
 import type {
   OptionsComponentExts,
+  OptionsOverrides,
   OptionsTypeScriptWithLanguageServer,
 } from "../share";
 
 import { GLOB_TS, GLOB_TSX, OFF } from "../share";
 import { parserTs, pluginTs } from "../plugins";
 
-export function ts(options?: OptionsComponentExts): FlatESLintConfigItem[] {
-  const { componentExts = [] } = options ?? {};
+export function ts(
+  options?: OptionsComponentExts & OptionsOverrides,
+): FlatESLintConfigItem[] {
+  const { componentExts = [], overrides = {} } = options ?? {};
 
   return [
     {
@@ -70,6 +73,8 @@ export function ts(options?: OptionsComponentExts): FlatESLintConfigItem[] {
         "@typescript-eslint/parameter-properties": OFF,
         "@typescript-eslint/prefer-ts-expect-error": "error",
         "@typescript-eslint/triple-slash-reference": OFF,
+
+        ...overrides,
       },
     },
     {

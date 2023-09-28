@@ -1,10 +1,14 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import globals from "globals";
 import { pluginUnusedImports } from "src/plugins";
-import type { OptionsIsInEditor } from "../share";
+import type { OptionsIsInEditor, OptionsOverrides } from "../share";
 import { OFF } from "../share";
 
-export function js(options: OptionsIsInEditor = {}): FlatESLintConfigItem[] {
+export function js(
+  options: OptionsIsInEditor & OptionsOverrides = {},
+): FlatESLintConfigItem[] {
+  const { isInEditor = false, overrides = {} } = options;
+
   return [
     {
       languageOptions: {
@@ -248,7 +252,7 @@ export function js(options: OptionsIsInEditor = {}): FlatESLintConfigItem[] {
         "symbol-description": "error",
         "unicode-bom": ["error", "never"],
 
-        "unused-imports/no-unused-imports": options.isInEditor ? OFF : "error",
+        "unused-imports/no-unused-imports": isInEditor ? OFF : "error",
         "unused-imports/no-unused-vars": [
           "warn",
           {
@@ -267,6 +271,8 @@ export function js(options: OptionsIsInEditor = {}): FlatESLintConfigItem[] {
         "vars-on-top": "error",
         "wrap-iife": ["error", "any", { functionPrototypeMethods: true }],
         "yoda": ["error", "never"],
+
+        ...overrides,
       },
     },
     {

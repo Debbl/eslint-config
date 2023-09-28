@@ -24,7 +24,9 @@ export function vue(
     configs.push(basic(options));
   }
 
-  configs.push(_vue({ ts: enableTypeScript }));
+  configs.push(
+    _vue({ ts: enableTypeScript, overrides: options.overrides?.vue }),
+  );
 
   return combine(...configs, ...userConfigs);
 }

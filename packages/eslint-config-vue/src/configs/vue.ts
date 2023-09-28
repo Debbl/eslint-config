@@ -1,11 +1,13 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
+import type { OptionsOverrides } from "global-configs";
 import { GLOB_VUE, OFF } from "../share";
 import { parserTs, parserVue, pluginVue } from "../plugins";
 import type { OptionsHasTypeScript } from "../share";
 
 export function vue(
-  options: OptionsHasTypeScript = {},
+  options: OptionsHasTypeScript & OptionsOverrides = {},
 ): FlatESLintConfigItem[] {
+  const { ts = true, overrides = {} } = options;
   return [
     {
       files: [GLOB_VUE],
@@ -16,7 +18,7 @@ export function vue(
             jsx: true,
           },
           extraFileExtensions: [".vue"],
-          parser: options.ts ? (parserTs as any) : null,
+          parser: ts ? (parserTs as any) : null,
           sourceType: "module",
         },
       },
@@ -124,6 +126,8 @@ export function vue(
         "vue/space-infix-ops": "error",
         "vue/space-unary-ops": ["error", { nonwords: false, words: true }],
         "vue/template-curly-spacing": "error",
+
+        ...overrides,
       },
     },
   ];

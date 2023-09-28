@@ -1,3 +1,5 @@
+import type { FlatESLintConfigItem } from "eslint-define-config";
+
 export interface OptionsTypeScriptWithLanguageServer {
   tsconfigPath: string;
   tsconfigRootDir?: string;
@@ -17,7 +19,10 @@ export interface OptionsIsInEditor {
   isInEditor?: boolean;
 }
 
-export type OptionsHasTypeScript = Pick<OptionsConfigExtends, "ts">;
+export type OptionsHasTypeScript = Pick<OptionsConfigBasic, "ts">;
+export interface OptionsOverrides {
+  overrides?: FlatESLintConfigItem["rules"];
+}
 
 export interface OptionsConfigBasic extends OptionsComponentExts {
   /**
@@ -25,6 +30,19 @@ export interface OptionsConfigBasic extends OptionsComponentExts {
    * @default auto-detect based on the process.env
    */
   isInEditor?: boolean;
+
+  /**
+   * Provide overrides for rules for each integration.
+   */
+  overrides?: {
+    js?: FlatESLintConfigItem["rules"];
+    ts?: FlatESLintConfigItem["rules"];
+    test?: FlatESLintConfigItem["rules"];
+    vue?: FlatESLintConfigItem["rules"];
+    jsonc?: FlatESLintConfigItem["rules"];
+    markdown?: FlatESLintConfigItem["rules"];
+    yaml?: FlatESLintConfigItem["rules"];
+  };
   /**
    * Enable TypeScript support.
    *

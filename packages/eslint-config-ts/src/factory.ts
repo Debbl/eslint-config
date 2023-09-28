@@ -13,7 +13,12 @@ export function ts(
   const configs = [basic(options)];
 
   if (enableTypeScript) {
-    configs.push(_ts(options));
+    configs.push(
+      _ts({
+        componentExts: options.componentExts,
+        overrides: options.overrides?.ts,
+      }),
+    );
 
     if (typeof enableTypeScript !== "boolean") {
       configs.push(

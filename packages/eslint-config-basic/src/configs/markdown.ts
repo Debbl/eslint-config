@@ -1,12 +1,12 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import { pluginMarkdown, pluginTs } from "src/plugins";
 import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, OFF } from "../share";
-import type { OptionsComponentExts } from "../share";
+import type { OptionsComponentExts, OptionsOverrides } from "../share";
 
 export function markdown(
-  options: OptionsComponentExts = {},
+  options: OptionsComponentExts & OptionsOverrides = {},
 ): FlatESLintConfigItem[] {
-  const { componentExts = [] } = options;
+  const { componentExts = [], overrides = {} } = options;
 
   return [
     {
@@ -54,6 +54,8 @@ export function markdown(
 
         "unused-imports/no-unused-imports": OFF,
         "unused-imports/no-unused-vars": OFF,
+
+        ...overrides,
       },
     },
   ];
