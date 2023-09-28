@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { FlatESLintConfigItem } from "eslint-define-config";
-import { GLOB_EXCLUDE } from "../share";
+import { GLOB_EXCLUDE } from "../globs";
 
 const REGEX_SPLIT_ALL_CRLF = /\r?\n/g;
 const splitPattern = (pattern: string) => pattern.split(REGEX_SPLIT_ALL_CRLF);

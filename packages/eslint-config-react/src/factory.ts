@@ -1,12 +1,11 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import { ts, tsWithLanguageServer } from "@debbl/eslint-config-ts";
-import { basic } from "@debbl/eslint-config-basic";
-import type { OptionsConfigBasic } from "./share";
-import { combine } from "./share";
+import { basic, combine } from "@debbl/eslint-config-basic";
 import { react as _react } from "./configs";
+import type { OptionsConfigReact } from "./types";
 
 export function react(
-  options: OptionsConfigBasic = {},
+  options: OptionsConfigReact = {},
   ...userConfigs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]
 ) {
   const enableTypeScript = options.ts ?? true;

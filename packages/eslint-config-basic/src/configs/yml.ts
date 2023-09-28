@@ -1,7 +1,8 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import { parserYml, pluginYml } from "src/plugins";
-import type { OptionsOverrides } from "../share";
-import { GLOB_YAML, OFF } from "../share";
+import type { OptionsOverrides } from "../types";
+import { GLOB_YAML } from "../globs";
+import { OFF } from "../flags";
 
 export const yml = (options: OptionsOverrides = {}): FlatESLintConfigItem[] => {
   const { overrides = {} } = options;

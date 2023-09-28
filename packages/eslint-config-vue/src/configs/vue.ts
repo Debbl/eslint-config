@@ -1,8 +1,8 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
-import type { OptionsOverrides } from "global-configs";
-import { GLOB_VUE, OFF } from "../share";
+import type { OptionsOverrides } from "@debbl/eslint-config-basic";
+import { GLOB_VUE, OFF } from "@debbl/eslint-config-basic";
 import { parserTs, parserVue, pluginVue } from "../plugins";
-import type { OptionsHasTypeScript } from "../share";
+import type { OptionsHasTypeScript } from "../types";
 
 export function vue(
   options: OptionsHasTypeScript & OptionsOverrides = {},

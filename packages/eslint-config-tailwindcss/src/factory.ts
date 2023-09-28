@@ -1,5 +1,5 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
-import { combine } from "./share";
+import { combine } from "@debbl/eslint-config-basic";
 import { tailwindcss as _tailwindcss } from "./configs";
 
 export function tailwindcss(

@@ -1,8 +1,8 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import globals from "globals";
 import { pluginUnusedImports } from "src/plugins";
-import type { OptionsIsInEditor, OptionsOverrides } from "../share";
-import { OFF } from "../share";
+import type { OptionsIsInEditor, OptionsOverrides } from "../types";
+import { OFF } from "../flags";
 
 export function js(
   options: OptionsIsInEditor & OptionsOverrides = {},

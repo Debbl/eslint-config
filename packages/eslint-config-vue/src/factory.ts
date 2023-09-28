@@ -1,12 +1,11 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
-import { basic } from "@debbl/eslint-config-basic";
+import { basic, combine } from "@debbl/eslint-config-basic";
 import ts from "@debbl/eslint-config-ts";
-import type { OptionsConfigBasic } from "./share";
-import { combine } from "./share";
 import { vue as _vue } from "./configs";
+import type { OptionsConfigVue } from "./types";
 
 export function vue(
-  options: OptionsConfigBasic = {},
+  options: OptionsConfigVue = {},
   ...userConfigs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]
 ) {
   const enableTypeScript = options.ts ?? true;
@@ -25,7 +24,7 @@ export function vue(
   }
 
   configs.push(
-    _vue({ ts: enableTypeScript, overrides: options.overrides?.vue }),
+    _vue({ ts: !!enableTypeScript, overrides: options.overrides?.vue }),
   );
 
   return combine(...configs, ...userConfigs);

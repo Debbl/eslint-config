@@ -1,7 +1,7 @@
 import process from "node:process";
 import type { FlatESLintConfigItem } from "eslint-define-config";
-import type { OptionsConfigBasic } from "./share";
-import { combine } from "./share";
+import type { OptionsConfigBasic } from "./types";
+import { combine } from "./utils";
 import {
   comments,
   ignores,

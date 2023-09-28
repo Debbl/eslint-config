@@ -1,6 +1,6 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import { pluginJsdoc } from "src/plugins";
-import { OFF } from "../share";
+import { OFF } from "../flags";
 
 export const jsdoc: FlatESLintConfigItem[] = [
   {

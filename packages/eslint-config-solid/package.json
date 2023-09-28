@@ -27,8 +27,6 @@
     "eslint-plugin-solid": "^0.13.0"
   },
   "devDependencies": {
-    "eslint": "^8.50.0",
-    "global-configs": "workspace:*",
-    "typescript": "^5.2.2"
+    "eslint": "^8.50.0"
   }
 }

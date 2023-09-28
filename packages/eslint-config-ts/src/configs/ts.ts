@@ -1,11 +1,13 @@
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable node/prefer-global/process */
 import { type FlatESLintConfigItem } from "eslint-define-config";
+import type { OptionsTypeScriptWithTypes } from "src/types";
+import { GLOB_TS, GLOB_TSX, OFF } from "@debbl/eslint-config-basic";
 import type {
   OptionsComponentExts,
   OptionsOverrides,
-  OptionsTypeScriptWithLanguageServer,
-} from "../share";
+} from "@debbl/eslint-config-basic";
 
-import { GLOB_TS, GLOB_TSX, OFF } from "../share";
 import { parserTs, pluginTs } from "../plugins";
 
 export function ts(
@@ -99,14 +101,9 @@ export function ts(
 }
 
 export function tsWithLanguageServer(
-  options: OptionsTypeScriptWithLanguageServer & OptionsComponentExts,
+  options: OptionsTypeScriptWithTypes & OptionsComponentExts = {},
 ): FlatESLintConfigItem[] {
-  const {
-    componentExts = [],
-    tsconfigPath,
-    // eslint-disable-next-line node/prefer-global/process
-    tsconfigRootDir = process.cwd(),
-  } = options;
+  const { componentExts = [], tsconfigPath } = options;
 
   return [
     {
@@ -115,8 +112,13 @@ export function tsWithLanguageServer(
       languageOptions: {
         parser: parserTs,
         parserOptions: {
-          project: [tsconfigPath],
-          tsconfigRootDir,
+          sourceType: "module",
+          ...(tsconfigPath
+            ? {
+                project: [tsconfigPath],
+                tsconfigRootDir: process.cwd(),
+              }
+            : {}),
         },
       },
       plugins: {

@@ -1,19 +1,18 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
-import { basic } from "@debbl/eslint-config-basic";
+import { basic, combine } from "@debbl/eslint-config-basic";
 import { ts } from "@debbl/eslint-config-ts";
 import { vue } from "@debbl/eslint-config-vue";
 import { react } from "@debbl/eslint-config-react";
 import { solid } from "@debbl/eslint-config-solid";
 import { tailwindcss } from "@debbl/eslint-config-tailwindcss";
 import { prettier } from "@debbl/eslint-config-prettier";
-import type { OptionsConfigExtends } from "./share";
-import { combine } from "./share";
+import type { OptionsConfig } from "./types";
 
 /**
  * Construct an array of ESLint flat config items.
  */
 export function config(
-  options: OptionsConfigExtends = {},
+  options: OptionsConfig = {},
   ...userConfigs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]
 ) {
   const enableVue = options.vue;

@@ -29,7 +29,6 @@
     "vue-eslint-parser": "^9.3.1"
   },
   "devDependencies": {
-    "eslint": "^8.50.0",
-    "global-configs": "workspace:*"
+    "eslint": "^8.50.0"
   }
 }

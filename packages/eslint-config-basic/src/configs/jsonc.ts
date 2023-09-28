@@ -1,7 +1,7 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import { parserJsonc, pluginJsonc } from "src/plugins";
-import type { OptionsOverrides } from "../share";
-import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from "../share";
+import type { OptionsOverrides } from "../types";
+import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from "../globs";
 
 export const jsonc = (
   options: OptionsOverrides = {},

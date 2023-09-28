@@ -1,7 +1,8 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import { pluginNoOnlyTests } from "src/plugins";
-import { GLOB_TESTS, OFF } from "../share";
-import type { OptionsIsInEditor, OptionsOverrides } from "../share";
+import { GLOB_TESTS } from "../globs";
+import { OFF } from "../flags";
+import type { OptionsIsInEditor, OptionsOverrides } from "../types";
 
 export function test(
   options: OptionsIsInEditor & OptionsOverrides = {},

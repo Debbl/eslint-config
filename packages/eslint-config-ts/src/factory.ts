@@ -1,16 +1,15 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import { basic } from "@debbl/eslint-config-basic";
-import type { OptionsConfigBasic } from "./share";
-import { combine } from "./share";
 import { ts as _ts, tsWithLanguageServer } from "./configs";
+import type { OptionsConfigTs } from "./types";
 
 export function ts(
-  options: OptionsConfigBasic = {},
+  options: OptionsConfigTs = {},
   ...userConfigs: (FlatESLintConfigItem | FlatESLintConfigItem[])[]
 ) {
   const enableTypeScript = options.ts ?? true;
 
-  const configs = [basic(options)];
+  const configs = [];
 
   if (enableTypeScript) {
     configs.push(
@@ -30,5 +29,5 @@ export function ts(
     }
   }
 
-  return combine(...configs, ...userConfigs);
+  return basic(options, ...configs, ...userConfigs);
 }

@@ -1,7 +1,6 @@
 import { react } from "./factory";
 
-export * from "./plugins";
-export * from "./share";
+export * from "./types";
 
 export default react;
 export { react };
