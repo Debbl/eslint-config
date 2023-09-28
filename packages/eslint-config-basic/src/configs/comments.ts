@@ -1,6 +1,5 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
 import { pluginComments } from "src/plugins";
-import { OFF } from "../share";
 
 export const comments: FlatESLintConfigItem[] = [
   {
@@ -9,7 +8,10 @@ export const comments: FlatESLintConfigItem[] = [
     },
     rules: {
       ...pluginComments.configs.recommended.rules,
-      "eslint-comments/disable-enable-pair": OFF,
+      "eslint-comments/no-aggregating-enable": "error",
+      "eslint-comments/no-duplicate-disable": "error",
+      "eslint-comments/no-unlimited-disable": "error",
+      "eslint-comments/no-unused-enable": "error",
     },
   },
 ];
