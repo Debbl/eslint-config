@@ -1,5 +1,5 @@
 import type { FlatESLintConfigItem } from "eslint-define-config";
-import { pluginMarkdown, pluginTs } from "src/plugins";
+import { pluginMarkdown } from "src/plugins";
 import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE } from "../globs";
 import { OFF } from "../flags";
 import type { OptionsComponentExts, OptionsOverrides } from "../types";
@@ -28,9 +28,6 @@ export function markdown(
             impliedStrict: true,
           },
         },
-      },
-      plugins: {
-        "@typescript-eslint": pluginTs,
       },
       rules: {
         ...pluginMarkdown.configs.recommended.overrides[1].rules,

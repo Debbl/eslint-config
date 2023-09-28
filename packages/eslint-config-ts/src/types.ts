@@ -1,6 +1,13 @@
 import type { OptionsConfigBasic } from "@debbl/eslint-config-basic";
+import type { ParserOptions } from "@typescript-eslint/parser";
 import type { FlatESLintConfigItem } from "eslint-define-config";
 
+export interface OptionsTypeScriptParserOptions {
+  /**
+   * Additional parser options for TypeScript.
+   */
+  parserOptions?: Partial<ParserOptions>;
+}
 export interface OptionsTypeScriptWithTypes {
   /**
    * When this options is provided, type aware rules will be enabled.
