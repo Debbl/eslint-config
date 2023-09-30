@@ -4,7 +4,7 @@ const isTS = isPackageExists("typescript");
 
 if (!isTS)
   console.warn(
-    "[@debbl/eslint-config] Typescript not found, using JavaScript rules"
+    "[@debbl/eslint-config] Typescript not found, using JavaScript rules",
   );
 
 module.exports = {
