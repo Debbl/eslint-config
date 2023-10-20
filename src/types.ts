@@ -174,6 +174,13 @@ export interface OptionsConfig extends OptionsComponentExts {
   markdown?: boolean;
 
   /**
+   * Enable stylistic rules.
+   *
+   * @default true
+   */
+  stylistic?: boolean | StylisticConfig;
+
+  /**
    * Enable prettier rules.
    *
    * @default true

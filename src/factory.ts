@@ -52,6 +52,7 @@ export function config(
     vue: enableVue = VuePackages.some((i) => isPackageExists(i)),
     typescript: enableTypeScript = isPackageExists("typescript"),
     gitignore: enableGitignore = true,
+    stylistic: enableStylistic = true,
     overrides = {},
     componentExts = [],
   } = options;
@@ -75,8 +76,8 @@ export function config(
     }),
     comments(),
     node(),
-    jsdoc(),
-    imports(),
+    jsdoc({ stylistic: enableStylistic }),
+    imports({ stylistic: enableStylistic }),
     unicorn(),
 
     // Optional plugins (not enabled by default)
@@ -94,9 +95,6 @@ export function config(
       }),
     );
   }
-
-  // if (stylisticOptions)
-  //   configs.push(stylistic(stylisticOptions))
 
   if (options.test ?? true) {
     configs.push(
@@ -120,6 +118,7 @@ export function config(
     configs.push(
       jsonc({
         overrides: overrides.jsonc,
+        stylistic: enableStylistic,
       }),
       sortPackageJson(),
       sortTsconfig(),
@@ -130,6 +129,7 @@ export function config(
     configs.push(
       yaml({
         overrides: overrides.yaml,
+        stylistic: enableStylistic,
       }),
     );
   }
