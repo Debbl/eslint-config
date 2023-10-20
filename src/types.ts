@@ -146,6 +146,13 @@ export interface OptionsConfig extends OptionsComponentExts {
   vue?: boolean;
 
   /**
+   * Enable React support.
+   *
+   * @default auto-detect based on the dependencies
+   */
+  react?: boolean;
+
+  /**
    * Enable JSONC support.
    *
    * @default true
@@ -194,6 +201,7 @@ export interface OptionsConfig extends OptionsComponentExts {
     typescript?: ConfigItem["rules"];
     test?: ConfigItem["rules"];
     vue?: ConfigItem["rules"];
+    react?: ConfigItem["rules"];
     jsonc?: ConfigItem["rules"];
     markdown?: ConfigItem["rules"];
     yaml?: ConfigItem["rules"];

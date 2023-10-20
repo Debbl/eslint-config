@@ -21,6 +21,9 @@ export { default as pluginSortKeys } from "eslint-plugin-sort-keys";
 export { default as pluginPrettier } from "eslint-plugin-prettier";
 export { default as configPrettier } from "eslint-config-prettier";
 
+export { default as pluginReact } from "eslint-plugin-react";
+export { default as pluginReactHooks } from "eslint-plugin-react-hooks";
+
 export * as parserTs from "@typescript-eslint/parser";
 export { default as parserVue } from "vue-eslint-parser";
 export { default as parserYaml } from "yaml-eslint-parser";

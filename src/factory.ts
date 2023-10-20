@@ -23,6 +23,7 @@ import {
   yaml,
 } from "./configs";
 import { combine } from "./utils";
+import { react } from "./configs/react";
 
 const flatConfigProps: (keyof ConfigItem)[] = [
   "files",
@@ -50,6 +51,7 @@ export function config(
       !process.env.CI
     ),
     vue: enableVue = VuePackages.some((i) => isPackageExists(i)),
+    react: enableReact = isPackageExists("react"),
     typescript: enableTypeScript = isPackageExists("typescript"),
     gitignore: enableGitignore = true,
     stylistic: enableStylistic = true,
@@ -110,6 +112,14 @@ export function config(
       vue({
         overrides: overrides.vue,
         typescript: !!enableTypeScript,
+      }),
+    );
+  }
+
+  if (enableReact) {
+    configs.push(
+      react({
+        overrides: overrides.react,
       }),
     );
   }
