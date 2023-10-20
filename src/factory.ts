@@ -40,7 +40,7 @@ const VuePackages = ["vue", "nuxt", "vitepress", "@slidev/cli"];
 /**
  * Construct an array of ESLint flat config items.
  */
-export function antfu(
+export function config(
   options: OptionsConfig & ConfigItem = {},
   ...userConfigs: (ConfigItem | ConfigItem[])[]
 ) {
