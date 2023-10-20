@@ -1,5 +1,5 @@
-import type { ConfigItem } from '../types'
-import { pluginSortKeys } from '../plugins'
+import type { ConfigItem } from "../types";
+import { pluginSortKeys } from "../plugins";
 
 /**
  * Optional sort-keys plugin
@@ -9,10 +9,10 @@ import { pluginSortKeys } from '../plugins'
 export function sortKeys(): ConfigItem[] {
   return [
     {
-      name: 'antfu:sort-keys',
+      name: "antfu:sort-keys",
       plugins: {
-        'sort-keys': pluginSortKeys,
+        "sort-keys": pluginSortKeys,
       },
     },
-  ]
+  ];
 }

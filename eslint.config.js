@@ -1,26 +1,26 @@
 // @ts-check
-import styleMigrate from '@stylistic/eslint-plugin-migrate'
-import antfu from './dist/index.js'
+import styleMigrate from "@stylistic/eslint-plugin-migrate";
+import antfu from "./dist/index.js";
 
 export default antfu(
   {
     vue: true,
     typescript: true,
-    ignores: ['fixtures', '_fixtures'],
+    ignores: ["fixtures", "_fixtures"],
   },
   {
-    files: ['src/**/*.ts'],
+    files: ["src/**/*.ts"],
     rules: {
-      'sort-keys/sort-keys-fix': 'error',
+      "sort-keys/sort-keys-fix": "error",
     },
   },
   {
-    files: ['src/configs/*.ts'],
+    files: ["src/configs/*.ts"],
     plugins: {
-      'style-migrate': styleMigrate,
+      "style-migrate": styleMigrate,
     },
     rules: {
-      'style-migrate/migrate': ['error', { namespaceTo: 'style' }],
+      "style-migrate/migrate": ["error", { namespaceTo: "style" }],
     },
   },
-)
+);
