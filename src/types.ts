@@ -141,14 +141,14 @@ export interface OptionsConfig extends OptionsComponentExts {
   /**
    * Enable Vue support.
    *
-   * @default auto-detect based on the dependencies
+   * @default false
    */
   vue?: boolean;
 
   /**
    * Enable React support.
    *
-   * @default auto-detect based on the dependencies
+   * @default false
    */
   react?: boolean;
 

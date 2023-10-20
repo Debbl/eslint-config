@@ -1,6 +1,5 @@
 import process from "node:process";
 import fs from "node:fs";
-import { isPackageExists } from "local-pkg";
 import gitignore from "eslint-config-flat-gitignore";
 import type { ConfigItem, OptionsConfig } from "./types";
 import {
@@ -36,8 +35,6 @@ const flatConfigProps: (keyof ConfigItem)[] = [
   "settings",
 ];
 
-const VuePackages = ["vue", "nuxt", "vitepress", "@slidev/cli"];
-
 /**
  * Construct an array of ESLint flat config items.
  */
@@ -50,9 +47,9 @@ export function config(
       (process.env.VSCODE_PID || process.env.JETBRAINS_IDE) &&
       !process.env.CI
     ),
-    vue: enableVue = VuePackages.some((i) => isPackageExists(i)),
-    react: enableReact = isPackageExists("react"),
-    typescript: enableTypeScript = isPackageExists("typescript"),
+    vue: enableVue,
+    react: enableReact,
+    typescript: enableTypeScript,
     gitignore: enableGitignore = true,
     stylistic: enableStylistic = true,
     overrides = {},
