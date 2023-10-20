@@ -144,7 +144,11 @@ export function config(
   }
 
   if (options.prettier ?? true) {
-    configs.push(prettier());
+    configs.push(
+      prettier({
+        overrides: overrides.prettier,
+      }),
+    );
   }
 
   // User can optionally pass a flat config item to the first argument

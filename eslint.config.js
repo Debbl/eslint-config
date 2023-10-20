@@ -7,6 +7,9 @@ export default config(
     vue: true,
     typescript: true,
     ignores: ["fixtures", "_fixtures"],
+    overrides: {
+      prettier: {},
+    },
   },
   {
     files: ["src/**/*.ts"],

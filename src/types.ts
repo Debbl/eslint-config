@@ -1,5 +1,6 @@
 import type { FlatGitignoreOptions } from "eslint-config-flat-gitignore";
 import type { ParserOptions } from "@typescript-eslint/parser";
+import type { RequiredOptions } from "prettier";
 import type {
   EslintCommentsRules,
   EslintRules,
@@ -9,12 +10,10 @@ import type {
   MergeIntersection,
   NRules,
   Prefix,
-  ReactRules,
   RenamePrefix,
   RuleConfig,
   TypeScriptRules,
   UnicornRules,
-  Unprefix,
   VitestRules,
   VueRules,
   YmlRules,
@@ -95,6 +94,10 @@ export interface OptionsOverrides {
   overrides?: ConfigItem["rules"];
 }
 
+export interface OptionsPrettierOverrides {
+  overrides?: NonNullable<NonNullable<OptionsConfig["overrides"]>["prettier"]>;
+}
+
 export interface OptionsIsInEditor {
   isInEditor?: boolean;
 }
@@ -168,7 +171,7 @@ export interface OptionsConfig extends OptionsComponentExts {
    *
    * @default true
    */
-  stylistic?: boolean | StylisticConfig;
+  stylistic?: boolean;
 
   /**
    * Enable prettier rules.
@@ -194,5 +197,6 @@ export interface OptionsConfig extends OptionsComponentExts {
     jsonc?: ConfigItem["rules"];
     markdown?: ConfigItem["rules"];
     yaml?: ConfigItem["rules"];
+    prettier?: Partial<RequiredOptions>;
   };
 }
