@@ -21,24 +21,10 @@ import {
 import { combine } from "./utils";
 import { react } from "./configs/react";
 
-const flatConfigProps: (keyof ConfigItem)[] = [
-  "files",
-  "ignores",
-  "languageOptions",
-  "linterOptions",
-  "processor",
-  "plugins",
-  "rules",
-  "settings",
-];
-
 /**
  * Construct an array of ESLint flat config items.
  */
-export function config(
-  options: OptionsConfig & ConfigItem = {},
-  ...userConfigs: (ConfigItem | ConfigItem[])[]
-) {
+export function config(options: OptionsConfig = {}) {
   const {
     vue: enableVue,
     react: enableReact,
@@ -116,15 +102,7 @@ export function config(
     );
   }
 
-  // User can optionally pass a flat config item to the first argument
-  // We pick the known keys as ESLint would do schema validation
-  const fusedConfig = flatConfigProps.reduce((acc, key) => {
-    if (key in options) acc[key] = options[key] as any;
-    return acc;
-  }, {} as ConfigItem);
-  if (Object.keys(fusedConfig).length) configs.push([fusedConfig]);
-
-  const merged = combine(...configs, ...userConfigs);
+  const merged = combine(...configs, options.customConfig ?? []);
 
   return merged;
 }

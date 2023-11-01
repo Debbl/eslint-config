@@ -127,4 +127,9 @@ export interface OptionsConfig extends OptionsComponentExts {
    * @default true
    */
   prettier?: boolean | PrettierRequiredOptions;
+
+  /**
+   * Custom config
+   */
+  customConfig?: ConfigItem[] | ConfigItem;
 }
