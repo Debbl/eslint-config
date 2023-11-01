@@ -8,7 +8,6 @@ export { default as pluginJsdoc } from "eslint-plugin-jsdoc";
 export * as pluginJsonc from "eslint-plugin-jsonc";
 export { default as pluginMarkdown } from "eslint-plugin-markdown";
 export { default as pluginNode } from "eslint-plugin-n";
-export { default as pluginStylistic } from "@stylistic/eslint-plugin";
 export { default as pluginTs } from "@typescript-eslint/eslint-plugin";
 export { default as pluginUnicorn } from "eslint-plugin-unicorn";
 export { default as pluginUnusedImports } from "eslint-plugin-unused-imports";
