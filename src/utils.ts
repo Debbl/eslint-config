@@ -6,7 +6,5 @@ import type { ConfigItem } from "./types";
 export function combine(
   ...configs: (ConfigItem | ConfigItem[])[]
 ): ConfigItem[] {
-  return configs.flatMap((config) =>
-    Array.isArray(config) ? config : [config],
-  );
+  return configs.flat();
 }
