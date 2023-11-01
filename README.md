@@ -75,15 +75,6 @@ export interface OptionsConfig extends OptionsComponentExts {
   typescript?: boolean | OptionsTypeScriptWithTypes;
 
   /**
-   * Enable JSX related rules.
-   *
-   * Currently only stylistic rules are included.
-   *
-   * @default true
-   */
-  jsx?: boolean;
-
-  /**
    * Enable test support.
    *
    * @default true
