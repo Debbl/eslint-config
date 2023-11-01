@@ -1,4 +1,4 @@
-# @debbl/eslint-config
+# [@debbl/eslint-config](https://github.com/Debbl/eslint-config)
 
 [![npm](https://img.shields.io/npm/v/@debbl/eslint-config?color=444&label=)](https://npmjs.com/package/@debbl/eslint-config)
 
