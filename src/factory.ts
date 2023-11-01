@@ -58,17 +58,11 @@ export function config(
 
   const configs: ConfigItem[][] = [];
 
-  if (enableGitignore) {
-    if (typeof enableGitignore !== "boolean") {
-      configs.push([gitignore(enableGitignore)]);
-    } else {
-      if (fs.existsSync(".gitignore")) configs.push([gitignore()]);
-    }
-  }
-
   // Base configs
   configs.push(
-    ignores(),
+    ignores({
+      enableGitignore,
+    }),
     javascript({
       isInEditor,
       overrides: overrides.javascript,

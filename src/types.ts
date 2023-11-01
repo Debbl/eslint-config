@@ -105,13 +105,14 @@ export interface OptionsIsInEditor {
 export interface OptionsConfig extends OptionsComponentExts {
   /**
    * Enable gitignore support.
-   *
    * Passing an object to configure the options.
-   *
-   * @see https://github.com/antfu/eslint-config-flat-gitignore
    * @default true
    */
-  gitignore?: boolean | FlatGitignoreOptions;
+  gitignore?:
+    | boolean
+    | {
+        ignorePath: string;
+      };
 
   /**
    * Enable TypeScript support.
