@@ -1,6 +1,4 @@
 import process from "node:process";
-import fs from "node:fs";
-import gitignore from "eslint-config-flat-gitignore";
 import type { ConfigItem, OptionsConfig } from "./types";
 import {
   comments,

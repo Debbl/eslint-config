@@ -1,4 +1,3 @@
-import type { FlatGitignoreOptions } from "eslint-config-flat-gitignore";
 import type { ParserOptions } from "@typescript-eslint/parser";
 import type { RequiredOptions } from "prettier";
 import type {

@@ -33,7 +33,7 @@ export function ignores(options: {
 
       return [
         {
-          ignores: ignoreList,
+          ignores: [...ignoreList, ...GLOB_EXCLUDE],
         },
       ];
     }
