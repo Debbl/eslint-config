@@ -1,26 +1,75 @@
 {
-  "name": "@debbl/eslint-config-monorepo",
+  "name": "@debbl/eslint-config",
   "type": "module",
   "version": "1.0.0-beta.12",
-  "private": true,
-  "packageManager": "pnpm@8.7.6",
-  "description": "",
+  "packageManager": "pnpm@8.10.0",
+  "description": "Brendan Dash's ESLint config",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
   "license": "MIT",
-  "keywords": [],
+  "homepage": "https://github.com/Debbl/eslint-config",
+  "keywords": [
+    "eslint-config",
+    "eslint-flat-config",
+    "prettier"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "lint": "eslint . --fix",
-    "build": "turbo build",
-    "release": "turbo release && bumpp -r && pnpm -r publish"
+    "build": "tsup src/index.ts --format esm,cjs --clean --dts",
+    "stub": "tsup src/index.ts --format esm",
+    "dev": "tsup src/index.ts --format esm,cjs --watch & eslint-flat-config-viewer",
+    "lint": "pnpm run stub && eslint .",
+    "release": "bumpp && pnpm publish"
+  },
+  "peerDependencies": {
+    "eslint": ">=8.0.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-define-config": "^1.24.1",
+    "eslint-plugin-antfu": "^1.0.1",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-i": "^2.29.0",
+    "eslint-plugin-jsdoc": "^46.8.2",
+    "eslint-plugin-jsonc": "^2.10.0",
+    "eslint-plugin-markdown": "^3.0.1",
+    "eslint-plugin-n": "^16.2.0",
+    "eslint-plugin-no-only-tests": "^3.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-sort-keys": "^2.3.5",
+    "eslint-plugin-unicorn": "^49.0.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "eslint-plugin-vitest": "^0.3.8",
+    "eslint-plugin-vue": "^9.18.1",
+    "eslint-plugin-yml": "^1.10.0",
+    "globals": "^13.23.0",
+    "jsonc-eslint-parser": "^2.4.0",
+    "prettier": "^3.0.3",
+    "vue-eslint-parser": "^9.3.2",
+    "yaml-eslint-parser": "^1.2.2"
   },
   "devDependencies": {
-    "@debbl/eslint-config": "workspace:*",
-    "@types/node": "^20.6.3",
+    "@types/eslint": "^8.44.6",
+    "@types/fs-extra": "^11.0.3",
+    "@types/node": "^20.8.10",
     "bumpp": "^9.2.0",
-    "eslint": "^8.50.0",
-    "eslint-define-config": "^1.23.0",
+    "eslint": "^8.52.0",
+    "eslint-flat-config-viewer": "^0.1.0",
+    "sucrase": "^3.34.0",
     "tsup": "^7.2.0",
-    "turbo": "^1.10.14",
     "typescript": "^5.2.2"
   }
 }

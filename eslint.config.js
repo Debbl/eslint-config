@@ -1,3 +1,5 @@
-import { config } from "@debbl/eslint-config";
+import config from "./dist/index.js";
 
-export default config();
+export default config({
+  typescript: true,
+});
