@@ -44,7 +44,6 @@ export function config(
     react: enableReact,
     typescript: enableTypeScript,
     gitignore: enableGitignore = true,
-    overrides = {},
     componentExts = [],
   } = options;
 
@@ -55,9 +54,7 @@ export function config(
     ignores({
       enableGitignore,
     }),
-    javascript({
-      overrides: overrides.javascript,
-    }),
+    javascript(),
     comments(),
     node(),
     jsdoc(),
@@ -75,69 +72,44 @@ export function config(
       typescript({
         ...(typeof enableTypeScript !== "boolean" ? enableTypeScript : {}),
         componentExts,
-        overrides: overrides.typescript,
       }),
     );
   }
 
   if (options.test ?? true) {
-    configs.push(
-      test({
-        overrides: overrides.test,
-      }),
-    );
+    configs.push(test());
   }
 
   if (enableVue) {
     configs.push(
       vue({
-        overrides: overrides.vue,
         typescript: !!enableTypeScript,
       }),
     );
   }
 
   if (enableReact) {
-    configs.push(
-      react({
-        overrides: overrides.react,
-      }),
-    );
+    configs.push(react());
   }
 
   if (options.jsonc ?? true) {
-    configs.push(
-      jsonc({
-        overrides: overrides.jsonc,
-      }),
-      sortPackageJson(),
-      sortTsconfig(),
-    );
+    configs.push(jsonc(), sortPackageJson(), sortTsconfig());
   }
 
   if (options.yml ?? true) {
-    configs.push(
-      yml({
-        overrides: overrides.yaml,
-      }),
-    );
+    configs.push(yml());
   }
 
   if (options.markdown ?? true) {
     configs.push(
       markdown({
         componentExts,
-        overrides: overrides.markdown,
       }),
     );
   }
 
   if (options.prettier ?? true) {
-    configs.push(
-      prettier({
-        overrides: overrides.prettier,
-      }),
-    );
+    configs.push(prettier());
   }
 
   // User can optionally pass a flat config item to the first argument

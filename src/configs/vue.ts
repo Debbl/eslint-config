@@ -1,16 +1,8 @@
-import type {
-  ConfigItem,
-  OptionsHasTypeScript,
-  OptionsOverrides,
-} from "../types";
+import type { ConfigItem, OptionsHasTypeScript } from "../types";
 import { GLOB_VUE } from "../globs";
 import { parserTs, parserVue, pluginVue } from "../plugins";
 
-export function vue(
-  options: OptionsHasTypeScript & OptionsOverrides = {},
-): ConfigItem[] {
-  const { overrides = {} } = options;
-
+export function vue(options: OptionsHasTypeScript = {}): ConfigItem[] {
   return [
     {
       name: "eslint:vue:setup",
@@ -140,8 +132,6 @@ export function vue(
         "vue/quote-props": ["error", "consistent-as-needed"],
         "vue/space-in-parens": ["error", "never"],
         "vue/template-curly-spacing": "error",
-
-        ...overrides,
       },
     },
   ];

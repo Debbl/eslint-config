@@ -2,7 +2,6 @@ import process from "node:process";
 import type {
   ConfigItem,
   OptionsComponentExts,
-  OptionsOverrides,
   OptionsTypeScriptParserOptions,
   OptionsTypeScriptWithTypes,
 } from "../types";
@@ -11,13 +10,11 @@ import { parserTs, pluginAntfu, pluginImport, pluginTs } from "../plugins";
 
 export function typescript(
   options?: OptionsComponentExts &
-    OptionsOverrides &
     OptionsTypeScriptWithTypes &
     OptionsTypeScriptParserOptions,
 ): ConfigItem[] {
   const {
     componentExts = [],
-    overrides = {},
     parserOptions = {},
     tsconfigPath,
   } = options ?? {};
@@ -122,7 +119,6 @@ export function typescript(
         "@typescript-eslint/unified-signatures": "off",
 
         ...(tsconfigPath ? typeAwareRules : {}),
-        ...overrides,
       },
     },
     {

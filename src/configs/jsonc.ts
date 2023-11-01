@@ -1,10 +1,8 @@
-import type { ConfigItem, OptionsOverrides } from "../types";
+import type { ConfigItem } from "../types";
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from "../globs";
 import { parserJsonc, pluginJsonc } from "../plugins";
 
-export function jsonc(options: OptionsOverrides = {}): ConfigItem[] {
-  const { overrides = {} } = options;
-
+export function jsonc(): ConfigItem[] {
   return [
     {
       name: "eslint:jsonc:setup",
@@ -65,8 +63,6 @@ export function jsonc(options: OptionsOverrides = {}): ConfigItem[] {
         ],
         "jsonc/quote-props": "error",
         "jsonc/quotes": "error",
-
-        ...overrides,
       },
     },
   ];

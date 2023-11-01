@@ -1,5 +1,4 @@
 import type { ParserOptions } from "@typescript-eslint/parser";
-import type { RequiredOptions } from "prettier";
 import type {
   EslintCommentsRules,
   EslintRules,
@@ -71,14 +70,6 @@ export interface OptionsTypeScriptWithTypes {
 
 export interface OptionsHasTypeScript {
   typescript?: boolean;
-}
-
-export interface OptionsOverrides {
-  overrides?: ConfigItem["rules"];
-}
-
-export interface OptionsPrettierOverrides {
-  overrides?: NonNullable<NonNullable<OptionsConfig["overrides"]>["prettier"]>;
 }
 
 export interface OptionsConfig extends OptionsComponentExts {
@@ -159,19 +150,4 @@ export interface OptionsConfig extends OptionsComponentExts {
    * @default true
    */
   prettier?: boolean;
-
-  /**
-   * Provide overrides for rules for each integration.
-   */
-  overrides?: {
-    javascript?: ConfigItem["rules"];
-    typescript?: ConfigItem["rules"];
-    test?: ConfigItem["rules"];
-    vue?: ConfigItem["rules"];
-    react?: ConfigItem["rules"];
-    jsonc?: ConfigItem["rules"];
-    markdown?: ConfigItem["rules"];
-    yaml?: ConfigItem["rules"];
-    prettier?: Partial<RequiredOptions>;
-  };
 }

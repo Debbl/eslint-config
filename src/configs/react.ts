@@ -1,8 +1,7 @@
-import type { ConfigItem, OptionsOverrides } from "../types";
+import type { ConfigItem } from "../types";
 import { pluginReact, pluginReactHooks } from "../plugins";
 
-export function react(options: OptionsOverrides = {}): ConfigItem[] {
-  const { overrides } = options;
+export function react(): ConfigItem[] {
   return [
     {
       name: "eslint:react",
@@ -27,8 +26,6 @@ export function react(options: OptionsOverrides = {}): ConfigItem[] {
           1,
           { selfClosing: "tag-aligned", nonEmpty: "tag-aligned" },
         ],
-
-        ...overrides,
       },
     },
   ];

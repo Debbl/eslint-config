@@ -1,10 +1,8 @@
-import type { ConfigItem, OptionsOverrides } from "../types";
+import type { ConfigItem } from "../types";
 import { GLOB_YAML } from "../globs";
 import { parserYml, pluginYml } from "../plugins";
 
-export function yml(options: OptionsOverrides = {}): ConfigItem[] {
-  const { overrides = {} } = options;
-
+export function yml(): ConfigItem[] {
   return [
     {
       name: "eslint:yaml:setup",
@@ -32,8 +30,6 @@ export function yml(options: OptionsOverrides = {}): ConfigItem[] {
         "yml/vue-custom-block/no-parsing-error": "error",
 
         "yml/spaced-comment": "error",
-
-        ...overrides,
       },
     },
   ];

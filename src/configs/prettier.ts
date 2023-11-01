@@ -1,9 +1,7 @@
-import type { ConfigItem, OptionsPrettierOverrides } from "../types";
+import type { ConfigItem } from "../types";
 import { configPrettier, pluginPrettier } from "../plugins";
 
-export function prettier(options: OptionsPrettierOverrides = {}): ConfigItem[] {
-  const { overrides } = options;
-
+export function prettier(): ConfigItem[] {
   return [
     {
       name: "eslint:prettier",
@@ -17,8 +15,6 @@ export function prettier(options: OptionsPrettierOverrides = {}): ConfigItem[] {
           "warn",
           {
             quoteProps: "consistent",
-
-            ...overrides,
           },
         ],
       },
