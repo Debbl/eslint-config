@@ -109,7 +109,11 @@ export function config(
   }
 
   if (options.prettier ?? true) {
-    configs.push(prettier());
+    configs.push(
+      prettier({
+        ...(typeof options.prettier !== "boolean" ? options.prettier : {}),
+      }),
+    );
   }
 
   // User can optionally pass a flat config item to the first argument

@@ -14,6 +14,9 @@ import type {
   VueRules,
 } from "@antfu/eslint-define-config";
 import type { Rules as AntfuRules } from "eslint-plugin-antfu";
+import type { RequiredOptions } from "prettier";
+
+export type PrettierRequiredOptions = Partial<RequiredOptions>;
 
 export type Rules = MergeIntersection<
   RenamePrefix<VitestRules, "vitest/", "test/"> &
@@ -149,5 +152,5 @@ export interface OptionsConfig extends OptionsComponentExts {
    *
    * @default true
    */
-  prettier?: boolean;
+  prettier?: boolean | PrettierRequiredOptions;
 }

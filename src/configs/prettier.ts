@@ -1,7 +1,7 @@
-import type { ConfigItem } from "../types";
+import type { ConfigItem, PrettierRequiredOptions } from "../types";
 import { configPrettier, pluginPrettier } from "../plugins";
 
-export function prettier(): ConfigItem[] {
+export function prettier(options: PrettierRequiredOptions): ConfigItem[] {
   return [
     {
       name: "eslint:prettier",
@@ -11,10 +11,13 @@ export function prettier(): ConfigItem[] {
       rules: {
         ...configPrettier.rules,
         ...(pluginPrettier.configs!.recommended as any).rules,
+
         "prettier/prettier": [
           "warn",
           {
             quoteProps: "consistent",
+
+            ...options,
           },
         ],
       },
