@@ -56,7 +56,9 @@ export function typescript(
       languageOptions: {
         parser: parserTs,
         parserOptions: {
+          extraFileExtensions: componentExts.map((ext) => `.${ext}`),
           sourceType: "module",
+
           ...(tsconfigPath
             ? {
                 project: [tsconfigPath],
