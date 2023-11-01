@@ -1,11 +1,9 @@
 import globals from "globals";
-import type { ConfigItem, OptionsOverrides } from "../types";
+import type { ConfigItem } from "../types";
 import { pluginAntfu, pluginUnusedImports } from "../plugins";
 import { GLOB_SRC, GLOB_SRC_EXT } from "../globs";
 
-export function javascript(options: OptionsOverrides = {}): ConfigItem[] {
-  const { overrides = {} } = options;
-
+export function javascript(): ConfigItem[] {
   return [
     {
       languageOptions: {
@@ -248,8 +246,6 @@ export function javascript(options: OptionsOverrides = {}): ConfigItem[] {
         "valid-typeof": ["error", { requireStringLiterals: true }],
         "vars-on-top": "error",
         "yoda": ["error", "never"],
-
-        ...overrides,
       },
     },
     {

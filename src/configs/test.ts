@@ -1,10 +1,8 @@
-import type { ConfigItem, OptionsOverrides } from "../types";
+import type { ConfigItem } from "../types";
 import { pluginNoOnlyTests, pluginVitest } from "../plugins";
 import { GLOB_TESTS } from "../globs";
 
-export function test(options: OptionsOverrides = {}): ConfigItem[] {
-  const { overrides = {} } = options;
-
+export function test(): ConfigItem[] {
   return [
     {
       name: "eslint:test:setup",
@@ -31,8 +29,6 @@ export function test(options: OptionsOverrides = {}): ConfigItem[] {
         "test/no-only-tests": "error",
         "test/prefer-hooks-in-order": "error",
         "test/prefer-lowercase-title": "error",
-
-        ...overrides,
       },
     },
   ];
