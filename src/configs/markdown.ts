@@ -13,14 +13,14 @@ export function markdown(
 
   return [
     {
-      name: "eslint:markdown:setup",
+      name: "antfu:markdown:setup",
       plugins: {
         markdown: pluginMarkdown,
       },
     },
     {
       files: [GLOB_MARKDOWN],
-      name: "eslint:markdown:processor",
+      name: "antfu:markdown:processor",
       processor: "markdown/markdown",
     },
     {
@@ -35,7 +35,7 @@ export function markdown(
           },
         },
       },
-      name: "eslint:markdown:rules",
+      name: "antfu:markdown:rules",
       rules: {
         "antfu/no-cjs-exports": "off",
         "antfu/no-ts-export-equal": "off",
@@ -51,13 +51,13 @@ export function markdown(
         "style/comma-dangle": "off",
         "style/eol-last": "off",
 
-        "ts/consistent-type-imports": "off",
-        "ts/no-namespace": "off",
-        "ts/no-redeclare": "off",
-        "ts/no-require-imports": "off",
-        "ts/no-unused-vars": "off",
-        "ts/no-use-before-define": "off",
-        "ts/no-var-requires": "off",
+        "@typescript-eslint/consistent-type-imports": "off",
+        "@typescript-eslint/no-namespace": "off",
+        "@typescript-eslint/no-redeclare": "off",
+        "@typescript-eslint/no-require-imports": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/no-use-before-define": "off",
+        "@typescript-eslint/no-var-requires": "off",
 
         "unicode-bom": "off",
         "unused-imports/no-unused-imports": "off",
@@ -65,22 +65,22 @@ export function markdown(
 
         // Type aware rules
         ...{
-          "ts/await-thenable": "off",
-          "ts/dot-notation": "off",
-          "ts/no-floating-promises": "off",
-          "ts/no-for-in-array": "off",
-          "ts/no-implied-eval": "off",
-          "ts/no-misused-promises": "off",
-          "ts/no-throw-literal": "off",
-          "ts/no-unnecessary-type-assertion": "off",
-          "ts/no-unsafe-argument": "off",
-          "ts/no-unsafe-assignment": "off",
-          "ts/no-unsafe-call": "off",
-          "ts/no-unsafe-member-access": "off",
-          "ts/no-unsafe-return": "off",
-          "ts/restrict-plus-operands": "off",
-          "ts/restrict-template-expressions": "off",
-          "ts/unbound-method": "off",
+          "@typescript-eslint/await-thenable": "off",
+          "@typescript-eslint/dot-notation": "off",
+          "@typescript-eslint/no-floating-promises": "off",
+          "@typescript-eslint/no-for-in-array": "off",
+          "@typescript-eslint/no-implied-eval": "off",
+          "@typescript-eslint/no-misused-promises": "off",
+          "@typescript-eslint/no-throw-literal": "off",
+          "@typescript-eslint/no-unnecessary-type-assertion": "off",
+          "@typescript-eslint/no-unsafe-argument": "off",
+          "@typescript-eslint/no-unsafe-assignment": "off",
+          "@typescript-eslint/no-unsafe-call": "off",
+          "@typescript-eslint/no-unsafe-member-access": "off",
+          "@typescript-eslint/no-unsafe-return": "off",
+          "@typescript-eslint/restrict-plus-operands": "off",
+          "@typescript-eslint/restrict-template-expressions": "off",
+          "@typescript-eslint/unbound-method": "off",
         },
 
         ...overrides,

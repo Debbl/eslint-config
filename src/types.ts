@@ -10,7 +10,6 @@ import type {
   Prefix,
   RenamePrefix,
   RuleConfig,
-  TypeScriptRules,
   UnicornRules,
   VitestRules,
   VueRules,
@@ -18,8 +17,7 @@ import type {
 import type { Rules as AntfuRules } from "eslint-plugin-antfu";
 
 export type Rules = MergeIntersection<
-  RenamePrefix<TypeScriptRules, "@typescript-eslint/", "ts/"> &
-    RenamePrefix<VitestRules, "vitest/", "test/"> &
+  RenamePrefix<VitestRules, "vitest/", "test/"> &
     Prefix<AntfuRules, "antfu/"> &
     ImportRules &
     EslintRules &
