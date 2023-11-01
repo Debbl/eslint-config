@@ -66,7 +66,7 @@ export interface OptionsConfig extends OptionsComponentExts {
    *
    * Passing an object to enable TypeScript Language Server support.
    *
-   * @default auto-detect based on the dependencies
+   * @default false
    */
   typescript?: boolean | OptionsTypeScriptWithTypes;
 
