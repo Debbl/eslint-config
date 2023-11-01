@@ -26,11 +26,7 @@
     "stub": "tsup src/index.ts --format esm",
     "dev": "tsup src/index.ts --format esm,cjs --watch & eslint-flat-config-viewer",
     "lint": "pnpm run stub && eslint .",
-    "prepack": "nr build",
-    "release": "bumpp && pnpm publish",
-    "test": "vitest",
-    "typecheck": "tsc --noEmit",
-    "prepare": "simple-git-hooks"
+    "release": "bumpp && pnpm publish"
   },
   "peerDependencies": {
     "eslint": ">=8.0.0"
@@ -63,7 +59,6 @@
     "yaml-eslint-parser": "^1.2.2"
   },
   "devDependencies": {
-    "@antfu/ni": "^0.21.8",
     "@types/eslint": "^8.44.6",
     "@types/fs-extra": "^11.0.3",
     "@types/node": "^20.8.10",
@@ -71,19 +66,8 @@
     "eslint": "^8.52.0",
     "eslint-define-config": "^1.24.1",
     "eslint-flat-config-viewer": "^0.1.0",
-    "esno": "^0.17.0",
-    "fs-extra": "^11.1.1",
-    "lint-staged": "^15.0.2",
-    "simple-git-hooks": "^2.9.0",
     "sucrase": "^3.34.0",
     "tsup": "^7.2.0",
-    "typescript": "^5.2.2",
-    "vitest": "^0.34.6"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged"
-  },
-  "lint-staged": {
-    "*": "eslint --fix"
+    "typescript": "^5.2.2"
   }
 }
