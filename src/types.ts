@@ -1,37 +1,11 @@
 import type { ParserOptions } from "@typescript-eslint/parser";
-import type {
-  EslintCommentsRules,
-  EslintRules,
-  FlatESLintConfigItem,
-  ImportRules,
-  JsoncRules,
-  MergeIntersection,
-  Prefix,
-  RenamePrefix,
-  RuleConfig,
-  UnicornRules,
-  VitestRules,
-  VueRules,
-} from "@antfu/eslint-define-config";
-import type { Rules as AntfuRules } from "eslint-plugin-antfu";
+
 import type { RequiredOptions } from "prettier";
+import type { FlatESLintConfigItem } from "eslint-define-config";
 
 export type PrettierRequiredOptions = Partial<RequiredOptions>;
 
-export type Rules = MergeIntersection<
-  RenamePrefix<VitestRules, "vitest/", "test/"> &
-    Prefix<AntfuRules, "antfu/"> &
-    ImportRules &
-    EslintRules &
-    JsoncRules &
-    VueRules &
-    UnicornRules &
-    EslintCommentsRules & {
-      "test/no-only-tests": RuleConfig<[]>;
-    }
->;
-
-export type ConfigItem = Omit<FlatESLintConfigItem<Rules, false>, "plugins"> & {
+export interface ConfigItem extends FlatESLintConfigItem {
   /**
    * Custom name of each config item
    */
@@ -44,7 +18,7 @@ export type ConfigItem = Omit<FlatESLintConfigItem<Rules, false>, "plugins"> & {
    * @see [Using plugins in your configuration](https://eslint.org/docs/latest/user-guide/configuring/configuration-files-new#using-plugins-in-your-configuration)
    */
   plugins?: Record<string, any>;
-};
+}
 
 export interface OptionsComponentExts {
   /**
