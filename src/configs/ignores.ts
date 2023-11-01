@@ -22,7 +22,7 @@ export function ignores(options: {
       ignorePath = enableGitignore.ignorePath;
     }
 
-    // eslint-disable-next-line node/prefer-global/process
+    // eslint-disable-next-line n/prefer-global/process
     const gitignorePath = path.join(process.cwd(), ignorePath);
     let ignoreList: string[] = [];
 

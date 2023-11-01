@@ -7,7 +7,6 @@ import type {
   ImportRules,
   JsoncRules,
   MergeIntersection,
-  NRules,
   Prefix,
   RenamePrefix,
   RuleConfig,
@@ -21,7 +20,6 @@ import type { Rules as AntfuRules } from "eslint-plugin-antfu";
 export type Rules = MergeIntersection<
   RenamePrefix<TypeScriptRules, "@typescript-eslint/", "ts/"> &
     RenamePrefix<VitestRules, "vitest/", "test/"> &
-    RenamePrefix<NRules, "n/", "node/"> &
     Prefix<AntfuRules, "antfu/"> &
     ImportRules &
     EslintRules &
