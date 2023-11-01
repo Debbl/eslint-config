@@ -48,7 +48,7 @@ export function typescript(
   return [
     {
       // Install the plugins without globs, so they can be configured separately.
-      name: "antfu:typescript:setup",
+      name: "eslint:typescript:setup",
       plugins: {
         antfu: pluginAntfu,
         import: pluginImport,
