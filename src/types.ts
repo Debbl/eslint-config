@@ -158,11 +158,11 @@ export interface OptionsConfig extends OptionsComponentExts {
   jsonc?: boolean;
 
   /**
-   * Enable YAML support.
+   * Enable YML support.
    *
    * @default true
    */
-  yaml?: boolean;
+  yml?: boolean;
 
   /**
    * Enable Markdown support.

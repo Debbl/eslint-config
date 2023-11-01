@@ -124,7 +124,7 @@ export function config(
     );
   }
 
-  if (options.yaml ?? true) {
+  if (options.yml ?? true) {
     configs.push(
       yml({
         overrides: overrides.yaml,
