@@ -15,14 +15,12 @@ import type {
   UnicornRules,
   VitestRules,
   VueRules,
-  YmlRules,
 } from "@antfu/eslint-define-config";
 import type { Rules as AntfuRules } from "eslint-plugin-antfu";
 
 export type Rules = MergeIntersection<
   RenamePrefix<TypeScriptRules, "@typescript-eslint/", "ts/"> &
     RenamePrefix<VitestRules, "vitest/", "test/"> &
-    RenamePrefix<YmlRules, "yml/", "yaml/"> &
     RenamePrefix<NRules, "n/", "node/"> &
     Prefix<AntfuRules, "antfu/"> &
     ImportRules &

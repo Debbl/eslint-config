@@ -13,7 +13,7 @@ export { default as pluginTs } from "@typescript-eslint/eslint-plugin";
 export { default as pluginUnicorn } from "eslint-plugin-unicorn";
 export { default as pluginUnusedImports } from "eslint-plugin-unused-imports";
 export { default as pluginVue } from "eslint-plugin-vue";
-export * as pluginYaml from "eslint-plugin-yml";
+export * as pluginYml from "eslint-plugin-yml";
 export { default as pluginNoOnlyTests } from "eslint-plugin-no-only-tests";
 export { default as pluginVitest } from "eslint-plugin-vitest";
 export { default as pluginSortKeys } from "eslint-plugin-sort-keys";
@@ -26,5 +26,5 @@ export { default as pluginReactHooks } from "eslint-plugin-react-hooks";
 
 export * as parserTs from "@typescript-eslint/parser";
 export { default as parserVue } from "vue-eslint-parser";
-export { default as parserYaml } from "yaml-eslint-parser";
+export { default as parserYml } from "yaml-eslint-parser";
 export { default as parserJsonc } from "jsonc-eslint-parser";

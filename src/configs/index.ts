@@ -10,7 +10,7 @@ export * from "./sort";
 export * from "./typescript";
 export * from "./unicorn";
 export * from "./vue";
-export * from "./yaml";
+export * from "./yml";
 export * from "./test";
 export * from "./sort-keys";
 export * from "./prettier";

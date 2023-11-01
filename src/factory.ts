@@ -17,7 +17,7 @@ import {
   typescript,
   unicorn,
   vue,
-  yaml,
+  yml,
 } from "./configs";
 import { combine } from "./utils";
 import { react } from "./configs/react";
@@ -126,7 +126,7 @@ export function config(
 
   if (options.yaml ?? true) {
     configs.push(
-      yaml({
+      yml({
         overrides: overrides.yaml,
         stylistic: enableStylistic,
       }),
