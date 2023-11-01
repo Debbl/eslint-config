@@ -44,7 +44,6 @@ export function config(
     react: enableReact,
     typescript: enableTypeScript,
     gitignore: enableGitignore = true,
-    stylistic: enableStylistic = true,
     overrides = {},
     componentExts = [],
   } = options;
@@ -61,8 +60,8 @@ export function config(
     }),
     comments(),
     node(),
-    jsdoc({ stylistic: enableStylistic }),
-    imports({ stylistic: enableStylistic }),
+    jsdoc(),
+    imports(),
     unicorn(),
 
     // Optional plugins (not enabled by default)
@@ -110,7 +109,6 @@ export function config(
     configs.push(
       jsonc({
         overrides: overrides.jsonc,
-        stylistic: enableStylistic,
       }),
       sortPackageJson(),
       sortTsconfig(),
@@ -121,7 +119,6 @@ export function config(
     configs.push(
       yml({
         overrides: overrides.yaml,
-        stylistic: enableStylistic,
       }),
     );
   }

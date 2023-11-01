@@ -1,9 +1,7 @@
-import type { ConfigItem, OptionsStylistic } from "../types";
+import type { ConfigItem } from "../types";
 import { pluginAntfu, pluginImport } from "../plugins";
 
-export function imports(options: OptionsStylistic = {}): ConfigItem[] {
-  const { stylistic = true } = options;
-
+export function imports(): ConfigItem[] {
   return [
     {
       name: "eslint:imports",
@@ -23,14 +21,10 @@ export function imports(options: OptionsStylistic = {}): ConfigItem[] {
         "import/no-webpack-loader-syntax": "error",
         "import/order": "error",
 
-        ...(stylistic
-          ? {
-              "import/newline-after-import": [
-                "error",
-                { considerComments: true, count: 1 },
-              ],
-            }
-          : {}),
+        "import/newline-after-import": [
+          "error",
+          { considerComments: true, count: 1 },
+        ],
       },
     },
   ];

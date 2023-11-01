@@ -1,9 +1,7 @@
-import type { ConfigItem, OptionsStylistic } from "../types";
+import type { ConfigItem } from "../types";
 import { pluginJsdoc } from "../plugins";
 
-export function jsdoc(options: OptionsStylistic = {}): ConfigItem[] {
-  const { stylistic = true } = options;
-
+export function jsdoc(): ConfigItem[] {
   return [
     {
       name: "eslint:jsdoc",
@@ -27,12 +25,8 @@ export function jsdoc(options: OptionsStylistic = {}): ConfigItem[] {
         "jsdoc/require-returns-description": "warn",
         "jsdoc/require-yields-check": "warn",
 
-        ...(stylistic
-          ? {
-              "jsdoc/check-alignment": "warn",
-              "jsdoc/multiline-blocks": "warn",
-            }
-          : {}),
+        "jsdoc/check-alignment": "warn",
+        "jsdoc/multiline-blocks": "warn",
       },
     },
   ];

@@ -73,16 +73,6 @@ export interface OptionsHasTypeScript {
   typescript?: boolean;
 }
 
-export interface OptionsStylistic {
-  stylistic?: boolean | StylisticConfig;
-}
-
-export interface StylisticConfig {
-  indent?: number | "tab";
-  quotes?: "single" | "double";
-  jsx?: boolean;
-}
-
 export interface OptionsOverrides {
   overrides?: ConfigItem["rules"];
 }
@@ -162,13 +152,6 @@ export interface OptionsConfig extends OptionsComponentExts {
    * @default true
    */
   markdown?: boolean;
-
-  /**
-   * Enable stylistic rules.
-   *
-   * @default true
-   */
-  stylistic?: boolean;
 
   /**
    * Enable prettier rules.

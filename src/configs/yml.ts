@@ -1,10 +1,8 @@
-import type { ConfigItem, OptionsOverrides, OptionsStylistic } from "../types";
+import type { ConfigItem, OptionsOverrides } from "../types";
 import { GLOB_YAML } from "../globs";
 import { parserYml, pluginYml } from "../plugins";
 
-export function yml(
-  options: OptionsOverrides & OptionsStylistic = {},
-): ConfigItem[] {
+export function yml(options: OptionsOverrides = {}): ConfigItem[] {
   const { overrides = {} } = options;
 
   return [
