@@ -93,10 +93,6 @@ export interface OptionsPrettierOverrides {
   overrides?: NonNullable<NonNullable<OptionsConfig["overrides"]>["prettier"]>;
 }
 
-export interface OptionsIsInEditor {
-  isInEditor?: boolean;
-}
-
 export interface OptionsConfig extends OptionsComponentExts {
   /**
    * Enable gitignore support.
@@ -182,12 +178,6 @@ export interface OptionsConfig extends OptionsComponentExts {
    * @default true
    */
   prettier?: boolean;
-
-  /**
-   * Control to disable some rules in editors.
-   * @default auto-detect based on the process.env
-   */
-  isInEditor?: boolean;
 
   /**
    * Provide overrides for rules for each integration.

@@ -1,12 +1,10 @@
 import globals from "globals";
-import type { ConfigItem, OptionsIsInEditor, OptionsOverrides } from "../types";
+import type { ConfigItem, OptionsOverrides } from "../types";
 import { pluginAntfu, pluginUnusedImports } from "../plugins";
 import { GLOB_SRC, GLOB_SRC_EXT } from "../globs";
 
-export function javascript(
-  options: OptionsIsInEditor & OptionsOverrides = {},
-): ConfigItem[] {
-  const { isInEditor = false, overrides = {} } = options;
+export function javascript(options: OptionsOverrides = {}): ConfigItem[] {
+  const { overrides = {} } = options;
 
   return [
     {
@@ -232,7 +230,7 @@ export function javascript(
 
         "symbol-description": "error",
         "unicode-bom": ["error", "never"],
-        "unused-imports/no-unused-imports": isInEditor ? "off" : "error",
+        "unused-imports/no-unused-imports": "warn",
 
         "unused-imports/no-unused-vars": [
           "error",

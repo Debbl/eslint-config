@@ -1,4 +1,3 @@
-import process from "node:process";
 import type { ConfigItem, OptionsConfig } from "./types";
 import {
   comments,
@@ -41,10 +40,6 @@ export function config(
   ...userConfigs: (ConfigItem | ConfigItem[])[]
 ) {
   const {
-    isInEditor = !!(
-      (process.env.VSCODE_PID || process.env.JETBRAINS_IDE) &&
-      !process.env.CI
-    ),
     vue: enableVue,
     react: enableReact,
     typescript: enableTypeScript,
@@ -62,7 +57,6 @@ export function config(
       enableGitignore,
     }),
     javascript({
-      isInEditor,
       overrides: overrides.javascript,
     }),
     comments(),
@@ -90,7 +84,6 @@ export function config(
   if (options.test ?? true) {
     configs.push(
       test({
-        isInEditor,
         overrides: overrides.test,
       }),
     );
