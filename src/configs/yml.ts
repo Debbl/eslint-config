@@ -9,7 +9,7 @@ export function yml(
 
   return [
     {
-      name: "antfu:yaml:setup",
+      name: "eslint:yaml:setup",
       plugins: {
         yml: pluginYml,
       },
@@ -19,7 +19,7 @@ export function yml(
       languageOptions: {
         parser: parserYml,
       },
-      name: "antfu:yaml:rules",
+      name: "eslint:yaml:rules",
       rules: {
         ...(pluginYml.configs.standard.rules as any),
         ...(pluginYml.configs.prettier.rules as any),

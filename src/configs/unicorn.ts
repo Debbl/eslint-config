@@ -4,7 +4,7 @@ import { pluginUnicorn } from "../plugins";
 export function unicorn(): ConfigItem[] {
   return [
     {
-      name: "antfu:unicorn",
+      name: "eslint:unicorn",
       plugins: {
         unicorn: pluginUnicorn,
       },

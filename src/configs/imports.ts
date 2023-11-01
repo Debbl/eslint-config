@@ -6,7 +6,7 @@ export function imports(options: OptionsStylistic = {}): ConfigItem[] {
 
   return [
     {
-      name: "antfu:imports",
+      name: "eslint:imports",
       plugins: {
         antfu: pluginAntfu,
         import: pluginImport,

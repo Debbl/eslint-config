@@ -11,7 +11,7 @@ export function jsonc(
 
   return [
     {
-      name: "antfu:jsonc:setup",
+      name: "eslint:jsonc:setup",
       plugins: {
         jsonc: pluginJsonc as any,
       },
@@ -21,7 +21,7 @@ export function jsonc(
       languageOptions: {
         parser: parserJsonc,
       },
-      name: "antfu:jsonc:rules",
+      name: "eslint:jsonc:rules",
       rules: {
         "jsonc/no-bigint-literals": "error",
         "jsonc/no-binary-expression": "error",

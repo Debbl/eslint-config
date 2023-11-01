@@ -7,7 +7,7 @@ export function test(options: OptionsOverrides = {}): ConfigItem[] {
 
   return [
     {
-      name: "antfu:test:setup",
+      name: "eslint:test:setup",
       plugins: {
         test: {
           ...pluginVitest,
@@ -21,7 +21,7 @@ export function test(options: OptionsOverrides = {}): ConfigItem[] {
     },
     {
       files: GLOB_TESTS,
-      name: "antfu:test:rules",
+      name: "eslint:test:rules",
       rules: {
         "test/consistent-test-it": [
           "error",

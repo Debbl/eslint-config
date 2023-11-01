@@ -6,7 +6,7 @@ export function jsdoc(options: OptionsStylistic = {}): ConfigItem[] {
 
   return [
     {
-      name: "antfu:jsdoc",
+      name: "eslint:jsdoc",
       plugins: {
         jsdoc: pluginJsdoc,
       },

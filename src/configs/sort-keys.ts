@@ -9,7 +9,7 @@ import { pluginSortKeys } from "../plugins";
 export function sortKeys(): ConfigItem[] {
   return [
     {
-      name: "antfu:sort-keys",
+      name: "eslint:sort-keys",
       plugins: {
         "sort-keys": pluginSortKeys,
       },

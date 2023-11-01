@@ -6,6 +6,7 @@ export function prettier(options: OptionsPrettierOverrides = {}): ConfigItem[] {
 
   return [
     {
+      name: "eslint:prettier",
       plugins: {
         prettier: pluginPrettier,
       },

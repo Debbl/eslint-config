@@ -70,7 +70,7 @@ export function typescript(
           ...(parserOptions as any),
         },
       },
-      name: "antfu:typescript:rules",
+      name: "eslint:typescript:rules",
       rules: {
         ...renameRules(
           pluginTs.configs["eslint-recommended"].overrides![0].rules!,
@@ -130,7 +130,7 @@ export function typescript(
     },
     {
       files: ["**/*.d.ts"],
-      name: "antfu:typescript:dts-overrides",
+      name: "eslint:typescript:dts-overrides",
       rules: {
         "eslint-comments/no-unlimited-disable": "off",
         "import/no-duplicates": "off",
@@ -140,14 +140,14 @@ export function typescript(
     },
     {
       files: ["**/*.{test,spec}.ts?(x)"],
-      name: "antfu:typescript:tests-overrides",
+      name: "eslint:typescript:tests-overrides",
       rules: {
         "no-unused-expressions": "off",
       },
     },
     {
       files: ["**/*.js", "**/*.cjs"],
-      name: "antfu:typescript:javascript-overrides",
+      name: "eslint:typescript:javascript-overrides",
       rules: {
         "ts/no-require-imports": "off",
         "ts/no-var-requires": "off",

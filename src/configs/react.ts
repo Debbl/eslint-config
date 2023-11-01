@@ -5,6 +5,7 @@ export function react(options: OptionsOverrides = {}): ConfigItem[] {
   const { overrides } = options;
   return [
     {
+      name: "eslint:react",
       plugins: {
         "react": pluginReact,
         "react-hooks": pluginReactHooks,

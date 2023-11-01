@@ -13,14 +13,14 @@ export function markdown(
 
   return [
     {
-      name: "antfu:markdown:setup",
+      name: "eslint:markdown:setup",
       plugins: {
         markdown: pluginMarkdown,
       },
     },
     {
       files: [GLOB_MARKDOWN],
-      name: "antfu:markdown:processor",
+      name: "eslint:markdown:processor",
       processor: "markdown/markdown",
     },
     {
@@ -35,7 +35,7 @@ export function markdown(
           },
         },
       },
-      name: "antfu:markdown:rules",
+      name: "eslint:markdown:rules",
       rules: {
         "antfu/no-cjs-exports": "off",
         "antfu/no-ts-export-equal": "off",

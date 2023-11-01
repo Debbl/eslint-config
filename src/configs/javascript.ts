@@ -30,7 +30,7 @@ export function javascript(options: OptionsOverrides = {}): ConfigItem[] {
       linterOptions: {
         reportUnusedDisableDirectives: true,
       },
-      name: "antfu:javascript",
+      name: "eslint:javascript",
       plugins: {
         "antfu": pluginAntfu,
         "unused-imports": pluginUnusedImports,
@@ -254,7 +254,7 @@ export function javascript(options: OptionsOverrides = {}): ConfigItem[] {
     },
     {
       files: [`scripts/${GLOB_SRC}`, `cli.${GLOB_SRC_EXT}`],
-      name: "antfu:scripts-overrides",
+      name: "eslint:scripts-overrides",
       rules: {
         "no-console": "off",
       },
