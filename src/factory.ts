@@ -20,6 +20,7 @@ import {
 } from "./configs";
 import { combine } from "./utils";
 import { react } from "./configs/react";
+import { tailwindcss } from "./configs/tailwindcss";
 
 /**
  * Construct an array of ESLint flat config items.
@@ -30,6 +31,7 @@ export function config(options: OptionsConfig = {}) {
     react: enableReact,
     typescript: enableTypeScript,
     gitignore: enableGitignore = true,
+    tailwindcss: enableTailwindcss,
     componentExts = [],
   } = options;
 
@@ -92,6 +94,10 @@ export function config(options: OptionsConfig = {}) {
         componentExts,
       }),
     );
+  }
+
+  if (enableTailwindcss) {
+    configs.push(tailwindcss());
   }
 
   if (options.prettier ?? true) {

@@ -124,6 +124,12 @@ export interface OptionsConfig extends OptionsComponentExts {
   prettier?: boolean | PrettierRequiredOptions;
 
   /**
+   * Enable Tailwind CSS support.
+   * @default false
+   */
+  tailwindcss?: boolean;
+
+  /**
    * Custom config
    */
   customConfig?: ConfigItem[] | ConfigItem;

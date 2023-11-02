@@ -31,3 +31,5 @@ export { default as parserYml } from "yaml-eslint-parser";
 
 export * as pluginJsonc from "eslint-plugin-jsonc";
 export { default as parserJsonc } from "jsonc-eslint-parser";
+
+export { default as pluginTailwindcss } from "eslint-plugin-tailwindcss";
