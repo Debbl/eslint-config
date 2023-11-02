@@ -75,7 +75,7 @@ export function config(options: OptionsConfig = {}) {
   }
 
   if (enableReact) {
-    configs.push(react());
+    configs.push(react(typeof enableReact !== "boolean" ? enableReact : {}));
   }
 
   if (options.jsonc ?? true) {

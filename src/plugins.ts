@@ -18,6 +18,7 @@ export { default as configPrettier } from "eslint-config-prettier";
 
 export { default as pluginReact } from "eslint-plugin-react";
 export { default as pluginReactHooks } from "eslint-plugin-react-hooks";
+export * as pluginNext from "@next/eslint-plugin-next";
 
 export * as parserTs from "@typescript-eslint/parser";
 export { default as pluginTs } from "@typescript-eslint/eslint-plugin";

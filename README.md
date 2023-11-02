@@ -89,11 +89,11 @@ export interface OptionsConfig extends OptionsComponentExts {
   vue?: boolean;
 
   /**
-   * Enable React support.
+   * Enable React support, Passing an object to enable Next.js support.
    *
    * @default false
    */
-  react?: boolean;
+  react?: boolean | ReactOptions;
 
   /**
    * Enable JSONC support.
