@@ -11,7 +11,7 @@ export { default as pluginUnicorn } from "eslint-plugin-unicorn";
 export { default as pluginUnusedImports } from "eslint-plugin-unused-imports";
 export { default as pluginNoOnlyTests } from "eslint-plugin-no-only-tests";
 export { default as pluginVitest } from "eslint-plugin-vitest";
-export { default as pluginSortKeys } from "eslint-plugin-sort-keys";
+export { default as pluginPerfectionist } from "eslint-plugin-perfectionist";
 
 export { default as pluginPrettier } from "eslint-plugin-prettier";
 export { default as configPrettier } from "eslint-config-prettier";

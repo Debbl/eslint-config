@@ -12,5 +12,5 @@ export * from "./unicorn";
 export * from "./vue";
 export * from "./yml";
 export * from "./test";
-export * from "./sort-keys";
+export * from './perfectionist'
 export * from "./prettier";

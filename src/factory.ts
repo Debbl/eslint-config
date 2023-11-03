@@ -9,7 +9,7 @@ import {
   markdown,
   node,
   prettier,
-  sortKeys,
+  perfectionist,
   sortPackageJson,
   sortTsconfig,
   test,
@@ -49,8 +49,7 @@ export function config(options: OptionsConfig = {}) {
     imports(),
     unicorn(),
 
-    // Optional plugins (not enabled by default)
-    sortKeys(),
+    perfectionist(),
   );
 
   if (enableVue) componentExts.push("vue");
