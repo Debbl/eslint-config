@@ -50,7 +50,7 @@ export default config({
 
 ## 完整的 OptionConfig
 
-[types.ts](./src/types.ts#L52)
+[types.ts](./src/types.ts#L56)
 
 ```ts
 export interface OptionsConfig extends OptionsComponentExts {
