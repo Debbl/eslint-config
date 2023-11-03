@@ -12,5 +12,5 @@ export * from "./unicorn";
 export * from "./vue";
 export * from "./yml";
 export * from "./test";
-export * from './perfectionist'
+export * from "./perfectionist";
 export * from "./prettier";

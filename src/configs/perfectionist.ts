@@ -1,4 +1,5 @@
 import type { ConfigItem } from "../types";
+
 import { pluginPerfectionist } from "../plugins";
 
 /**
@@ -11,11 +12,8 @@ export function perfectionist(): ConfigItem[] {
     {
       name: "eslint:perfectionist",
       plugins: {
-        "perfectionist": pluginPerfectionist,
+        perfectionist: pluginPerfectionist,
       },
-      rules: {
-        ...pluginPerfectionist.configs['recommended-natural']
-      }
     },
   ];
 }
