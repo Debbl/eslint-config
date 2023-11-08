@@ -8,8 +8,8 @@ import type { ConfigItem } from "../types";
 export function sortPackageJson(): ConfigItem[] {
   return [
     {
-      files: ["**/package.json"],
       name: "eslint:sort-package-json",
+      files: ["**/package.json"],
       rules: {
         "jsonc/sort-array-values": [
           "error",
@@ -98,8 +98,8 @@ export function sortPackageJson(): ConfigItem[] {
 export function sortTsconfig(): ConfigItem[] {
   return [
     {
-      files: ["**/tsconfig.json", "**/tsconfig.*.json"],
       name: "eslint:sort-tsconfig",
+      files: ["**/tsconfig.json", "**/tsconfig.*.json"],
       rules: {
         "jsonc/sort-keys": [
           "error",

@@ -11,6 +11,7 @@ export function vue(options: OptionsHasTypeScript = {}): ConfigItem[] {
       },
     },
     {
+      name: "eslint:vue:rules",
       files: [GLOB_VUE],
       languageOptions: {
         parser: parserVue,
@@ -23,7 +24,6 @@ export function vue(options: OptionsHasTypeScript = {}): ConfigItem[] {
           sourceType: "module",
         },
       },
-      name: "eslint:vue:rules",
       processor: pluginVue.processors[".vue"],
       rules: {
         ...(pluginVue.configs.base.rules as any),

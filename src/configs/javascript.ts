@@ -6,6 +6,7 @@ import { GLOB_SRC, GLOB_SRC_EXT } from "../globs";
 export function javascript(): ConfigItem[] {
   return [
     {
+      name: "eslint:javascript",
       languageOptions: {
         ecmaVersion: 2022,
         globals: {
@@ -28,7 +29,6 @@ export function javascript(): ConfigItem[] {
       linterOptions: {
         reportUnusedDisableDirectives: true,
       },
-      name: "eslint:javascript",
       plugins: {
         "antfu": pluginAntfu,
         "unused-imports": pluginUnusedImports,
@@ -247,8 +247,8 @@ export function javascript(): ConfigItem[] {
       },
     },
     {
-      files: [`scripts/${GLOB_SRC}`, `cli.${GLOB_SRC_EXT}`],
       name: "eslint:scripts-overrides",
+      files: [`scripts/${GLOB_SRC}`, `cli.${GLOB_SRC_EXT}`],
       rules: {
         "no-console": "off",
       },

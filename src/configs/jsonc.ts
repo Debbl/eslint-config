@@ -11,11 +11,11 @@ export function jsonc(): ConfigItem[] {
       },
     },
     {
+      name: "eslint:jsonc:rules",
       files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
       languageOptions: {
         parser: parserJsonc,
       },
-      name: "eslint:jsonc:rules",
       rules: {
         "jsonc/no-bigint-literals": "error",
         "jsonc/no-binary-expression": "error",

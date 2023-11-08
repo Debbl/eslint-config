@@ -11,11 +11,11 @@ export function yml(): ConfigItem[] {
       },
     },
     {
+      name: "eslint:yaml:rules",
       files: [GLOB_YAML],
       languageOptions: {
         parser: parserYml,
       },
-      name: "eslint:yaml:rules",
       rules: {
         ...(pluginYml.configs.standard.rules as any),
         ...(pluginYml.configs.prettier.rules as any),

@@ -5,6 +5,7 @@ import { combine } from "../utils";
 function next(): ConfigItem[] {
   return [
     {
+      name: "eslint:next",
       plugins: {
         "@next/next": pluginNext,
       },

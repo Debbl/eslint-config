@@ -7,17 +7,18 @@ export function markdown(options: OptionsComponentExts = {}): ConfigItem[] {
 
   return [
     {
-      name: "antfu:markdown:setup",
+      name: "eslint:markdown:setup",
       plugins: {
         markdown: pluginMarkdown,
       },
     },
     {
+      name: "eslint:markdown:processor",
       files: [GLOB_MARKDOWN],
-      name: "antfu:markdown:processor",
       processor: "markdown/markdown",
     },
     {
+      name: "eslint:markdown:rules",
       files: [
         GLOB_MARKDOWN_CODE,
         ...componentExts.map((ext) => `${GLOB_MARKDOWN}/**/*.${ext}`),
@@ -29,7 +30,6 @@ export function markdown(options: OptionsComponentExts = {}): ConfigItem[] {
           },
         },
       },
-      name: "antfu:markdown:rules",
       rules: {
         "antfu/no-cjs-exports": "off",
         "antfu/no-ts-export-equal": "off",

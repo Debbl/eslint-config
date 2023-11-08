@@ -18,8 +18,8 @@ export function test(): ConfigItem[] {
       },
     },
     {
-      files: GLOB_TESTS,
       name: "eslint:test:rules",
+      files: GLOB_TESTS,
       rules: {
         "test/consistent-test-it": [
           "error",

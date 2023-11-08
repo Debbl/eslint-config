@@ -8,6 +8,28 @@ import type {
 import { GLOB_SRC } from "../globs";
 import { parserTs, pluginAntfu, pluginImport, pluginTs } from "../plugins";
 
+const typeAwareRules: ConfigItem["rules"] = {
+  "dot-notation": "off",
+  "no-implied-eval": "off",
+  "no-throw-literal": "off",
+  "@typescript-eslint/await-thenable": "error",
+  "@typescript-eslint/dot-notation": ["error", { allowKeywords: true }],
+  "@typescript-eslint/no-floating-promises": "error",
+  "@typescript-eslint/no-for-in-array": "error",
+  "@typescript-eslint/no-implied-eval": "error",
+  "@typescript-eslint/no-misused-promises": "error",
+  "@typescript-eslint/no-throw-literal": "error",
+  "@typescript-eslint/no-unnecessary-type-assertion": "error",
+  "@typescript-eslint/no-unsafe-argument": "error",
+  "@typescript-eslint/no-unsafe-assignment": "error",
+  "@typescript-eslint/no-unsafe-call": "error",
+  "@typescript-eslint/no-unsafe-member-access": "error",
+  "@typescript-eslint/no-unsafe-return": "error",
+  "@typescript-eslint/restrict-plus-operands": "error",
+  "@typescript-eslint/restrict-template-expressions": "error",
+  "@typescript-eslint/unbound-method": "error",
+};
+
 export function typescript(
   options?: OptionsComponentExts &
     OptionsTypeScriptWithTypes &
@@ -18,28 +40,6 @@ export function typescript(
     parserOptions = {},
     tsconfigPath,
   } = options ?? {};
-
-  const typeAwareRules: ConfigItem["rules"] = {
-    "dot-notation": "off",
-    "no-implied-eval": "off",
-    "no-throw-literal": "off",
-    "@typescript-eslint/await-thenable": "error",
-    "@typescript-eslint/dot-notation": ["error", { allowKeywords: true }],
-    "@typescript-eslint/no-floating-promises": "error",
-    "@typescript-eslint/no-for-in-array": "error",
-    "@typescript-eslint/no-implied-eval": "error",
-    "@typescript-eslint/no-misused-promises": "error",
-    "@typescript-eslint/no-throw-literal": "error",
-    "@typescript-eslint/no-unnecessary-type-assertion": "error",
-    "@typescript-eslint/no-unsafe-argument": "error",
-    "@typescript-eslint/no-unsafe-assignment": "error",
-    "@typescript-eslint/no-unsafe-call": "error",
-    "@typescript-eslint/no-unsafe-member-access": "error",
-    "@typescript-eslint/no-unsafe-return": "error",
-    "@typescript-eslint/restrict-plus-operands": "error",
-    "@typescript-eslint/restrict-template-expressions": "error",
-    "@typescript-eslint/unbound-method": "error",
-  };
 
   return [
     {
@@ -52,6 +52,7 @@ export function typescript(
       },
     },
     {
+      name: "eslint:typescript:rules",
       files: [GLOB_SRC, ...componentExts.map((ext) => `**/*.${ext}`)],
       languageOptions: {
         parser: parserTs,
@@ -68,7 +69,6 @@ export function typescript(
           ...(parserOptions as any),
         },
       },
-      name: "eslint:typescript:rules",
       rules: {
         ...pluginTs.configs["eslint-recommended"].overrides![0].rules!,
         ...pluginTs.configs.strict.rules!,
@@ -124,8 +124,8 @@ export function typescript(
       },
     },
     {
-      files: ["**/*.d.ts"],
       name: "eslint:typescript:dts-overrides",
+      files: ["**/*.d.ts"],
       rules: {
         "eslint-comments/no-unlimited-disable": "off",
         "import/no-duplicates": "off",
@@ -134,8 +134,8 @@ export function typescript(
       },
     },
     {
-      files: ["**/*.{test,spec}.ts?(x)"],
       name: "eslint:typescript:tests-overrides",
+      files: ["**/*.{test,spec}.ts?(x)"],
       rules: {
         "no-unused-expressions": "off",
       },
