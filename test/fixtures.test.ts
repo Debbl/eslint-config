@@ -43,10 +43,21 @@ runWithConfig(
   },
   {
     rules: {
-      "ts/consistent-type-definitions": ["error", "type"],
+      "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     },
   },
 );
+
+runWithConfig("hooks", {
+  react: true,
+  customConfig: {
+    rules: {
+      "react/prop-types": "off",
+      "react/no-unknown-property": "off",
+      "react/no-unescaped-entities": "off",
+    },
+  },
+});
 
 function runWithConfig(
   name: string,
@@ -78,10 +89,16 @@ export default config(
   `,
       );
 
-      await execa("npx", ["eslint", ".", "--fix"], {
+      const execaChildProcess = await execa("npx", ["eslint", ".", "--fix"], {
         cwd: target,
         stdio: "pipe",
       });
+
+      if (name === "hooks") {
+        expect(execaChildProcess.stdout.split("\n")[2].trim()).toBe(
+          "9:6  warning  React Hook useEffect has a missing dependency: 'count'. Either include it or remove the dependency array  react-hooks/exhaustive-deps",
+        );
+      }
 
       const files = await fg("**/*", {
         ignore: ["node_modules", "eslint.config.js"],
