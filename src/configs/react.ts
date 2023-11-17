@@ -1,13 +1,28 @@
 import type { ConfigItem, ReactOptions } from "../types";
 import { pluginNext, pluginReact, pluginReactHooks } from "../plugins";
 import { combine } from "../utils";
+import { GLOB_JSX, GLOB_TSX } from "../globs";
 
 function next(): ConfigItem[] {
   return [
     {
       name: "eslint:next",
+      files: [GLOB_TSX, GLOB_JSX],
+      languageOptions: {
+        parserOptions: {
+          sourceType: "module",
+          ecmaFeatures: {
+            jsx: true,
+          },
+        },
+      },
       plugins: {
         "@next/next": pluginNext,
+      },
+      settings: {
+        react: {
+          version: "detect",
+        },
       },
       rules: {
         ...pluginNext.configs.recommended.rules,
@@ -20,15 +35,24 @@ function next(): ConfigItem[] {
 export function react(options: ReactOptions = {}): ConfigItem[] {
   const { next: enableNext = false } = options;
 
-  const _react = {
+  const _react: ConfigItem = {
     name: "eslint:react",
+    files: [GLOB_TSX, GLOB_JSX],
+    languageOptions: {
+      parserOptions: {
+        sourceType: "module",
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
     plugins: {
       "react": pluginReact,
       "react-hooks": pluginReactHooks,
     },
     settings: {
       react: {
-        version: "18.0",
+        version: "detect",
       },
     },
     rules: {
