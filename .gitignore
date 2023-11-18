@@ -2,6 +2,8 @@
 logs
 *.log
 
+_fixtures
+
 # Dependency directories
 node_modules/
 
