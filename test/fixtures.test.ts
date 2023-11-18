@@ -131,7 +131,7 @@ export default config(
           }
 
           if (content === source) {
-            content = "// unchanged\n";
+            content = `// unchanged\n${content}`;
             // eslint-disable-next-line no-console
             console.log(file, name);
           }
