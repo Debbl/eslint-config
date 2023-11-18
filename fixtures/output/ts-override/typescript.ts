@@ -1,8 +1,8 @@
 // Define a TypeScript interface
-interface Person {
+type Person = {
   name: string;
   age: number;
-}
+};
 
 // Create an array of objects with the defined interface
 const people: Person[] = [
@@ -29,10 +29,10 @@ const result = identity("TypeScript is awesome");
 log(result);
 
 // Use optional properties in an interface
-interface Car {
+type Car = {
   make: string;
   model?: string;
-}
+};
 
 // Create objects using the interface
 const car1: Car = { make: "Toyota" };
