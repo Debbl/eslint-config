@@ -1,5 +1,6 @@
 import { join, resolve } from "node:path";
 import { afterAll, beforeAll, it } from "vitest";
+import diff from "fast-diff";
 import fs from "fs-extra";
 import { execa } from "execa";
 import fg from "fast-glob";
@@ -111,9 +112,7 @@ export default config(
           const source = await fs.readFile(join(from, file), "utf-8");
           if (name === "all" && file === "hooks.jsx") {
             // eslint-disable-next-line no-console
-            console.log(content);
-            // eslint-disable-next-line no-console
-            console.log(source);
+            console.log(diff(source, content));
             // eslint-disable-next-line no-console
             console.log("---------------->", content === source);
           }
