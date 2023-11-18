@@ -1,7 +1,13 @@
 import type { ConfigItem } from "../types";
-import { pluginAntfu, pluginImport } from "../plugins";
+import { interopDefault } from "../utils";
 
 export async function imports(): Promise<ConfigItem[]> {
+  const [pluginAntfu, pluginImport] = await Promise.all([
+    interopDefault(import("eslint-plugin-antfu")),
+    // @ts-expect-error missing types
+    interopDefault(import("eslint-plugin-i")),
+  ]);
+
   return [
     {
       name: "eslint:imports",

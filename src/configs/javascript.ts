@@ -1,9 +1,15 @@
 import globals from "globals";
 import type { ConfigItem } from "../types";
-import { pluginAntfu, pluginUnusedImports } from "../plugins";
 import { GLOB_SRC, GLOB_SRC_EXT } from "../globs";
+import { interopDefault } from "..";
 
 export async function javascript(): Promise<ConfigItem[]> {
+  const [pluginAntfu, pluginUnusedImports] = await Promise.all([
+    interopDefault(import("eslint-plugin-antfu")),
+    // @ts-expect-error missing types
+    interopDefault(import("eslint-plugin-unused-imports")),
+  ] as const);
+
   return [
     {
       name: "eslint:javascript",

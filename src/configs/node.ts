@@ -1,7 +1,10 @@
 import type { ConfigItem } from "../types";
-import { pluginNode } from "../plugins";
+import { interopDefault } from "../utils";
 
 export async function node(): Promise<ConfigItem[]> {
+  // @ts-expect-error missing types
+  const pluginNode = await interopDefault(import("eslint-plugin-n"));
+
   return [
     {
       name: "eslint:node",

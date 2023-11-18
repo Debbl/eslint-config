@@ -6,7 +6,6 @@ import type {
   OptionsTypeScriptWithTypes,
 } from "../types";
 import { GLOB_SRC } from "../globs";
-import { pluginAntfu } from "../plugins";
 import { interopDefault } from "../utils";
 
 const typeAwareRules: ConfigItem["rules"] = {
@@ -42,9 +41,10 @@ export async function typescript(
     tsconfigPath,
   } = options ?? {};
 
-  const [pluginTs, parserTs] = await Promise.all([
+  const [pluginTs, parserTs, pluginAntfu] = await Promise.all([
     interopDefault(import("@typescript-eslint/eslint-plugin")),
     interopDefault(import("@typescript-eslint/parser")),
+    interopDefault(import("eslint-plugin-antfu")),
   ] as const);
 
   return [

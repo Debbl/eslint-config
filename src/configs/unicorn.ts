@@ -1,7 +1,10 @@
 import type { ConfigItem } from "../types";
-import { pluginUnicorn } from "../plugins";
+import { interopDefault } from "../utils";
 
 export async function unicorn(): Promise<ConfigItem[]> {
+  // @ts-expect-error missing types
+  const pluginUnicorn = await interopDefault(import("eslint-plugin-unicorn"));
+
   return [
     {
       name: "eslint:unicorn",
