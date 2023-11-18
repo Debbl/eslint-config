@@ -1,7 +1,7 @@
 import type { ConfigItem } from "../types";
 import { pluginAntfu, pluginImport } from "../plugins";
 
-export function imports(): ConfigItem[] {
+export async function imports(): Promise<ConfigItem[]> {
   return [
     {
       name: "eslint:imports",

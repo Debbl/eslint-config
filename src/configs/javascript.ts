@@ -3,7 +3,7 @@ import type { ConfigItem } from "../types";
 import { pluginAntfu, pluginUnusedImports } from "../plugins";
 import { GLOB_SRC, GLOB_SRC_EXT } from "../globs";
 
-export function javascript(): ConfigItem[] {
+export async function javascript(): Promise<ConfigItem[]> {
   return [
     {
       name: "eslint:javascript",

@@ -6,7 +6,8 @@ import type {
   OptionsTypeScriptWithTypes,
 } from "../types";
 import { GLOB_SRC } from "../globs";
-import { parserTs, pluginAntfu, pluginImport, pluginTs } from "../plugins";
+import { pluginAntfu } from "../plugins";
+import { interopDefault } from "../utils";
 
 const typeAwareRules: ConfigItem["rules"] = {
   "dot-notation": "off",
@@ -30,16 +31,21 @@ const typeAwareRules: ConfigItem["rules"] = {
   "@typescript-eslint/unbound-method": "error",
 };
 
-export function typescript(
+export async function typescript(
   options?: OptionsComponentExts &
     OptionsTypeScriptWithTypes &
     OptionsTypeScriptParserOptions,
-): ConfigItem[] {
+): Promise<ConfigItem[]> {
   const {
     componentExts = [],
     parserOptions = {},
     tsconfigPath,
   } = options ?? {};
+
+  const [pluginTs, parserTs] = await Promise.all([
+    interopDefault(import("@typescript-eslint/eslint-plugin")),
+    interopDefault(import("@typescript-eslint/parser")),
+  ] as const);
 
   return [
     {
@@ -47,7 +53,6 @@ export function typescript(
       name: "eslint:typescript:setup",
       plugins: {
         "antfu": pluginAntfu,
-        "import": pluginImport,
         "@typescript-eslint": pluginTs,
       },
     },

@@ -1,7 +1,7 @@
 import type { ConfigItem } from "../types";
 import { pluginComments } from "../plugins";
 
-export function comments(): ConfigItem[] {
+export async function comments(): Promise<ConfigItem[]> {
   return [
     {
       name: "eslint:eslint-comments",

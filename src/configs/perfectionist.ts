@@ -7,7 +7,7 @@ import { pluginPerfectionist } from "../plugins";
  *
  * @see https://github.com/azat-io/eslint-plugin-perfectionist/
  */
-export function perfectionist(): ConfigItem[] {
+export async function perfectionist(): Promise<ConfigItem[]> {
   return [
     {
       name: "eslint:perfectionist",

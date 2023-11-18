@@ -1,7 +1,7 @@
 import type { ConfigItem } from "../types";
 import { pluginTailwindcss } from "../plugins";
 
-export function tailwindcss(): ConfigItem[] {
+export async function tailwindcss(): Promise<ConfigItem[]> {
   return [
     {
       name: "eslint:tailwindcss",

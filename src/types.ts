@@ -5,6 +5,8 @@ import type { FlatESLintConfigItem } from "eslint-define-config";
 
 export type PrettierRequiredOptions = Partial<RequiredOptions>;
 
+export type Awaitable<T> = T | Promise<T>;
+
 export interface ConfigItem extends FlatESLintConfigItem {
   /**
    * Custom name of each config item

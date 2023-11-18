@@ -1,7 +1,7 @@
 import type { ConfigItem } from "../types";
 import { pluginNode } from "../plugins";
 
-export function node(): ConfigItem[] {
+export async function node(): Promise<ConfigItem[]> {
   return [
     {
       name: "eslint:node",

@@ -1,15 +1,18 @@
 import type { ConfigItem, OptionsComponentExts } from "../types";
 import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE } from "../globs";
-import { pluginMarkdown } from "../plugins";
+import { interopDefault } from "../utils";
 
-export function markdown(options: OptionsComponentExts = {}): ConfigItem[] {
+export async function markdown(
+  options: OptionsComponentExts = {},
+): Promise<ConfigItem[]> {
   const { componentExts = [] } = options;
 
   return [
     {
       name: "eslint:markdown:setup",
       plugins: {
-        markdown: pluginMarkdown,
+        // @ts-expect-error missing types
+        markdown: await interopDefault(import("eslint-plugin-markdown")),
       },
     },
     {

@@ -1,7 +1,9 @@
 import type { ConfigItem, PrettierRequiredOptions } from "../types";
 import { configPrettier, pluginPrettier } from "../plugins";
 
-export function prettier(options: PrettierRequiredOptions): ConfigItem[] {
+export async function prettier(
+  options: PrettierRequiredOptions,
+): Promise<ConfigItem[]> {
   return [
     {
       name: "eslint:prettier",

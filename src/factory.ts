@@ -1,4 +1,4 @@
-import type { ConfigItem, OptionsConfig } from "./types";
+import type { Awaitable, ConfigItem, OptionsConfig } from "./types";
 import {
   comments,
   ignores,
@@ -35,7 +35,7 @@ export function config(options: OptionsConfig = {}) {
     componentExts = [],
   } = options;
 
-  const configs: ConfigItem[][] = [];
+  const configs: Awaitable<ConfigItem[]>[] = [];
 
   // Base configs
   configs.push(

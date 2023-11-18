@@ -1,9 +1,11 @@
 import type { ConfigItem, ReactOptions } from "../types";
-import { pluginNext, pluginReact, pluginReactHooks } from "../plugins";
-import { combine } from "../utils";
+import { combine, interopDefault } from "../utils";
 import { GLOB_JSX, GLOB_TSX } from "../globs";
 
-function next(): ConfigItem[] {
+async function next(): Promise<ConfigItem[]> {
+  // @ts-expect-error missing types
+  const pluginNext = await interopDefault(import("@next/eslint-plugin-next"));
+
   return [
     {
       name: "eslint:next:setup",
@@ -35,8 +37,15 @@ function next(): ConfigItem[] {
   ];
 }
 
-export function react(options: ReactOptions = {}): ConfigItem[] {
+export async function react(options: ReactOptions = {}): Promise<ConfigItem[]> {
   const { next: enableNext = false } = options;
+
+  const [pluginReact, pluginReactHooks] = await Promise.all([
+    // @ts-expect-error missing types
+    interopDefault(import("eslint-plugin-react")),
+    // @ts-expect-error missing types
+    interopDefault(import("eslint-plugin-react-hooks")),
+  ] as const);
 
   const _react: ConfigItem[] = [
     {
