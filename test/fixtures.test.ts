@@ -1,5 +1,6 @@
 import { join, resolve } from "node:path";
 import { afterAll, beforeAll, it } from "vitest";
+import diff from "fast-diff";
 import fs from "fs-extra";
 import { execa } from "execa";
 import fg from "fast-glob";
@@ -50,7 +51,6 @@ runWithConfig("tab-single-quotes-no-semi", {
   },
 });
 
-// https://github.com/antfu/eslint-config/issues/255
 runWithConfig("ts-override", {
   typescript: true,
   customConfig: {
@@ -120,11 +120,21 @@ export default config(
         files.map(async (file) => {
           let content = await fs.readFile(join(target, file), "utf-8");
           const source = await fs.readFile(join(from, file), "utf-8");
+          if (
+            name === "ts-override" &&
+            (file === "hooks.jsx" || file === "vue.vue")
+          ) {
+            // eslint-disable-next-line no-console
+            console.log(diff(source, content));
+            // eslint-disable-next-line no-console
+            console.log("---------------->", content === source);
+          }
 
           if (content === source) {
             content = "// unchanged\n";
+            // eslint-disable-next-line no-console
+            console.log(file, name);
           }
-
           await expect.soft(content).toMatchFileSnapshot(join(output, file));
         }),
       );
