@@ -108,7 +108,19 @@ export default config(
       await Promise.all(
         files.map(async (file) => {
           let content = await fs.readFile(join(target, file), "utf-8");
+          // eslint-disable-next-line no-console
+          console.log(
+            "🚀 ~ file: fixtures.test.ts:111 ~ files.map ~ content:",
+            content,
+          );
           const source = await fs.readFile(join(from, file), "utf-8");
+          // eslint-disable-next-line no-console
+          console.log(
+            "🚀 ~ file: fixtures.test.ts:113 ~ files.map ~ source:",
+            source,
+          );
+          // eslint-disable-next-line no-console
+          console.log(content === source);
           if (content === source) content = "// unchanged\n";
           await expect.soft(content).toMatchFileSnapshot(join(output, file));
         }),
