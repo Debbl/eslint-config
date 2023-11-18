@@ -1,7 +1,7 @@
 {
   "name": "@debbl/eslint-config",
   "type": "module",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "packageManager": "pnpm@8.10.5",
   "description": "Brendan Dash's ESLint config",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
