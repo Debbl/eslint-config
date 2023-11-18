@@ -28,6 +28,7 @@
     "stub": "tsup src/index.ts --format esm",
     "dev": "tsup src/index.ts --format esm,cjs --watch & eslint-flat-config-viewer",
     "test": "vitest",
+    "typecheck": "tsc --noEmit",
     "lint": "pnpm run stub && eslint .",
     "release": "bumpp && pnpm publish"
   },
