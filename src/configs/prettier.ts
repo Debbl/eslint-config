@@ -16,6 +16,7 @@ export function prettier(options: PrettierRequiredOptions): ConfigItem[] {
           "warn",
           {
             quoteProps: "consistent",
+            endOfLine: "lf",
 
             ...options,
           },
