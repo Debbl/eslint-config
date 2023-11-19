@@ -1,13 +1,13 @@
 import type { ParserOptions } from "@typescript-eslint/parser";
 
 import type { RequiredOptions } from "prettier";
-import type { FlatESLintConfigItem } from "eslint-define-config";
+import type { FlatESLintConfig } from "eslint-define-config";
 
 export type PrettierRequiredOptions = Partial<RequiredOptions>;
 
 export type Awaitable<T> = T | Promise<T>;
 
-export interface ConfigItem extends FlatESLintConfigItem {
+export interface ConfigItem extends FlatESLintConfig {
   /**
    * Custom name of each config item
    */
