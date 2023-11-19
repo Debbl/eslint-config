@@ -1,8 +1,13 @@
 import type { ConfigItem } from "../types";
 import { GLOB_YAML } from "../globs";
-import { parserYml, pluginYml } from "../plugins";
+import { interopDefault } from "../utils";
 
-export function yml(): ConfigItem[] {
+export async function yml(): Promise<ConfigItem[]> {
+  const [pluginYml, parserYml] = await Promise.all([
+    interopDefault(import("eslint-plugin-yml")),
+    interopDefault(import("yaml-eslint-parser")),
+  ] as const);
+
   return [
     {
       name: "eslint:yaml:setup",

@@ -1,13 +1,18 @@
 import type { ConfigItem } from "../types";
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from "../globs";
-import { parserJsonc, pluginJsonc } from "../plugins";
+import { interopDefault } from "../utils";
 
-export function jsonc(): ConfigItem[] {
+export async function jsonc(): Promise<ConfigItem[]> {
+  const [pluginJsonc, parserJsonc] = await Promise.all([
+    interopDefault(import("eslint-plugin-jsonc")),
+    interopDefault(import("jsonc-eslint-parser")),
+  ] as const);
+
   return [
     {
       name: "eslint:jsonc:setup",
       plugins: {
-        jsonc: pluginJsonc as any,
+        jsonc: pluginJsonc,
       },
     },
     {

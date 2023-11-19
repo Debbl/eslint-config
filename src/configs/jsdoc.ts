@@ -1,12 +1,13 @@
 import type { ConfigItem } from "../types";
-import { pluginJsdoc } from "../plugins";
+import { interopDefault } from "../utils";
 
-export function jsdoc(): ConfigItem[] {
+export async function jsdoc(): Promise<ConfigItem[]> {
   return [
     {
       name: "eslint:jsdoc",
       plugins: {
-        jsdoc: pluginJsdoc,
+        // @ts-expect-error missing types
+        jsdoc: await interopDefault(import("eslint-plugin-jsdoc")),
       },
       rules: {
         "jsdoc/check-access": "warn",

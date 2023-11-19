@@ -1,8 +1,14 @@
 import type { ConfigItem } from "../types";
-import { pluginNoOnlyTests, pluginVitest } from "../plugins";
 import { GLOB_TESTS } from "../globs";
+import { interopDefault } from "../utils";
 
-export function test(): ConfigItem[] {
+export async function test(): Promise<ConfigItem[]> {
+  const [pluginVitest, pluginNoOnlyTests] = await Promise.all([
+    interopDefault(import("eslint-plugin-vitest")),
+    // @ts-expect-error missing types
+    interopDefault(import("eslint-plugin-no-only-tests")),
+  ] as const);
+
   return [
     {
       name: "eslint:test:setup",

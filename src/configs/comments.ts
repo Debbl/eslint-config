@@ -1,7 +1,12 @@
+import { interopDefault } from "..";
 import type { ConfigItem } from "../types";
-import { pluginComments } from "../plugins";
 
-export function comments(): ConfigItem[] {
+export async function comments(): Promise<ConfigItem[]> {
+  const pluginComments = await interopDefault(
+    // @ts-expect-error missing types
+    import("eslint-plugin-eslint-comments"),
+  );
+
   return [
     {
       name: "eslint:eslint-comments",

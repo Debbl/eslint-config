@@ -1,7 +1,15 @@
 import type { ConfigItem, PrettierRequiredOptions } from "../types";
-import { configPrettier, pluginPrettier } from "../plugins";
+import { interopDefault } from "..";
 
-export function prettier(options: PrettierRequiredOptions): ConfigItem[] {
+export async function prettier(
+  options: PrettierRequiredOptions,
+): Promise<ConfigItem[]> {
+  const [pluginPrettier, configPrettier] = await Promise.all([
+    interopDefault(import("eslint-plugin-prettier")),
+    // @ts-expect-error missing types
+    interopDefault(import("eslint-config-prettier")),
+  ]);
+
   return [
     {
       name: "eslint:prettier",

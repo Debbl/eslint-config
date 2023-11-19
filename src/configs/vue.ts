@@ -1,8 +1,16 @@
 import type { ConfigItem, OptionsHasTypeScript } from "../types";
 import { GLOB_VUE } from "../globs";
-import { parserTs, parserVue, pluginVue } from "../plugins";
+import { interopDefault } from "../utils";
 
-export function vue(options: OptionsHasTypeScript = {}): ConfigItem[] {
+export async function vue(
+  options: OptionsHasTypeScript = {},
+): Promise<ConfigItem[]> {
+  const [pluginVue, parserVue] = await Promise.all([
+    // @ts-expect-error missing types
+    interopDefault(import("eslint-plugin-vue")),
+    interopDefault(import("vue-eslint-parser")),
+  ] as const);
+
   return [
     {
       name: "eslint:vue:setup",
@@ -20,7 +28,11 @@ export function vue(options: OptionsHasTypeScript = {}): ConfigItem[] {
             jsx: true,
           },
           extraFileExtensions: [".vue"],
-          parser: options.typescript ? (parserTs as any) : null,
+          parser: options.typescript
+            ? ((await interopDefault(
+                import("@typescript-eslint/parser"),
+              )) as any)
+            : null,
           sourceType: "module",
         },
       },
