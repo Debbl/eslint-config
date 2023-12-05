@@ -1,5 +1,6 @@
 import type { ConfigItem, PrettierRequiredOptions } from "../types";
-import { GLOB_MARKDOWN, GLOB_MDX, interopDefault } from "..";
+import { GLOB_MARKDOWN, GLOB_MDX } from "../globs";
+import { interopDefault } from "../utils";
 
 export async function prettier(
   options: PrettierRequiredOptions,
@@ -12,10 +13,13 @@ export async function prettier(
 
   return [
     {
-      name: "eslint:prettier",
+      name: "eslint:prettier:setup",
       plugins: {
         prettier: pluginPrettier,
       },
+    },
+    {
+      name: "eslint:prettier:rules",
       rules: {
         ...configPrettier.rules,
         ...(pluginPrettier.configs!.recommended as any).rules,
@@ -32,16 +36,11 @@ export async function prettier(
     {
       name: "eslint:prettier:markdown",
       files: [GLOB_MARKDOWN],
-      plugins: {
-        prettier: pluginPrettier,
-      },
       rules: {
         "prettier/prettier": [
           "warn",
           {
             parser: "markdown",
-            quoteProps: "consistent",
-            ...options,
           },
         ],
       },
@@ -49,16 +48,11 @@ export async function prettier(
     {
       name: "eslint:prettier:mdx",
       files: [GLOB_MDX],
-      plugins: {
-        prettier: pluginPrettier,
-      },
       rules: {
         "prettier/prettier": [
           "warn",
           {
-            parser: "markdown",
-            quoteProps: "consistent",
-            ...options,
+            parser: "mdx",
           },
         ],
       },
