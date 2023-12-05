@@ -15,6 +15,7 @@ pnpm i eslint @debbl/eslint-config -D
 ## 配置 `eslint.config.js`
 
 ### 默认启动配置
+
 - ignores
 - javascript
 - comments

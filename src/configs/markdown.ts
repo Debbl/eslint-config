@@ -43,9 +43,6 @@ export async function markdown(
         },
       },
       rules: {
-        "antfu/no-cjs-exports": "off",
-        "antfu/no-ts-export-equal": "off",
-
         "no-alert": "off",
         "no-console": "off",
         "no-undef": "off",

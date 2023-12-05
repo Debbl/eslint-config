@@ -41,10 +41,9 @@ export async function typescript(
     tsconfigPath,
   } = options ?? {};
 
-  const [pluginTs, parserTs, pluginAntfu] = await Promise.all([
+  const [pluginTs, parserTs] = await Promise.all([
     interopDefault(import("@typescript-eslint/eslint-plugin")),
     interopDefault(import("@typescript-eslint/parser")),
-    interopDefault(import("eslint-plugin-antfu")),
   ] as const);
 
   return [
@@ -52,7 +51,6 @@ export async function typescript(
       // Install the plugins without globs, so they can be configured separately.
       name: "eslint:typescript:setup",
       plugins: {
-        "antfu": pluginAntfu,
         "@typescript-eslint": pluginTs,
       },
     },
@@ -77,10 +75,6 @@ export async function typescript(
       rules: {
         ...pluginTs.configs["eslint-recommended"].overrides![0].rules!,
         ...pluginTs.configs.strict.rules!,
-
-        "antfu/generic-spacing": "error",
-        "antfu/named-tuple-spacing": "error",
-        "antfu/no-cjs-exports": "error",
 
         "no-dupe-class-members": "off",
         "no-invalid-this": "off",

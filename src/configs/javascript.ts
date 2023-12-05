@@ -4,11 +4,10 @@ import { GLOB_SRC, GLOB_SRC_EXT } from "../globs";
 import { interopDefault } from "..";
 
 export async function javascript(): Promise<ConfigItem[]> {
-  const [pluginAntfu, pluginUnusedImports] = await Promise.all([
-    interopDefault(import("eslint-plugin-antfu")),
+  const pluginUnusedImports = await interopDefault(
     // @ts-expect-error missing types
-    interopDefault(import("eslint-plugin-unused-imports")),
-  ] as const);
+    import("eslint-plugin-unused-imports"),
+  );
 
   return [
     {
@@ -36,7 +35,6 @@ export async function javascript(): Promise<ConfigItem[]> {
         reportUnusedDisableDirectives: true,
       },
       plugins: {
-        "antfu": pluginAntfu,
         "unused-imports": pluginUnusedImports,
       },
       rules: {
