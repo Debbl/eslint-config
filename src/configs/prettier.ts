@@ -24,7 +24,6 @@ export async function prettier(
           "warn",
           {
             quoteProps: "consistent",
-
             ...options,
           },
         ],
@@ -41,6 +40,8 @@ export async function prettier(
           "warn",
           {
             parser: "markdown",
+            quoteProps: "consistent",
+            ...options,
           },
         ],
       },
@@ -55,7 +56,9 @@ export async function prettier(
         "prettier/prettier": [
           "warn",
           {
-            parser: "mdx",
+            parser: "markdown",
+            quoteProps: "consistent",
+            ...options,
           },
         ],
       },
