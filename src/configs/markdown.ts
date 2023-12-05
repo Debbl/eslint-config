@@ -1,13 +1,16 @@
 import type { ConfigItem, OptionsComponentExts } from "../types";
 import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, GLOB_MDX } from "../globs";
+import { interopDefault } from "..";
 
 export async function markdown(
   options: OptionsComponentExts = {},
 ): Promise<ConfigItem[]> {
   const { componentExts = [] } = options;
 
-  const pluginMdx = await import("eslint-plugin-mdx");
-  const parserMdx = await import("eslint-mdx");
+  const [pluginMdx, parserMdx] = await Promise.all([
+    interopDefault(import("eslint-plugin-mdx")),
+    interopDefault(import("eslint-mdx")),
+  ]);
 
   return [
     {
