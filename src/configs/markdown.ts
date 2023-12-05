@@ -1,24 +1,33 @@
 import type { ConfigItem, OptionsComponentExts } from "../types";
-import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE } from "../globs";
-import { interopDefault } from "../utils";
+import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, GLOB_MDX } from "../globs";
 
 export async function markdown(
   options: OptionsComponentExts = {},
 ): Promise<ConfigItem[]> {
   const { componentExts = [] } = options;
 
+  const pluginMdx = await import("eslint-plugin-mdx");
+  const parserMdx = await import("eslint-mdx");
+
   return [
     {
       name: "eslint:markdown:setup",
       plugins: {
-        // @ts-expect-error missing types
-        markdown: await interopDefault(import("eslint-plugin-markdown")),
+        mdx: pluginMdx,
       },
     },
     {
       name: "eslint:markdown:processor",
-      files: [GLOB_MARKDOWN],
-      processor: "markdown/markdown",
+      files: [GLOB_MARKDOWN, GLOB_MDX],
+      languageOptions: {
+        ecmaVersion: "latest",
+        parser: parserMdx,
+        sourceType: "module",
+      },
+      processor: "mdx/remark",
+      settings: {
+        "mdx/code-blocks": true,
+      },
     },
     {
       name: "eslint:markdown:rules",
