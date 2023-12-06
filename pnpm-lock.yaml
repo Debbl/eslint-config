@@ -26,6 +26,9 @@ importers:
       eslint-mdx:
         specifier: ^2.2.0
         version: 2.2.0(eslint@8.55.0)
+      eslint-parser-plain:
+        specifier: ^0.1.0
+        version: 0.1.0
       eslint-plugin-eslint-comments:
         specifier: ^3.2.0
         version: 3.2.0(eslint@8.55.0)
@@ -1840,6 +1843,10 @@ packages:
       eslint-import-resolver-node: 0.3.9
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /eslint-parser-plain@0.1.0:
+    resolution: {integrity: sha512-oOeA6FWU0UJT/Rxc3XF5Cq0nbIZbylm7j8+plqq0CZoE6m4u32OXJrR+9iy4srGMmF6v6pmgvP1zPxSRIGh3sg==}
     dev: false
 
   /eslint-plugin-es-x@7.2.0(eslint@8.55.0):
