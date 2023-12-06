@@ -6,6 +6,7 @@ import {
   GLOB_MDX,
   GLOB_POSTCSS,
   GLOB_SCSS,
+  GLOB_YAML,
 } from "../globs";
 import { interopDefault } from "../utils";
 
@@ -51,9 +52,9 @@ export async function prettier(
       parser: "less",
     },
     {
-      name: "eslint:prettier:toml",
-      files: ["**/*.toml"],
-      parser: "toml",
+      name: "eslint:prettier:yaml",
+      files: [GLOB_YAML],
+      parser: "yaml",
     },
     {
       name: "eslint:prettier:graphql",

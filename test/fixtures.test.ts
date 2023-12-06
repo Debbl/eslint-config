@@ -117,11 +117,13 @@ export default config(
 
       await Promise.all(
         files.map(async (file) => {
-          let content = await fs.readFile(join(target, file), "utf-8");
+          const content = await fs.readFile(join(target, file), "utf-8");
           const source = await fs.readFile(join(from, file), "utf-8");
 
+          const outputPath = join(output, file);
           if (content === source) {
-            content = "// unchanged\n";
+            if (fs.existsSync(outputPath)) fs.remove(outputPath);
+            return;
           }
 
           await expect.soft(content).toMatchFileSnapshot(join(output, file));
