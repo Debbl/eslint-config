@@ -71,8 +71,9 @@ export async function prettier(
       "prettier/prettier": [
         "warn",
         {
-          ...options,
+          quoteProps: "consistent",
           parser: rule.parser,
+          ...options,
         },
       ],
     },
