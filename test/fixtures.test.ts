@@ -4,6 +4,7 @@ import fs from "fs-extra";
 import { execa } from "execa";
 import fg from "fast-glob";
 import type { OptionsConfig } from "../src/types";
+import { GLOB_TOML } from "../dist";
 
 beforeAll(async () => {
   await fs.rm("_fixtures", { recursive: true, force: true });
@@ -15,10 +16,22 @@ afterAll(async () => {
 runWithConfig("js", {
   typescript: false,
   vue: false,
+  customConfig: {
+    ignores: [GLOB_TOML],
+    rules: {
+      "prettier/prettier": "error",
+    },
+  },
 });
 runWithConfig("all", {
   typescript: true,
   vue: true,
+  customConfig: {
+    ignores: [GLOB_TOML],
+    rules: {
+      "prettier/prettier": "error",
+    },
+  },
 });
 runWithConfig("no-style", {
   typescript: true,
@@ -33,12 +46,21 @@ runWithConfig("tab-single-quotes-no-semi", {
     useTabs: true,
     singleQuote: true,
   },
+  customConfig: {
+    ignores: [GLOB_TOML],
+    rules: {
+      "prettier/prettier": "error",
+    },
+  },
 });
 
 runWithConfig("ts-override", {
   typescript: true,
   customConfig: {
+    ignores: [GLOB_TOML],
     rules: {
+      "prettier/prettier": "error",
+
       "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     },
   },
@@ -47,7 +69,10 @@ runWithConfig("ts-override", {
 runWithConfig("hooks", {
   react: true,
   customConfig: {
+    ignores: [GLOB_TOML],
     rules: {
+      "prettier/prettier": "error",
+
       "react/prop-types": "off",
       "react/no-unknown-property": "off",
       "react/no-unescaped-entities": "off",
