@@ -27,6 +27,7 @@ pnpm i eslint @debbl/eslint-config -D
 - test
 - jsonc
 - yml
+- toml
 - markdown
 - prettier
 
@@ -51,7 +52,7 @@ export default config({
 
 ## 完整的 OptionConfig
 
-[types.ts](./src/types.ts#L56)
+[types.ts](./src/types.ts#L58)
 
 ```ts
 export interface OptionsConfig extends OptionsComponentExts {
@@ -109,6 +110,12 @@ export interface OptionsConfig extends OptionsComponentExts {
    * @default true
    */
   yml?: boolean;
+
+  /**
+   * Enable TOML support.
+   * @default true
+   */
+  toml?: boolean;
 
   /**
    * Enable Markdown support.
