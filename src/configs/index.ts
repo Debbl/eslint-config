@@ -11,6 +11,7 @@ export * from "./typescript";
 export * from "./unicorn";
 export * from "./vue";
 export * from "./yml";
+export * from "./toml";
 export * from "./test";
 export * from "./perfectionist";
 export * from "./prettier";

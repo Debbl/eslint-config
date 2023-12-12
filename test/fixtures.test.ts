@@ -4,6 +4,7 @@ import fs from "fs-extra";
 import { execa } from "execa";
 import fg from "fast-glob";
 import type { OptionsConfig } from "../src/types";
+import { GLOB_TOML } from "../dist";
 
 beforeAll(async () => {
   await fs.rm("_fixtures", { recursive: true, force: true });
@@ -16,6 +17,7 @@ runWithConfig("js", {
   typescript: false,
   vue: false,
   customConfig: {
+    ignores: [GLOB_TOML],
     rules: {
       "prettier/prettier": "error",
     },
@@ -25,6 +27,7 @@ runWithConfig("all", {
   typescript: true,
   vue: true,
   customConfig: {
+    ignores: [GLOB_TOML],
     rules: {
       "prettier/prettier": "error",
     },
@@ -44,6 +47,7 @@ runWithConfig("tab-single-quotes-no-semi", {
     singleQuote: true,
   },
   customConfig: {
+    ignores: [GLOB_TOML],
     rules: {
       "prettier/prettier": "error",
     },
@@ -53,6 +57,7 @@ runWithConfig("tab-single-quotes-no-semi", {
 runWithConfig("ts-override", {
   typescript: true,
   customConfig: {
+    ignores: [GLOB_TOML],
     rules: {
       "prettier/prettier": "error",
 
@@ -64,6 +69,7 @@ runWithConfig("ts-override", {
 runWithConfig("hooks", {
   react: true,
   customConfig: {
+    ignores: [GLOB_TOML],
     rules: {
       "prettier/prettier": "error",
 
@@ -117,11 +123,13 @@ export default config(
 
       await Promise.all(
         files.map(async (file) => {
-          let content = await fs.readFile(join(target, file), "utf-8");
+          const content = await fs.readFile(join(target, file), "utf-8");
           const source = await fs.readFile(join(from, file), "utf-8");
 
+          const outputPath = join(output, file);
           if (content === source) {
-            content = "// unchanged\n";
+            if (fs.existsSync(outputPath)) fs.remove(outputPath);
+            return;
           }
 
           await expect.soft(content).toMatchFileSnapshot(join(output, file));
