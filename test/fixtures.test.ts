@@ -15,20 +15,10 @@ afterAll(async () => {
 runWithConfig("js", {
   typescript: false,
   vue: false,
-  customConfig: {
-    rules: {
-      "prettier/prettier": "error",
-    },
-  },
 });
 runWithConfig("all", {
   typescript: true,
   vue: true,
-  customConfig: {
-    rules: {
-      "prettier/prettier": "error",
-    },
-  },
 });
 runWithConfig("no-style", {
   typescript: true,
@@ -43,19 +33,12 @@ runWithConfig("tab-single-quotes-no-semi", {
     useTabs: true,
     singleQuote: true,
   },
-  customConfig: {
-    rules: {
-      "prettier/prettier": "error",
-    },
-  },
 });
 
 runWithConfig("ts-override", {
   typescript: true,
   customConfig: {
     rules: {
-      "prettier/prettier": "error",
-
       "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     },
   },
@@ -65,8 +48,6 @@ runWithConfig("hooks", {
   react: true,
   customConfig: {
     rules: {
-      "prettier/prettier": "error",
-
       "react/prop-types": "off",
       "react/no-unknown-property": "off",
       "react/no-unescaped-entities": "off",

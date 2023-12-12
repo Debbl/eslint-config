@@ -112,6 +112,12 @@ export interface OptionsConfig extends OptionsComponentExts {
   yml?: boolean;
 
   /**
+   * Enable TOML support.
+   * @default true
+   */
+  toml?: boolean;
+
+  /**
    * Enable Markdown support.
    *
    * @default true

@@ -13,6 +13,7 @@ import {
   sortPackageJson,
   sortTsconfig,
   test,
+  toml,
   typescript,
   unicorn,
   vue,
@@ -85,6 +86,10 @@ export function config(options: OptionsConfig = {}) {
 
   if (options.yml ?? true) {
     configs.push(yml());
+  }
+
+  if (options.toml ?? true) {
+    configs.push(toml());
   }
 
   if (options.markdown ?? true) {

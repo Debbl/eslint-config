@@ -6,6 +6,7 @@ import {
   GLOB_MDX,
   GLOB_POSTCSS,
   GLOB_SCSS,
+  GLOB_TOML,
   GLOB_YAML,
 } from "../globs";
 import { interopDefault } from "../utils";
@@ -88,6 +89,7 @@ export async function prettier(
     },
     {
       name: "eslint:prettier:rules",
+      ignores: [GLOB_TOML],
       rules: {
         ...configPrettier.rules,
         ...(pluginPrettier.configs!.recommended as any).rules,
