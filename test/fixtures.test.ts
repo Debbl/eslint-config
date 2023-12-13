@@ -4,7 +4,7 @@ import fs from "fs-extra";
 import { execa } from "execa";
 import fg from "fast-glob";
 import type { OptionsConfig } from "../src/types";
-import { GLOB_TOML } from "../dist";
+import { GLOB_TOML } from "../src/globs";
 
 beforeAll(async () => {
   await fs.rm("_fixtures", { recursive: true, force: true });
@@ -95,14 +95,14 @@ function runWithConfig(name: string, configs: OptionsConfig) {
       });
       await fs.writeFile(
         join(target, "eslint.config.js"),
-        `
-// @eslint-disable
-import config from '@debbl/eslint-config'
-
-export default config(
-  ${JSON.stringify(configs)},
-)
-  `,
+        [
+          "// @eslint-disable",
+          "import config from '@debbl/eslint-config';",
+          "",
+          "export default config(",
+          `  ${JSON.stringify(configs)}`,
+          ");",
+        ].join("\n"),
       );
 
       const execaChildProcess = await execa("npx", ["eslint", ".", "--fix"], {
