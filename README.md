@@ -52,7 +52,7 @@ export default config({
 
 ## 完整的 OptionConfig
 
-[types.ts](./src/types.ts#L58)
+[types.ts](./src/types.ts#L70)
 
 ```ts
 export interface OptionsConfig extends OptionsComponentExts {
@@ -61,11 +61,14 @@ export interface OptionsConfig extends OptionsComponentExts {
    * Passing an object to configure the options.
    * @default true
    */
-  gitignore?:
-    | boolean
-    | {
-        ignorePath: string;
-      };
+  ignores?: boolean | GetConfigOption<IgnoresConfig>;
+
+  /**
+   * Enable JavaScript support.
+   * Passing an object to configure the options.
+   * @default true
+   */
+  javascript?: GetConfigOption<JavascriptConfig>;
 
   /**
    * Enable TypeScript support.
@@ -74,62 +77,62 @@ export interface OptionsConfig extends OptionsComponentExts {
    *
    * @default false
    */
-  typescript?: boolean | OptionsTypeScriptWithTypes;
+  typescript?: boolean | GetConfigOption<TypeScriptConfig>;
 
   /**
    * Enable test support.
    *
    * @default true
    */
-  test?: boolean;
+  test?: boolean | GetConfigOption<TestConfig>;
 
   /**
    * Enable Vue support.
    *
    * @default false
    */
-  vue?: boolean;
+  vue?: boolean | GetConfigOption<VueConfig>;
 
   /**
    * Enable React support, Passing an object to enable Next.js support.
    *
    * @default false
    */
-  react?: boolean | ReactOptions;
+  react?: boolean | GetConfigOption<ReactConfig>;
 
   /**
    * Enable JSONC support.
    *
    * @default true
    */
-  jsonc?: boolean;
+  jsonc?: boolean | GetConfigOption<JsoncConfig>;
 
   /**
    * Enable YML support.
    *
    * @default true
    */
-  yml?: boolean;
+  yml?: boolean | GetConfigOption<YmlConfig>;
 
   /**
    * Enable TOML support.
    * @default true
    */
-  toml?: boolean;
+  toml?: boolean | GetConfigOption<TomlConfig>;
 
   /**
    * Enable Markdown support.
    *
    * @default true
    */
-  markdown?: boolean;
+  markdown?: boolean | GetConfigOption<MarkdownConfig>;
 
   /**
    * Enable prettier rules.
    *
    * @default true
    */
-  prettier?: boolean | PrettierRequiredOptions;
+  prettier?: boolean | GetConfigOption<PrettierConfig>;
 
   /**
    * Enable Tailwind CSS support.
