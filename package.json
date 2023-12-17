@@ -24,9 +24,9 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --clean --dts",
-    "stub": "tsup src/index.ts --format esm",
-    "dev": "tsup src/index.ts --format esm,cjs --watch & eslint-flat-config-viewer",
+    "build": "tsup --format esm,cjs --clean --dts",
+    "stub": "tsup --format esm",
+    "dev": "tsup --format esm,cjs --watch & eslint-flat-config-viewer",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
     "lint": "pnpm run stub && eslint .",
