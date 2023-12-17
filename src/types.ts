@@ -1,11 +1,21 @@
 import type { ParserOptions } from "@typescript-eslint/parser";
-
-import type { RequiredOptions } from "prettier";
 import type { FlatESLintConfig } from "eslint-define-config";
-
-export type PrettierRequiredOptions = Partial<RequiredOptions>;
+import type { ReactConfig } from "./configs/react";
+import type {
+  IgnoresConfig,
+  JavascriptConfig,
+  JsoncConfig,
+  MarkdownConfig,
+  PrettierConfig,
+  TestConfig,
+  TomlConfig,
+  TypeScriptConfig,
+  VueConfig,
+  YmlConfig,
+} from "./configs";
 
 export type Awaitable<T> = T | Promise<T>;
+export type GetConfigOption<T extends (...args: any) => any> = Parameters<T>[0];
 
 export interface ConfigItem extends FlatESLintConfig {
   /**
@@ -21,6 +31,12 @@ export interface ConfigItem extends FlatESLintConfig {
    */
   plugins?: Record<string, any>;
 }
+
+export interface OptionsOverrides {
+  overrides?: ConfigItem["rules"];
+}
+
+export type ConfigFn = (options: OptionsOverrides) => Awaitable<ConfigItem[]>;
 
 export interface OptionsComponentExts {
   /**
@@ -51,21 +67,20 @@ export interface OptionsHasTypeScript {
   typescript?: boolean;
 }
 
-export interface ReactOptions {
-  next?: boolean;
-}
-
 export interface OptionsConfig extends OptionsComponentExts {
   /**
    * Enable gitignore support.
    * Passing an object to configure the options.
    * @default true
    */
-  gitignore?:
-    | boolean
-    | {
-        ignorePath: string;
-      };
+  ignores?: boolean | GetConfigOption<IgnoresConfig>;
+
+  /**
+   * Enable JavaScript support.
+   * Passing an object to configure the options.
+   * @default true
+   */
+  javascript?: GetConfigOption<JavascriptConfig>;
 
   /**
    * Enable TypeScript support.
@@ -74,62 +89,62 @@ export interface OptionsConfig extends OptionsComponentExts {
    *
    * @default false
    */
-  typescript?: boolean | OptionsTypeScriptWithTypes;
+  typescript?: boolean | GetConfigOption<TypeScriptConfig>;
 
   /**
    * Enable test support.
    *
    * @default true
    */
-  test?: boolean;
+  test?: boolean | GetConfigOption<TestConfig>;
 
   /**
    * Enable Vue support.
    *
    * @default false
    */
-  vue?: boolean;
+  vue?: boolean | GetConfigOption<VueConfig>;
 
   /**
    * Enable React support, Passing an object to enable Next.js support.
    *
    * @default false
    */
-  react?: boolean | ReactOptions;
+  react?: boolean | GetConfigOption<ReactConfig>;
 
   /**
    * Enable JSONC support.
    *
    * @default true
    */
-  jsonc?: boolean;
+  jsonc?: boolean | GetConfigOption<JsoncConfig>;
 
   /**
    * Enable YML support.
    *
    * @default true
    */
-  yml?: boolean;
+  yml?: boolean | GetConfigOption<YmlConfig>;
 
   /**
    * Enable TOML support.
    * @default true
    */
-  toml?: boolean;
+  toml?: boolean | GetConfigOption<TomlConfig>;
 
   /**
    * Enable Markdown support.
    *
    * @default true
    */
-  markdown?: boolean;
+  markdown?: boolean | GetConfigOption<MarkdownConfig>;
 
   /**
    * Enable prettier rules.
    *
    * @default true
    */
-  prettier?: boolean | PrettierRequiredOptions;
+  prettier?: boolean | GetConfigOption<PrettierConfig>;
 
   /**
    * Enable Tailwind CSS support.

@@ -1,4 +1,5 @@
-import type { ConfigItem, PrettierRequiredOptions } from "../types";
+import type { RequiredOptions } from "prettier";
+import type { ConfigItem } from "../types";
 import {
   GLOB_CSS,
   GLOB_LESS,
@@ -11,9 +12,13 @@ import {
 } from "../globs";
 import { interopDefault } from "../utils";
 
-export async function prettier(
+export type PrettierRequiredOptions = Partial<RequiredOptions>;
+
+export type PrettierConfig = (
   options: PrettierRequiredOptions,
-): Promise<ConfigItem[]> {
+) => Promise<ConfigItem[]>;
+
+export const prettier: PrettierConfig = async (options) => {
   const [pluginPrettier, configPrettier, parserPlain] = await Promise.all([
     interopDefault(import("eslint-plugin-prettier")),
     // @ts-expect-error missing types
@@ -105,4 +110,4 @@ export async function prettier(
     },
     ...PlainFileRules,
   ];
-}
+};

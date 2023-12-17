@@ -1,7 +1,12 @@
-import { type ConfigItem, GLOB_TOML } from "..";
+import { GLOB_TOML } from "..";
+import type { ConfigFn } from "..";
 import { interopDefault } from "../utils";
 
-export async function toml(): Promise<ConfigItem[]> {
+export type TomlConfig = ConfigFn;
+
+export const toml: TomlConfig = async (options) => {
+  const { overrides = {} } = options;
+
   const [pluginToml, parserToml] = await Promise.all([
     interopDefault(import("eslint-plugin-toml")),
     interopDefault(import("toml-eslint-parser")),
@@ -44,7 +49,9 @@ export async function toml(): Promise<ConfigItem[]> {
         "toml/quoted-keys": "error",
         "toml/spaced-comment": "error",
         "toml/table-bracket-spacing": "error",
+
+        ...overrides,
       },
     },
   ];
-}
+};

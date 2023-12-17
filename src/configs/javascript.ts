@@ -1,9 +1,13 @@
 import globals from "globals";
-import type { ConfigItem } from "../types";
+import type { ConfigFn } from "../types";
 import { GLOB_SRC, GLOB_SRC_EXT } from "../globs";
 import { interopDefault } from "..";
 
-export async function javascript(): Promise<ConfigItem[]> {
+export type JavascriptConfig = ConfigFn;
+
+export const javascript: JavascriptConfig = async (options) => {
+  const { overrides = {} } = options;
+
   const pluginUnusedImports = await interopDefault(
     // @ts-expect-error missing types
     import("eslint-plugin-unused-imports"),
@@ -248,6 +252,8 @@ export async function javascript(): Promise<ConfigItem[]> {
         "valid-typeof": ["error", { requireStringLiterals: true }],
         "vars-on-top": "error",
         "yoda": ["error", "never"],
+
+        ...overrides,
       },
     },
     {
@@ -258,4 +264,4 @@ export async function javascript(): Promise<ConfigItem[]> {
       },
     },
   ];
-}
+};

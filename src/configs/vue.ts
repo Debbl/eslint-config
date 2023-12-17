@@ -1,10 +1,18 @@
-import type { ConfigItem, OptionsHasTypeScript } from "../types";
+import type {
+  ConfigFn,
+  OptionsHasTypeScript,
+  OptionsOverrides,
+} from "../types";
 import { GLOB_VUE } from "../globs";
 import { interopDefault } from "../utils";
 
-export async function vue(
-  options: OptionsHasTypeScript = {},
-): Promise<ConfigItem[]> {
+export type VueConfig = (
+  options: OptionsHasTypeScript & OptionsOverrides,
+) => ReturnType<ConfigFn>;
+
+export const vue: VueConfig = async (options = {}) => {
+  const { overrides = {}, typescript: isTypescript } = options;
+
   const [pluginVue, parserVue] = await Promise.all([
     // @ts-expect-error missing types
     interopDefault(import("eslint-plugin-vue")),
@@ -28,7 +36,7 @@ export async function vue(
             jsx: true,
           },
           extraFileExtensions: [".vue"],
-          parser: options.typescript
+          parser: isTypescript
             ? ((await interopDefault(
                 import("@typescript-eslint/parser"),
               )) as any)
@@ -144,7 +152,9 @@ export async function vue(
         "vue/quote-props": ["error", "consistent-as-needed"],
         "vue/space-in-parens": ["error", "never"],
         "vue/template-curly-spacing": "error",
+
+        ...overrides,
       },
     },
   ];
-}
+};

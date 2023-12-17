@@ -1,12 +1,21 @@
 import process from "node:process";
 import type {
+  ConfigFn,
   ConfigItem,
   OptionsComponentExts,
+  OptionsOverrides,
   OptionsTypeScriptParserOptions,
   OptionsTypeScriptWithTypes,
 } from "../types";
 import { GLOB_SRC } from "../globs";
 import { interopDefault } from "../utils";
+
+export type TypeScriptConfig = (
+  options?: OptionsComponentExts &
+    OptionsTypeScriptWithTypes &
+    OptionsTypeScriptParserOptions &
+    OptionsOverrides,
+) => ReturnType<ConfigFn>;
 
 const typeAwareRules: ConfigItem["rules"] = {
   "dot-notation": "off",
@@ -30,12 +39,9 @@ const typeAwareRules: ConfigItem["rules"] = {
   "@typescript-eslint/unbound-method": "error",
 };
 
-export async function typescript(
-  options?: OptionsComponentExts &
-    OptionsTypeScriptWithTypes &
-    OptionsTypeScriptParserOptions,
-): Promise<ConfigItem[]> {
+export const typescript: TypeScriptConfig = async (options) => {
   const {
+    overrides = {},
     componentExts = [],
     parserOptions = {},
     tsconfigPath,
@@ -120,6 +126,7 @@ export async function typescript(
         "@typescript-eslint/unified-signatures": "off",
 
         ...(tsconfigPath ? typeAwareRules : {}),
+        ...overrides,
       },
     },
     {
@@ -148,4 +155,4 @@ export async function typescript(
       },
     },
   ];
-}
+};

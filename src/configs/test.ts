@@ -1,8 +1,12 @@
-import type { ConfigItem } from "../types";
+import type { ConfigFn } from "../types";
 import { GLOB_TESTS } from "../globs";
 import { interopDefault } from "../utils";
 
-export async function test(): Promise<ConfigItem[]> {
+export type TestConfig = ConfigFn;
+
+export const test: TestConfig = async (options) => {
+  const { overrides = {} } = options;
+
   const [pluginVitest, pluginNoOnlyTests] = await Promise.all([
     interopDefault(import("eslint-plugin-vitest")),
     // @ts-expect-error missing types
@@ -35,7 +39,9 @@ export async function test(): Promise<ConfigItem[]> {
         "test/no-only-tests": "error",
         "test/prefer-hooks-in-order": "error",
         "test/prefer-lowercase-title": "error",
+
+        ...overrides,
       },
     },
   ];
-}
+};
