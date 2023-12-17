@@ -12,13 +12,13 @@ export type IgnoresConfig = (options: {
     | {
         ignorePath: string;
       };
-  ignores?: string[];
+  files?: ((files: string[]) => string[]) | string[];
 }) => ReturnType<ConfigFn>;
 
 export const ignores: IgnoresConfig = async (options) => {
-  const { enableGitignore = true, ignores = [] } = options;
+  const { enableGitignore = true, files = [] } = options;
 
-  let _ignoreList: string[] = [];
+  let gitIgnores: string[] = [];
 
   if (enableGitignore) {
     let ignorePath = ".gitignore";
@@ -31,15 +31,23 @@ export const ignores: IgnoresConfig = async (options) => {
     const gitignorePath = path.join(process.cwd(), ignorePath);
 
     if (fs.existsSync(gitignorePath)) {
-      _ignoreList = splitPattern(fs.readFileSync(gitignorePath).toString())
+      gitIgnores = splitPattern(fs.readFileSync(gitignorePath).toString())
         .filter((i) => !(i.startsWith("#") || i.length === 0))
         .map((i) => (i.startsWith("/") ? i.slice(1) : i));
     }
   }
 
+  let _ignores = [...GLOB_EXCLUDE, ...gitIgnores];
+
+  if (typeof files === "function") {
+    _ignores = files(_ignores);
+  } else {
+    _ignores = [..._ignores, ...files];
+  }
+
   return [
     {
-      ignores: [...GLOB_EXCLUDE, ..._ignoreList, ...ignores],
+      ignores: [...GLOB_EXCLUDE, ..._ignores],
     },
   ];
 };
