@@ -1,8 +1,12 @@
-import type { ConfigItem } from "../types";
+import type { ConfigFn, OptionsOverrides } from "../types";
 import { GLOB_YAML } from "../globs";
 import { interopDefault } from "../utils";
 
-export async function yml(): Promise<ConfigItem[]> {
+export type YmlConfig = (options: OptionsOverrides) => ReturnType<ConfigFn>;
+
+export const yml: YmlConfig = async (options) => {
+  const { overrides = {} } = options;
+
   const [pluginYml, parserYml] = await Promise.all([
     interopDefault(import("eslint-plugin-yml")),
     interopDefault(import("yaml-eslint-parser")),
@@ -35,7 +39,9 @@ export async function yml(): Promise<ConfigItem[]> {
         "yml/vue-custom-block/no-parsing-error": "error",
 
         "yml/spaced-comment": "error",
+
+        ...overrides,
       },
     },
   ];
-}
+};

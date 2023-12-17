@@ -1,19 +1,24 @@
 import fs from "node:fs";
 import path from "node:path";
 import { GLOB_EXCLUDE } from "../globs";
-import type { ConfigItem } from "../types";
+import type { ConfigFn } from "../types";
 
 const REGEX_SPLIT_ALL_CRLF = /\r?\n/g;
 const splitPattern = (pattern: string) => pattern.split(REGEX_SPLIT_ALL_CRLF);
 
-export async function ignores(options: {
-  enableGitignore:
+export type IgnoresConfig = (options: {
+  enableGitignore?:
     | boolean
     | {
         ignorePath: string;
       };
-}): Promise<ConfigItem[]> {
-  const { enableGitignore } = options;
+  files?: ((files: string[]) => string[]) | string[];
+}) => ReturnType<ConfigFn>;
+
+export const ignores: IgnoresConfig = async (options) => {
+  const { enableGitignore = true, files = [] } = options;
+
+  let gitIgnores: string[] = [];
 
   if (enableGitignore) {
     let ignorePath = ".gitignore";
@@ -24,24 +29,25 @@ export async function ignores(options: {
 
     // eslint-disable-next-line n/prefer-global/process
     const gitignorePath = path.join(process.cwd(), ignorePath);
-    let ignoreList: string[] = [];
 
     if (fs.existsSync(gitignorePath)) {
-      ignoreList = splitPattern(fs.readFileSync(gitignorePath).toString())
+      gitIgnores = splitPattern(fs.readFileSync(gitignorePath).toString())
         .filter((i) => !(i.startsWith("#") || i.length === 0))
         .map((i) => (i.startsWith("/") ? i.slice(1) : i));
-
-      return [
-        {
-          ignores: [...ignoreList, ...GLOB_EXCLUDE],
-        },
-      ];
     }
+  }
+
+  let _ignores = [...GLOB_EXCLUDE, ...gitIgnores];
+
+  if (typeof files === "function") {
+    _ignores = files(_ignores);
+  } else {
+    _ignores = [..._ignores, ...files];
   }
 
   return [
     {
-      ignores: GLOB_EXCLUDE,
+      ignores: [...GLOB_EXCLUDE, ..._ignores],
     },
   ];
-}
+};

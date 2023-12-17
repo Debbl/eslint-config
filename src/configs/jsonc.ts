@@ -1,8 +1,12 @@
-import type { ConfigItem } from "../types";
+import type { ConfigFn } from "../types";
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from "../globs";
 import { interopDefault } from "../utils";
 
-export async function jsonc(): Promise<ConfigItem[]> {
+export type JsoncConfig = ConfigFn;
+
+export const jsonc: JsoncConfig = async (options) => {
+  const { overrides = {} } = options;
+
   const [pluginJsonc, parserJsonc] = await Promise.all([
     interopDefault(import("eslint-plugin-jsonc")),
     interopDefault(import("jsonc-eslint-parser")),
@@ -68,7 +72,9 @@ export async function jsonc(): Promise<ConfigItem[]> {
         ],
         "jsonc/quote-props": "error",
         "jsonc/quotes": "error",
+
+        ...overrides,
       },
     },
   ];
-}
+};

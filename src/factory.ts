@@ -23,15 +23,19 @@ import { combine } from "./utils";
 import { react } from "./configs/react";
 import { tailwindcss } from "./configs/tailwindcss";
 
+function getConfigOption<T>(options: T) {
+  return options ? (typeof options !== "boolean" ? options : {}) : {};
+}
+
 /**
  * Construct an array of ESLint flat config items.
  */
 export function config(options: OptionsConfig = {}) {
   const {
+    ignores: enableGitignore = true,
     vue: enableVue,
     react: enableReact,
     typescript: enableTypeScript,
-    gitignore: enableGitignore = true,
     tailwindcss: enableTailwindcss,
     componentExts = [],
   } = options;
@@ -40,10 +44,8 @@ export function config(options: OptionsConfig = {}) {
 
   // Base configs
   configs.push(
-    ignores({
-      enableGitignore,
-    }),
-    javascript(),
+    ignores(getConfigOption(enableGitignore)),
+    javascript(options.javascript ?? {}),
     comments(),
     node(),
     jsdoc(),
@@ -65,36 +67,42 @@ export function config(options: OptionsConfig = {}) {
   }
 
   if (options.test ?? true) {
-    configs.push(test());
+    configs.push(test(getConfigOption(options.test)));
   }
 
   if (enableVue) {
     configs.push(
       vue({
+        ...getConfigOption(options.vue),
         typescript: !!enableTypeScript,
       }),
     );
   }
 
   if (enableReact) {
-    configs.push(react(typeof enableReact !== "boolean" ? enableReact : {}));
+    configs.push(react(getConfigOption(enableReact)));
   }
 
   if (options.jsonc ?? true) {
-    configs.push(jsonc(), sortPackageJson(), sortTsconfig());
+    configs.push(
+      jsonc(getConfigOption(options.jsonc)),
+      sortPackageJson(),
+      sortTsconfig(),
+    );
   }
 
   if (options.yml ?? true) {
-    configs.push(yml());
+    configs.push(yml(getConfigOption(options.yml)));
   }
 
   if (options.toml ?? true) {
-    configs.push(toml());
+    configs.push(toml(getConfigOption(options.toml)));
   }
 
   if (options.markdown ?? true) {
     configs.push(
       markdown({
+        ...getConfigOption(options.markdown),
         componentExts,
       }),
     );
@@ -105,11 +113,7 @@ export function config(options: OptionsConfig = {}) {
   }
 
   if (options.prettier ?? true) {
-    configs.push(
-      prettier({
-        ...(typeof options.prettier !== "boolean" ? options.prettier : {}),
-      }),
-    );
+    configs.push(prettier(getConfigOption(options.prettier)));
   }
 
   const merged = combine(...configs, options.customConfig ?? []);

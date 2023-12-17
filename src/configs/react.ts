@@ -1,6 +1,12 @@
-import type { ConfigItem, ReactOptions } from "../types";
+import type { ConfigFn, ConfigItem, OptionsOverrides } from "../types";
 import { combine, interopDefault } from "../utils";
 import { GLOB_JSX, GLOB_TSX } from "../globs";
+
+export type ReactConfig = (
+  options: {
+    next?: boolean;
+  } & OptionsOverrides,
+) => ReturnType<ConfigFn>;
 
 async function next(): Promise<ConfigItem[]> {
   // @ts-expect-error missing types
@@ -37,8 +43,8 @@ async function next(): Promise<ConfigItem[]> {
   ];
 }
 
-export async function react(options: ReactOptions = {}): Promise<ConfigItem[]> {
-  const { next: enableNext = false } = options;
+export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
+  const { next: enableNext = false, overrides = {} } = options;
 
   const [pluginReact, pluginReactHooks] = await Promise.all([
     // @ts-expect-error missing types
@@ -83,9 +89,11 @@ export async function react(options: ReactOptions = {}): Promise<ConfigItem[]> {
           1,
           { selfClosing: "tag-aligned", nonEmpty: "tag-aligned" },
         ],
+
+        ...overrides,
       },
     },
   ];
 
   return combine(_react, enableNext ? next() : []);
-}
+};
