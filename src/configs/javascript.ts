@@ -98,7 +98,6 @@ export const javascript: JavascriptConfig = async (options) => {
         "no-multi-str": "error",
         "no-new": "error",
         "no-new-func": "error",
-        "no-new-object": "error",
         "no-new-symbol": "error",
         "no-new-wrappers": "error",
         "no-obj-calls": "error",
