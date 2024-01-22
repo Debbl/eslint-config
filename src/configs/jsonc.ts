@@ -54,9 +54,7 @@ export const jsonc: JsoncConfig = async (options) => {
         "jsonc/vue-custom-block/no-parsing-error": "error",
 
         "jsonc/array-bracket-spacing": ["error", "never"],
-        "jsonc/comma-dangle": ["error", "never"],
         "jsonc/comma-style": ["error", "last"],
-        "jsonc/indent": ["error", 2],
         "jsonc/key-spacing": [
           "error",
           { afterColon: true, beforeColon: false },

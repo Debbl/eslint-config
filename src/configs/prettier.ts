@@ -2,9 +2,6 @@ import type { RequiredOptions } from "prettier";
 import type { ConfigItem } from "../types";
 import {
   GLOB_CSS,
-  GLOB_JSON,
-  GLOB_JSON5,
-  GLOB_JSONC,
   GLOB_LESS,
   GLOB_MARKDOWN,
   GLOB_MDX,
@@ -98,7 +95,7 @@ export const prettier: PrettierConfig = async (options) => {
     },
     {
       name: "eslint:prettier:rules",
-      ignores: [GLOB_TOML, GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
+      ignores: [GLOB_TOML],
       rules: {
         ...configPrettier.rules,
         ...(pluginPrettier.configs!.recommended as any).rules,
