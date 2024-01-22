@@ -58,9 +58,6 @@ export const markdown: MarkdownConfig = async (options) => {
 
         "node/prefer-global/process": "off",
 
-        "style/comma-dangle": "off",
-        "style/eol-last": "off",
-
         "@typescript-eslint/consistent-type-imports": "off",
         "@typescript-eslint/no-namespace": "off",
         "@typescript-eslint/no-redeclare": "off",
