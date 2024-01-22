@@ -26,8 +26,6 @@ export const toml: TomlConfig = async (options) => {
         parser: parserToml,
       },
       rules: {
-        "style/spaced-comment": "off",
-
         "toml/comma-style": "error",
         "toml/keys-order": "error",
         "toml/no-space-dots": "error",
