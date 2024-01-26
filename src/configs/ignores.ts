@@ -37,17 +37,17 @@ export const ignores: IgnoresConfig = async (options) => {
     }
   }
 
-  let _ignores = [...GLOB_EXCLUDE, ...gitIgnores];
+  let ignores = [...GLOB_EXCLUDE, ...gitIgnores];
 
   if (typeof files === "function") {
-    _ignores = files(_ignores);
+    ignores = files(ignores);
   } else {
-    _ignores = [..._ignores, ...files];
+    ignores = [...ignores, ...files];
   }
 
   return [
     {
-      ignores: [...GLOB_EXCLUDE, ..._ignores],
+      ignores: [...GLOB_EXCLUDE, ...ignores],
     },
   ];
 };
