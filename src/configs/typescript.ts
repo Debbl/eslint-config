@@ -1,4 +1,6 @@
 import process from "node:process";
+import pluginTs from "@typescript-eslint/eslint-plugin";
+import parserTs from "@typescript-eslint/parser";
 import type {
   ConfigFn,
   ConfigItem,
@@ -8,7 +10,6 @@ import type {
   OptionsTypeScriptWithTypes,
 } from "../types";
 import { GLOB_SRC } from "../globs";
-import { interopDefault } from "../utils";
 
 export type TypeScriptConfig = (
   options?: OptionsComponentExts &
@@ -39,18 +40,13 @@ const typeAwareRules: ConfigItem["rules"] = {
   "@typescript-eslint/unbound-method": "error",
 };
 
-export const typescript: TypeScriptConfig = async (options) => {
+export const typescript: TypeScriptConfig = (options) => {
   const {
     overrides = {},
     componentExts = [],
     parserOptions = {},
     tsconfigPath,
   } = options ?? {};
-
-  const [pluginTs, parserTs] = await Promise.all([
-    interopDefault(import("@typescript-eslint/eslint-plugin")),
-    interopDefault(import("@typescript-eslint/parser")),
-  ] as const);
 
   return [
     {

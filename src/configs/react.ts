@@ -1,6 +1,14 @@
+import pluginNext from "@next/eslint-plugin-next";
+import pluginReact from "eslint-plugin-react";
+import pluginReactHooks from "eslint-plugin-react-hooks";
 import type { ConfigFn, ConfigItem, OptionsOverrides } from "../types";
-import { combine, interopDefault } from "../utils";
+import { combine } from "../utils";
 import { GLOB_JSX, GLOB_TSX } from "../globs";
+
+// @ts-expect-error missing types
+// @ts-expect-error missing types
+
+// @ts-expect-error missing types
 
 export type ReactConfig = (
   options: {
@@ -8,10 +16,7 @@ export type ReactConfig = (
   } & OptionsOverrides,
 ) => ReturnType<ConfigFn>;
 
-async function next(): Promise<ConfigItem[]> {
-  // @ts-expect-error missing types
-  const pluginNext = await interopDefault(import("@next/eslint-plugin-next"));
-
+function next(): ConfigItem[] {
   return [
     {
       name: "eslint:next:setup",
@@ -43,15 +48,8 @@ async function next(): Promise<ConfigItem[]> {
   ];
 }
 
-export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
+export const react: ReactConfig = (options): ConfigItem[] => {
   const { next: enableNext = false, overrides = {} } = options;
-
-  const [pluginReact, pluginReactHooks] = await Promise.all([
-    // @ts-expect-error missing types
-    interopDefault(import("eslint-plugin-react")),
-    // @ts-expect-error missing types
-    interopDefault(import("eslint-plugin-react-hooks")),
-  ] as const);
 
   const _react: ConfigItem[] = [
     {

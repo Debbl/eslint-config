@@ -1,23 +1,20 @@
+// @ts-expect-error missing types
+import pluginVue from "eslint-plugin-vue";
+import parserVue from "vue-eslint-parser";
+import parserTs from "@typescript-eslint/parser";
+import { GLOB_VUE } from "../globs";
 import type {
   ConfigFn,
   OptionsHasTypeScript,
   OptionsOverrides,
 } from "../types";
-import { GLOB_VUE } from "../globs";
-import { interopDefault } from "../utils";
 
 export type VueConfig = (
-  options: OptionsHasTypeScript & OptionsOverrides,
+  options?: OptionsHasTypeScript & OptionsOverrides,
 ) => ReturnType<ConfigFn>;
 
-export const vue: VueConfig = async (options = {}) => {
+export const vue: VueConfig = (options = {}) => {
   const { overrides = {}, typescript: isTypescript } = options;
-
-  const [pluginVue, parserVue] = await Promise.all([
-    // @ts-expect-error missing types
-    interopDefault(import("eslint-plugin-vue")),
-    interopDefault(import("vue-eslint-parser")),
-  ] as const);
 
   return [
     {
@@ -36,11 +33,7 @@ export const vue: VueConfig = async (options = {}) => {
             jsx: true,
           },
           extraFileExtensions: [".vue"],
-          parser: isTypescript
-            ? ((await interopDefault(
-                import("@typescript-eslint/parser"),
-              )) as any)
-            : null,
+          parser: (isTypescript ? parserTs : null) as any,
           sourceType: "module",
         },
       },

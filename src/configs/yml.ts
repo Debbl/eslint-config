@@ -1,16 +1,12 @@
+import pluginYml from "eslint-plugin-yml";
+import parserYml from "yaml-eslint-parser";
 import type { ConfigFn, OptionsOverrides } from "../types";
 import { GLOB_YAML } from "../globs";
-import { interopDefault } from "../utils";
 
 export type YmlConfig = (options: OptionsOverrides) => ReturnType<ConfigFn>;
 
-export const yml: YmlConfig = async (options) => {
+export const yml: YmlConfig = (options) => {
   const { overrides = {} } = options;
-
-  const [pluginYml, parserYml] = await Promise.all([
-    interopDefault(import("eslint-plugin-yml")),
-    interopDefault(import("yaml-eslint-parser")),
-  ] as const);
 
   return [
     {

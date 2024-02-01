@@ -1,12 +1,12 @@
+import pluginJsdoc from "eslint-plugin-jsdoc";
 import type { ConfigItem } from "../types";
-import { interopDefault } from "../utils";
 
-export async function jsdoc(): Promise<ConfigItem[]> {
+export function jsdoc(): ConfigItem[] {
   return [
     {
       name: "eslint:jsdoc",
       plugins: {
-        jsdoc: await interopDefault(import("eslint-plugin-jsdoc")),
+        jsdoc: pluginJsdoc,
       },
       rules: {
         "jsdoc/check-access": "warn",

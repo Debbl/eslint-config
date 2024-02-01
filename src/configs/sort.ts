@@ -5,7 +5,7 @@ import type { ConfigItem } from "../types";
  *
  * Requires `jsonc` config
  */
-export async function sortPackageJson(): Promise<ConfigItem[]> {
+export function sortPackageJson(): ConfigItem[] {
   return [
     {
       name: "eslint:sort-package-json",
@@ -92,7 +92,7 @@ export async function sortPackageJson(): Promise<ConfigItem[]> {
  * Requires `jsonc` config
  */
 
-export async function sortTsconfig(): Promise<ConfigItem[]> {
+export function sortTsconfig(): ConfigItem[] {
   return [
     {
       name: "eslint:sort-tsconfig",

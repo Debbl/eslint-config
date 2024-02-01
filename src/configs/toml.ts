@@ -1,16 +1,12 @@
+import pluginToml from "eslint-plugin-toml";
+import parserToml from "toml-eslint-parser";
 import { GLOB_TOML } from "..";
 import type { ConfigFn } from "..";
-import { interopDefault } from "../utils";
 
 export type TomlConfig = ConfigFn;
 
-export const toml: TomlConfig = async (options) => {
+export const toml: TomlConfig = (options) => {
   const { overrides = {} } = options;
-
-  const [pluginToml, parserToml] = await Promise.all([
-    interopDefault(import("eslint-plugin-toml")),
-    interopDefault(import("toml-eslint-parser")),
-  ] as const);
 
   return [
     {

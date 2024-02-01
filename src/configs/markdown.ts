@@ -1,6 +1,7 @@
+import pluginMdx from "eslint-plugin-mdx";
+import parserMdx from "eslint-mdx";
 import type { ConfigFn, OptionsOverrides } from "../types";
 import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, GLOB_MDX } from "../globs";
-import { interopDefault } from "..";
 
 export type MarkdownConfig = (
   options: {
@@ -8,13 +9,8 @@ export type MarkdownConfig = (
   } & OptionsOverrides,
 ) => ReturnType<ConfigFn>;
 
-export const markdown: MarkdownConfig = async (options) => {
+export const markdown: MarkdownConfig = (options) => {
   const { componentExts = [], overrides = {} } = options;
-
-  const [pluginMdx, parserMdx] = await Promise.all([
-    interopDefault(import("eslint-plugin-mdx")),
-    interopDefault(import("eslint-mdx")),
-  ]);
 
   return [
     {

@@ -15,7 +15,7 @@ export type IgnoresConfig = (options: {
   files?: ((files: string[]) => string[]) | string[];
 }) => ReturnType<ConfigFn>;
 
-export const ignores: IgnoresConfig = async (options) => {
+export const ignores: IgnoresConfig = (options) => {
   const { enableGitignore = true, files = [] } = options;
 
   let gitIgnores: string[] = [];

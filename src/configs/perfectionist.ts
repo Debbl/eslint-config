@@ -1,17 +1,14 @@
+import pluginPerfectionist from "eslint-plugin-perfectionist";
 import type { ConfigItem } from "../types";
-import { interopDefault } from "../utils";
+
+// @ts-expect-error missing types
 
 /**
  * Optional sort-keys plugin
  *
  * @see https://github.com/azat-io/eslint-plugin-perfectionist/
  */
-export async function perfectionist(): Promise<ConfigItem[]> {
-  const pluginPerfectionist = await interopDefault(
-    // @ts-expect-error missing types
-    import("eslint-plugin-perfectionist"),
-  );
-
+export function perfectionist(): ConfigItem[] {
   return [
     {
       name: "eslint:perfectionist",

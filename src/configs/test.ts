@@ -1,17 +1,14 @@
+import pluginVitest from "eslint-plugin-vitest";
+import pluginNoOnlyTests from "eslint-plugin-no-only-tests";
 import type { ConfigFn } from "../types";
 import { GLOB_TESTS } from "../globs";
-import { interopDefault } from "../utils";
+
+// @ts-expect-error missing types
 
 export type TestConfig = ConfigFn;
 
-export const test: TestConfig = async (options) => {
+export const test: TestConfig = (options) => {
   const { overrides = {} } = options;
-
-  const [pluginVitest, pluginNoOnlyTests] = await Promise.all([
-    interopDefault(import("eslint-plugin-vitest")),
-    // @ts-expect-error missing types
-    interopDefault(import("eslint-plugin-no-only-tests")),
-  ] as const);
 
   return [
     {

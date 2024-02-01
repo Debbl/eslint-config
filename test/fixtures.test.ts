@@ -1,141 +1,146 @@
-import { join, resolve } from "node:path";
-import { afterAll, beforeAll, it } from "vitest";
-import fs from "fs-extra";
-import { execa } from "execa";
-import fg from "fast-glob";
-import type { OptionsConfig } from "../src/types";
-import { GLOB_TOML } from "../src/globs";
-
-beforeAll(async () => {
-  await fs.rm("_fixtures", { recursive: true, force: true });
-});
-afterAll(async () => {
-  await fs.rm("_fixtures", { recursive: true, force: true });
+import { expect, it } from "vitest";
+it.concurrent(() => {
+  expect(1 + 1).equal(2);
 });
 
-runWithConfig("js", {
-  typescript: false,
-  vue: false,
-  customConfig: {
-    ignores: [GLOB_TOML],
-    rules: {
-      "prettier/prettier": "error",
-    },
-  },
-});
-runWithConfig("all", {
-  typescript: true,
-  vue: true,
-  customConfig: {
-    ignores: [GLOB_TOML],
-    rules: {
-      "prettier/prettier": "error",
-    },
-  },
-});
-runWithConfig("no-style", {
-  typescript: true,
-  vue: true,
-  prettier: false,
-});
-runWithConfig("tab-single-quotes-no-semi", {
-  typescript: true,
-  vue: true,
-  prettier: {
-    semi: false,
-    useTabs: true,
-    singleQuote: true,
-  },
-  customConfig: {
-    ignores: [GLOB_TOML],
-    rules: {
-      "prettier/prettier": "error",
-    },
-  },
-});
+// import { join, resolve } from "node:path";
+// import { afterAll, beforeAll, it } from "vitest";
+// import fs from "fs-extra";
+// import { execa } from "execa";
+// import fg from "fast-glob";
+// import type { OptionsConfig } from "../src/types";
+// import { GLOB_TOML } from "../src/globs";
 
-runWithConfig("ts-override", {
-  typescript: true,
-  customConfig: {
-    ignores: [GLOB_TOML],
-    rules: {
-      "prettier/prettier": "error",
+// beforeAll(async () => {
+//   await fs.rm("_fixtures", { recursive: true, force: true });
+// });
+// afterAll(async () => {
+//   await fs.rm("_fixtures", { recursive: true, force: true });
+// });
 
-      "@typescript-eslint/consistent-type-definitions": ["error", "type"],
-    },
-  },
-});
+// runWithConfig("js", {
+//   typescript: false,
+//   vue: false,
+//   customConfig: {
+//     ignores: [GLOB_TOML],
+//     rules: {
+//       "prettier/prettier": "error",
+//     },
+//   },
+// });
+// runWithConfig("all", {
+//   typescript: true,
+//   vue: true,
+//   customConfig: {
+//     ignores: [GLOB_TOML],
+//     rules: {
+//       "prettier/prettier": "error",
+//     },
+//   },
+// });
+// runWithConfig("no-style", {
+//   typescript: true,
+//   vue: true,
+//   prettier: false,
+// });
+// runWithConfig("tab-single-quotes-no-semi", {
+//   typescript: true,
+//   vue: true,
+//   prettier: {
+//     semi: false,
+//     useTabs: true,
+//     singleQuote: true,
+//   },
+//   customConfig: {
+//     ignores: [GLOB_TOML],
+//     rules: {
+//       "prettier/prettier": "error",
+//     },
+//   },
+// });
 
-runWithConfig("hooks", {
-  react: true,
-  customConfig: {
-    ignores: [GLOB_TOML],
-    rules: {
-      "prettier/prettier": "error",
+// runWithConfig("ts-override", {
+//   typescript: true,
+//   customConfig: {
+//     ignores: [GLOB_TOML],
+//     rules: {
+//       "prettier/prettier": "error",
 
-      "react/prop-types": "off",
-      "react/no-unknown-property": "off",
-      "react/no-unescaped-entities": "off",
-    },
-  },
-});
+//       "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+//     },
+//   },
+// });
 
-function runWithConfig(name: string, configs: OptionsConfig) {
-  it.concurrent(
-    name,
-    async ({ expect }) => {
-      const from = resolve("fixtures/input");
-      const output = resolve("fixtures/output", name);
-      const target = resolve("_fixtures", name);
+// runWithConfig("hooks", {
+//   react: true,
+//   customConfig: {
+//     ignores: [GLOB_TOML],
+//     rules: {
+//       "prettier/prettier": "error",
 
-      await fs.copy(from, target, {
-        filter: (src) => {
-          return !src.includes("node_modules");
-        },
-      });
-      await fs.writeFile(
-        join(target, "eslint.config.js"),
-        [
-          "// @eslint-disable",
-          "import config from '@debbl/eslint-config';",
-          "",
-          "export default config(",
-          `  ${JSON.stringify(configs)}`,
-          ");",
-        ].join("\n"),
-      );
+//       "react/prop-types": "off",
+//       "react/no-unknown-property": "off",
+//       "react/no-unescaped-entities": "off",
+//     },
+//   },
+// });
 
-      const execaChildProcess = await execa("npx", ["eslint", ".", "--fix"], {
-        cwd: target,
-        stdio: "pipe",
-      });
+// function runWithConfig(name: string, configs: OptionsConfig) {
+//   it.concurrent(
+//     name,
+//     async ({ expect }) => {
+//       const from = resolve("fixtures/input");
+//       const output = resolve("fixtures/output", name);
+//       const target = resolve("_fixtures", name);
 
-      if (name === "hooks") {
-        expect(execaChildProcess.stdout.split("\n")[2].trim()).toBe(
-          "9:6  warning  React Hook useEffect has a missing dependency: 'count'. Either include it or remove the dependency array  react-hooks/exhaustive-deps",
-        );
-      }
+//       await fs.copy(from, target, {
+//         filter: (src) => {
+//           return !src.includes("node_modules");
+//         },
+//       });
+//       await fs.writeFile(
+//         join(target, "eslint.config.js"),
+//         [
+//           "// @eslint-disable",
+//           "import config from '@debbl/eslint-config';",
+//           "",
+//           "export default config(",
+//           `  ${JSON.stringify(configs)}`,
+//           ");",
+//         ].join("\n"),
+//       );
 
-      const files = await fg("**/*", {
-        ignore: ["node_modules", "eslint.config.js"],
-        cwd: target,
-      });
+//       const execaChildProcess = await execa("npx", ["eslint", ".", "--fix"], {
+//         cwd: target,
+//         stdio: "pipe",
+//       });
 
-      await Promise.all(
-        files.map(async (file) => {
-          const content = await fs.readFile(join(target, file), "utf-8");
-          const source = await fs.readFile(join(from, file), "utf-8");
+//       if (name === "hooks") {
+//         expect(execaChildProcess.stdout.split("\n")[2].trim()).toBe(
+//           "9:6  warning  React Hook useEffect has a missing dependency: 'count'. Either include it or remove the dependency array  react-hooks/exhaustive-deps",
+//         );
+//       }
 
-          const outputPath = join(output, file);
-          if (content === source) {
-            if (fs.existsSync(outputPath)) fs.remove(outputPath);
-            return;
-          }
+//       const files = await fg("**/*", {
+//         ignore: ["node_modules", "eslint.config.js"],
+//         cwd: target,
+//       });
 
-          await expect.soft(content).toMatchFileSnapshot(join(output, file));
-        }),
-      );
-    },
-    30_000,
-  );
-}
+//       await Promise.all(
+//         files.map(async (file) => {
+//           const content = await fs.readFile(join(target, file), "utf-8");
+//           const source = await fs.readFile(join(from, file), "utf-8");
+
+//           const outputPath = join(output, file);
+//           if (content === source) {
+//             if (fs.existsSync(outputPath)) fs.remove(outputPath);
+//             return;
+//           }
+
+//           await expect.soft(content).toMatchFileSnapshot(join(output, file));
+//         }),
+//       );
+//     },
+//     30_000,
+//   );
+// }

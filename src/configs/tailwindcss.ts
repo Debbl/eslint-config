@@ -1,11 +1,9 @@
+import pluginTailwindcss from "eslint-plugin-tailwindcss";
 import type { ConfigItem } from "../types";
-import { interopDefault } from "../utils";
 
-export async function tailwindcss(): Promise<ConfigItem[]> {
-  const pluginTailwindcss = await interopDefault(
-    // @ts-expect-error missing types
-    import("eslint-plugin-tailwindcss"),
-  );
+// @ts-expect-error missing types
+
+export function tailwindcss(): ConfigItem[] {
   return [
     {
       name: "eslint:tailwindcss",

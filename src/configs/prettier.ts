@@ -1,5 +1,10 @@
 import type { RequiredOptions } from "prettier";
-import type { ConfigItem } from "../types";
+
+import pluginPrettier from "eslint-plugin-prettier";
+
+// @ts-expect-error missing types
+import configPrettier from "eslint-config-prettier";
+import { parseForESLint } from "eslint-parser-plain";
 import {
   GLOB_CSS,
   GLOB_LESS,
@@ -10,22 +15,13 @@ import {
   GLOB_TOML,
   GLOB_YAML,
 } from "../globs";
-import { interopDefault } from "../utils";
+import type { ConfigItem } from "../types";
 
 export type PrettierRequiredOptions = Partial<RequiredOptions>;
 
-export type PrettierConfig = (
-  options: PrettierRequiredOptions,
-) => Promise<ConfigItem[]>;
+export type PrettierConfig = (options: PrettierRequiredOptions) => ConfigItem[];
 
-export const prettier: PrettierConfig = async (options) => {
-  const [pluginPrettier, configPrettier, parserPlain] = await Promise.all([
-    interopDefault(import("eslint-plugin-prettier")),
-    // @ts-expect-error missing types
-    interopDefault(import("eslint-config-prettier")),
-    interopDefault(import("eslint-parser-plain")),
-  ]);
-
+export const prettier: PrettierConfig = (options) => {
   const PlainFileRules: ConfigItem[] = [
     {
       name: "eslint:prettier:markdown",
@@ -71,7 +67,9 @@ export const prettier: PrettierConfig = async (options) => {
     name: rule.name,
     files: rule.files,
     languageOptions: {
-      parser: parserPlain,
+      parser: {
+        parseForESLint,
+      },
     },
     rules: {
       "prettier/prettier": [

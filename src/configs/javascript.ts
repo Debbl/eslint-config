@@ -1,17 +1,14 @@
 import globals from "globals";
+import pluginUnusedImports from "eslint-plugin-unused-imports";
 import type { ConfigFn } from "../types";
 import { GLOB_SRC, GLOB_SRC_EXT } from "../globs";
-import { interopDefault } from "..";
+
+// @ts-expect-error missing types
 
 export type JavascriptConfig = ConfigFn;
 
-export const javascript: JavascriptConfig = async (options) => {
+export const javascript: JavascriptConfig = (options) => {
   const { overrides = {} } = options;
-
-  const pluginUnusedImports = await interopDefault(
-    // @ts-expect-error missing types
-    import("eslint-plugin-unused-imports"),
-  );
 
   return [
     {

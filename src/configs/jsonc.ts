@@ -1,16 +1,12 @@
+import pluginJsonc from "eslint-plugin-jsonc";
+import parserJsonc from "jsonc-eslint-parser";
 import type { ConfigFn } from "../types";
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from "../globs";
-import { interopDefault } from "../utils";
 
 export type JsoncConfig = ConfigFn;
 
-export const jsonc: JsoncConfig = async (options) => {
+export const jsonc: JsoncConfig = (options) => {
   const { overrides = {} } = options;
-
-  const [pluginJsonc, parserJsonc] = await Promise.all([
-    interopDefault(import("eslint-plugin-jsonc")),
-    interopDefault(import("jsonc-eslint-parser")),
-  ] as const);
 
   return [
     {
