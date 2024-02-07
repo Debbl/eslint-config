@@ -104,6 +104,8 @@ export const typescript: TypeScriptConfig = async (options) => {
           "error",
           { disallowTypeAnnotations: false, prefer: "type-imports" },
         ],
+        // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
+        "@typescript-eslint/method-signature-style": ["error", "property"],
         "@typescript-eslint/no-dupe-class-members": "error",
         "@typescript-eslint/no-dynamic-delete": "off",
         "@typescript-eslint/no-explicit-any": "off",
