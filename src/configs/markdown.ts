@@ -1,6 +1,6 @@
-import type { ConfigFn, OptionsOverrides } from "../types";
 import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, GLOB_MDX } from "../globs";
-import { interopDefault } from "..";
+import { interopDefault } from "../utils";
+import type { ConfigFn, OptionsOverrides } from "../types";
 
 export type MarkdownConfig = (
   options: {

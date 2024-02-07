@@ -1,6 +1,6 @@
-import type { ConfigFn, OptionsOverrides } from "../types";
 import { GLOB_YAML } from "../globs";
 import { interopDefault } from "../utils";
+import type { ConfigFn, OptionsOverrides } from "../types";
 
 export type YmlConfig = (options: OptionsOverrides) => ReturnType<ConfigFn>;
 

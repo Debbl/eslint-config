@@ -3,8 +3,8 @@ import { afterAll, beforeAll, it } from "vitest";
 import fs from "fs-extra";
 import { execa } from "execa";
 import fg from "fast-glob";
-import type { OptionsConfig } from "../src/types";
 import { GLOB_TOML } from "../src/globs";
+import type { OptionsConfig } from "../src/types";
 
 beforeAll(async () => {
   await fs.rm("_fixtures", { recursive: true, force: true });

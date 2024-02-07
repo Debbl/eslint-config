@@ -1,5 +1,3 @@
-import type { RequiredOptions } from "prettier";
-import type { ConfigItem } from "../types";
 import {
   GLOB_CSS,
   GLOB_LESS,
@@ -11,6 +9,8 @@ import {
   GLOB_YAML,
 } from "../globs";
 import { interopDefault } from "../utils";
+import type { RequiredOptions } from "prettier";
+import type { ConfigItem } from "../types";
 
 export type PrettierRequiredOptions = Partial<RequiredOptions>;
 

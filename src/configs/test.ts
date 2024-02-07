@@ -1,6 +1,6 @@
-import type { ConfigFn } from "../types";
 import { GLOB_TESTS } from "../globs";
 import { interopDefault } from "../utils";
+import type { ConfigFn } from "../types";
 
 export type TestConfig = ConfigFn;
 

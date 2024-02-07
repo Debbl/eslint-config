@@ -1,10 +1,10 @@
+import { GLOB_VUE } from "../globs";
+import { interopDefault } from "../utils";
 import type {
   ConfigFn,
   OptionsHasTypeScript,
   OptionsOverrides,
 } from "../types";
-import { GLOB_VUE } from "../globs";
-import { interopDefault } from "../utils";
 
 export type VueConfig = (
   options: OptionsHasTypeScript & OptionsOverrides,

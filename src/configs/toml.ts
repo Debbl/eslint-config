@@ -1,6 +1,6 @@
 import { GLOB_TOML } from "..";
-import type { ConfigFn } from "..";
 import { interopDefault } from "../utils";
+import type { ConfigFn } from "..";
 
 export type TomlConfig = ConfigFn;
 

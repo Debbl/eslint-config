@@ -1,4 +1,6 @@
 import process from "node:process";
+import { GLOB_SRC } from "../globs";
+import { interopDefault } from "../utils";
 import type {
   ConfigFn,
   ConfigItem,
@@ -7,8 +9,6 @@ import type {
   OptionsTypeScriptParserOptions,
   OptionsTypeScriptWithTypes,
 } from "../types";
-import { GLOB_SRC } from "../globs";
-import { interopDefault } from "../utils";
 
 export type TypeScriptConfig = (
   options?: OptionsComponentExts &

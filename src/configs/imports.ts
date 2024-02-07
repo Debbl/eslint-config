@@ -1,5 +1,5 @@
-import type { ConfigItem } from "../types";
 import { interopDefault } from "../utils";
+import type { ConfigItem } from "../types";
 
 export async function imports(): Promise<ConfigItem[]> {
   // @ts-expect-error missing types
@@ -18,7 +18,23 @@ export async function imports(): Promise<ConfigItem[]> {
         "import/no-named-default": "error",
         "import/no-self-import": "error",
         "import/no-webpack-loader-syntax": "error",
-        "import/order": "error",
+        "import/order": [
+          "error",
+          {
+            groups: [
+              "builtin",
+              "external",
+              "internal",
+              "parent",
+              "sibling",
+              "index",
+              "object",
+              "type",
+            ],
+            pathGroups: [{ group: "internal", pattern: "{{@,~}/,#}**" }],
+            pathGroupsExcludedImportTypes: ["type"],
+          },
+        ],
 
         "import/newline-after-import": [
           "error",

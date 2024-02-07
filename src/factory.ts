@@ -1,4 +1,3 @@
-import type { Awaitable, ConfigItem, OptionsConfig } from "./types";
 import {
   comments,
   ignores,
@@ -22,6 +21,7 @@ import {
 import { combine } from "./utils";
 import { react } from "./configs/react";
 import { tailwindcss } from "./configs/tailwindcss";
+import type { Awaitable, ConfigItem, OptionsConfig } from "./types";
 
 function getConfigOption<T>(options: T) {
   return options ? (typeof options !== "boolean" ? options : {}) : {};

@@ -1,5 +1,5 @@
-import type { ConfigItem } from "../types";
 import { interopDefault } from "../utils";
+import type { ConfigItem } from "../types";
 
 export async function jsdoc(): Promise<ConfigItem[]> {
   return [

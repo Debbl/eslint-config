@@ -1,6 +1,6 @@
-import type { ConfigFn } from "../types";
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from "../globs";
 import { interopDefault } from "../utils";
+import type { ConfigFn } from "../types";
 
 export type JsoncConfig = ConfigFn;
 
