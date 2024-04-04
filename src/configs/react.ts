@@ -5,7 +5,7 @@ import type { ConfigFn, ConfigItem, OptionsOverrides } from "../types";
 export type ReactConfig = (
   options: {
     next?: boolean;
-  } & OptionsOverrides,
+  } & OptionsOverrides
 ) => ReturnType<ConfigFn>;
 
 async function next(): Promise<ConfigItem[]> {
@@ -46,12 +46,16 @@ async function next(): Promise<ConfigItem[]> {
 export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
   const { next: enableNext = false, overrides = {} } = options;
 
-  const [pluginReact, pluginReactHooks] = await Promise.all([
-    // @ts-expect-error missing types
-    interopDefault(import("eslint-plugin-react")),
-    // @ts-expect-error missing types
-    interopDefault(import("eslint-plugin-react-hooks")),
-  ] as const);
+  const [pluginReact, pluginReactHooks, pluginReactRefresh] = await Promise.all(
+    [
+      // @ts-expect-error missing types
+      interopDefault(import("eslint-plugin-react")),
+      // @ts-expect-error missing types
+      interopDefault(import("eslint-plugin-react-hooks")),
+      // @ts-expect-error missing types
+      interopDefault(import("eslint-plugin-react-refresh")),
+    ] as const
+  );
 
   const _react: ConfigItem[] = [
     {
@@ -59,6 +63,7 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
       plugins: {
         "react": pluginReact,
         "react-hooks": pluginReactHooks,
+        "react-refresh": pluginReactRefresh,
       },
     },
     {
@@ -80,6 +85,9 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
       rules: {
         ...pluginReact.configs.recommended.rules,
         ...pluginReactHooks.configs.recommended.rules,
+
+        // React Refresh
+        "react-refresh/only-export-components": "warn",
 
         "jsx-quotes": ["error", "prefer-double"],
         "react/react-in-jsx-scope": "off",
