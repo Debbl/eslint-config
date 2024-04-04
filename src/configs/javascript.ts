@@ -10,7 +10,7 @@ export const javascript: JavascriptConfig = async (options) => {
 
   const pluginUnusedImports = await interopDefault(
     // @ts-expect-error missing types
-    import("eslint-plugin-unused-imports"),
+    import("eslint-plugin-unused-imports")
   );
 
   return [
@@ -98,7 +98,7 @@ export const javascript: JavascriptConfig = async (options) => {
         "no-multi-str": "error",
         "no-new": "error",
         "no-new-func": "error",
-        "no-new-symbol": "error",
+        "no-new-native-nonconstructor": "error",
         "no-new-wrappers": "error",
         "no-obj-calls": "error",
         "no-octal": "error",
