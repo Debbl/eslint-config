@@ -10,7 +10,7 @@ export const javascript: JavascriptConfig = async (options) => {
 
   const pluginUnusedImports = await interopDefault(
     // @ts-expect-error missing types
-    import("eslint-plugin-unused-imports")
+    import("eslint-plugin-unused-imports"),
   );
 
   return [

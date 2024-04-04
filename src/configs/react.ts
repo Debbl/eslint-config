@@ -5,7 +5,7 @@ import type { ConfigFn, ConfigItem, OptionsOverrides } from "../types";
 export type ReactConfig = (
   options: {
     next?: boolean;
-  } & OptionsOverrides
+  } & OptionsOverrides,
 ) => ReturnType<ConfigFn>;
 
 async function next(): Promise<ConfigItem[]> {
@@ -54,7 +54,7 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
       interopDefault(import("eslint-plugin-react-hooks")),
       // @ts-expect-error missing types
       interopDefault(import("eslint-plugin-react-refresh")),
-    ] as const
+    ] as const,
   );
 
   const _react: ConfigItem[] = [
