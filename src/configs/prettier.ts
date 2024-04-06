@@ -9,7 +9,7 @@ import {
   GLOB_TOML,
   GLOB_YAML,
 } from "../globs";
-import { interopDefault } from "../utils";
+import { interopDefault, parserPlain } from "../utils";
 import type { ConfigItem } from "../types";
 
 export type PrettierRequiredOptions = Partial<RequiredOptions>;
@@ -19,11 +19,10 @@ export type PrettierConfig = (
 ) => Promise<ConfigItem[]>;
 
 export const prettier: PrettierConfig = async (options) => {
-  const [pluginPrettier, configPrettier, parserPlain] = await Promise.all([
+  const [pluginPrettier, configPrettier] = await Promise.all([
     interopDefault(import("eslint-plugin-prettier")),
     // @ts-expect-error missing types
     interopDefault(import("eslint-config-prettier")),
-    interopDefault(import("eslint-parser-plain")),
   ]);
 
   const PlainFileRules: ConfigItem[] = [
@@ -109,6 +108,7 @@ export const prettier: PrettierConfig = async (options) => {
         ],
       },
     },
+
     ...PlainFileRules,
   ];
 };
