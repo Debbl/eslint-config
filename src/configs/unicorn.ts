@@ -7,7 +7,7 @@ export async function unicorn(): Promise<ConfigItem[]> {
 
   return [
     {
-      name: "eslint:unicorn",
+      name: "eslint/unicorn/rules",
       plugins: {
         unicorn: pluginUnicorn,
       },

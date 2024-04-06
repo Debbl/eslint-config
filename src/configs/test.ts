@@ -15,7 +15,7 @@ export const test: TestConfig = async (options) => {
 
   return [
     {
-      name: "eslint:test:setup",
+      name: "eslint/test/setup",
       plugins: {
         test: {
           ...pluginVitest,
@@ -28,7 +28,7 @@ export const test: TestConfig = async (options) => {
       },
     },
     {
-      name: "eslint:test:rules",
+      name: "eslint/test/rules",
       files: GLOB_TESTS,
       rules: {
         "test/consistent-test-it": [

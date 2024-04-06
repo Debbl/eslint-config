@@ -14,13 +14,13 @@ export const jsonc: JsoncConfig = async (options) => {
 
   return [
     {
-      name: "eslint:jsonc:setup",
+      name: "eslint/jsonc/setup",
       plugins: {
         jsonc: pluginJsonc,
       },
     },
     {
-      name: "eslint:jsonc:rules",
+      name: "eslint/jsonc/rules",
       files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
       languageOptions: {
         parser: parserJsonc,

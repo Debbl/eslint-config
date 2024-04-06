@@ -14,7 +14,7 @@ export async function perfectionist(): Promise<ConfigItem[]> {
 
   return [
     {
-      name: "eslint:perfectionist",
+      name: "eslint/perfectionist/setup",
       plugins: {
         perfectionist: pluginPerfectionist,
       },

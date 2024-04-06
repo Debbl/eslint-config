@@ -28,42 +28,42 @@ export const prettier: PrettierConfig = async (options) => {
 
   const PlainFileRules: ConfigItem[] = [
     {
-      name: "eslint:prettier:markdown",
+      name: "eslint/prettier/markdown",
       files: [GLOB_MARKDOWN],
       parser: "markdown",
     },
     {
-      name: "eslint:prettier:mdx",
+      name: "eslint/prettier/mdx",
       files: [GLOB_MDX],
       parser: "mdx",
     },
     {
-      name: "eslint:prettier:html",
+      name: "eslint/prettier/html",
       files: ["**/*.html"],
       parser: "html",
     },
     {
-      name: "eslint:prettier:css",
+      name: "eslint/prettier/css",
       files: [GLOB_CSS, GLOB_POSTCSS],
       parser: "css",
     },
     {
-      name: "eslint:prettier:scss",
+      name: "eslint/prettier/scss",
       files: [GLOB_SCSS],
       parser: "scss",
     },
     {
-      name: "eslint:prettier:less",
+      name: "eslint/prettier/less",
       files: [GLOB_LESS],
       parser: "less",
     },
     {
-      name: "eslint:prettier:yaml",
+      name: "eslint/prettier/yaml",
       files: [GLOB_YAML],
       parser: "yaml",
     },
     {
-      name: "eslint:prettier:graphql",
+      name: "eslint/prettier/graphql",
       files: ["**/*.graphql"],
       parser: "graphql",
     },
@@ -88,13 +88,13 @@ export const prettier: PrettierConfig = async (options) => {
 
   return [
     {
-      name: "eslint:prettier:setup",
+      name: "eslint/prettier/setup",
       plugins: {
         prettier: pluginPrettier,
       },
     },
     {
-      name: "eslint:prettier:rules",
+      name: "eslint/prettier/rules",
       ignores: [GLOB_TOML],
       rules: {
         ...configPrettier.rules,

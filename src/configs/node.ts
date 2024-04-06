@@ -7,7 +7,7 @@ export async function node(): Promise<ConfigItem[]> {
 
   return [
     {
-      name: "eslint:node",
+      name: "eslint/node/rules",
       plugins: {
         n: pluginNode,
       },

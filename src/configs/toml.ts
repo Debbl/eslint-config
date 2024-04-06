@@ -14,13 +14,13 @@ export const toml: TomlConfig = async (options) => {
 
   return [
     {
-      name: "eslint:toml:setup",
+      name: "eslint/toml/setup",
       plugins: {
         toml: pluginToml,
       },
     },
     {
-      name: "eslint:toml:rules",
+      name: "eslint/toml/rules",
       files: [GLOB_TOML],
       languageOptions: {
         parser: parserToml,

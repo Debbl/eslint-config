@@ -21,13 +21,13 @@ export const vue: VueConfig = async (options = {}) => {
 
   return [
     {
-      name: "eslint:vue:setup",
+      name: "eslint/vue/setup",
       plugins: {
         vue: pluginVue,
       },
     },
     {
-      name: "eslint:vue:rules",
+      name: "eslint/vue/rules",
       files: [GLOB_VUE],
       languageOptions: {
         parser: parserVue,

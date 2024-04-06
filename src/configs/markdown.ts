@@ -18,13 +18,13 @@ export const markdown: MarkdownConfig = async (options) => {
 
   return [
     {
-      name: "eslint:markdown:setup",
+      name: "eslint/markdown/setup",
       plugins: {
         mdx: pluginMdx,
       },
     },
     {
-      name: "eslint:markdown:processor",
+      name: "eslint/markdown/processor",
       files: [GLOB_MARKDOWN, GLOB_MDX],
       languageOptions: {
         ecmaVersion: "latest",
@@ -37,7 +37,7 @@ export const markdown: MarkdownConfig = async (options) => {
       },
     },
     {
-      name: "eslint:markdown:rules",
+      name: "eslint/markdown/rules",
       files: [
         GLOB_MARKDOWN_CODE,
         ...componentExts.map((ext) => `${GLOB_MARKDOWN}/**/*.${ext}`),

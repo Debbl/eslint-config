@@ -9,7 +9,7 @@ export async function comments(): Promise<ConfigItem[]> {
 
   return [
     {
-      name: "eslint:eslint-comments",
+      name: "eslint/eslint-comments/rules",
       plugins: {
         "eslint-comments": pluginComments,
       },

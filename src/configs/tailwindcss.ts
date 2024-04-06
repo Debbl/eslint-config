@@ -8,7 +8,7 @@ export async function tailwindcss(): Promise<ConfigItem[]> {
   );
   return [
     {
-      name: "eslint:tailwindcss",
+      name: "eslint/tailwindcss/rules",
       plugins: {
         tailwindcss: pluginTailwindcss,
       },

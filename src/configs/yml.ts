@@ -14,13 +14,13 @@ export const yml: YmlConfig = async (options) => {
 
   return [
     {
-      name: "eslint:yaml:setup",
+      name: "eslint/yaml/setup",
       plugins: {
         yml: pluginYml,
       },
     },
     {
-      name: "eslint:yaml:rules",
+      name: "eslint/yaml/rules",
       files: [GLOB_YAML],
       languageOptions: {
         parser: parserYml,

@@ -15,7 +15,7 @@ export const javascript: JavascriptConfig = async (options) => {
 
   return [
     {
-      name: "eslint:javascript",
+      name: "eslint/javascript/rules",
       languageOptions: {
         ecmaVersion: 2022,
         globals: {
@@ -256,7 +256,7 @@ export const javascript: JavascriptConfig = async (options) => {
       },
     },
     {
-      name: "eslint:scripts-overrides",
+      name: "eslint/scripts-overrides/disables/cli",
       files: [`scripts/${GLOB_SRC}`, `cli.${GLOB_SRC_EXT}`],
       rules: {
         "no-console": "off",

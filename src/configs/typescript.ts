@@ -55,13 +55,13 @@ export const typescript: TypeScriptConfig = async (options) => {
   return [
     {
       // Install the plugins without globs, so they can be configured separately.
-      name: "eslint:typescript:setup",
+      name: "eslint/typescript/setup",
       plugins: {
         "@typescript-eslint": pluginTs,
       },
     },
     {
-      name: "eslint:typescript:rules",
+      name: "eslint/typescript/rules",
       files: [GLOB_SRC, ...componentExts.map((ext) => `**/*.${ext}`)],
       languageOptions: {
         parser: parserTs,
@@ -132,7 +132,7 @@ export const typescript: TypeScriptConfig = async (options) => {
       },
     },
     {
-      name: "eslint:typescript:dts-overrides",
+      name: "eslint/typescript/dts-overrides",
       files: ["**/*.d.ts"],
       rules: {
         "eslint-comments/no-unlimited-disable": "off",
@@ -142,15 +142,15 @@ export const typescript: TypeScriptConfig = async (options) => {
       },
     },
     {
-      name: "eslint:typescript:tests-overrides",
+      name: "eslint/typescript/disables/test",
       files: ["**/*.{test,spec}.ts?(x)"],
       rules: {
         "no-unused-expressions": "off",
       },
     },
     {
+      name: "eslint/typescript/disables/cjs",
       files: ["**/*.js", "**/*.cjs"],
-      name: "eslint:typescript:javascript-overrides",
       rules: {
         "@typescript-eslint/no-require-imports": "off",
         "@typescript-eslint/no-var-requires": "off",

@@ -4,7 +4,7 @@ import type { ConfigItem } from "../types";
 export async function jsdoc(): Promise<ConfigItem[]> {
   return [
     {
-      name: "eslint:jsdoc",
+      name: "eslint/jsdoc/rules",
       plugins: {
         jsdoc: await interopDefault(import("eslint-plugin-jsdoc")),
       },

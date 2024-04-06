@@ -6,7 +6,7 @@ export async function imports(): Promise<ConfigItem[]> {
 
   return [
     {
-      name: "eslint:imports",
+      name: "eslint/imports/rules",
       plugins: {
         import: pluginImport,
       },

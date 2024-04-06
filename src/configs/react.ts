@@ -14,13 +14,13 @@ async function next(): Promise<ConfigItem[]> {
 
   return [
     {
-      name: "eslint:next:setup",
+      name: "eslint/next/setup",
       plugins: {
         "@next/next": pluginNext,
       },
     },
     {
-      name: "eslint:next:rules",
+      name: "eslint/next/rules",
       files: [GLOB_TSX, GLOB_JSX],
       languageOptions: {
         parserOptions: {
@@ -59,7 +59,7 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
 
   const _react: ConfigItem[] = [
     {
-      name: "eslint:react:setup",
+      name: "eslint/react/setup",
       plugins: {
         "react": pluginReact,
         "react-hooks": pluginReactHooks,
@@ -67,7 +67,7 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
       },
     },
     {
-      name: "eslint:react:rules",
+      name: "eslint/react/rules",
       files: [GLOB_TSX, GLOB_JSX],
       languageOptions: {
         parserOptions: {
