@@ -38,6 +38,13 @@ async function next(): Promise<ConfigItem[]> {
       rules: {
         ...pluginNext.configs.recommended.rules,
         ...pluginNext.configs["core-web-vitals"].rules,
+
+        "react-refresh/only-export-components": [
+          "warn",
+          {
+            allowExportNames: ["metadata"],
+          },
+        ],
       },
     },
   ];
