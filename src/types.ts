@@ -1,5 +1,5 @@
 import type { ParserOptions } from "@typescript-eslint/parser";
-import type { FlatESLintConfig } from "eslint-define-config";
+import type { Linter } from "eslint";
 import type { ReactConfig } from "./configs/react";
 import type {
   IgnoresConfig,
@@ -17,12 +17,7 @@ import type {
 export type Awaitable<T> = T | Promise<T>;
 export type GetConfigOption<T extends (...args: any) => any> = Parameters<T>[0];
 
-export interface ConfigItem extends FlatESLintConfig {
-  /**
-   * Custom name of each config item
-   */
-  name?: string;
-
+export interface ConfigItem extends Linter.FlatConfig {
   // Relax plugins type limitation, as most of the plugins did not have correct type info yet.
   /**
    * An object containing a name-value mapping of plugin names to plugin objects. When `files` is specified, these plugins are only available to the matching files.

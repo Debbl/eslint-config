@@ -1,4 +1,4 @@
-import { interopDefault } from "..";
+import { interopDefault } from "../utils";
 import type { ConfigItem } from "../types";
 
 export async function comments(): Promise<ConfigItem[]> {
