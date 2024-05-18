@@ -5,6 +5,7 @@ import type { ConfigFn, ConfigItem, OptionsOverrides } from "../types";
 export type ReactConfig = (
   options: {
     next?: boolean;
+    reactCompiler?: boolean;
   } & OptionsOverrides,
 ) => ReturnType<ConfigFn>;
 
@@ -51,7 +52,11 @@ async function next(): Promise<ConfigItem[]> {
 }
 
 export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
-  const { next: enableNext = false, overrides = {} } = options;
+  const {
+    next: enableNext = false,
+    reactCompiler: enableReactCompiler = false,
+    overrides = {},
+  } = options;
 
   const [pluginReact, pluginReactHooks, pluginReactRefresh] = await Promise.all(
     [
@@ -109,6 +114,26 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
       },
     },
   ];
+
+  const reactCompiler: ConfigItem[] = [
+    {
+      name: "eslint/react/compiler",
+      files: [GLOB_TSX, GLOB_JSX],
+      plugins: {
+        "react-compiler": await interopDefault(
+          // @ts-expect-error missing types
+          import("eslint-plugin-react-compiler"),
+        ),
+      },
+      rules: {
+        "react-compiler/react-compiler": "error",
+      },
+    },
+  ];
+
+  if (enableReactCompiler) {
+    _react.push(...reactCompiler);
+  }
 
   return combine(_react, enableNext ? next() : []);
 };
