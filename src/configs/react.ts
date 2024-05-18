@@ -5,6 +5,7 @@ import type { ConfigFn, ConfigItem, OptionsOverrides } from "../types";
 export type ReactConfig = (
   options: {
     next?: boolean;
+    /** only work in react@19 */
     reactCompiler?: boolean;
   } & OptionsOverrides,
 ) => ReturnType<ConfigFn>;
