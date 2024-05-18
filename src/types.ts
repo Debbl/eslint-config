@@ -139,13 +139,14 @@ export interface OptionsConfig extends OptionsComponentExts {
    *
    * @default true
    */
-  prettier?: boolean | GetConfigOption<PrettierConfig>;
+  prettier?: boolean | Omit<GetConfigOption<PrettierConfig>, "tailwindcss">;
 
   /**
    * Enable Tailwind CSS support.
+   * if set to "prettier", it will use `prettier-plugin-tailwindcss`
    * @default false
    */
-  tailwindcss?: boolean;
+  tailwindcss?: boolean | "prettier";
 
   /**
    * Custom config
