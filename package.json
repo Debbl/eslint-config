@@ -33,7 +33,8 @@
     "typecheck": "tsc --noEmit",
     "lint": "pnpm run stub && eslint .",
     "lint:fix": "pnpm run stub && eslint . --fix",
-    "release": "bumpp && pnpm publish"
+    "release": "bumpp && pnpm publish",
+    "release:canary": "bumpp && pnpm publish --tag canary"
   },
   "peerDependencies": {
     "eslint": ">=8.40.0"
