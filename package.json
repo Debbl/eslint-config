@@ -36,13 +36,7 @@
     "release": "bumpp && pnpm publish"
   },
   "peerDependencies": {
-    "eslint": ">=8.40.0",
-    "eslint-plugin-tailwindcss": "^3.15.1"
-  },
-  "peerDependenciesMeta": {
-    "eslint-plugin-tailwindcss": {
-      "optional": true
-    }
+    "eslint": ">=8.40.0"
   },
   "dependencies": {
     "@next/eslint-plugin-next": "^14.2.3",
