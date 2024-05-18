@@ -14,11 +14,13 @@ import type { ConfigItem } from "../types";
 
 export type PrettierRequiredOptions = Partial<RequiredOptions>;
 
-export type PrettierConfig = (
-  options: PrettierRequiredOptions,
-) => Promise<ConfigItem[]>;
+export type PrettierConfig = ({
+  options,
+}: PrettierRequiredOptions & {
+  tailwindcss?: boolean;
+}) => Promise<ConfigItem[]>;
 
-export const prettier: PrettierConfig = async (options) => {
+export const prettier: PrettierConfig = async ({ tailwindcss, ...options }) => {
   const [pluginPrettier, configPrettier] = await Promise.all([
     interopDefault(import("eslint-plugin-prettier")),
     // @ts-expect-error missing types
@@ -96,12 +98,20 @@ export const prettier: PrettierConfig = async (options) => {
       name: "eslint/prettier/rules",
       ignores: [GLOB_TOML],
       rules: {
+        // disable rules with prettier conflicts
         ...configPrettier.rules,
-        ...(pluginPrettier.configs!.recommended as any).rules,
+
+        // eslint-plugin-prettier recommended rules
+        ...{
+          "prettier/prettier": "error",
+          "arrow-body-style": "off",
+          "prefer-arrow-callback": "off",
+        },
 
         "prettier/prettier": [
           "warn",
           {
+            plugins: tailwindcss ? ["prettier-plugin-tailwindcss"] : [],
             quoteProps: "consistent",
             ...options,
           },

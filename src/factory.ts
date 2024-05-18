@@ -108,12 +108,17 @@ export function config(options: OptionsConfig = {}) {
     );
   }
 
-  if (enableTailwindcss) {
+  if (typeof enableTailwindcss === "boolean" && enableTailwindcss) {
     configs.push(tailwindcss());
   }
 
   if (options.prettier ?? true) {
-    configs.push(prettier(getConfigOption(options.prettier)));
+    configs.push(
+      prettier({
+        ...getConfigOption(options.prettier),
+        tailwindcss: enableTailwindcss === "prettier",
+      }),
+    );
   }
 
   const merged = combine(...configs, options.customConfig ?? []);
