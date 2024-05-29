@@ -1,7 +1,7 @@
 {
   "name": "@debbl/eslint-config",
   "type": "module",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "packageManager": "pnpm@9.1.3",
   "description": "Brendan Dash's ESLint config",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
@@ -33,7 +33,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "pnpm run stub && eslint .",
     "lint:fix": "pnpm run stub && eslint . --fix",
-    "release": "bumpp && pnpm publish"
+    "release": "pnpm build && bumpp && pnpm publish"
   },
   "peerDependencies": {
     "eslint": ">=8.40.0"
