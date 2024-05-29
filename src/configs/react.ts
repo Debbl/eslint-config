@@ -43,7 +43,11 @@ async function next(): Promise<ConfigItem[]> {
         "react-refresh/only-export-components": [
           "warn",
           {
-            allowExportNames: ["metadata"],
+            allowExportNames: [
+              "metadata",
+              "generateMetadata",
+              "generateStaticParams",
+            ],
           },
         ],
       },
@@ -107,17 +111,7 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
         ...pluginReactHooks.configs.recommended.rules,
 
         // React Refresh
-        "react-refresh/only-export-components": [
-          "warn",
-          {
-            allowExportNames: [
-              // remix
-              ...["meta", "links", "headers", "loader", "action"],
-              // nextjs
-              ...["generateMetadata", "generateStaticParams"],
-            ],
-          },
-        ],
+        "react-refresh/only-export-components": "warn",
 
         // React Compiler
         ...(enableCompiler
