@@ -76,6 +76,14 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
         "react": pluginReact,
         "react-hooks": pluginReactHooks,
         "react-refresh": pluginReactRefresh,
+        ...(enableCompiler
+          ? {
+              "react-compiler": await interopDefault(
+                // @ts-expect-error missing types
+                import("eslint-plugin-react-compiler"),
+              ),
+            }
+          : {}),
       },
     },
     {
@@ -101,6 +109,13 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
         // React Refresh
         "react-refresh/only-export-components": "warn",
 
+        // React Compiler
+        ...(enableCompiler
+          ? {
+              "react-compiler/react-compiler": "error",
+            }
+          : {}),
+
         "jsx-quotes": ["error", "prefer-double"],
         "react/react-in-jsx-scope": "off",
         "react/jsx-indent": [1, 2],
@@ -115,24 +130,5 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
     },
   ];
 
-  const reactCompiler: ConfigItem[] = [
-    {
-      name: "eslint/react/compiler",
-      plugins: {
-        "react-compiler": await interopDefault(
-          // @ts-expect-error missing types
-          import("eslint-plugin-react-compiler"),
-        ),
-      },
-      rules: {
-        "react-compiler/react-compiler": "error",
-      },
-    },
-  ];
-
-  return combine(
-    _react,
-    enableCompiler ? reactCompiler : [],
-    enableNext ? next() : [],
-  );
+  return combine(_react, enableNext ? next() : []);
 };
