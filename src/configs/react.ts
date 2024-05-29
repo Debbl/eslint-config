@@ -107,7 +107,17 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
         ...pluginReactHooks.configs.recommended.rules,
 
         // React Refresh
-        "react-refresh/only-export-components": "warn",
+        "react-refresh/only-export-components": [
+          "warn",
+          {
+            allowExportNames: [
+              // remix
+              ...["meta", "links", "headers", "loader", "action"],
+              // nextjs
+              ...["generateMetadata", "generateStaticParams"],
+            ],
+          },
+        ],
 
         // React Compiler
         ...(enableCompiler
