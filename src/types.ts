@@ -108,6 +108,13 @@ export interface OptionsConfig extends OptionsComponentExts {
   react?: boolean | GetConfigOption<ReactConfig>;
 
   /**
+   * Enable solid support, Passing an object to enable Next.js support.
+   *
+   * @default false
+   */
+  solid?: boolean;
+
+  /**
    * Enable JSONC support.
    *
    * @default true

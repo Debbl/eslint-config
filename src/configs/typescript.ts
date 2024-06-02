@@ -14,7 +14,9 @@ export type TypeScriptConfig = (
   options?: OptionsComponentExts &
     OptionsTypeScriptWithTypes &
     OptionsTypeScriptParserOptions &
-    OptionsOverrides,
+    OptionsOverrides & {
+      enableSolid?: boolean;
+    },
 ) => ReturnType<ConfigFn>;
 
 const typeAwareRules: ConfigItem["rules"] = {
@@ -46,6 +48,7 @@ export const typescript: TypeScriptConfig = async (options) => {
     componentExts = [],
     parserOptions = {},
     tsconfigPath,
+    enableSolid = false,
   } = options ?? {};
 
   const [pluginTs, parserTs] = await Promise.all([
@@ -59,6 +62,11 @@ export const typescript: TypeScriptConfig = async (options) => {
       name: "eslint/typescript/setup",
       plugins: {
         "@typescript-eslint": pluginTs,
+        ...(enableSolid
+          ? {
+              solid: await interopDefault(import("eslint-plugin-solid")),
+            }
+          : {}),
       },
     },
     {
@@ -82,6 +90,13 @@ export const typescript: TypeScriptConfig = async (options) => {
       rules: {
         ...pluginTs.configs["eslint-recommended"].overrides![0].rules!,
         ...pluginTs.configs.strict.rules!,
+
+        ...(enableSolid
+          ? {
+              "solid/jsx-no-undef": ["error", { typescriptEnabled: true }],
+              "solid/no-unknown-namespaces": "off",
+            }
+          : {}),
 
         "no-dupe-class-members": "off",
         "no-invalid-this": "off",

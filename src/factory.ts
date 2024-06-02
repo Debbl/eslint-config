@@ -35,6 +35,7 @@ export function config(options: OptionsConfig = {}) {
     ignores: enableGitignore = true,
     vue: enableVue,
     react: enableReact,
+    solid: enableSolid,
     typescript: enableTypeScript,
     tailwindcss: enableTailwindcss,
     componentExts = [],
@@ -61,6 +62,7 @@ export function config(options: OptionsConfig = {}) {
     configs.push(
       typescript({
         ...(typeof enableTypeScript !== "boolean" ? enableTypeScript : {}),
+        enableSolid,
         componentExts,
       }),
     );
