@@ -62,11 +62,11 @@
     "eslint-plugin-tailwindcss": "^3.17.4",
     "eslint-plugin-toml": "^0.11.1",
     "eslint-plugin-unicorn": "^54.0.0",
-    "eslint-plugin-unused-imports": "^3.2.0",
+    "eslint-plugin-unused-imports": "3.2.0",
     "eslint-plugin-vitest": "^0.5.4",
     "eslint-plugin-vue": "^9.26.0",
     "eslint-plugin-yml": "^1.14.0",
-    "globals": "^15.6.0",
+    "globals": "^15.7.0",
     "jsonc-eslint-parser": "^2.4.0",
     "prettier": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.5",
@@ -75,7 +75,7 @@
     "yaml-eslint-parser": "^1.2.3"
   },
   "devDependencies": {
-    "@eslint/config-inspector": "^0.5.0",
+    "@eslint/config-inspector": "^0.5.1",
     "@types/eslint": "^8.56.10",
     "@types/node": "^20.14.9",
     "@types/react": "^18.3.3",

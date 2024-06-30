@@ -78,7 +78,7 @@ importers:
         specifier: ^54.0.0
         version: 54.0.0(eslint@8.57.0)
       eslint-plugin-unused-imports:
-        specifier: ^3.2.0
+        specifier: 3.2.0
         version: 3.2.0(@typescript-eslint/eslint-plugin@7.14.1(@typescript-eslint/parser@7.14.1(eslint@8.57.0)(typescript@5.5.2))(eslint@8.57.0)(typescript@5.5.2))(eslint@8.57.0)
       eslint-plugin-vitest:
         specifier: ^0.5.4
@@ -90,8 +90,8 @@ importers:
         specifier: ^1.14.0
         version: 1.14.0(eslint@8.57.0)
       globals:
-        specifier: ^15.6.0
-        version: 15.6.0
+        specifier: ^15.7.0
+        version: 15.7.0
       jsonc-eslint-parser:
         specifier: ^2.4.0
         version: 2.4.0
@@ -112,8 +112,8 @@ importers:
         version: 1.2.3
     devDependencies:
       '@eslint/config-inspector':
-        specifier: ^0.5.0
-        version: 0.5.0(eslint@8.57.0)
+        specifier: ^0.5.1
+        version: 0.5.1(eslint@8.57.0)
       '@types/eslint':
         specifier: ^8.56.10
         version: 8.56.10
@@ -586,12 +586,12 @@ packages:
     resolution: {integrity: sha512-Cu96Sd2By9mCNTx2iyKOmq10v22jUVQv0lQnlGNy16oE9589yE+QADPbrMGCkA51cKZSg3Pu/aTJVTGfL/qjUA==}
     engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
 
-  '@eslint/config-array@0.16.0':
-    resolution: {integrity: sha512-/jmuSd74i4Czf1XXn7wGRWZCuyaUZ330NH1Bek0Pplatt4Sy1S5haN21SCLLdbeKslQ+S0wEJ+++v5YibSi+Lg==}
+  '@eslint/config-array@0.17.0':
+    resolution: {integrity: sha512-A68TBu6/1mHHuc5YJL0U0VVeGNiklLAL6rRmhTCP2B5XjWLMnrX+HkO+IAXyHvks5cyyY1jjK5ITPQ1HGS2EVA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eslint/config-inspector@0.5.0':
-    resolution: {integrity: sha512-P2pnQ6oDykVYEgqdbVzyhNSvtDTx636I5VPmVtx67DmX/qkHxUatHDy7UN/Ie3vH7V1G0sflrY4pV631uAliZQ==}
+  '@eslint/config-inspector@0.5.1':
+    resolution: {integrity: sha512-MgXlqfuD7K/eOf0ZHKrBuNtmSfgOq548ru0IJZScOVf14Zp12PeU0CK5b4m94TP2D5dBXlXoGtOkL3UGlzHtVw==}
     hasBin: true
     peerDependencies:
       eslint: ^8.50.0 || ^9.0.0
@@ -1956,8 +1956,8 @@ packages:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
     engines: {node: '>=18'}
 
-  globals@15.6.0:
-    resolution: {integrity: sha512-UzcJi88Hw//CurUIRa9Jxb0vgOCcuD/MNjwmXp633cyaRKkCWACkoqHCtfZv43b1kqXGg/fpOa8bwgacCeXsVg==}
+  globals@15.7.0:
+    resolution: {integrity: sha512-ivatRXWwKC6ImcdKO7dOwXuXR5XFrdwo45qFwD7D0qOkEPzzJdLXC3BHceBdyrPOD3p1suPaWi4Y4NMm2D++AQ==}
     engines: {node: '>=18'}
 
   globalthis@1.0.3:
@@ -2599,6 +2599,10 @@ packages:
 
   minimatch@9.0.4:
     resolution: {integrity: sha512-KqWh+VchfxcMNRAJjj2tnsSJdNbHsVgnkBhTNrW7AjVo6OvLtxw8zfT9oLw1JSohlFzJ8jCoTgaoXvJ+kHt6fw==}
+    engines: {node: '>=16 || 14 >=14.17'}
+
+  minimatch@9.0.5:
+    resolution: {integrity: sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==}
     engines: {node: '>=16 || 14 >=14.17'}
 
   minipass@3.3.6:
@@ -4069,7 +4073,7 @@ snapshots:
 
   '@eslint-community/regexpp@4.10.0': {}
 
-  '@eslint/config-array@0.16.0':
+  '@eslint/config-array@0.17.0':
     dependencies:
       '@eslint/object-schema': 2.1.4
       debug: 4.3.4
@@ -4077,10 +4081,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@eslint/config-inspector@0.5.0(eslint@8.57.0)':
+  '@eslint/config-inspector@0.5.1(eslint@8.57.0)':
     dependencies:
-      '@eslint/config-array': 0.16.0
-      '@voxpelli/config-array-find-files': 0.1.2(@eslint/config-array@0.16.0)
+      '@eslint/config-array': 0.17.0
+      '@voxpelli/config-array-find-files': 0.1.2(@eslint/config-array@0.17.0)
       bundle-require: 5.0.0(esbuild@0.21.5)
       cac: 6.7.14
       chokidar: 3.6.0
@@ -4090,7 +4094,7 @@ snapshots:
       find-up: 7.0.0
       get-port-please: 3.1.2
       h3: 1.12.0
-      minimatch: 9.0.4
+      minimatch: 9.0.5
       mlly: 1.7.1
       mrmime: 2.0.0
       open: 10.1.0
@@ -4595,9 +4599,9 @@ snapshots:
       loupe: 2.3.7
       pretty-format: 29.7.0
 
-  '@voxpelli/config-array-find-files@0.1.2(@eslint/config-array@0.16.0)':
+  '@voxpelli/config-array-find-files@0.1.2(@eslint/config-array@0.17.0)':
     dependencies:
-      '@eslint/config-array': 0.16.0
+      '@eslint/config-array': 0.17.0
       '@nodelib/fs.walk': 2.0.0
 
   abbrev@2.0.0: {}
@@ -5342,7 +5346,7 @@ snapshots:
       eslint: 8.57.0
       eslint-plugin-es-x: 7.5.0(eslint@8.57.0)
       get-tsconfig: 4.7.3
-      globals: 15.6.0
+      globals: 15.7.0
       ignore: 5.3.1
       minimatch: 9.0.4
       semver: 7.6.2
@@ -5819,7 +5823,7 @@ snapshots:
 
   globals@14.0.0: {}
 
-  globals@15.6.0: {}
+  globals@15.7.0: {}
 
   globalthis@1.0.3:
     dependencies:
@@ -6580,6 +6584,10 @@ snapshots:
       brace-expansion: 2.0.1
 
   minimatch@9.0.4:
+    dependencies:
+      brace-expansion: 2.0.1
+
+  minimatch@9.0.5:
     dependencies:
       brace-expansion: 2.0.1
 
