@@ -36,6 +36,7 @@ const typeAwareRules: ConfigItem["rules"] = {
   "@typescript-eslint/no-unsafe-call": "error",
   "@typescript-eslint/no-unsafe-member-access": "error",
   "@typescript-eslint/no-unsafe-return": "error",
+  "@typescript-eslint/promise-function-async": "error",
   "@typescript-eslint/restrict-plus-operands": "error",
   "@typescript-eslint/restrict-template-expressions": "error",
   "@typescript-eslint/strict-boolean-expressions": "error",
