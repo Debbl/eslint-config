@@ -32,17 +32,17 @@ pnpm i eslint @debbl/eslint-config -D
 - prettier
 
 ```js
-import { config } from "@debbl/eslint-config";
+import { defineConfig } from "@debbl/eslint-config";
 
-export default config();
+export default defineConfig();
 ```
 
 ## 配置 `Prettier`, 会覆盖默认的规则
 
 ```js
-import config from "./dist/index.js";
+import { defineConfig } from "@debbl/eslint-config";
 
-export default config({
+export default defineConfig({
   typescript: true,
   prettier: {
     semi: false,
@@ -101,6 +101,13 @@ export interface OptionsConfig extends OptionsComponentExts {
   react?: boolean | GetConfigOption<ReactConfig>;
 
   /**
+   * Enable solid support, Passing an object to enable Next.js support.
+   *
+   * @default false
+   */
+  solid?: boolean;
+
+  /**
    * Enable JSONC support.
    *
    * @default true
@@ -132,13 +139,14 @@ export interface OptionsConfig extends OptionsComponentExts {
    *
    * @default true
    */
-  prettier?: boolean | GetConfigOption<PrettierConfig>;
+  prettier?: boolean | Omit<GetConfigOption<PrettierConfig>, "tailwindcss">;
 
   /**
    * Enable Tailwind CSS support.
+   * if set to "prettier", it will use `prettier-plugin-tailwindcss` @see https://github.com/tailwindlabs/prettier-plugin-tailwindcss
    * @default false
    */
-  tailwindcss?: boolean;
+  tailwindcss?: boolean | "prettier";
 
   /**
    * Custom config

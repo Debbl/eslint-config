@@ -30,7 +30,7 @@ function getConfigOption<T>(options: T) {
 /**
  * Construct an array of ESLint flat config items.
  */
-export function config(options: OptionsConfig = {}) {
+export function defineConfig(options: OptionsConfig = {}) {
   const {
     ignores: enableGitignore = true,
     vue: enableVue,
@@ -127,3 +127,8 @@ export function config(options: OptionsConfig = {}) {
 
   return merged;
 }
+
+/**
+ * @deprecated Use `defineConfig` instead.
+ */
+export const config = defineConfig;
