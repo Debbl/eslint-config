@@ -97,9 +97,9 @@ function runWithConfig(name: string, configs: OptionsConfig) {
         join(target, "eslint.config.js"),
         [
           "// @eslint-disable",
-          "import config from '@debbl/eslint-config';",
+          "import { defineConfig } from '@debbl/eslint-config';",
           "",
-          "export default config(",
+          "export default defineConfig(",
           `  ${JSON.stringify(configs)}`,
           ");",
         ].join("\n"),

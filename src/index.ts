@@ -1,5 +1,7 @@
 import { config } from "./factory";
 
+export { defineConfig } from "./factory";
+
 export * from "./types";
 export * from "./factory";
 export * from "./configs";
