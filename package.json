@@ -2,7 +2,7 @@
   "name": "@debbl/eslint-config",
   "type": "module",
   "version": "3.4.0",
-  "packageManager": "pnpm@9.5.0",
+  "packageManager": "pnpm@9.6.0",
   "description": "Brendan Dash's ESLint config",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
   "license": "MIT",
@@ -46,7 +46,7 @@
     "eslint-mdx": "^3.1.5",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import-x": "^3.0.1",
-    "eslint-plugin-jsdoc": "^48.8.2",
+    "eslint-plugin-jsdoc": "^48.8.3",
     "eslint-plugin-jsonc": "^2.16.0",
     "eslint-plugin-markdown": "^5.1.0",
     "eslint-plugin-mdx": "^3.1.5",
@@ -57,7 +57,7 @@
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-compiler": "0.0.0-experimental-0998c1e-20240625",
     "eslint-plugin-react-hooks": "4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.8",
+    "eslint-plugin-react-refresh": "^0.4.9",
     "eslint-plugin-solid": "^0.14.1",
     "eslint-plugin-tailwindcss": "^3.17.4",
     "eslint-plugin-toml": "^0.11.1",
@@ -86,8 +86,8 @@
     "fs-extra": "^11.2.0",
     "react": "^18.3.1",
     "sucrase": "^3.35.0",
-    "tsup": "^8.2.0",
+    "tsup": "^8.2.2",
     "typescript": "^5.5.3",
-    "vitest": "^2.0.3"
+    "vitest": "^2.0.4"
   }
 }
