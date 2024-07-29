@@ -8,7 +8,6 @@ import type { ConfigItem } from "../types";
  */
 export async function perfectionist(): Promise<ConfigItem[]> {
   const pluginPerfectionist = await interopDefault(
-    // @ts-expect-error missing types
     import("eslint-plugin-perfectionist"),
   );
 
