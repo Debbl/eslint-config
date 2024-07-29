@@ -22,14 +22,12 @@ export type TypeScriptConfig = (
 const typeAwareRules: ConfigItem["rules"] = {
   "dot-notation": "off",
   "no-implied-eval": "off",
-  "no-throw-literal": "off",
   "@typescript-eslint/await-thenable": "error",
   "@typescript-eslint/dot-notation": ["error", { allowKeywords: true }],
   "@typescript-eslint/no-floating-promises": "error",
   "@typescript-eslint/no-for-in-array": "error",
   "@typescript-eslint/no-implied-eval": "error",
   "@typescript-eslint/no-misused-promises": "error",
-  "@typescript-eslint/no-throw-literal": "error",
   "@typescript-eslint/no-unnecessary-type-assertion": "error",
   "@typescript-eslint/no-unsafe-argument": "error",
   "@typescript-eslint/no-unsafe-assignment": "error",
@@ -39,8 +37,11 @@ const typeAwareRules: ConfigItem["rules"] = {
   "@typescript-eslint/promise-function-async": "error",
   "@typescript-eslint/restrict-plus-operands": "error",
   "@typescript-eslint/restrict-template-expressions": "error",
-  "@typescript-eslint/strict-boolean-expressions": "error",
-  "@typescript-eslint/return-await": "error",
+  "@typescript-eslint/return-await": ["error", "in-try-catch"],
+  "@typescript-eslint/strict-boolean-expressions": [
+    "error",
+    { allowNullableBoolean: true, allowNullableObject: true },
+  ],
   "@typescript-eslint/switch-exhaustiveness-check": "error",
   "@typescript-eslint/unbound-method": "error",
 };
@@ -100,20 +101,14 @@ export const typescript: TypeScriptConfig = async (options) => {
               "solid/no-unknown-namespaces": "off",
             }
           : {}),
-
         "no-dupe-class-members": "off",
-        "no-invalid-this": "off",
         "no-loss-of-precision": "off",
         "no-redeclare": "off",
         "no-use-before-define": "off",
         "no-useless-constructor": "off",
         "@typescript-eslint/ban-ts-comment": [
           "error",
-          { "ts-ignore": "allow-with-description" },
-        ],
-        "@typescript-eslint/ban-types": [
-          "error",
-          { types: { Function: false } },
+          { "ts-expect-error": "allow-with-description" },
         ],
         "@typescript-eslint/consistent-type-definitions": [
           "error",
@@ -121,16 +116,23 @@ export const typescript: TypeScriptConfig = async (options) => {
         ],
         "@typescript-eslint/consistent-type-imports": [
           "error",
-          { disallowTypeAnnotations: false, prefer: "type-imports" },
+          {
+            disallowTypeAnnotations: false,
+            prefer: "type-imports",
+          },
         ],
+
         // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
         "@typescript-eslint/method-signature-style": ["error", "property"],
         "@typescript-eslint/no-dupe-class-members": "error",
         "@typescript-eslint/no-dynamic-delete": "off",
+        "@typescript-eslint/no-empty-object-type": [
+          "error",
+          { allowInterfaces: "always" },
+        ],
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-extraneous-class": "off",
         "@typescript-eslint/no-import-type-side-effects": "error",
-        "@typescript-eslint/no-invalid-this": "error",
         "@typescript-eslint/no-invalid-void-type": "off",
         "@typescript-eslint/no-loss-of-precision": "error",
         "@typescript-eslint/no-non-null-assertion": "off",
@@ -142,7 +144,7 @@ export const typescript: TypeScriptConfig = async (options) => {
           { classes: false, functions: false, variables: true },
         ],
         "@typescript-eslint/no-useless-constructor": "off",
-        "@typescript-eslint/prefer-ts-expect-error": "error",
+        "@typescript-eslint/no-wrapper-object-types": "error",
         "@typescript-eslint/triple-slash-reference": "off",
         "@typescript-eslint/unified-signatures": "off",
 
