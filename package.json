@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@next/eslint-plugin-next": "^14.2.7",
-    "@typescript-eslint/eslint-plugin": "8.0.0-alpha.55",
+    "@typescript-eslint/eslint-plugin": "8.3.0",
     "@typescript-eslint/parser": "8.0.0-alpha.55",
     "eslint-config-prettier": "^9.1.0",
     "eslint-mdx": "^3.1.5",
