@@ -1,6 +1,6 @@
 import globals from "globals";
 import { GLOB_SRC, GLOB_SRC_EXT } from "../globs";
-import { interopDefault } from "..";
+import { interopDefault } from "../utils";
 import type { ConfigFn } from "../types";
 
 export type JavascriptConfig = ConfigFn;

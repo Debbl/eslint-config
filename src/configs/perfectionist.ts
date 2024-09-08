@@ -1,5 +1,5 @@
-import type { ConfigItem } from "../types";
 import { interopDefault } from "../utils";
+import type { ConfigItem } from "../types";
 
 /**
  * Perfectionist plugin for props and items sorting.

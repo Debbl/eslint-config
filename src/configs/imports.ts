@@ -17,7 +17,6 @@ export async function imports(): Promise<ConfigItem[]> {
         "import/no-named-default": "error",
         "import/no-self-import": "error",
         "import/no-webpack-loader-syntax": "error",
-        "import/order": "error",
 
         "import/newline-after-import": [
           "error",

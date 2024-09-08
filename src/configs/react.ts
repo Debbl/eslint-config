@@ -1,5 +1,5 @@
-import { combine, interopDefault } from "../utils";
 import { GLOB_JSX, GLOB_TSX } from "../globs";
+import { combine, interopDefault } from "../utils";
 import type { ConfigFn, ConfigItem, OptionsOverrides } from "../types";
 
 export type ReactConfig = (

@@ -18,9 +18,9 @@ import {
   vue,
   yml,
 } from "./configs";
-import { combine } from "./utils";
 import { react } from "./configs/react";
 import { tailwindcss } from "./configs/tailwindcss";
+import { combine } from "./utils";
 import type { Awaitable, ConfigItem, OptionsConfig } from "./types";
 
 function getConfigOption<T>(options: T) {

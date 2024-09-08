@@ -1,6 +1,5 @@
 import type { ParserOptions } from "@typescript-eslint/parser";
 import type { Linter } from "eslint";
-import type { ReactConfig } from "./configs/react";
 import type {
   IgnoresConfig,
   JavascriptConfig,
@@ -13,6 +12,7 @@ import type {
   VueConfig,
   YmlConfig,
 } from "./configs";
+import type { ReactConfig } from "./configs/react";
 
 export type Awaitable<T> = T | Promise<T>;
 export type GetConfigOption<T extends (...args: any) => any> = Parameters<T>[0];
