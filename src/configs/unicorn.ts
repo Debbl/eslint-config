@@ -14,7 +14,10 @@ export async function unicorn(): Promise<ConfigItem[]> {
         // Pass error message when throwing errors
         "unicorn/error-message": "error",
         // Uppercase regex escapes
-        "unicorn/escape-case": "error",
+        "unicorn/consistent-function-scoping": [
+          "error",
+          { checkArrowFunctions: false },
+        ],
         // Array.isArray instead of instanceof
         "unicorn/no-instanceof-array": "error",
         // Ban `new Array` as `Array` constructor's params are ambiguous
