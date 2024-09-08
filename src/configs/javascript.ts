@@ -137,9 +137,6 @@ export const javascript: JavascriptConfig = async (options) => {
         ],
         "no-restricted-syntax": [
           "error",
-          "DebuggerStatement",
-          "LabeledStatement",
-          "WithStatement",
           "TSEnumDeclaration[const=true]",
           "TSExportAssignment",
         ],
