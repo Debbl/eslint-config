@@ -55,7 +55,7 @@
     "eslint-plugin-perfectionist": "^3.5.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.35.2",
-    "eslint-plugin-react-compiler": "0.0.0-experimental-b8a7b48-20240830",
+    "eslint-plugin-react-compiler": "0.0.0-experimental-8d8bd53-20240905",
     "eslint-plugin-react-hooks": "0.0.0-experimental-e56f4ae3-20240830",
     "eslint-plugin-react-refresh": "^0.4.11",
     "eslint-plugin-solid": "^0.14.3",
