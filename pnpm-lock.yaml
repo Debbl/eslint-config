@@ -57,11 +57,11 @@ importers:
         specifier: ^7.35.2
         version: 7.35.2(eslint@9.10.0(jiti@1.21.6))
       eslint-plugin-react-compiler:
-        specifier: 0.0.0-experimental-b8a7b48-20240830
-        version: 0.0.0-experimental-b8a7b48-20240830(eslint@9.10.0(jiti@1.21.6))
+        specifier: 0.0.0-experimental-b6997ec-20240909
+        version: 0.0.0-experimental-b6997ec-20240909(eslint@9.10.0(jiti@1.21.6))
       eslint-plugin-react-hooks:
-        specifier: 0.0.0-experimental-e56f4ae3-20240830
-        version: 0.0.0-experimental-e56f4ae3-20240830(eslint@9.10.0(jiti@1.21.6))
+        specifier: 0.0.0-experimental-e210d081-20240909
+        version: 0.0.0-experimental-e210d081-20240909(eslint@9.10.0(jiti@1.21.6))
       eslint-plugin-react-refresh:
         specifier: ^0.4.11
         version: 0.4.11(eslint@9.10.0(jiti@1.21.6))
@@ -1794,14 +1794,14 @@ packages:
       eslint-config-prettier:
         optional: true
 
-  eslint-plugin-react-compiler@0.0.0-experimental-b8a7b48-20240830:
-    resolution: {integrity: sha512-5AMC4eCj3egh0l2MACmYR3gu1m8i9kDx5K2PNiwRvNTb92kurNS1YSMHJmfYhWx2o/ZKlPvYIZstXTi+ZIKOCA==}
+  eslint-plugin-react-compiler@0.0.0-experimental-b6997ec-20240909:
+    resolution: {integrity: sha512-YTur5F/Q2JtIDCNrgURkWz0lYnHP7Yxw3Ja4EJSSKoVj4wZKL51Pw/K8LdXjfQouVTejCQg78jaifmcJAI2WPA==}
     engines: {node: ^14.17.0 || ^16.0.0 || >= 18.0.0}
     peerDependencies:
       eslint: '>=7'
 
-  eslint-plugin-react-hooks@0.0.0-experimental-e56f4ae3-20240830:
-    resolution: {integrity: sha512-9KzN4FdthV0J3ZZLwc86Ua8CL0bFrPZJfbm0WVzJ2dbL4MX1/hZGoiEvCZ8bXysSBS0yDngTXgT4MHM6+ob2AQ==}
+  eslint-plugin-react-hooks@0.0.0-experimental-e210d081-20240909:
+    resolution: {integrity: sha512-eXX5AV0LJDjyBMzVD07znPhc4SPr4EGyOB6FUoSFUM8zVXF6CZ4F4F+L2MNRcZX6BCcWFslWoRvB9wh76WGD5Q==}
     engines: {node: '>=10'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
@@ -5530,7 +5530,7 @@ snapshots:
       '@types/eslint': 9.6.1
       eslint-config-prettier: 9.1.0(eslint@9.10.0(jiti@1.21.6))
 
-  eslint-plugin-react-compiler@0.0.0-experimental-b8a7b48-20240830(eslint@9.10.0(jiti@1.21.6)):
+  eslint-plugin-react-compiler@0.0.0-experimental-b6997ec-20240909(eslint@9.10.0(jiti@1.21.6)):
     dependencies:
       '@babel/core': 7.24.6
       '@babel/parser': 7.24.6
@@ -5542,7 +5542,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-react-hooks@0.0.0-experimental-e56f4ae3-20240830(eslint@9.10.0(jiti@1.21.6)):
+  eslint-plugin-react-hooks@0.0.0-experimental-e210d081-20240909(eslint@9.10.0(jiti@1.21.6)):
     dependencies:
       eslint: 9.10.0(jiti@1.21.6)
 
