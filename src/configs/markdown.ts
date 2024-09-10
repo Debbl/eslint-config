@@ -1,5 +1,5 @@
 import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, GLOB_MDX } from "../globs";
-import { interopDefault } from "../utils";
+import { interopDefault, parserPlain } from "../utils";
 import type { ConfigFn, OptionsOverrides } from "../types";
 
 export type MarkdownConfig = (
@@ -11,9 +11,9 @@ export type MarkdownConfig = (
 export const markdown: MarkdownConfig = async (options) => {
   const { componentExts = [], overrides = {} } = options;
 
-  const [pluginMdx, parserMdx] = await Promise.all([
+  const [pluginMdx, pluginMarkdown] = await Promise.all([
     interopDefault(import("eslint-plugin-mdx")),
-    interopDefault(import("eslint-mdx")),
+    interopDefault(import("@eslint/markdown")),
   ]);
 
   return [
@@ -21,6 +21,7 @@ export const markdown: MarkdownConfig = async (options) => {
       name: "eslint/markdown/setup",
       plugins: {
         mdx: pluginMdx,
+        markdown: pluginMarkdown,
       },
     },
     {
@@ -28,7 +29,7 @@ export const markdown: MarkdownConfig = async (options) => {
       files: [GLOB_MARKDOWN, GLOB_MDX],
       languageOptions: {
         ecmaVersion: "latest",
-        parser: parserMdx,
+        parser: parserPlain,
         sourceType: "module",
       },
       processor: "mdx/remark",
