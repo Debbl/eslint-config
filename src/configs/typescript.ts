@@ -118,6 +118,7 @@ export const typescript: TypeScriptConfig = async (options) => {
           "error",
           {
             disallowTypeAnnotations: false,
+            fixStyle: "separate-type-imports",
             prefer: "type-imports",
           },
         ],

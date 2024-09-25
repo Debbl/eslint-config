@@ -22,6 +22,7 @@ export async function imports(): Promise<ConfigItem[]> {
           "error",
           { considerComments: true, count: 1 },
         ],
+        "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
       },
     },
   ];
