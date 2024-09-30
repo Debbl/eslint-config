@@ -8,7 +8,9 @@ export type JavascriptConfig = ConfigFn;
 export const javascript: JavascriptConfig = async (options) => {
   const { overrides = {} } = options;
 
-  const pluginUnusedImports = await interopDefault(import("eslint-plugin-unused-imports"));
+  const pluginUnusedImports = await interopDefault(
+    import("eslint-plugin-unused-imports"),
+  );
 
   return [
     {
@@ -39,7 +41,10 @@ export const javascript: JavascriptConfig = async (options) => {
         "unused-imports": pluginUnusedImports,
       },
       rules: {
-        "accessor-pairs": ["error", { enforceForClassMembers: true, setWithoutGet: true }],
+        "accessor-pairs": [
+          "error",
+          { enforceForClassMembers: true, setWithoutGet: true },
+        ],
 
         "array-callback-return": "error",
         "block-scoped-var": "error",
@@ -47,7 +52,10 @@ export const javascript: JavascriptConfig = async (options) => {
         "default-case-last": "error",
         "dot-notation": ["error", { allowKeywords: true }],
         "eqeqeq": ["error", "smart"],
-        "new-cap": ["error", { capIsNew: false, newIsCap: true, properties: true }],
+        "new-cap": [
+          "error",
+          { capIsNew: false, newIsCap: true, properties: true },
+        ],
         "no-alert": "error",
         "no-array-constructor": "error",
         "no-async-promise-executor": "error",
@@ -106,7 +114,8 @@ export const javascript: JavascriptConfig = async (options) => {
         "no-restricted-properties": [
           "error",
           {
-            message: "Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.",
+            message:
+              "Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.",
             property: "__proto__",
           },
           {
@@ -126,7 +135,11 @@ export const javascript: JavascriptConfig = async (options) => {
             property: "__lookupSetter__",
           },
         ],
-        "no-restricted-syntax": ["error", "TSEnumDeclaration[const=true]", "TSExportAssignment"],
+        "no-restricted-syntax": [
+          "error",
+          "TSEnumDeclaration[const=true]",
+          "TSExportAssignment",
+        ],
         "no-self-assign": ["error", { props: true }],
         "no-self-compare": "error",
         "no-sequences": "error",
@@ -161,7 +174,10 @@ export const javascript: JavascriptConfig = async (options) => {
             vars: "all",
           },
         ],
-        "no-use-before-define": ["error", { classes: false, functions: false, variables: true }],
+        "no-use-before-define": [
+          "error",
+          { classes: false, functions: false, variables: true },
+        ],
         "no-useless-backreference": "error",
         "no-useless-call": "error",
         "no-useless-catch": "error",
@@ -213,7 +229,10 @@ export const javascript: JavascriptConfig = async (options) => {
             varsIgnorePattern: "^_",
           },
         ],
-        "use-isnan": ["error", { enforceForIndexOf: true, enforceForSwitchCase: true }],
+        "use-isnan": [
+          "error",
+          { enforceForIndexOf: true, enforceForSwitchCase: true },
+        ],
         "valid-typeof": ["error", { requireStringLiterals: true }],
         "vars-on-top": "error",
         "yoda": ["error", "never"],

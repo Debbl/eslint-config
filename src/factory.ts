@@ -86,7 +86,11 @@ export function defineConfig(options: OptionsConfig = {}) {
   }
 
   if (options.jsonc ?? true) {
-    configs.push(jsonc(getConfigOption(options.jsonc)), sortPackageJson(), sortTsconfig());
+    configs.push(
+      jsonc(getConfigOption(options.jsonc)),
+      sortPackageJson(),
+      sortTsconfig(),
+    );
   }
 
   if (options.yml ?? true) {

@@ -28,7 +28,6 @@ export const prettier: PrettierConfig = async ({ tailwindcss, ...options }) => {
   ]);
 
   const defaultPrettierOptions: PrettierRequiredOptions = {
-    printWidth: 100,
     quoteProps: "consistent",
   };
 

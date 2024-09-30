@@ -43,7 +43,11 @@ async function next(): Promise<ConfigItem[]> {
         "react-refresh/only-export-components": [
           "warn",
           {
-            allowExportNames: ["metadata", "generateMetadata", "generateStaticParams"],
+            allowExportNames: [
+              "metadata",
+              "generateMetadata",
+              "generateStaticParams",
+            ],
           },
         ],
       },
@@ -52,16 +56,22 @@ async function next(): Promise<ConfigItem[]> {
 }
 
 export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
-  const { next: enableNext = false, compiler: enableCompiler = false, overrides = {} } = options;
+  const {
+    next: enableNext = false,
+    compiler: enableCompiler = false,
+    overrides = {},
+  } = options;
 
-  const [pluginReact, pluginReactHooks, pluginReactRefresh] = await Promise.all([
-    // @ts-expect-error missing types
-    interopDefault(import("eslint-plugin-react")),
-    // @ts-expect-error missing types
-    interopDefault(import("eslint-plugin-react-hooks")),
-    // @ts-expect-error missing types
-    interopDefault(import("eslint-plugin-react-refresh")),
-  ] as const);
+  const [pluginReact, pluginReactHooks, pluginReactRefresh] = await Promise.all(
+    [
+      // @ts-expect-error missing types
+      interopDefault(import("eslint-plugin-react")),
+      // @ts-expect-error missing types
+      interopDefault(import("eslint-plugin-react-hooks")),
+      // @ts-expect-error missing types
+      interopDefault(import("eslint-plugin-react-refresh")),
+    ] as const,
+  );
 
   const _react: ConfigItem[] = [
     {

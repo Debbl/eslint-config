@@ -18,7 +18,10 @@ export async function imports(): Promise<ConfigItem[]> {
         "import/no-self-import": "error",
         "import/no-webpack-loader-syntax": "error",
 
-        "import/newline-after-import": ["error", { considerComments: true, count: 1 }],
+        "import/newline-after-import": [
+          "error",
+          { considerComments: true, count: 1 },
+        ],
         "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
       },
     },

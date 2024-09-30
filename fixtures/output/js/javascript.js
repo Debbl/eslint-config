@@ -17,7 +17,11 @@ class Person {
 }
 
 // Create an array of objects
-const people = [new Person("Alice", 30), new Person("Bob", 25), new Person("Charlie", 35)];
+const people = [
+  new Person("Alice", 30),
+  new Person("Bob", 25),
+  new Person("Charlie", 35),
+];
 
 // Use the forEach method to iterate over the array
 people.forEach((person) => {
@@ -32,7 +36,10 @@ const multilineString = `
 
 // Use destructuring assignment to extract values from an object
 const { name, age } = people[0];
-log(`First person in the array is ${name} and they are ${age} years old.`, multilineString);
+log(
+  `First person in the array is ${name} and they are ${age} years old.`,
+  multilineString,
+);
 
 // Use the spread operator to create a new array
 const numbers = [1, 2, 3];

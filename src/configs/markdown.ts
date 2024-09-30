@@ -39,7 +39,10 @@ export const markdown: MarkdownConfig = async (options) => {
     },
     {
       name: "eslint/markdown/rules",
-      files: [GLOB_MARKDOWN_CODE, ...componentExts.map((ext) => `${GLOB_MARKDOWN}/**/*.${ext}`)],
+      files: [
+        GLOB_MARKDOWN_CODE,
+        ...componentExts.map((ext) => `${GLOB_MARKDOWN}/**/*.${ext}`),
+      ],
       languageOptions: {
         parserOptions: {
           ecmaFeatures: {
