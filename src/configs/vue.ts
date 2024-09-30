@@ -1,14 +1,8 @@
 import { GLOB_VUE } from "../globs";
 import { interopDefault } from "../utils";
-import type {
-  ConfigFn,
-  OptionsHasTypeScript,
-  OptionsOverrides,
-} from "../types";
+import type { ConfigFn, OptionsHasTypeScript, OptionsOverrides } from "../types";
 
-export type VueConfig = (
-  options: OptionsHasTypeScript & OptionsOverrides,
-) => ReturnType<ConfigFn>;
+export type VueConfig = (options: OptionsHasTypeScript & OptionsOverrides) => ReturnType<ConfigFn>;
 
 export const vue: VueConfig = async (options = {}) => {
   const { overrides = {}, typescript: isTypescript } = options;
@@ -37,9 +31,7 @@ export const vue: VueConfig = async (options = {}) => {
           },
           extraFileExtensions: [".vue"],
           parser: isTypescript
-            ? ((await interopDefault(
-                import("@typescript-eslint/parser"),
-              )) as any)
+            ? ((await interopDefault(import("@typescript-eslint/parser"))) as any)
             : null,
           sourceType: "module",
         },
@@ -71,12 +63,7 @@ export const vue: VueConfig = async (options = {}) => {
         "vue/define-macros-order": [
           "error",
           {
-            order: [
-              "defineOptions",
-              "defineProps",
-              "defineEmits",
-              "defineSlots",
-            ],
+            order: ["defineOptions", "defineProps", "defineEmits", "defineSlots"],
           },
         ],
         "vue/dot-location": ["error", "property"],
@@ -142,10 +129,7 @@ export const vue: VueConfig = async (options = {}) => {
         "vue/keyword-spacing": ["error", { after: true, before: true }],
         "vue/object-curly-newline": "off",
         "vue/object-curly-spacing": ["error", "always"],
-        "vue/object-property-newline": [
-          "error",
-          { allowMultiplePropertiesPerLine: true },
-        ],
+        "vue/object-property-newline": ["error", { allowMultiplePropertiesPerLine: true }],
         "vue/operator-linebreak": ["error", "before"],
         "vue/padding-line-between-blocks": ["error", "always"],
         "vue/quote-props": ["error", "consistent-as-needed"],

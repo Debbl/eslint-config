@@ -7,9 +7,7 @@ import type { ConfigItem } from "../types";
  * @see https://github.com/azat-io/eslint-plugin-perfectionist
  */
 export async function perfectionist(): Promise<ConfigItem[]> {
-  const pluginPerfectionist = await interopDefault(
-    import("eslint-plugin-perfectionist"),
-  );
+  const pluginPerfectionist = await interopDefault(import("eslint-plugin-perfectionist"));
 
   return [
     {
@@ -18,10 +16,7 @@ export async function perfectionist(): Promise<ConfigItem[]> {
         perfectionist: pluginPerfectionist,
       },
       rules: {
-        "perfectionist/sort-exports": [
-          "error",
-          { order: "asc", type: "natural" },
-        ],
+        "perfectionist/sort-exports": ["error", { order: "asc", type: "natural" }],
         "perfectionist/sort-imports": [
           "error",
           {
@@ -50,14 +45,8 @@ export async function perfectionist(): Promise<ConfigItem[]> {
             type: "natural",
           },
         ],
-        "perfectionist/sort-named-exports": [
-          "error",
-          { order: "asc", type: "natural" },
-        ],
-        "perfectionist/sort-named-imports": [
-          "error",
-          { order: "asc", type: "natural" },
-        ],
+        "perfectionist/sort-named-exports": ["error", { order: "asc", type: "natural" }],
+        "perfectionist/sort-named-imports": ["error", { order: "asc", type: "natural" }],
       },
     },
   ];

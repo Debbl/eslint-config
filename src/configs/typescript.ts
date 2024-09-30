@@ -110,10 +110,7 @@ export const typescript: TypeScriptConfig = async (options) => {
           "error",
           { "ts-expect-error": "allow-with-description" },
         ],
-        "@typescript-eslint/consistent-type-definitions": [
-          "error",
-          "interface",
-        ],
+        "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
         "@typescript-eslint/consistent-type-imports": [
           "error",
           {
@@ -127,10 +124,7 @@ export const typescript: TypeScriptConfig = async (options) => {
         "@typescript-eslint/method-signature-style": ["error", "property"],
         "@typescript-eslint/no-dupe-class-members": "error",
         "@typescript-eslint/no-dynamic-delete": "off",
-        "@typescript-eslint/no-empty-object-type": [
-          "error",
-          { allowInterfaces: "always" },
-        ],
+        "@typescript-eslint/no-empty-object-type": ["error", { allowInterfaces: "always" }],
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-extraneous-class": "off",
         "@typescript-eslint/no-import-type-side-effects": "error",

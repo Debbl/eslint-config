@@ -70,8 +70,7 @@ export async function sortPackageJson(): Promise<ConfigItem[]> {
           },
           {
             order: { type: "asc" },
-            pathPattern:
-              "^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$",
+            pathPattern: "^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$",
           },
           {
             order: { type: "asc" },
@@ -101,14 +100,7 @@ export async function sortTsconfig(): Promise<ConfigItem[]> {
         "jsonc/sort-keys": [
           "error",
           {
-            order: [
-              "extends",
-              "compilerOptions",
-              "references",
-              "files",
-              "include",
-              "exclude",
-            ],
+            order: ["extends", "compilerOptions", "references", "files", "include", "exclude"],
             pathPattern: "^$",
           },
           {

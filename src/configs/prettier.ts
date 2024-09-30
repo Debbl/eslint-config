@@ -27,7 +27,12 @@ export const prettier: PrettierConfig = async ({ tailwindcss, ...options }) => {
     interopDefault(import("eslint-config-prettier")),
   ]);
 
-  const PlainFileRules: ConfigItem[] = [
+  const defaultPrettierOptions: PrettierRequiredOptions = {
+    printWidth: 100,
+    quoteProps: "consistent",
+  };
+
+  const plainFileRules: ConfigItem[] = [
     {
       name: "eslint/prettier/markdown",
       files: [GLOB_MARKDOWN],
@@ -80,7 +85,7 @@ export const prettier: PrettierConfig = async ({ tailwindcss, ...options }) => {
         {
           parser: rule.parser,
 
-          quoteProps: "consistent",
+          ...defaultPrettierOptions,
           ...options,
         },
       ],
@@ -112,13 +117,13 @@ export const prettier: PrettierConfig = async ({ tailwindcss, ...options }) => {
           "warn",
           {
             plugins: tailwindcss ? ["prettier-plugin-tailwindcss"] : [],
-            quoteProps: "consistent",
+            ...defaultPrettierOptions,
             ...options,
           },
         ],
       },
     },
 
-    ...PlainFileRules,
+    ...plainFileRules,
   ];
 };
