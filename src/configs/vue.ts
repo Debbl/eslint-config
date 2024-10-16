@@ -14,7 +14,6 @@ export const vue: VueConfig = async (options = {}) => {
   const { overrides = {}, typescript: isTypescript } = options;
 
   const [pluginVue, parserVue] = await Promise.all([
-    // @ts-expect-error missing types
     interopDefault(import("eslint-plugin-vue")),
     interopDefault(import("vue-eslint-parser")),
   ] as const);
