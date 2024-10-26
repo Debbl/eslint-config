@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@eslint/markdown": "^6.2.1",
-    "@next/eslint-plugin-next": "15.0.0-rc.0",
+    "@next/eslint-plugin-next": "^15.0.1",
     "@typescript-eslint/eslint-plugin": "^8.11.0",
     "@typescript-eslint/parser": "^8.11.0",
     "eslint-config-prettier": "^9.1.0",
@@ -54,7 +54,7 @@
     "eslint-plugin-perfectionist": "^3.9.1",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.37.2",
-    "eslint-plugin-react-compiler": "0.0.0-experimental-605e95c-20241015",
+    "eslint-plugin-react-compiler": "latest",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "eslint-plugin-solid": "^0.14.3",
