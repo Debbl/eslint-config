@@ -106,7 +106,7 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
         },
       },
       rules: {
-        ...pluginReact.configs.flat.recommended.rules,
+        ...pluginReact.configs.recommended.rules,
         ...pluginReactHooks.configs.recommended.rules,
 
         // React Refresh
