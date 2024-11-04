@@ -55,7 +55,7 @@ importers:
         version: 7.37.2(eslint@9.13.0(jiti@1.21.6))
       eslint-plugin-react-compiler:
         specifier: latest
-        version: 19.0.0-beta-8a03594-20241020(eslint@9.13.0(jiti@1.21.6))
+        version: 19.0.0-beta-6fc168f-20241025(eslint@9.13.0(jiti@1.21.6))
       eslint-plugin-react-hooks:
         specifier: ^5.0.0
         version: 5.0.0(eslint@9.13.0(jiti@1.21.6))
@@ -128,7 +128,7 @@ importers:
         version: 9.13.0(jiti@1.21.6)
       execa:
         specifier: ^9.4.1
-        version: 9.4.1
+        version: 9.5.1
       fast-glob:
         specifier: ^3.3.2
         version: 3.3.2
@@ -1803,8 +1803,8 @@ packages:
       eslint-config-prettier:
         optional: true
 
-  eslint-plugin-react-compiler@19.0.0-beta-8a03594-20241020:
-    resolution: {integrity: sha512-bYg1COih1s3r14IV/AKdQs/SN7CQmNI0ZaMtPdgZ6gp1S1Q/KGP9P43w7R6dHJ4wYpuMBvekNJHQdVu+x6UM+A==}
+  eslint-plugin-react-compiler@19.0.0-beta-6fc168f-20241025:
+    resolution: {integrity: sha512-mHn5tYt9dT4GiXHF5muiz6p+4Lirgi0Oc87N2KrbB/ciSkT+VZ8iJA+6bbS4//ljYzYbxBbPMHWS/dZWhQrbpQ==}
     engines: {node: ^14.17.0 || ^16.0.0 || >= 18.0.0}
     peerDependencies:
       eslint: '>=7'
@@ -1951,8 +1951,8 @@ packages:
     resolution: {integrity: sha512-VyhnebXciFV2DESc+p6B+y0LjSm0krU4OgJN44qFAhBY0TJ+1V61tYD2+wHusZ6F9n5K+vl8k0sTy7PEfV4qpg==}
     engines: {node: '>=16.17'}
 
-  execa@9.4.1:
-    resolution: {integrity: sha512-5eo/BRqZm3GYce+1jqX/tJ7duA2AnE39i88fuedNFUV8XxGxUpF3aWkBRfbUcjV49gCkvS/pzc0YrCPhaIewdg==}
+  execa@9.5.1:
+    resolution: {integrity: sha512-QY5PPtSonnGwhhHDNI7+3RvY285c7iuJFFB+lU+oEzMY/gEGJ808owqJsrr8Otd1E/x07po1LkUBmdAc5duPAg==}
     engines: {node: ^18.19.0 || >=20.5.0}
 
   extend@3.0.2:
@@ -5629,7 +5629,7 @@ snapshots:
       '@types/eslint': 9.6.1
       eslint-config-prettier: 9.1.0(eslint@9.13.0(jiti@1.21.6))
 
-  eslint-plugin-react-compiler@19.0.0-beta-8a03594-20241020(eslint@9.13.0(jiti@1.21.6)):
+  eslint-plugin-react-compiler@19.0.0-beta-6fc168f-20241025(eslint@9.13.0(jiti@1.21.6)):
     dependencies:
       '@babel/core': 7.24.6
       '@babel/parser': 7.24.6
@@ -5869,7 +5869,7 @@ snapshots:
       signal-exit: 4.1.0
       strip-final-newline: 3.0.0
 
-  execa@9.4.1:
+  execa@9.5.1:
     dependencies:
       '@sindresorhus/merge-streams': 4.0.0
       cross-spawn: 7.0.3
