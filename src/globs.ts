@@ -54,6 +54,7 @@ export const GLOB_EXCLUDE = [
   "**/pnpm-lock.yaml",
   "**/bun.lockb",
 
+  "**/public",
   "**/output",
   "**/coverage",
   "**/temp",
