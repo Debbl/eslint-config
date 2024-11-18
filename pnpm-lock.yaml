@@ -34,7 +34,7 @@ importers:
         version: 50.5.0(eslint@9.14.0(jiti@1.21.6))
       eslint-plugin-jsonc:
         specifier: ^2.18.1
-        version: 2.18.1(eslint@9.14.0(jiti@1.21.6))
+        version: 2.18.2(eslint@9.14.0(jiti@1.21.6))
       eslint-plugin-mdx:
         specifier: ^3.1.5
         version: 3.1.5(eslint@9.14.0(jiti@1.21.6))
@@ -55,7 +55,7 @@ importers:
         version: 7.37.2(eslint@9.14.0(jiti@1.21.6))
       eslint-plugin-react-compiler:
         specifier: latest
-        version: 19.0.0-beta-8a03594-20241020(eslint@9.14.0(jiti@1.21.6))
+        version: 19.0.0-beta-a7bf2bd-20241110(eslint@9.14.0(jiti@1.21.6))
       eslint-plugin-react-hooks:
         specifier: ^5.0.0
         version: 5.0.0(eslint@9.14.0(jiti@1.21.6))
@@ -1675,8 +1675,8 @@ packages:
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
 
-  eslint-plugin-jsonc@2.18.1:
-    resolution: {integrity: sha512-6qY8zDpxOwPQNcr8eZ+RxwGX6IPHws5/Qef7aBEjER8rB9+UMB6zQWVIVcbP7xzFmEMHAesNFPe/sIlU4c78dg==}
+  eslint-plugin-jsonc@2.18.2:
+    resolution: {integrity: sha512-SDhJiSsWt3nItl/UuIv+ti4g3m4gpGkmnUJS9UWR3TrpyNsIcnJoBRD7Kof6cM4Rk3L0wrmY5Tm3z7ZPjR2uGg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: '>=6.0.0'
@@ -1736,8 +1736,8 @@ packages:
       eslint-config-prettier:
         optional: true
 
-  eslint-plugin-react-compiler@19.0.0-beta-8a03594-20241020:
-    resolution: {integrity: sha512-bYg1COih1s3r14IV/AKdQs/SN7CQmNI0ZaMtPdgZ6gp1S1Q/KGP9P43w7R6dHJ4wYpuMBvekNJHQdVu+x6UM+A==}
+  eslint-plugin-react-compiler@19.0.0-beta-a7bf2bd-20241110:
+    resolution: {integrity: sha512-b5/hRnOQlnH9CEnJQ6UrPoIAG4y/wIGv+OVEHTeAkbq+1uojfcuQyLToYvK1T9a6vz5WQHeMjQqFOZk3mtWorg==}
     engines: {node: ^14.17.0 || ^16.0.0 || >= 18.0.0}
     peerDependencies:
       eslint: '>=7'
@@ -3427,10 +3427,6 @@ packages:
     resolution: {integrity: sha512-Vhf+bUa//YSTYKseDiiEuQmhGCoIF3CVBhunm3r/DQnYiGT4JssmnKQc44BIyOZRK2pKjXXAgbhfmbeoC9CJpA==}
     engines: {node: '>=12.20'}
 
-  synckit@0.9.0:
-    resolution: {integrity: sha512-7RnqIMq572L8PeEzKeBINYEJDDxpcH8JEgLwUqBd3TkofhFRbkq4QLR0u+36avGAhCRbk2nnmjcW9SE531hPDg==}
-    engines: {node: ^14.18.0 || >=16.0.0}
-
   synckit@0.9.1:
     resolution: {integrity: sha512-7gr8p9TQP6RAHusBOSLs46F4564ZrjV8xFmw5zCmgmhGUcw2hxsShhJ6CEiHQMgPDwAQ1fWHPM0ypc4RMAig4A==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -4626,7 +4622,7 @@ snapshots:
 
   '@typescript-eslint/utils@7.7.1(eslint@9.14.0(jiti@1.21.6))(typescript@5.6.3)':
     dependencies:
-      '@eslint-community/eslint-utils': 4.4.0(eslint@9.14.0(jiti@1.21.6))
+      '@eslint-community/eslint-utils': 4.4.1(eslint@9.14.0(jiti@1.21.6))
       '@types/json-schema': 7.0.15
       '@types/semver': 7.5.8
       '@typescript-eslint/scope-manager': 7.7.1
@@ -4640,7 +4636,7 @@ snapshots:
 
   '@typescript-eslint/utils@8.11.0(eslint@9.14.0(jiti@1.21.6))(typescript@5.6.3)':
     dependencies:
-      '@eslint-community/eslint-utils': 4.4.0(eslint@9.14.0(jiti@1.21.6))
+      '@eslint-community/eslint-utils': 4.4.1(eslint@9.14.0(jiti@1.21.6))
       '@typescript-eslint/scope-manager': 8.11.0
       '@typescript-eslint/types': 8.11.0
       '@typescript-eslint/typescript-estree': 8.11.0(typescript@5.6.3)
@@ -4651,7 +4647,7 @@ snapshots:
 
   '@typescript-eslint/utils@8.14.0(eslint@9.14.0(jiti@1.21.6))(typescript@5.6.3)':
     dependencies:
-      '@eslint-community/eslint-utils': 4.4.0(eslint@9.14.0(jiti@1.21.6))
+      '@eslint-community/eslint-utils': 4.4.1(eslint@9.14.0(jiti@1.21.6))
       '@typescript-eslint/scope-manager': 8.14.0
       '@typescript-eslint/types': 8.14.0
       '@typescript-eslint/typescript-estree': 8.14.0(typescript@5.6.3)
@@ -4662,7 +4658,7 @@ snapshots:
 
   '@typescript-eslint/utils@8.9.0(eslint@9.14.0(jiti@1.21.6))(typescript@5.6.3)':
     dependencies:
-      '@eslint-community/eslint-utils': 4.4.0(eslint@9.14.0(jiti@1.21.6))
+      '@eslint-community/eslint-utils': 4.4.1(eslint@9.14.0(jiti@1.21.6))
       '@typescript-eslint/scope-manager': 8.9.0
       '@typescript-eslint/types': 8.9.0
       '@typescript-eslint/typescript-estree': 8.9.0(typescript@5.6.3)
@@ -4739,10 +4735,6 @@ snapshots:
       '@nodelib/fs.walk': 2.0.0
 
   abbrev@2.0.0: {}
-
-  acorn-jsx@5.3.2(acorn@8.10.0):
-    dependencies:
-      acorn: 8.10.0
 
   acorn-jsx@5.3.2(acorn@8.11.3):
     dependencies:
@@ -5383,7 +5375,7 @@ snapshots:
       remark-mdx: 3.0.0
       remark-parse: 11.0.0
       remark-stringify: 11.0.0
-      synckit: 0.9.0
+      synckit: 0.9.1
       tslib: 2.6.2
       unified: 11.0.4
       unified-engine: 11.2.0
@@ -5440,9 +5432,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-jsonc@2.18.1(eslint@9.14.0(jiti@1.21.6)):
+  eslint-plugin-jsonc@2.18.2(eslint@9.14.0(jiti@1.21.6)):
     dependencies:
-      '@eslint-community/eslint-utils': 4.4.0(eslint@9.14.0(jiti@1.21.6))
+      '@eslint-community/eslint-utils': 4.4.1(eslint@9.14.0(jiti@1.21.6))
       eslint: 9.14.0(jiti@1.21.6)
       eslint-compat-utils: 0.6.3(eslint@9.14.0(jiti@1.21.6))
       eslint-json-compat-utils: 0.2.1(eslint@9.14.0(jiti@1.21.6))(jsonc-eslint-parser@2.4.0)
@@ -5512,7 +5504,7 @@ snapshots:
       '@types/eslint': 9.6.1
       eslint-config-prettier: 9.1.0(eslint@9.14.0(jiti@1.21.6))
 
-  eslint-plugin-react-compiler@19.0.0-beta-8a03594-20241020(eslint@9.14.0(jiti@1.21.6)):
+  eslint-plugin-react-compiler@19.0.0-beta-a7bf2bd-20241110(eslint@9.14.0(jiti@1.21.6)):
     dependencies:
       '@babel/core': 7.24.6
       '@babel/parser': 7.24.6
@@ -5717,8 +5709,8 @@ snapshots:
 
   espree@9.6.1:
     dependencies:
-      acorn: 8.10.0
-      acorn-jsx: 5.3.2(acorn@8.10.0)
+      acorn: 8.14.0
+      acorn-jsx: 5.3.2(acorn@8.14.0)
       eslint-visitor-keys: 3.4.3
 
   esquery@1.5.0:
@@ -6662,8 +6654,8 @@ snapshots:
 
   micromark-extension-mdxjs@3.0.0:
     dependencies:
-      acorn: 8.11.3
-      acorn-jsx: 5.3.2(acorn@8.11.3)
+      acorn: 8.14.0
+      acorn-jsx: 5.3.2(acorn@8.14.0)
       micromark-extension-mdx-expression: 3.0.0
       micromark-extension-mdx-jsx: 3.0.0
       micromark-extension-mdx-md: 2.0.0
@@ -7522,11 +7514,6 @@ snapshots:
   synckit@0.6.2:
     dependencies:
       tslib: 2.7.0
-
-  synckit@0.9.0:
-    dependencies:
-      '@pkgr/core': 0.1.1
-      tslib: 2.6.2
 
   synckit@0.9.1:
     dependencies:
