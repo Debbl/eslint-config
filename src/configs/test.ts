@@ -8,7 +8,7 @@ export const test: TestConfig = async (options) => {
   const { overrides = {} } = options;
 
   const [pluginVitest, pluginNoOnlyTests] = await Promise.all([
-    interopDefault(import("eslint-plugin-vitest")),
+    interopDefault(import("@vitest/eslint-plugin")),
     // @ts-expect-error missing types
     interopDefault(import("eslint-plugin-no-only-tests")),
   ] as const);
