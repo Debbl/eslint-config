@@ -67,7 +67,6 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
       interopDefault(import("eslint-plugin-react")),
       // @ts-expect-error missing types
       interopDefault(import("eslint-plugin-react-hooks")),
-      // @ts-expect-error missing types
       interopDefault(import("eslint-plugin-react-refresh")),
     ] as const,
   );
