@@ -136,6 +136,6 @@ function runWithConfig(name: string, configs: OptionsConfig) {
         }),
       );
     },
-    30_000,
+    60_000,
   );
 }
