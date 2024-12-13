@@ -1,40 +1,62 @@
-import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, GLOB_MDX } from "../globs";
-import { interopDefault, parserPlain } from "../utils";
-import type { ConfigFn, OptionsOverrides } from "../types";
+import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE } from "../globs";
+import { combine, interopDefault, parserPlain } from "../utils";
+import type { ConfigFn, ConfigItem, OptionsOverrides } from "../types";
 
 export type MarkdownConfig = (
   options: {
     componentExts?: string[];
+    mdx?: boolean;
   } & OptionsOverrides,
 ) => ReturnType<ConfigFn>;
 
-export const markdown: MarkdownConfig = async (options) => {
-  const { componentExts = [], overrides = {} } = options;
+async function mdx(): Promise<ConfigItem[]> {
+  const pluginMdx = await interopDefault(import("eslint-plugin-mdx"));
 
-  const [pluginMdx, pluginMarkdown] = await Promise.all([
+  return [
+    {
+      ...pluginMdx.flat,
+      processor: pluginMdx.createRemarkProcessor({
+        lintCodeBlocks: true,
+        languageMapper: {},
+      }),
+    },
+    {
+      ...pluginMdx.flatCodeBlocks,
+      rules: {
+        ...pluginMdx.flatCodeBlocks.rules,
+        "no-var": "error",
+        "prefer-const": "error",
+      },
+    },
+  ];
+}
+
+export const markdown: MarkdownConfig = async (options) => {
+  const {
+    mdx: enableMdx = false,
+    componentExts = [],
+    overrides = {},
+  } = options;
+
+  const pluginMarkdown = await Promise.all([
     interopDefault(import("eslint-plugin-mdx")),
     interopDefault(import("@eslint/markdown")),
   ]);
 
-  return [
+  const _markdown: ConfigItem[] = [
     {
       name: "eslint/markdown/setup",
       plugins: {
-        mdx: pluginMdx,
         markdown: pluginMarkdown,
       },
     },
     {
       name: "eslint/markdown/processor",
-      files: [GLOB_MARKDOWN, GLOB_MDX],
+      files: [GLOB_MARKDOWN],
       languageOptions: {
         ecmaVersion: "latest",
         parser: parserPlain,
         sourceType: "module",
-      },
-      processor: "mdx/remark",
-      settings: {
-        "mdx/code-blocks": true,
       },
     },
     {
@@ -92,4 +114,6 @@ export const markdown: MarkdownConfig = async (options) => {
       },
     },
   ];
+
+  return combine(_markdown, enableMdx ? await mdx() : []);
 };
