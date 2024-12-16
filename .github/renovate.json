@@ -5,7 +5,7 @@
   "packageRules": [
     {
       "matchPackageNames": ["*"],
-      "groupName": "allDependencies",
+      "groupName": "all-dependencies",
       "automerge": true,
       "automergeType": "pr-comment",
       "automergeComment": "bors: r+"
