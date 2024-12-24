@@ -2,7 +2,7 @@
   "name": "@debbl/eslint-config",
   "type": "module",
   "version": "3.8.5",
-  "packageManager": "pnpm@9.15.0",
+  "packageManager": "pnpm@9.15.1",
   "description": "Brendan Dash's ESLint config",
   "author": "Debbl <me@aiwan.run> (https://github.com/Debbl/)",
   "license": "MIT",
