@@ -150,7 +150,10 @@ export interface OptionsConfig extends OptionsComponentExts {
 
   /**
    * Enable Tailwind CSS support.
-   * if set to "prettier", it will use `prettier-plugin-tailwindcss` @see https://github.com/tailwindlabs/prettier-plugin-tailwindcss
+   * 
+   * if set to "prettier", it will use `prettier-plugin-tailwindcss`
+   * @see https://github.com/tailwindlabs/prettier-plugin-tailwindcss
+   * 
    * @default false
    */
   tailwindcss?: boolean | "prettier";
