@@ -38,10 +38,7 @@ export const markdown: MarkdownConfig = async (options) => {
     overrides = {},
   } = options;
 
-  const pluginMarkdown = await Promise.all([
-    interopDefault(import("eslint-plugin-mdx")),
-    interopDefault(import("@eslint/markdown")),
-  ]);
+  const pluginMarkdown = await interopDefault(import("@eslint/markdown"));
 
   const _markdown: ConfigItem[] = [
     {
