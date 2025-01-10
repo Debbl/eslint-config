@@ -5,31 +5,12 @@ import type { ConfigFn, ConfigItem, OptionsOverrides } from "../types";
 export type MarkdownConfig = (
   options: {
     componentExts?: string[];
+    /**
+     * @deprecated remove this option
+     */
     mdx?: boolean;
   } & OptionsOverrides,
 ) => ReturnType<ConfigFn>;
-
-async function mdx(): Promise<ConfigItem[]> {
-  const pluginMdx = await interopDefault(import("eslint-plugin-mdx"));
-
-  return [
-    {
-      ...pluginMdx.flat,
-      processor: pluginMdx.createRemarkProcessor({
-        lintCodeBlocks: true,
-        languageMapper: {},
-      }),
-    },
-    {
-      ...pluginMdx.flatCodeBlocks,
-      rules: {
-        ...pluginMdx.flatCodeBlocks.rules,
-        "no-var": "error",
-        "prefer-const": "error",
-      },
-    },
-  ];
-}
 
 export const markdown: MarkdownConfig = async (options) => {
   const {
@@ -112,5 +93,5 @@ export const markdown: MarkdownConfig = async (options) => {
     },
   ];
 
-  return combine(_markdown, enableMdx ? await mdx() : []);
+  return _markdown;
 };
