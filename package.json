@@ -36,13 +36,7 @@
     "release": "pnpm build && bumpp && pnpm publish"
   },
   "peerDependencies": {
-    "eslint": ">=8.40.0",
-    "eslint-plugin-mdx": ">=3.1.5"
-  },
-  "peerDependenciesMeta": {
-    "eslint-plugin-mdx": {
-      "optional": true
-    }
+    "eslint": ">=9"
   },
   "dependencies": {
     "@eslint-community/eslint-plugin-eslint-comments": "^4.4.1",
