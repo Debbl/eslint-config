@@ -1,5 +1,5 @@
 import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE } from "../globs";
-import { combine, interopDefault, parserPlain } from "../utils";
+import { interopDefault, parserPlain } from "../utils";
 import type { ConfigFn, ConfigItem, OptionsOverrides } from "../types";
 
 export type MarkdownConfig = (
@@ -14,7 +14,7 @@ export type MarkdownConfig = (
 
 export const markdown: MarkdownConfig = async (options) => {
   const {
-    mdx: enableMdx = false,
+    mdx: _enableMdx = false,
     componentExts = [],
     overrides = {},
   } = options;
