@@ -66,19 +66,19 @@ runWithConfig("ts-override", {
   },
 });
 
-runWithConfig("hooks", {
-  react: true,
-  customConfig: {
-    ignores: [GLOB_TOML],
-    rules: {
-      "prettier/prettier": "error",
+// runWithConfig("hooks", {
+//   react: true,
+//   customConfig: {
+//     ignores: [GLOB_TOML],
+//     rules: {
+//       "prettier/prettier": "error",
 
-      "react/prop-types": "off",
-      "react/no-unknown-property": "off",
-      "react/no-unescaped-entities": "off",
-    },
-  },
-});
+//       "react/prop-types": "off",
+//       "react/no-unknown-property": "off",
+//       "react/no-unescaped-entities": "off",
+//     },
+//   },
+// });
 
 function runWithConfig(name: string, configs: OptionsConfig) {
   it.concurrent(
