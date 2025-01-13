@@ -91,6 +91,7 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
         "react-dom": plugins["@eslint-react/dom"],
         "react-hooks-extra": plugins["@eslint-react/hooks-extra"],
         "react-naming-convention": plugins["@eslint-react/naming-convention"],
+        "react-web-api": plugins["@eslint-react/web-api"],
         "react-hooks": pluginReactHooks,
         "react-refresh": pluginReactRefresh,
         ...(enableCompiler
@@ -148,6 +149,12 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
               "react-compiler/react-compiler": "error",
             }
           : {}),
+
+        // recommended rules from @eslint-react/web-api
+        "react-web-api/no-leaked-event-listener": "warn",
+        "react-web-api/no-leaked-interval": "warn",
+        "react-web-api/no-leaked-resize-observer": "warn",
+        "react-web-api/no-leaked-timeout": "warn",
 
         // recommended rules from @eslint-react
         "react/ensure-forward-ref-using-ref": "warn",
