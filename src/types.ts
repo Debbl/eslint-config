@@ -1,5 +1,6 @@
 import type { ParserOptions } from "@typescript-eslint/parser";
 import type { Linter } from "eslint";
+import type { FlatGitignoreOptions } from "eslint-config-flat-gitignore";
 import type {
   IgnoresConfig,
   JavascriptConfig,
@@ -63,6 +64,13 @@ export interface OptionsHasTypeScript {
 }
 
 export interface OptionsConfig extends OptionsComponentExts {
+  /**
+   * Enable gitignore support.
+   * Passing an object to configure the options.
+   * @default true
+   */
+  gitignore?: boolean | FlatGitignoreOptions;
+
   /**
    * Enable gitignore support.
    * Passing an object to configure the options.

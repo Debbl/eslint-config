@@ -37,3 +37,7 @@ export async function interopDefault<T>(
   const resolved = await m;
   return (resolved as any).default || resolved;
 }
+
+export function getConfigOptions<T>(options: T) {
+  return options ? (typeof options !== "boolean" ? options : {}) : {};
+}

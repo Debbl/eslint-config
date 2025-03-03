@@ -17,22 +17,18 @@ import {
   unicorn,
   vue,
   yml,
-} from "./configs";
-import { react } from "./configs/react";
-import { tailwindcss } from "./configs/tailwindcss";
-import { combine } from "./utils";
-import type { Awaitable, ConfigItem, OptionsConfig } from "./types";
-
-function getConfigOption<T>(options: T) {
-  return options ? (typeof options !== "boolean" ? options : {}) : {};
-}
+} from "~/configs";
+import { react } from "~/configs/react";
+import { tailwindcss } from "~/configs/tailwindcss";
+import { combine, getConfigOptions } from "~/utils";
+import type { Awaitable, ConfigItem, OptionsConfig } from "~/types";
 
 /**
  * Construct an array of ESLint flat config items.
  */
 export function defineConfig(options: OptionsConfig = {}) {
   const {
-    ignores: enableGitignore = true,
+    ignores: enableIgnores = true,
     vue: enableVue,
     react: enableReact,
     solid: enableSolid,
@@ -41,11 +37,11 @@ export function defineConfig(options: OptionsConfig = {}) {
     componentExts = [],
   } = options;
 
-  const configs: Awaitable<ConfigItem[]>[] = [];
+  const configs: Awaitable<ConfigItem | ConfigItem[]>[] = [];
 
   // Base configs
   configs.push(
-    ignores(getConfigOption(enableGitignore)),
+    ignores(getConfigOptions(enableIgnores)),
     javascript(options.javascript ?? {}),
     comments(),
     node(),
@@ -69,42 +65,42 @@ export function defineConfig(options: OptionsConfig = {}) {
   }
 
   if (options.test ?? true) {
-    configs.push(test(getConfigOption(options.test)));
+    configs.push(test(getConfigOptions(options.test)));
   }
 
   if (enableVue) {
     configs.push(
       vue({
-        ...getConfigOption(options.vue),
+        ...getConfigOptions(options.vue),
         typescript: !!enableTypeScript,
       }),
     );
   }
 
   if (enableReact) {
-    configs.push(react(getConfigOption(enableReact)));
+    configs.push(react(getConfigOptions(enableReact)));
   }
 
   if (options.jsonc ?? true) {
     configs.push(
-      jsonc(getConfigOption(options.jsonc)),
+      jsonc(getConfigOptions(options.jsonc)),
       sortPackageJson(),
       sortTsconfig(),
     );
   }
 
   if (options.yml ?? true) {
-    configs.push(yml(getConfigOption(options.yml)));
+    configs.push(yml(getConfigOptions(options.yml)));
   }
 
   if (options.toml ?? true) {
-    configs.push(toml(getConfigOption(options.toml)));
+    configs.push(toml(getConfigOptions(options.toml)));
   }
 
   if (options.markdown ?? true) {
     configs.push(
       markdown({
-        ...getConfigOption(options.markdown),
+        ...getConfigOptions(options.markdown),
         componentExts,
       }),
     );
@@ -117,7 +113,7 @@ export function defineConfig(options: OptionsConfig = {}) {
   if (options.prettier ?? true) {
     configs.push(
       prettier({
-        ...getConfigOption(options.prettier),
+        ...getConfigOptions(options.prettier),
         tailwindcss: enableTailwindcss === "prettier",
       }),
     );
