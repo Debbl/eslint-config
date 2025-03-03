@@ -75,7 +75,6 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
   const [pluginReact, pluginReactHooks, pluginReactRefresh] = await Promise.all(
     [
       interopDefault(import("@eslint-react/eslint-plugin")),
-      // @ts-expect-error missing types
       interopDefault(import("eslint-plugin-react-hooks")),
       interopDefault(import("eslint-plugin-react-refresh")),
     ] as const,
