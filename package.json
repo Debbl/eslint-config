@@ -26,7 +26,7 @@
   "scripts": {
     "build": "tsup",
     "stub": "tsup --format esm",
-    "dev": "pnpm dlx @eslint/config-inspector --config eslint.config.js",
+    "dev": "pnpm build && pnpm dlx @eslint/config-inspector --config eslint.config.js",
     "build:inspector": "pnpm build && npx @eslint/config-inspector build",
     "watch": "tsup --format esm,cjs --watch",
     "test": "vitest",
