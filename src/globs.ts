@@ -20,6 +20,7 @@ export const GLOB_JSONC = "**/*.jsonc";
 export const GLOB_MARKDOWN = "**/*.md";
 export const GLOB_MDX = "**/*.mdx";
 export const GLOB_MARKDOWN_CODE = `${GLOB_MARKDOWN}/${GLOB_SRC}`;
+export const GLOB_ASTRO_TS = "**/*.astro/*.ts";
 
 export const GLOB_VUE = "**/*.vue";
 

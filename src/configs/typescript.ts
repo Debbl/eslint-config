@@ -1,5 +1,11 @@
 import process from "node:process";
-import { GLOB_SRC } from "../globs";
+import {
+  GLOB_ASTRO_TS,
+  GLOB_MARKDOWN,
+  GLOB_SRC,
+  GLOB_TS,
+  GLOB_TSX,
+} from "../globs";
 import { interopDefault } from "../utils";
 import type {
   ConfigFn,
@@ -55,6 +61,8 @@ export const typescript: TypeScriptConfig = async (options) => {
     enableSolid = false,
   } = options ?? {};
 
+  const isTypeAware = !!tsconfigPath;
+
   const [pluginTs, parserTs] = await Promise.all([
     interopDefault(import("@typescript-eslint/eslint-plugin")),
     interopDefault(import("@typescript-eslint/parser")),
@@ -102,7 +110,6 @@ export const typescript: TypeScriptConfig = async (options) => {
             }
           : {}),
         "no-dupe-class-members": "off",
-        "no-loss-of-precision": "off",
         "no-redeclare": "off",
         "no-use-before-define": "off",
         "no-useless-constructor": "off",
@@ -123,8 +130,7 @@ export const typescript: TypeScriptConfig = async (options) => {
           },
         ],
 
-        // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
-        "@typescript-eslint/method-signature-style": ["error", "property"],
+        "@typescript-eslint/method-signature-style": ["error", "property"], // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
         "@typescript-eslint/no-dupe-class-members": "error",
         "@typescript-eslint/no-dynamic-delete": "off",
         "@typescript-eslint/no-empty-object-type": [
@@ -135,10 +141,17 @@ export const typescript: TypeScriptConfig = async (options) => {
         "@typescript-eslint/no-extraneous-class": "off",
         "@typescript-eslint/no-import-type-side-effects": "error",
         "@typescript-eslint/no-invalid-void-type": "off",
-        "@typescript-eslint/no-loss-of-precision": "error",
         "@typescript-eslint/no-non-null-assertion": "off",
-        "@typescript-eslint/no-redeclare": "error",
+        "@typescript-eslint/no-redeclare": ["error", { builtinGlobals: false }],
         "@typescript-eslint/no-require-imports": "error",
+        "@typescript-eslint/no-unused-expressions": [
+          "error",
+          {
+            allowShortCircuit: true,
+            allowTaggedTemplates: true,
+            allowTernary: true,
+          },
+        ],
         "@typescript-eslint/no-unused-vars": "off",
         "@typescript-eslint/no-use-before-define": [
           "error",
@@ -149,10 +162,21 @@ export const typescript: TypeScriptConfig = async (options) => {
         "@typescript-eslint/triple-slash-reference": "off",
         "@typescript-eslint/unified-signatures": "off",
 
-        ...(tsconfigPath ? typeAwareRules : {}),
         ...overrides,
       },
     },
+    ...((isTypeAware
+      ? [
+          {
+            name: "eslint/typescript/rules-type-aware",
+            files: [GLOB_TS, GLOB_TSX],
+            ignores: [`${GLOB_MARKDOWN}/**`, `${GLOB_ASTRO_TS}/**`],
+            rules: {
+              ...typeAwareRules,
+            },
+          },
+        ]
+      : []) satisfies ConfigItem[]),
     {
       name: "eslint/typescript/dts-overrides",
       files: ["**/*.d.ts"],

@@ -11,6 +11,9 @@ export async function unicorn(): Promise<ConfigItem[]> {
         unicorn: pluginUnicorn,
       },
       rules: {
+        "unicorn/consistent-empty-array-spread": "error",
+        "unicorn/escape-case": "error",
+        "unicorn/new-for-builtins": "error",
         // Pass error message when throwing errors
         "unicorn/error-message": "error",
         // Uppercase regex escapes
@@ -18,8 +21,7 @@ export async function unicorn(): Promise<ConfigItem[]> {
           "error",
           { checkArrowFunctions: false },
         ],
-        // Array.isArray instead of instanceof
-        "unicorn/no-instanceof-array": "error",
+        "unicorn/no-instanceof-builtins": "error",
         // Ban `new Array` as `Array` constructor's params are ambiguous
         "unicorn/no-new-array": "error",
         // Prevent deprecated `new Buffer()`
