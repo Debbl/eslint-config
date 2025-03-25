@@ -165,9 +165,4 @@ export interface OptionsConfig extends OptionsComponentExts {
    * @default false
    */
   tailwindcss?: boolean | "prettier";
-
-  /**
-   * Custom config
-   */
-  customConfig?: ConfigItem[] | ConfigItem;
 }
