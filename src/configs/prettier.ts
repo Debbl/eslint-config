@@ -23,7 +23,6 @@ export type PrettierConfig = ({
 export const prettier: PrettierConfig = async ({ tailwindcss, ...options }) => {
   const [pluginPrettier, configPrettier] = await Promise.all([
     interopDefault(import("eslint-plugin-prettier")),
-    // @ts-expect-error missing types
     interopDefault(import("eslint-config-prettier")),
   ]);
 
