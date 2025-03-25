@@ -123,8 +123,3 @@ export function defineConfig(options: OptionsConfig = {}) {
 
   return merged;
 }
-
-/**
- * @deprecated Use `defineConfig` instead.
- */
-export const config = defineConfig;
