@@ -130,7 +130,8 @@ export const typescript: TypeScriptConfig = async (options) => {
           },
         ],
 
-        "@typescript-eslint/method-signature-style": ["error", "property"], // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
+        // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
+        "@typescript-eslint/method-signature-style": ["error", "property"],
         "@typescript-eslint/no-dupe-class-members": "error",
         "@typescript-eslint/no-dynamic-delete": "off",
         "@typescript-eslint/no-empty-object-type": [
