@@ -32,22 +32,22 @@ pnpm i eslint @debbl/eslint-config -D
 - prettier
 
 ```js
-import { defineConfig } from "@debbl/eslint-config";
+import { defineConfig } from '@debbl/eslint-config'
 
-export default defineConfig();
+export default defineConfig()
 ```
 
 ## Config `Prettier`, will override default rules
 
 ```js
-import { defineConfig } from "@debbl/eslint-config";
+import { defineConfig } from '@debbl/eslint-config'
 
 export default defineConfig({
   typescript: true,
   prettier: {
     semi: false,
   },
-});
+})
 ```
 
 ## Full OptionConfig

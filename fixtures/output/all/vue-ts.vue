@@ -1,14 +1,14 @@
 <script setup lang="ts">
 // Define reactive data and props
-import { ref } from "vue";
+import { ref } from 'vue'
 
-const greeting = ref("Hello, Vue 3!");
-const counter = ref<number | string>(0);
+const greeting = ref('Hello, Vue 3!')
+const counter = ref<number | string>(0)
 
 // Define a function
 const incrementCounter = () => {
-  counter.value++;
-};
+  counter.value++
+}
 </script>
 
 <template>
