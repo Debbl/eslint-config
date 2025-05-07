@@ -5,8 +5,8 @@ export function Component1() {
 export function jsx2() {
 	const props = { a: 1, b: 2 }
 	return (
-		<a foo="bar" bar={`foo`}>
-			<div {...props} a={1} b="2">
+		<a foo='bar' bar={`foo`}>
+			<div {...props} a={1} b='2'>
 				Inline Text
 			</div>
 			<Component1>Block Text</Component1>

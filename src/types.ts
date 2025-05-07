@@ -1,6 +1,6 @@
-import type { ParserOptions } from "@typescript-eslint/parser";
-import type { Linter } from "eslint";
-import type { FlatGitignoreOptions } from "eslint-config-flat-gitignore";
+import type { ParserOptions } from '@typescript-eslint/parser'
+import type { Linter } from 'eslint'
+import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore'
 import type {
   IgnoresConfig,
   JavascriptConfig,
@@ -12,11 +12,11 @@ import type {
   TypeScriptConfig,
   VueConfig,
   YmlConfig,
-} from "./configs";
-import type { ReactConfig } from "./configs/react";
+} from './configs'
+import type { ReactConfig } from './configs/react'
 
-export type Awaitable<T> = T | Promise<T>;
-export type GetConfigOption<T extends (...args: any) => any> = Parameters<T>[0];
+export type Awaitable<T> = T | Promise<T>
+export type GetConfigOption<T extends (...args: any) => any> = Parameters<T>[0]
 
 export interface ConfigItem extends Linter.Config {
   // Relax plugins type limitation, as most of the plugins did not have correct type info yet.
@@ -25,14 +25,14 @@ export interface ConfigItem extends Linter.Config {
    *
    * @see [Using plugins in your configuration](https://eslint.org/docs/latest/user-guide/configuring/configuration-files-new#using-plugins-in-your-configuration)
    */
-  plugins?: Record<string, any>;
+  plugins?: Record<string, any>
 }
 
 export interface OptionsOverrides {
-  overrides?: ConfigItem["rules"];
+  overrides?: ConfigItem['rules']
 }
 
-export type ConfigFn = (options: OptionsOverrides) => Awaitable<ConfigItem[]>;
+export type ConfigFn = (options: OptionsOverrides) => Awaitable<ConfigItem[]>
 
 export interface OptionsComponentExts {
   /**
@@ -41,14 +41,14 @@ export interface OptionsComponentExts {
    * @example ['vue']
    * @default []
    */
-  componentExts?: string[];
+  componentExts?: string[]
 }
 
 export interface OptionsTypeScriptParserOptions {
   /**
    * Additional parser options for TypeScript.
    */
-  parserOptions?: Partial<ParserOptions>;
+  parserOptions?: Partial<ParserOptions>
 }
 
 export interface OptionsTypeScriptWithTypes {
@@ -56,11 +56,11 @@ export interface OptionsTypeScriptWithTypes {
    * When this options is provided, type aware rules will be enabled.
    * @see https://typescript-eslint.io/linting/typed-linting/
    */
-  tsconfigPath?: string;
+  tsconfigPath?: string
 }
 
 export interface OptionsHasTypeScript {
-  typescript?: boolean;
+  typescript?: boolean
 }
 
 export interface OptionsConfig extends OptionsComponentExts {
@@ -69,21 +69,21 @@ export interface OptionsConfig extends OptionsComponentExts {
    * Passing an object to configure the options.
    * @default true
    */
-  gitignore?: boolean | FlatGitignoreOptions;
+  gitignore?: boolean | FlatGitignoreOptions
 
   /**
    * Enable gitignore support.
    * Passing an object to configure the options.
    * @default true
    */
-  ignores?: boolean | GetConfigOption<IgnoresConfig>;
+  ignores?: boolean | GetConfigOption<IgnoresConfig>
 
   /**
    * Enable JavaScript support.
    * Passing an object to configure the options.
    * @default true
    */
-  javascript?: GetConfigOption<JavascriptConfig>;
+  javascript?: GetConfigOption<JavascriptConfig>
 
   /**
    * Enable TypeScript support.
@@ -92,69 +92,69 @@ export interface OptionsConfig extends OptionsComponentExts {
    *
    * @default false
    */
-  typescript?: boolean | GetConfigOption<TypeScriptConfig>;
+  typescript?: boolean | GetConfigOption<TypeScriptConfig>
 
   /**
    * Enable test support.
    *
    * @default true
    */
-  test?: boolean | GetConfigOption<TestConfig>;
+  test?: boolean | GetConfigOption<TestConfig>
 
   /**
    * Enable Vue support.
    *
    * @default false
    */
-  vue?: boolean | GetConfigOption<VueConfig>;
+  vue?: boolean | GetConfigOption<VueConfig>
 
   /**
    * Enable React support, Passing an object to enable Next.js support.
    *
    * @default false
    */
-  react?: boolean | GetConfigOption<ReactConfig>;
+  react?: boolean | GetConfigOption<ReactConfig>
 
   /**
    * Enable solid support, Passing an object to enable Next.js support.
    *
    * @default false
    */
-  solid?: boolean;
+  solid?: boolean
 
   /**
    * Enable JSONC support.
    *
    * @default true
    */
-  jsonc?: boolean | GetConfigOption<JsoncConfig>;
+  jsonc?: boolean | GetConfigOption<JsoncConfig>
 
   /**
    * Enable YML support.
    *
    * @default true
    */
-  yml?: boolean | GetConfigOption<YmlConfig>;
+  yml?: boolean | GetConfigOption<YmlConfig>
 
   /**
    * Enable TOML support.
    * @default true
    */
-  toml?: boolean | GetConfigOption<TomlConfig>;
+  toml?: boolean | GetConfigOption<TomlConfig>
 
   /**
    * Enable Markdown support.
    *
    * @default true
    */
-  markdown?: boolean | GetConfigOption<MarkdownConfig>;
+  markdown?: boolean | GetConfigOption<MarkdownConfig>
 
   /**
    * Enable prettier rules.
    *
    * @default true
    */
-  prettier?: boolean | Omit<GetConfigOption<PrettierConfig>, "tailwindcss">;
+  prettier?: boolean | Omit<GetConfigOption<PrettierConfig>, 'tailwindcss'>
 
   /**
    * Enable Tailwind CSS support.
@@ -164,5 +164,5 @@ export interface OptionsConfig extends OptionsComponentExts {
    *
    * @default false
    */
-  tailwindcss?: boolean | "prettier";
+  tailwindcss?: boolean | 'prettier'
 }

@@ -17,19 +17,16 @@ import {
   unicorn,
   vue,
   yml,
-} from "~/configs";
-import { react } from "~/configs/react";
-import { tailwindcss } from "~/configs/tailwindcss";
-import { combine, getConfigOptions } from "~/utils";
-import type { Awaitable, ConfigItem, OptionsConfig } from "~/types";
+} from '~/configs'
+import { react } from '~/configs/react'
+import { tailwindcss } from '~/configs/tailwindcss'
+import { combine, getConfigOptions } from '~/utils'
+import type { Awaitable, ConfigItem, OptionsConfig } from '~/types'
 
 /**
  * Construct an array of ESLint flat config items.
  */
-export function defineConfig(
-  options: OptionsConfig = {},
-  ...userConfigs: ConfigItem[]
-) {
+export function defineConfig(options: OptionsConfig = {}, ...userConfigs: ConfigItem[]) {
   const {
     ignores: enableIgnores = true,
     vue: enableVue,
@@ -38,9 +35,9 @@ export function defineConfig(
     typescript: enableTypeScript,
     tailwindcss: enableTailwindcss,
     componentExts = [],
-  } = options;
+  } = options
 
-  const configs: Awaitable<ConfigItem | ConfigItem[]>[] = [];
+  const configs: Awaitable<ConfigItem | ConfigItem[]>[] = []
 
   // Base configs
   configs.push(
@@ -53,22 +50,22 @@ export function defineConfig(
     unicorn(),
 
     perfectionist(),
-  );
+  )
 
-  if (enableVue) componentExts.push("vue");
+  if (enableVue) componentExts.push('vue')
 
   if (enableTypeScript) {
     configs.push(
       typescript({
-        ...(typeof enableTypeScript !== "boolean" ? enableTypeScript : {}),
+        ...(typeof enableTypeScript !== 'boolean' ? enableTypeScript : {}),
         enableSolid,
         componentExts,
       }),
-    );
+    )
   }
 
   if (options.test ?? true) {
-    configs.push(test(getConfigOptions(options.test)));
+    configs.push(test(getConfigOptions(options.test)))
   }
 
   if (enableVue) {
@@ -77,27 +74,23 @@ export function defineConfig(
         ...getConfigOptions(options.vue),
         typescript: !!enableTypeScript,
       }),
-    );
+    )
   }
 
   if (enableReact) {
-    configs.push(react(getConfigOptions(enableReact)));
+    configs.push(react(getConfigOptions(enableReact)))
   }
 
   if (options.jsonc ?? true) {
-    configs.push(
-      jsonc(getConfigOptions(options.jsonc)),
-      sortPackageJson(),
-      sortTsconfig(),
-    );
+    configs.push(jsonc(getConfigOptions(options.jsonc)), sortPackageJson(), sortTsconfig())
   }
 
   if (options.yml ?? true) {
-    configs.push(yml(getConfigOptions(options.yml)));
+    configs.push(yml(getConfigOptions(options.yml)))
   }
 
   if (options.toml ?? true) {
-    configs.push(toml(getConfigOptions(options.toml)));
+    configs.push(toml(getConfigOptions(options.toml)))
   }
 
   if (options.markdown ?? true) {
@@ -106,23 +99,23 @@ export function defineConfig(
         ...getConfigOptions(options.markdown),
         componentExts,
       }),
-    );
+    )
   }
 
-  if (typeof enableTailwindcss === "boolean" && enableTailwindcss) {
-    configs.push(tailwindcss());
+  if (typeof enableTailwindcss === 'boolean' && enableTailwindcss) {
+    configs.push(tailwindcss())
   }
 
   if (options.prettier ?? true) {
     configs.push(
       prettier({
         ...getConfigOptions(options.prettier),
-        tailwindcss: enableTailwindcss === "prettier",
+        tailwindcss: enableTailwindcss === 'prettier',
       }),
-    );
+    )
   }
 
-  const merged = combine(...configs, ...userConfigs);
+  const merged = combine(...configs, ...userConfigs)
 
-  return merged;
+  return merged
 }
