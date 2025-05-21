@@ -13,10 +13,7 @@
     "prettier"
   ],
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
+    ".": "./dist/index.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -24,11 +21,11 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup",
-    "stub": "tsup --format esm",
+    "build": "tsdown",
+    "stub": "tsdown --format esm",
     "dev": "pnpm build && pnpm exec eslint-config-inspector --config eslint.config.js",
     "build:inspector": "pnpm build && pnpm exec eslint-config-inspector build",
-    "watch": "tsup --format esm,cjs --watch",
+    "watch": "tsdown --format esm,cjs --watch",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
     "lint": "pnpm run stub && eslint",
@@ -85,7 +82,7 @@
     "fs-extra": "^11.3.0",
     "react": "^19.1.0",
     "sucrase": "^3.35.0",
-    "tsup": "^8.4.0",
+    "tsdown": "^0.11.12",
     "typescript": "^5.8.3",
     "vitest": "^3.1.3"
   },
