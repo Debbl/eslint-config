@@ -13,7 +13,9 @@ export const ignores: IgnoresConfig = async (options) => {
 
   const gitIgnores: string[] = []
   if (enableGitignore) {
-    const gitignore = await interopDefault(import('eslint-config-flat-gitignore'))
+    const gitignore = await interopDefault(
+      import('eslint-config-flat-gitignore'),
+    )
 
     gitIgnores.push(...gitignore(getConfigOptions(enableGitignore)).ignores)
   }

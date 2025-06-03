@@ -2,7 +2,9 @@ import { GLOB_VUE } from '../globs'
 import { interopDefault } from '../utils'
 import type { ConfigFn, OptionsHasTypeScript, OptionsOverrides } from '../types'
 
-export type VueConfig = (options: OptionsHasTypeScript & OptionsOverrides) => ReturnType<ConfigFn>
+export type VueConfig = (
+  options: OptionsHasTypeScript & OptionsOverrides,
+) => ReturnType<ConfigFn>
 
 export const vue: VueConfig = async (options = {}) => {
   const { overrides = {}, typescript: isTypescript } = options
@@ -29,7 +31,11 @@ export const vue: VueConfig = async (options = {}) => {
             jsx: true,
           },
           extraFileExtensions: ['.vue'],
-          parser: isTypescript ? ((await interopDefault(import('@typescript-eslint/parser'))) as any) : null,
+          parser: isTypescript
+            ? ((await interopDefault(
+                import('@typescript-eslint/parser'),
+              )) as any)
+            : null,
           sourceType: 'module',
         },
       },
@@ -37,7 +43,9 @@ export const vue: VueConfig = async (options = {}) => {
       rules: {
         ...pluginVue.configs.base.rules,
 
-        ...(pluginVue.configs['flat/essential'].map((c) => c.rules).reduce((acc, c) => ({ ...acc, ...c }), {}) as any),
+        ...(pluginVue.configs['flat/essential']
+          .map((c) => c.rules)
+          .reduce((acc, c) => ({ ...acc, ...c }), {}) as any),
         ...(pluginVue.configs['flat/strongly-recommended']
           .map((c) => c.rules)
           .reduce((acc, c) => ({ ...acc, ...c }), {}) as any),
@@ -65,7 +73,12 @@ export const vue: VueConfig = async (options = {}) => {
         'vue/define-macros-order': [
           'error',
           {
-            order: ['defineOptions', 'defineProps', 'defineEmits', 'defineSlots'],
+            order: [
+              'defineOptions',
+              'defineProps',
+              'defineEmits',
+              'defineSlots',
+            ],
           },
         ],
         'vue/dot-location': ['error', 'property'],
@@ -79,7 +92,12 @@ export const vue: VueConfig = async (options = {}) => {
         'vue/no-empty-pattern': 'error',
         'vue/no-irregular-whitespace': 'error',
         'vue/no-loss-of-precision': 'error',
-        'vue/no-restricted-syntax': ['error', 'DebuggerStatement', 'LabeledStatement', 'WithStatement'],
+        'vue/no-restricted-syntax': [
+          'error',
+          'DebuggerStatement',
+          'LabeledStatement',
+          'WithStatement',
+        ],
         'vue/no-restricted-v-bind': ['error', '/^v-/'],
         'vue/no-setup-props-reactivity-loss': 'off',
         'vue/no-sparse-arrays': 'error',
@@ -126,7 +144,10 @@ export const vue: VueConfig = async (options = {}) => {
         'vue/keyword-spacing': ['error', { after: true, before: true }],
         'vue/object-curly-newline': 'off',
         'vue/object-curly-spacing': ['error', 'always'],
-        'vue/object-property-newline': ['error', { allowMultiplePropertiesPerLine: true }],
+        'vue/object-property-newline': [
+          'error',
+          { allowMultiplePropertiesPerLine: true },
+        ],
         'vue/operator-linebreak': ['error', 'before'],
         'vue/padding-line-between-blocks': ['error', 'always'],
         'vue/quote-props': ['error', 'consistent-as-needed'],

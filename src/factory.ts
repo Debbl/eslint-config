@@ -26,7 +26,10 @@ import type { Awaitable, ConfigItem, OptionsConfig } from '~/types'
 /**
  * Construct an array of ESLint flat config items.
  */
-export function defineConfig(options: OptionsConfig = {}, ...userConfigs: ConfigItem[]) {
+export function defineConfig(
+  options: OptionsConfig = {},
+  ...userConfigs: ConfigItem[]
+) {
   const {
     ignores: enableIgnores = true,
     vue: enableVue,
@@ -82,7 +85,11 @@ export function defineConfig(options: OptionsConfig = {}, ...userConfigs: Config
   }
 
   if (options.jsonc ?? true) {
-    configs.push(jsonc(getConfigOptions(options.jsonc)), sortPackageJson(), sortTsconfig())
+    configs.push(
+      jsonc(getConfigOptions(options.jsonc)),
+      sortPackageJson(),
+      sortTsconfig(),
+    )
   }
 
   if (options.yml ?? true) {

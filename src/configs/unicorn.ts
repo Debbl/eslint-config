@@ -17,7 +17,10 @@ export async function unicorn(): Promise<ConfigItem[]> {
         // Pass error message when throwing errors
         'unicorn/error-message': 'error',
         // Uppercase regex escapes
-        'unicorn/consistent-function-scoping': ['error', { checkArrowFunctions: false }],
+        'unicorn/consistent-function-scoping': [
+          'error',
+          { checkArrowFunctions: false },
+        ],
         'unicorn/no-instanceof-builtins': 'error',
         // Ban `new Array` as `Array` constructor's params are ambiguous
         'unicorn/no-new-array': 'error',

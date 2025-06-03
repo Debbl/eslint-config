@@ -66,13 +66,18 @@ async function next(): Promise<ConfigItem[]> {
 }
 
 export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
-  const { next: enableNext = false, compiler: enableCompiler = false, overrides = {} } = options
+  const {
+    next: enableNext = false,
+    compiler: enableCompiler = false,
+    overrides = {},
+  } = options
 
-  const [pluginsReact, pluginReactHooks, pluginReactRefresh] = await Promise.all([
-    interopDefault(import('@eslint-react/eslint-plugin')),
-    interopDefault(import('eslint-plugin-react-hooks')),
-    interopDefault(import('eslint-plugin-react-refresh')),
-  ] as const)
+  const [pluginsReact, pluginReactHooks, pluginReactRefresh] =
+    await Promise.all([
+      interopDefault(import('@eslint-react/eslint-plugin')),
+      interopDefault(import('eslint-plugin-react-hooks')),
+      interopDefault(import('eslint-plugin-react-refresh')),
+    ] as const)
 
   const plugins = pluginsReact.configs.all.plugins
 
@@ -209,7 +214,10 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
         'react/react-in-jsx-scope': 'off',
         'react/jsx-indent': [1, 2],
         'react/jsx-indent-props': [1, 2],
-        'react/jsx-closing-bracket-location': [1, { selfClosing: 'tag-aligned', nonEmpty: 'tag-aligned' }],
+        'react/jsx-closing-bracket-location': [
+          1,
+          { selfClosing: 'tag-aligned', nonEmpty: 'tag-aligned' },
+        ],
 
         ...overrides,
       },

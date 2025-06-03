@@ -1,5 +1,11 @@
 import process from 'node:process'
-import { GLOB_ASTRO_TS, GLOB_MARKDOWN, GLOB_SRC, GLOB_TS, GLOB_TSX } from '../globs'
+import {
+  GLOB_ASTRO_TS,
+  GLOB_MARKDOWN,
+  GLOB_SRC,
+  GLOB_TS,
+  GLOB_TSX,
+} from '../globs'
 import { interopDefault } from '../utils'
 import type {
   ConfigFn,
@@ -38,13 +44,22 @@ const typeAwareRules: ConfigItem['rules'] = {
   '@typescript-eslint/restrict-plus-operands': 'error',
   '@typescript-eslint/restrict-template-expressions': 'error',
   '@typescript-eslint/return-await': ['error', 'in-try-catch'],
-  '@typescript-eslint/strict-boolean-expressions': ['error', { allowNullableBoolean: true, allowNullableObject: true }],
+  '@typescript-eslint/strict-boolean-expressions': [
+    'error',
+    { allowNullableBoolean: true, allowNullableObject: true },
+  ],
   '@typescript-eslint/switch-exhaustiveness-check': 'error',
   '@typescript-eslint/unbound-method': 'error',
 }
 
 export const typescript: TypeScriptConfig = async (options) => {
-  const { overrides = {}, componentExts = [], parserOptions = {}, tsconfigPath, enableSolid = false } = options ?? {}
+  const {
+    overrides = {},
+    componentExts = [],
+    parserOptions = {},
+    tsconfigPath,
+    enableSolid = false,
+  } = options ?? {}
 
   const isTypeAware = !!tsconfigPath
 
@@ -98,8 +113,14 @@ export const typescript: TypeScriptConfig = async (options) => {
         'no-redeclare': 'off',
         'no-use-before-define': 'off',
         'no-useless-constructor': 'off',
-        '@typescript-eslint/ban-ts-comment': ['error', { 'ts-expect-error': 'allow-with-description' }],
-        '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+        '@typescript-eslint/ban-ts-comment': [
+          'error',
+          { 'ts-expect-error': 'allow-with-description' },
+        ],
+        '@typescript-eslint/consistent-type-definitions': [
+          'error',
+          'interface',
+        ],
         '@typescript-eslint/consistent-type-imports': [
           'error',
           {
@@ -113,7 +134,10 @@ export const typescript: TypeScriptConfig = async (options) => {
         '@typescript-eslint/method-signature-style': ['error', 'property'],
         '@typescript-eslint/no-dupe-class-members': 'error',
         '@typescript-eslint/no-dynamic-delete': 'off',
-        '@typescript-eslint/no-empty-object-type': ['error', { allowInterfaces: 'always' }],
+        '@typescript-eslint/no-empty-object-type': [
+          'error',
+          { allowInterfaces: 'always' },
+        ],
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-extraneous-class': 'off',
         '@typescript-eslint/no-import-type-side-effects': 'error',
@@ -130,7 +154,10 @@ export const typescript: TypeScriptConfig = async (options) => {
           },
         ],
         '@typescript-eslint/no-unused-vars': 'off',
-        '@typescript-eslint/no-use-before-define': ['error', { classes: false, functions: false, variables: true }],
+        '@typescript-eslint/no-use-before-define': [
+          'error',
+          { classes: false, functions: false, variables: true },
+        ],
         '@typescript-eslint/no-useless-constructor': 'off',
         '@typescript-eslint/no-wrapper-object-types': 'error',
         '@typescript-eslint/triple-slash-reference': 'off',

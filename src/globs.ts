@@ -36,7 +36,16 @@ export const GLOB_TESTS = [
   `**/*.benchmark.${GLOB_SRC_EXT}`,
 ]
 
-export const GLOB_ALL_SRC = [GLOB_SRC, GLOB_STYLE, GLOB_JSON, GLOB_JSON5, GLOB_MARKDOWN, GLOB_VUE, GLOB_YAML, GLOB_HTML]
+export const GLOB_ALL_SRC = [
+  GLOB_SRC,
+  GLOB_STYLE,
+  GLOB_JSON,
+  GLOB_JSON5,
+  GLOB_MARKDOWN,
+  GLOB_VUE,
+  GLOB_YAML,
+  GLOB_HTML,
+]
 
 export const GLOB_EXCLUDE = [
   '**/node_modules',

@@ -1,4 +1,13 @@
-import { GLOB_CSS, GLOB_LESS, GLOB_MARKDOWN, GLOB_MDX, GLOB_POSTCSS, GLOB_SCSS, GLOB_TOML, GLOB_YAML } from '../globs'
+import {
+  GLOB_CSS,
+  GLOB_LESS,
+  GLOB_MARKDOWN,
+  GLOB_MDX,
+  GLOB_POSTCSS,
+  GLOB_SCSS,
+  GLOB_TOML,
+  GLOB_YAML,
+} from '../globs'
 import { interopDefault, parserPlain } from '../utils'
 import type { RequiredOptions } from 'prettier'
 import type { ConfigItem } from '../types'
@@ -22,7 +31,6 @@ export const prettier: PrettierConfig = async ({ tailwindcss, ...options }) => {
     semi: false,
     singleQuote: true,
     jsxSingleQuote: true,
-    printWidth: 120,
   }
 
   const plainFileRules: ConfigItem[] = [

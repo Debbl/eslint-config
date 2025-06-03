@@ -13,7 +13,11 @@ export type MarkdownConfig = (
 ) => ReturnType<ConfigFn>
 
 export const markdown: MarkdownConfig = async (options) => {
-  const { mdx: _enableMdx = false, componentExts = [], overrides = {} } = options
+  const {
+    mdx: _enableMdx = false,
+    componentExts = [],
+    overrides = {},
+  } = options
 
   const pluginMarkdown = await interopDefault(import('@eslint/markdown'))
 
@@ -35,7 +39,10 @@ export const markdown: MarkdownConfig = async (options) => {
     },
     {
       name: 'eslint/markdown/disables',
-      files: [GLOB_MARKDOWN_CODE, ...componentExts.map((ext) => `${GLOB_MARKDOWN}/**/*.${ext}`)],
+      files: [
+        GLOB_MARKDOWN_CODE,
+        ...componentExts.map((ext) => `${GLOB_MARKDOWN}/**/*.${ext}`),
+      ],
       languageOptions: {
         parserOptions: {
           ecmaFeatures: {
