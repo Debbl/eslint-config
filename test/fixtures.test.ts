@@ -4,7 +4,7 @@ import fg from 'fast-glob'
 import fs from 'fs-extra'
 import { afterAll, beforeAll, it } from 'vitest'
 import { GLOB_TOML } from '../src/globs'
-import type { OptionsConfig } from '../src/types'
+import type { ConfigItem, OptionsConfig } from '../src/types'
 
 beforeAll(async () => {
   await fs.rm('_fixtures', { recursive: true, force: true })
@@ -13,50 +13,63 @@ afterAll(async () => {
   await fs.rm('_fixtures', { recursive: true, force: true })
 })
 
-runWithConfig('js', {
-  typescript: false,
-  vue: false,
-  customConfig: {
+runWithConfig(
+  'js',
+  {
+    typescript: false,
+    vue: false,
+  },
+  {
     ignores: [GLOB_TOML],
     rules: {
       'prettier/prettier': 'error',
     },
   },
-})
-runWithConfig('all', {
-  typescript: true,
-  vue: true,
-  customConfig: {
+)
+runWithConfig(
+  'all',
+  {
+    typescript: true,
+    vue: true,
+  },
+  {
     ignores: [GLOB_TOML],
     rules: {
       'prettier/prettier': 'error',
     },
   },
-})
+)
 runWithConfig('no-style', {
   typescript: true,
   vue: true,
   prettier: false,
 })
-runWithConfig('tab-single-quotes-no-semi', {
-  typescript: true,
-  vue: true,
-  prettier: {
-    semi: false,
-    useTabs: true,
-    singleQuote: true,
+runWithConfig(
+  'tab-single-quotes-no-semi',
+  {
+    typescript: true,
+    vue: true,
+    prettier: {
+      semi: false,
+      useTabs: true,
+      singleQuote: true,
+    },
   },
-  customConfig: {
+
+  {
     ignores: [GLOB_TOML],
     rules: {
       'prettier/prettier': 'error',
     },
   },
-})
+)
 
-runWithConfig('ts-override', {
-  typescript: true,
-  customConfig: {
+runWithConfig(
+  'ts-override',
+  {
+    typescript: true,
+  },
+  {
     ignores: [GLOB_TOML],
     rules: {
       'prettier/prettier': 'error',
@@ -64,11 +77,14 @@ runWithConfig('ts-override', {
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     },
   },
-})
+)
 
-runWithConfig('hooks', {
-  react: true,
-  customConfig: {
+runWithConfig(
+  'hooks',
+  {
+    react: true,
+  },
+  {
     ignores: [GLOB_TOML],
     rules: {
       'prettier/prettier': 'error',
@@ -78,9 +94,13 @@ runWithConfig('hooks', {
       'react/no-unescaped-entities': 'off',
     },
   },
-})
+)
 
-function runWithConfig(name: string, configs: OptionsConfig) {
+function runWithConfig(
+  name: string,
+  configs: OptionsConfig,
+  ...userConfigs: ConfigItem[]
+) {
   it.concurrent(
     name,
     async ({ expect }) => {
@@ -100,7 +120,8 @@ function runWithConfig(name: string, configs: OptionsConfig) {
           "import { defineConfig } from '@debbl/eslint-config';",
           '',
           'export default defineConfig(',
-          `  ${JSON.stringify(configs)}`,
+          `  ${JSON.stringify(configs)},`,
+          `  ${userConfigs.map((c) => JSON.stringify(c)).join(',\n  ')}`,
           ');',
         ].join('\n'),
       )
