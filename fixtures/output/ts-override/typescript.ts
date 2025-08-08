@@ -1,5 +1,5 @@
 // Define a TypeScript interface
-interface Person {
+type Person = {
   name: string
   age: number
 }
@@ -29,7 +29,7 @@ const result = identity('TypeScript is awesome')
 log(result)
 
 // Use optional properties in an interface
-interface Car {
+type Car = {
   make: string
   model?: string
 }
