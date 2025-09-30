@@ -10,7 +10,6 @@ export type ReactConfig = (
 ) => ReturnType<ConfigFn>
 
 async function next(): Promise<ConfigItem[]> {
-  // @ts-expect-error missing types
   const pluginNext = await interopDefault(import('@next/eslint-plugin-next'))
 
   return [
@@ -139,7 +138,7 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
         'react/no-children-only': 'warn',
         'react/no-children-to-array': 'warn',
         'react/no-clone-element': 'warn',
-        'react/no-comment-textnodes': 'warn',
+        'react/jsx-no-comment-textnodes': 'warn',
         'react/no-component-will-mount': 'error',
         'react/no-component-will-receive-props': 'error',
         'react/no-component-will-update': 'error',
@@ -184,6 +183,8 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
         'react-dom/no-unsafe-target-blank': 'warn',
         'react-dom/no-use-form-state': 'error',
         'react-dom/no-void-elements-with-children': 'error',
+        'react/no-unnecessary-use-prefix': 'warn',
+        'react/prefer-use-state-lazy-initialization': 'warn',
 
         // recommended rules eslint-plugin-react-hooks https://github.com/facebook/react/tree/main/packages/eslint-plugin-react-hooks/src/rules
         'react-hooks/exhaustive-deps': 'warn',
@@ -191,8 +192,6 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
 
         // recommended rules from eslint-plugin-react-hooks-extra https://eslint-react.xyz/docs/rules/overview#hooks-extra-rules
         'react-hooks-extra/no-direct-set-state-in-use-effect': 'warn',
-        'react-hooks-extra/no-unnecessary-use-prefix': 'warn',
-        'react-hooks-extra/prefer-use-state-lazy-initialization': 'warn',
 
         // recommended rules from eslint-plugin-react-web-api https://eslint-react.xyz/docs/rules/overview#web-api-rules
         'react-web-api/no-leaked-event-listener': 'warn',
