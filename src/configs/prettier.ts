@@ -109,7 +109,6 @@ export const prettier: PrettierConfig = async ({ tailwindcss, ...options }) => {
 
         // eslint-plugin-prettier recommended rules
         ...{
-          'prettier/prettier': 'error',
           'arrow-body-style': 'off',
           'prefer-arrow-callback': 'off',
         },
