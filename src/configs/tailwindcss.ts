@@ -26,8 +26,10 @@ export const tailwindcss: TailwindcssConfig = async (
     {
       name: 'eslint/better-tailwindcss/rules',
       settings: {
-        entryPoint: 'src/global.css',
-        ...options.settings,
+        'better-tailwindcss': {
+          entryPoint: 'src/global.css',
+          ...options.settings,
+        },
       },
       plugins: {
         'better-tailwindcss': pluginBetterTailwindcss,
