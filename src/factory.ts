@@ -109,8 +109,8 @@ export function defineConfig(
     )
   }
 
-  if (typeof enableTailwindcss === 'boolean' && enableTailwindcss) {
-    configs.push(tailwindcss())
+  if (enableTailwindcss !== 'prettier' && enableTailwindcss) {
+    configs.push(tailwindcss(getConfigOptions(enableTailwindcss)))
   }
 
   if (options.prettier ?? true) {

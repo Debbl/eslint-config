@@ -1,7 +1,22 @@
 import { interopDefault } from '../utils'
-import type { ConfigItem } from '../types'
+import type { ConfigFn, ConfigItem, OptionsOverrides } from '../types'
 
-export async function tailwindcss(): Promise<ConfigItem[]> {
+export type TailwindcssConfig = (
+  options: {
+    settings?: {
+      entryPoint?: string
+      tailwindConfig?: string
+      tsconfig?: string
+      attributes?: string[]
+      callees?: string[]
+      variables?: string[]
+    }
+  } & OptionsOverrides,
+) => ReturnType<ConfigFn>
+
+export const tailwindcss: TailwindcssConfig = async (
+  options,
+): Promise<ConfigItem[]> => {
   const pluginBetterTailwindcss = await interopDefault(
     import('eslint-plugin-better-tailwindcss'),
   )
@@ -9,6 +24,10 @@ export async function tailwindcss(): Promise<ConfigItem[]> {
   return [
     {
       name: 'eslint/better-tailwindcss/rules',
+      settings: {
+        entryPoint: 'src/global.css',
+        ...options.settings,
+      },
       plugins: {
         'better-tailwindcss': pluginBetterTailwindcss,
       },

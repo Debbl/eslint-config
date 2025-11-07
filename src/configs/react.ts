@@ -37,7 +37,7 @@ async function next(): Promise<ConfigItem[]> {
       },
       rules: {
         ...pluginNext.configs.recommended.rules,
-        ...pluginNext.configs['core-web-vitals'].rules,
+        // ...pluginNext.configs['core-web-vitals'].rules,
 
         'react-refresh/only-export-components': [
           'warn',
@@ -78,7 +78,7 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
       interopDefault(import('eslint-plugin-react-refresh')),
     ] as const)
 
-  const plugins = pluginsReact.configs.all.plugins
+  const plugins = (pluginsReact.configs.all as any).plugins
 
   const {
     '@eslint-react': pluginReactX,

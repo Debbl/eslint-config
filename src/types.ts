@@ -14,6 +14,7 @@ import type {
   YmlConfig,
 } from './configs'
 import type { ReactConfig } from './configs/react'
+import type { TailwindcssConfig } from './configs/tailwindcss'
 
 export type Awaitable<T> = T | Promise<T>
 export type GetConfigOption<T extends (...args: any) => any> = Parameters<T>[0]
@@ -164,5 +165,5 @@ export interface OptionsConfig extends OptionsComponentExts {
    *
    * @default false
    */
-  tailwindcss?: boolean | 'prettier'
+  tailwindcss?: boolean | 'prettier' | GetConfigOption<TailwindcssConfig>
 }
