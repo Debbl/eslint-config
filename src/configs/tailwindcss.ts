@@ -17,6 +17,7 @@ export type TailwindcssConfig = (
 export const tailwindcss: TailwindcssConfig = async (
   options,
 ): Promise<ConfigItem[]> => {
+  const { overrides = {} } = options
   const pluginBetterTailwindcss = await interopDefault(
     import('eslint-plugin-better-tailwindcss'),
   )
@@ -32,7 +33,13 @@ export const tailwindcss: TailwindcssConfig = async (
         'better-tailwindcss': pluginBetterTailwindcss,
       },
       rules: {
-        ...pluginBetterTailwindcss.configs.recommended.rules,
+        'better-tailwindcss/no-unregistered-classes': 'warn',
+        'better-tailwindcss/no-conflicting-classes': 'warn',
+        'better-tailwindcss/no-unnecessary-whitespace': 'warn',
+        'better-tailwindcss/no-duplicate-classes': 'warn',
+        'better-tailwindcss/enforce-consistent-class-order': 'warn',
+
+        ...overrides,
       },
     },
   ]
