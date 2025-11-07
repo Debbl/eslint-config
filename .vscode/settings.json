@@ -1,9 +1,5 @@
 {
   "eslint.useFlatConfig": true,
-  "cSpell.words": [
-    "callees",
-    "nuxt",
-    "tsdown"
-  ],
+  "cSpell.words": ["callees", "nuxt", "tsdown"],
   "typescript.tsdk": "node_modules/typescript/lib"
 }
