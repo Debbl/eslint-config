@@ -40,6 +40,7 @@ jobs:
 
       - name: Publish to NPM
         run: pnpm -r publish --access public --no-git-checks
+        env:
 
       - run: npx changelogithub
         env:
