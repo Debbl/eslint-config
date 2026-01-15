@@ -24,6 +24,9 @@ jobs:
         with:
           node-version: lts/*
 
+      - name: Update npm to latest
+        run: npm install -g npm@latest
+
       - name: Setup
         run: npm i -g @antfu/ni
 
