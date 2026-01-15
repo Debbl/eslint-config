@@ -30,7 +30,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "pnpm run stub && eslint",
     "lint:fix": "pnpm run stub && eslint --fix",
-    "release": "pnpm build && bumpp && pnpm publish"
+    "release": "bumpp"
   },
   "peerDependencies": {
     "eslint": ">=9"
