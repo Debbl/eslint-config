@@ -3,7 +3,6 @@ import type { ConfigItem } from '../types'
 
 export async function comments(): Promise<ConfigItem[]> {
   const pluginComments = await interopDefault(
-    // @ts-expect-error missing types
     import('@eslint-community/eslint-plugin-eslint-comments'),
   )
 
