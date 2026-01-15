@@ -31,7 +31,7 @@ jobs:
         run: nr build
 
       - name: Publish to NPM
-        run: nr publish --access public --no-git-checks
+        run: pnpm -r publish --access public --no-git-checks
 
       - run: npx changelogithub
         env:
