@@ -1,2 +1,8 @@
 packages:
   - 'fixtures/*'
+
+onlyBuiltDependencies:
+  - 'esbuild'
+
+ignoredBuiltDependencies:
+  - 'unrs-resolver'
