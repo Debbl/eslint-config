@@ -17,14 +17,14 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Set node
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
           registry-url: https://registry.npmjs.org
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
 
       - name: Setup
         run: npm i -g @antfu/ni
