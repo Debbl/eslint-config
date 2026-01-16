@@ -1,5 +1,9 @@
 name: Release
 
+permissions:
+  id-token: write # Required for OIDC
+  contents: write
+
 on:
   push:
     tags:
@@ -7,11 +11,50 @@ on:
 
 jobs:
   release:
-    uses: sxzz/workflows/.github/workflows/release.yml@v1
-    secrets: inherit
-    with:
-      build: 'pnpm build'
-      publish: true
-    permissions:
-      contents: write
-      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set node
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Setup
+        run: npm i -g @antfu/ni
+
+      - name: Install
+        run: nci
+
+      - name: Typecheck
+        run: nr typecheck
+
+      - name: Build
+        run: nr build
+
+      - name: Publish to NPM
+        env:
+          NODE_AUTH_TOKEN: '' # Clear placeholder set by setup-node to enable OIDC
+        run: pnpm -r publish --access public --no-git-checks
+
+      - run: npx changelogithub
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
