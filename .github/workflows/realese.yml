@@ -54,9 +54,8 @@ jobs:
       - name: Publish to NPM
         env:
           NPM_CONFIG_PROVENANCE: 'true'
-          NODE_AUTH_TOKEN: '' # Clear placeholder set by setup-node to enable OIDC
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_READ_TOKEN }}
         run: |
-          unset NODE_AUTH_TOKEN # Unset the default token set by "actions/setup-node" to get OIDC publishing working
           pnpm -r publish --access public --no-git-checks --provenance
 
       - run: npx changelogithub
