@@ -20,9 +20,7 @@ jobs:
       - name: Set node
         uses: actions/setup-node@v6
         with:
-          node-version: 24
-          registry-url: 'https://registry.npmjs.org'
-          scope: '@debbl'
+          node-version: lts/*
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -54,7 +52,7 @@ jobs:
 
       - name: Publish to NPM
         run: |
-          NODE_AUTH_TOKEN="" pnpm -r publish --access public --no-git-checks
+          pnpm -r publish --access public --no-git-checks
 
       - run: npx changelogithub
         env:
