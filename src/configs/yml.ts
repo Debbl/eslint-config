@@ -26,8 +26,8 @@ export const yml: YmlConfig = async (options) => {
         parser: parserYml,
       },
       rules: {
-        ...(pluginYml.configs.standard.rules as any),
-        ...(pluginYml.configs.prettier.rules as any),
+        ...(pluginYml.configs['flat/standard'] as any),
+        ...(pluginYml.configs['flat/prettier'] as any),
 
         'yml/block-mapping': 'error',
         'yml/block-sequence': 'error',
