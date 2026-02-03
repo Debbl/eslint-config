@@ -35,7 +35,7 @@ export const tailwindcss: TailwindcssConfig = async (
         'better-tailwindcss': pluginBetterTailwindcss,
       },
       rules: {
-        'better-tailwindcss/no-unregistered-classes': 'warn',
+        'better-tailwindcss/no-unknown-classes': 'warn',
         'better-tailwindcss/no-conflicting-classes': 'warn',
         'better-tailwindcss/no-unnecessary-whitespace': 'warn',
         'better-tailwindcss/no-duplicate-classes': 'warn',
