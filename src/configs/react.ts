@@ -121,8 +121,8 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
       name: 'eslint/react/rules',
       files: [GLOB_TSX, GLOB_JSX],
       languageOptions: {
+        sourceType: 'module',
         parserOptions: {
-          sourceType: 'module',
           ecmaFeatures: {
             jsx: true,
           },
