@@ -33,6 +33,14 @@ export interface OptionsOverrides {
   overrides?: ConfigItem['rules']
 }
 
+export interface OptionsTypeScriptWithTypes {
+  /**
+   * When this options is provided, type aware rules will be enabled.
+   * @see https://typescript-eslint.io/linting/typed-linting/
+   */
+  tsconfigPath?: string
+}
+
 export type ConfigFn = (options: OptionsOverrides) => Awaitable<ConfigItem[]>
 
 export interface OptionsComponentExts {
@@ -114,7 +122,7 @@ export interface OptionsConfig extends OptionsComponentExts {
    *
    * @default false
    */
-  react?: boolean | GetConfigOption<ReactConfig>
+  react?: boolean | Omit<GetConfigOption<ReactConfig>, 'tsconfigPath'>
 
   /**
    * Enable solid support, Passing an object to enable Next.js support.

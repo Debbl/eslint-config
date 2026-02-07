@@ -41,6 +41,10 @@ export function defineConfig(
   } = options
 
   const configs: Awaitable<ConfigItem | ConfigItem[]>[] = []
+  const tsconfigPath =
+    typeof enableTypeScript !== 'boolean'
+      ? enableTypeScript?.tsconfigPath
+      : undefined
 
   // Base configs
   configs.push(
@@ -81,7 +85,12 @@ export function defineConfig(
   }
 
   if (enableReact) {
-    configs.push(react(getConfigOptions(enableReact)))
+    configs.push(
+      react({
+        ...getConfigOptions(enableReact),
+        tsconfigPath,
+      }),
+    )
   }
 
   if (options.jsonc ?? true) {

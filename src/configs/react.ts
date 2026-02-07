@@ -1,12 +1,18 @@
-import { GLOB_JSX, GLOB_TSX } from '../globs'
+import { GLOB_JSX, GLOB_TS, GLOB_TSX } from '../globs'
 import { combine, interopDefault } from '../utils'
-import type { ConfigFn, ConfigItem, OptionsOverrides } from '../types'
+import type {
+  ConfigFn,
+  ConfigItem,
+  OptionsOverrides,
+  OptionsTypeScriptWithTypes,
+} from '../types'
 
 export type ReactConfig = (
   options: {
     next?: boolean
     compiler?: boolean
-  } & OptionsOverrides,
+  } & OptionsOverrides &
+    OptionsTypeScriptWithTypes,
 ) => ReturnType<ConfigFn>
 
 async function next(): Promise<ConfigItem[]> {
@@ -76,7 +82,10 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
     next: enableNext = false,
     compiler: enableCompiler = false,
     overrides = {},
+    tsconfigPath,
   } = options
+
+  const isTypeAware = !!tsconfigPath
 
   const [pluginsReact, pluginReactHooks, pluginReactRefresh] =
     await Promise.all([
@@ -94,6 +103,11 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
     '@eslint-react/naming-convention': pluginReactNamingConvention,
     '@eslint-react/web-api': pluginReactWebApi,
   } = plugins
+
+  const typeAwareRules: ConfigItem['rules'] = {
+    'react/no-leaked-conditional-rendering': 'warn',
+    'react/no-implicit-key': 'error',
+  }
 
   const _react: ConfigItem[] = [
     {
@@ -157,7 +171,6 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
         'react/no-direct-mutation-state': 'error',
         'react/no-duplicate-key': 'error',
         'react/no-forward-ref': 'warn',
-        'react/no-implicit-key': 'warn',
         'react/no-missing-key': 'error',
         'react/no-nested-component-definitions': 'error',
         'react/no-nested-lazy-component-declarations': 'error',
@@ -241,6 +254,17 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
         ...overrides,
       },
     },
+    ...(isTypeAware
+      ? [
+          {
+            name: 'eslint/react/type-aware-rules',
+            files: [GLOB_TS, GLOB_TSX],
+            rules: {
+              ...typeAwareRules,
+            },
+          },
+        ]
+      : []),
   ]
 
   return combine(_react, enableNext ? next() : [])
