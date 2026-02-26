@@ -7,10 +7,7 @@ export type JsoncConfig = ConfigFn
 export const jsonc: JsoncConfig = async (options) => {
   const { overrides = {} } = options
 
-  const [pluginJsonc, parserJsonc] = await Promise.all([
-    interopDefault(import('eslint-plugin-jsonc')),
-    interopDefault(import('jsonc-eslint-parser')),
-  ] as const)
+  const pluginJsonc = await interopDefault(import('eslint-plugin-jsonc'))
 
   return [
     {
@@ -22,9 +19,7 @@ export const jsonc: JsoncConfig = async (options) => {
     {
       name: 'eslint/jsonc/rules',
       files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
-      languageOptions: {
-        parser: parserJsonc,
-      },
+      language: 'jsonc/x',
       rules: {
         'jsonc/no-bigint-literals': 'error',
         'jsonc/no-binary-expression': 'error',
