@@ -1,27 +1,35 @@
-import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE } from '../globs'
-import { interopDefault, parserPlain } from '../utils'
-import type { ConfigFn, ConfigItem, OptionsOverrides } from '../types'
+import { mergeProcessors, processorPassThrough } from 'eslint-merge-processors'
+import {
+  GLOB_MARKDOWN,
+  GLOB_MARKDOWN_CODE,
+  GLOB_MARKDOWN_IN_MARKDOWN,
+} from '../globs'
+import { interopDefault } from '../utils'
+import type {
+  ConfigItem,
+  OptionsComponentExts,
+  OptionsFiles,
+  OptionsMarkdown,
+} from '../types'
 
 export type MarkdownConfig = (
-  options: {
-    componentExts?: string[]
-    /**
-     * @deprecated remove this option
-     */
-    mdx?: boolean
-  } & OptionsOverrides,
-) => ReturnType<ConfigFn>
+  options: OptionsFiles & OptionsComponentExts & OptionsMarkdown,
+) => Promise<ConfigItem[]>
 
-export const markdown: MarkdownConfig = async (options) => {
+export const markdown: MarkdownConfig = async (
+  options: OptionsFiles & OptionsComponentExts & OptionsMarkdown = {},
+) => {
   const {
-    mdx: _enableMdx = false,
     componentExts = [],
+    files = [GLOB_MARKDOWN],
+    gfm = true,
     overrides = {},
+    overridesMarkdown = {},
   } = options
 
   const pluginMarkdown = await interopDefault(import('@eslint/markdown'))
 
-  const _markdown: ConfigItem[] = [
+  return [
     {
       name: 'eslint/markdown/setup',
       plugins: {
@@ -29,16 +37,55 @@ export const markdown: MarkdownConfig = async (options) => {
       },
     },
     {
+      files,
+      ignores: [GLOB_MARKDOWN_IN_MARKDOWN],
       name: 'eslint/markdown/processor',
-      files: [GLOB_MARKDOWN],
-      languageOptions: {
-        ecmaVersion: 'latest',
-        parser: parserPlain,
-        sourceType: 'module',
+      processor: mergeProcessors([
+        pluginMarkdown.processors!.markdown,
+        processorPassThrough,
+      ]),
+    },
+    {
+      files,
+      language: gfm ? 'markdown/gfm' : 'markdown/commonmark',
+      name: 'eslint/markdown/parser',
+    },
+    {
+      files,
+      name: 'eslint/markdown/rules',
+      rules: {
+        ...pluginMarkdown.configs.recommended.at(0)?.rules,
+        'markdown/no-missing-label-refs': 'off',
+        ...overridesMarkdown,
       },
     },
     {
-      name: 'eslint/markdown/disables',
+      files,
+      name: 'eslint/markdown/disables/markdown',
+      rules: {
+        'jsdoc/check-access': 'off',
+        'jsdoc/check-alignment': 'off',
+        'jsdoc/check-param-names': 'off',
+        'jsdoc/check-property-names': 'off',
+        'jsdoc/check-types': 'off',
+        'jsdoc/empty-tags': 'off',
+        'jsdoc/implements-on-classes': 'off',
+        'jsdoc/multiline-blocks': 'off',
+        'jsdoc/no-defaults': 'off',
+        'jsdoc/no-multi-asterisks': 'off',
+        'jsdoc/require-param-name': 'off',
+        'jsdoc/require-property': 'off',
+        'jsdoc/require-property-description': 'off',
+        'jsdoc/require-property-name': 'off',
+        'jsdoc/require-returns-check': 'off',
+        'jsdoc/require-returns-description': 'off',
+        'jsdoc/require-yields-check': 'off',
+        'no-irregular-whitespace': 'off',
+        'perfectionist/sort-exports': 'off',
+        'perfectionist/sort-imports': 'off',
+      },
+    },
+    {
       files: [
         GLOB_MARKDOWN_CODE,
         ...componentExts.map((ext) => `${GLOB_MARKDOWN}/**/*.${ext}`),
@@ -50,11 +97,16 @@ export const markdown: MarkdownConfig = async (options) => {
           },
         },
       },
+      name: 'eslint/markdown/disables/code',
       rules: {
         'no-alert': 'off',
         'no-console': 'off',
+        'no-labels': 'off',
+        'no-lone-blocks': 'off',
+        'no-restricted-syntax': 'off',
         'no-undef': 'off',
         'no-unused-expressions': 'off',
+        'no-unused-labels': 'off',
         'no-unused-vars': 'off',
 
         'node/prefer-global/process': 'off',
@@ -92,6 +144,4 @@ export const markdown: MarkdownConfig = async (options) => {
       },
     },
   ]
-
-  return _markdown
 }

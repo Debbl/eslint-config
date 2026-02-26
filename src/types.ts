@@ -33,6 +33,22 @@ export interface OptionsOverrides {
   overrides?: ConfigItem['rules']
 }
 
+export interface OptionsFiles {
+  files?: string[]
+}
+
+export interface OptionsMarkdown extends OptionsOverrides {
+  /**
+   * Enable GFM (GitHub Flavored Markdown) support.
+   * @default true
+   */
+  gfm?: boolean
+  /**
+   * Override rules for markdown itself.
+   */
+  overridesMarkdown?: ConfigItem['rules']
+}
+
 export interface OptionsTypeScriptWithTypes {
   /**
    * When this options is provided, type aware rules will be enabled.
