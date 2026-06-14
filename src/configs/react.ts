@@ -84,12 +84,20 @@ async function next(): Promise<ConfigItem[]> {
   ]
 }
 
-async function tanstack(options: OptionsTanstack = {}): Promise<ConfigItem[]> {
+async function tanstack(
+  options: OptionsTanstack & { isTypeAware?: boolean } = {},
+): Promise<ConfigItem[]> {
   const {
     query: enableQuery = true,
     router: enableRouter = true,
     start: enableStart = true,
+    isTypeAware = false,
   } = options
+
+  // `@tanstack/eslint-plugin-start` rules are all type-aware (they call
+  // `ESLintUtils.getParserServices`), so we can only enable it when a
+  // tsconfig is provided.
+  const shouldEnableStart = enableStart && isTypeAware
 
   const [pluginQuery, pluginRouter, pluginStart] = await Promise.all([
     enableQuery
@@ -98,7 +106,7 @@ async function tanstack(options: OptionsTanstack = {}): Promise<ConfigItem[]> {
     enableRouter
       ? interopDefault(import('@tanstack/eslint-plugin-router'))
       : null,
-    enableStart
+    shouldEnableStart
       ? interopDefault(import('@tanstack/eslint-plugin-start'))
       : null,
   ] as const)
@@ -111,6 +119,15 @@ async function tanstack(options: OptionsTanstack = {}): Promise<ConfigItem[]> {
 
   const configs: ConfigItem[] = []
 
+  // Mirror `eslint/react/rules` and only target JSX/TSX by default; including
+  // `.ts` here would cause ESLint to try to lint `.ts` files even when no
+  // TypeScript parser is configured (e.g. when only `react: true` is set).
+  // `.ts` is added when `isTypeAware` is on, in which case the TS parser is
+  // guaranteed to be set up.
+  const filesNonTypeAware = isTypeAware
+    ? [GLOB_TSX, GLOB_JSX, GLOB_TS]
+    : [GLOB_TSX, GLOB_JSX]
+
   if (pluginQuery) {
     configs.push(
       {
@@ -121,7 +138,7 @@ async function tanstack(options: OptionsTanstack = {}): Promise<ConfigItem[]> {
       },
       {
         name: 'eslint/tanstack/query/rules',
-        files: [GLOB_TSX, GLOB_JSX, GLOB_TS],
+        files: filesNonTypeAware,
         rules: flattenRules(
           (pluginQuery.configs['flat/recommended'] ?? []) as ConfigItem[],
         ),
@@ -139,7 +156,7 @@ async function tanstack(options: OptionsTanstack = {}): Promise<ConfigItem[]> {
       },
       {
         name: 'eslint/tanstack/router/rules',
-        files: [GLOB_TSX, GLOB_JSX, GLOB_TS],
+        files: filesNonTypeAware,
         rules: flattenRules(
           (pluginRouter.configs['flat/recommended'] ?? []) as ConfigItem[],
         ),
@@ -157,7 +174,7 @@ async function tanstack(options: OptionsTanstack = {}): Promise<ConfigItem[]> {
       },
       {
         name: 'eslint/tanstack/start/rules',
-        files: [GLOB_TSX, GLOB_JSX, GLOB_TS],
+        files: [GLOB_TS, GLOB_TSX],
         rules: flattenRules(
           (pluginStart.configs['flat/recommended'] ?? []) as ConfigItem[],
         ),
@@ -363,7 +380,10 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
     _react,
     enableNext ? next() : [],
     enableTanstack
-      ? tanstack(typeof enableTanstack === 'boolean' ? {} : enableTanstack)
+      ? tanstack({
+          ...(typeof enableTanstack === 'boolean' ? {} : enableTanstack),
+          isTypeAware,
+        })
       : [],
   )
 }
