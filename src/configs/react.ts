@@ -7,10 +7,17 @@ import type {
   OptionsTypeScriptWithTypes,
 } from '../types'
 
+export interface OptionsTanstack {
+  query?: boolean
+  router?: boolean
+  start?: boolean
+}
+
 export type ReactConfig = (
   options: {
     next?: boolean
     compiler?: boolean
+    tanstack?: boolean | OptionsTanstack
   } & OptionsOverrides &
     OptionsTypeScriptWithTypes,
 ) => ReturnType<ConfigFn>
@@ -77,10 +84,95 @@ async function next(): Promise<ConfigItem[]> {
   ]
 }
 
+async function tanstack(options: OptionsTanstack = {}): Promise<ConfigItem[]> {
+  const {
+    query: enableQuery = true,
+    router: enableRouter = true,
+    start: enableStart = true,
+  } = options
+
+  const [pluginQuery, pluginRouter, pluginStart] = await Promise.all([
+    enableQuery
+      ? interopDefault(import('@tanstack/eslint-plugin-query'))
+      : null,
+    enableRouter
+      ? interopDefault(import('@tanstack/eslint-plugin-router'))
+      : null,
+    enableStart
+      ? interopDefault(import('@tanstack/eslint-plugin-start'))
+      : null,
+  ] as const)
+
+  const flattenRules = (recommended: ConfigItem[]) =>
+    recommended.reduce<NonNullable<ConfigItem['rules']>>(
+      (acc, c) => ({ ...acc, ...(c.rules ?? {}) }),
+      {},
+    )
+
+  const configs: ConfigItem[] = []
+
+  if (pluginQuery) {
+    configs.push(
+      {
+        name: 'eslint/tanstack/query/setup',
+        plugins: {
+          '@tanstack/query': pluginQuery,
+        },
+      },
+      {
+        name: 'eslint/tanstack/query/rules',
+        files: [GLOB_TSX, GLOB_JSX, GLOB_TS],
+        rules: flattenRules(
+          (pluginQuery.configs['flat/recommended'] ?? []) as ConfigItem[],
+        ),
+      },
+    )
+  }
+
+  if (pluginRouter) {
+    configs.push(
+      {
+        name: 'eslint/tanstack/router/setup',
+        plugins: {
+          '@tanstack/router': pluginRouter,
+        },
+      },
+      {
+        name: 'eslint/tanstack/router/rules',
+        files: [GLOB_TSX, GLOB_JSX, GLOB_TS],
+        rules: flattenRules(
+          (pluginRouter.configs['flat/recommended'] ?? []) as ConfigItem[],
+        ),
+      },
+    )
+  }
+
+  if (pluginStart) {
+    configs.push(
+      {
+        name: 'eslint/tanstack/start/setup',
+        plugins: {
+          '@tanstack/start': pluginStart,
+        },
+      },
+      {
+        name: 'eslint/tanstack/start/rules',
+        files: [GLOB_TSX, GLOB_JSX, GLOB_TS],
+        rules: flattenRules(
+          (pluginStart.configs['flat/recommended'] ?? []) as ConfigItem[],
+        ),
+      },
+    )
+  }
+
+  return configs
+}
+
 export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
   const {
     next: enableNext = false,
     compiler: enableCompiler = false,
+    tanstack: enableTanstack = true,
     overrides = {},
     tsconfigPath,
   } = options
@@ -267,5 +359,11 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
       : []),
   ]
 
-  return combine(_react, enableNext ? next() : [])
+  return combine(
+    _react,
+    enableNext ? next() : [],
+    enableTanstack
+      ? tanstack(typeof enableTanstack === 'boolean' ? {} : enableTanstack)
+      : [],
+  )
 }
