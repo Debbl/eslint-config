@@ -7,6 +7,55 @@ import type {
   OptionsTypeScriptWithTypes,
 } from '../types'
 
+// https://github.com/ArnaudBarre/eslint-plugin-react-refresh/blob/main/src/index.ts
+const NEXT_REACT_REFRESH_ALLOW_EXPORT_NAMES = [
+  // https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+  'experimental_ppr',
+  'dynamic',
+  'dynamicParams',
+  'revalidate',
+  'fetchCache',
+  'runtime',
+  'preferredRegion',
+  'maxDuration',
+  // https://nextjs.org/docs/app/api-reference/functions/generate-metadata
+  'metadata',
+  'generateMetadata',
+  // https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+  'viewport',
+  'generateViewport',
+  // https://nextjs.org/docs/app/api-reference/functions/generate-image-metadata
+  'generateImageMetadata',
+  // https://nextjs.org/docs/app/api-reference/functions/generate-sitemaps
+  'generateSitemaps',
+  // https://nextjs.org/docs/app/api-reference/functions/generate-static-params
+  'generateStaticParams',
+] as const
+
+// https://tanstack.com/router/latest/docs/framework/react/routing/file-based-routing
+const TANSTACK_REACT_REFRESH_ALLOW_EXPORT_NAMES = [
+  'Route',
+  'loader',
+  'beforeLoad',
+  'head',
+  'validateSearch',
+  'params',
+  'search',
+] as const
+
+function reactRefreshAllowExportNames(
+  allowExportNames: readonly string[],
+  options: { allowConstantExport?: boolean } = {},
+): NonNullable<ConfigItem['rules']>[string] {
+  return [
+    'warn',
+    {
+      allowExportNames: [...allowExportNames],
+      ...options,
+    },
+  ]
+}
+
 export interface OptionsTanstack {
   query?: boolean
   router?: boolean
@@ -52,33 +101,9 @@ async function next(): Promise<ConfigItem[]> {
         ...pluginNext.configs.recommended.rules,
         // ...pluginNext.configs['core-web-vitals'].rules,
 
-        'react-refresh/only-export-components': [
-          'warn',
-          {
-            allowExportNames: [
-              // https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
-              'dynamic',
-              'dynamicParams',
-              'revalidate',
-              'fetchCache',
-              'runtime',
-              'preferredRegion',
-              'maxDuration',
-              // https://nextjs.org/docs/app/api-reference/functions/generate-static-params
-              'generateStaticParams',
-              // https://nextjs.org/docs/app/api-reference/functions/generate-metadata
-              'metadata',
-              'generateMetadata',
-              // https://nextjs.org/docs/app/api-reference/functions/generate-viewport
-              'viewport',
-              'generateViewport',
-              // https://nextjs.org/docs/app/api-reference/functions/generate-image-metadata
-              'generateImageMetadata',
-              // https://nextjs.org/docs/app/api-reference/functions/generate-sitemaps
-              'generateSitemaps',
-            ],
-          },
-        ],
+        'react-refresh/only-export-components': reactRefreshAllowExportNames(
+          NEXT_REACT_REFRESH_ALLOW_EXPORT_NAMES,
+        ),
       },
     },
   ]
@@ -180,6 +205,19 @@ async function tanstack(
         ),
       },
     )
+  }
+
+  if (enableRouter || shouldEnableStart) {
+    configs.push({
+      name: 'eslint/tanstack/react-refresh',
+      files: filesNonTypeAware,
+      rules: {
+        'react-refresh/only-export-components': reactRefreshAllowExportNames(
+          TANSTACK_REACT_REFRESH_ALLOW_EXPORT_NAMES,
+          { allowConstantExport: true },
+        ),
+      },
+    })
   }
 
   return configs
@@ -376,14 +414,43 @@ export const react: ReactConfig = async (options): Promise<ConfigItem[]> => {
       : []),
   ]
 
+  const tanstackOptions =
+    typeof enableTanstack === 'boolean' ? {} : enableTanstack
+  const enableTanstackRouter =
+    enableTanstack && (tanstackOptions.router ?? true)
+  const enableTanstackStart =
+    enableTanstack && (tanstackOptions.start ?? true)
+  const needsTanstackReactRefresh =
+    enableTanstackRouter || (enableTanstackStart && isTypeAware)
+
   return combine(
     _react,
     enableNext ? next() : [],
     enableTanstack
       ? tanstack({
-          ...(typeof enableTanstack === 'boolean' ? {} : enableTanstack),
+          ...tanstackOptions,
           isTypeAware,
         })
+      : [],
+    enableNext && needsTanstackReactRefresh
+      ? [
+          {
+            name: 'eslint/react-refresh/next-tanstack',
+            files: isTypeAware
+              ? [GLOB_TSX, GLOB_JSX, GLOB_TS]
+              : [GLOB_TSX, GLOB_JSX],
+            rules: {
+              'react-refresh/only-export-components':
+                reactRefreshAllowExportNames(
+                  [
+                    ...NEXT_REACT_REFRESH_ALLOW_EXPORT_NAMES,
+                    ...TANSTACK_REACT_REFRESH_ALLOW_EXPORT_NAMES,
+                  ],
+                  { allowConstantExport: true },
+                ),
+            },
+          },
+        ]
       : [],
   )
 }
