@@ -89,7 +89,7 @@
     "fs-extra": "^11.3.5",
     "react": "^19.2.7",
     "sucrase": "^3.35.1",
-    "tsdown": "^0.20.3",
+    "tsdown": "^0.22.0",
     "typescript": "^5.9.3",
     "vitest": "^4.1.8"
   }
