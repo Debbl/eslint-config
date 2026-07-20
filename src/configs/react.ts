@@ -66,7 +66,7 @@ function reactRefreshOnlyExportComponents(
         : {}),
       ...(options.extraHOCs ? { extraHOCs: [...options.extraHOCs] } : {}),
     },
-  ]
+  ] as const
 }
 
 export interface OptionsTanstack {
